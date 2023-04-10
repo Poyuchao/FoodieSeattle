@@ -7,7 +7,7 @@ namespace ContosoCrafts.WebSite.Models
     {
         public string Id { get; set; }
         public string Maker { get; set; }
-        
+
         [JsonPropertyName("img")]
         public string Image { get; set; }
         public string Url { get; set; }
@@ -17,6 +17,6 @@ namespace ContosoCrafts.WebSite.Models
 
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
 
- 
+
     }
 }
