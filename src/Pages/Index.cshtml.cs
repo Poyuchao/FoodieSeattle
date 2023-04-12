@@ -9,7 +9,6 @@ using ContosoCrafts.WebSite.Services;
 namespace ContosoCrafts.WebSite.Pages
 {
   /// <summary>
-  /// ChiaYu Hsu
   /// Ben Cooper
   /// </summary>
     public class IndexModel : PageModel
