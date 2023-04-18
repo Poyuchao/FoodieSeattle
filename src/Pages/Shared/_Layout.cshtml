@@ -3,42 +3,145 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Contoso Crafts</title>
+    <title>@ViewData["Title"] - FoodieSeattle</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-GdJQma1vJ53yzVoCfs2Hsf6n5IT2gJ/upnfpUpM01pXH6Urg+6UksdQRVzIwMWIj" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Yellowtail&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-cH1EBh0yN2QyvNvmP4wJ4h3e1f/0Zpncij1NUBc50pKjOy+6bsy01mU5z6U5qu5/S+OY1ZplA+2QmlXgdJSEcQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
+
 <body>
+    <!--<!--<!--<!--Creat a new header and buttons--><!----><!---->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-navbar border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Contoso Crafts</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+        <h1 class="header-title"><i class="fas fa-utensils"></i><span>FoodieSeattle</span></h1>
+        <nav class="header-nav">
+
+            <div class="nav-button">
+
+
+                <ul>
+                    <li class="featured"><a href="#about">Featured</a></li>
+                    <li class="types"><a href="#search">Types</a></li>
+                    <li class="privacy"><a href="#contact">Privacy</a></li>
+                </ul>
+
+
+
             </div>
+
         </nav>
+        <div class="search-container">
+            <form action="#">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
     </header>
+
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-footer">
-        <div class="container">
-            &copy; 2019 - ContosoCrafts.WebSite - <a asp-area="" asp-page="/Privacy">Privacy</a>
+
+
+    <!-- new footer -->
+
+    <footer style="background-color: #e8b986c6;">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="mb-3" style="letter-spacing: 2px; color: #7f4722;font-weight: bold">About Us</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">Ben Cooper</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">ChiaYu Hsu</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">PoYu Chao</a>
+                        </li>
+                        <li>
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">SaiVarunTeja Korutooru</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="mb-3" style="letter-spacing: 2px; color: #7f4722;font-weight: bold">Top Cuisines</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">
+                                Japanese <img src="https://img.icons8.com/external-flat-gradient-andi-nur-abdillah/64/null/external-noodle-food-flat-gradient-flat-gradient-andi-nur-abdillah.png"
+                                              style="width: 26px; height: 26px; margin-left: 5px;" />
+                            </a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">
+                                American <img src="https://img.icons8.com/color/48/null/hamburger.png"
+                                              style="width: 26px; height: 26px; margin-left: 5px;" />
+                            </a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">
+                                Indian<img src="https://img.icons8.com/emoji/48/null/curry-rice-emoji.png"
+                                           style="width: 26px; height: 26px; margin-left: 33px;" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">
+                                Chinese<img src="https://img.icons8.com/office/16/null/dim-sum.png"
+                                            style="width: 26px; height: 26px; margin-left: 20px;" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="mb-3" style="letter-spacing: 2px; color: #7f4722; font-weight: bold">Top Restaurants</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">1</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">2</a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f;font-weight: bold">3</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="mb-3" style="letter-spacing: 2px; color: #7f4722;font-weight: bold">Contact Us</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f; font-weight: bold">Email <i class="fa fa-envelope-o" style="margin-left: 10px;"></i></a>
+                        </li>
+                        <li class="mb-1">
+                            <a href="#!" style="color: #4f4f4f; font-weight: bold">Phone  <i class="fa fa-phone" style="margin-left: 8px;"></i> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-dark" href="https://foodieinseattle.azurewebsites.net/"> FoodieSeattle. All rights reserved.</a>
+        </div>
+        <!-- Copyright -->
     </footer>
+
+
+    <!-- End of .container -->
+    <!-- End of .container -->
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>

@@ -6,6 +6,116 @@
   cursor: pointer;
 }
 
+/*header*/
+
+navbarExample01 {
+    background-color: #e8b986c6;
+}
+
+header {
+    background-color: #e8b986c6;
+    padding: 20px;
+    display: flex;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.header-nav li {
+    margin-right: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header-title {
+    
+    font-family:cursive;
+    font-size:36px;
+    margin-right:20px;
+}
+
+
+.header-title::after {
+    content: "  ";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.header-title::before {
+    content: url("");
+}
+
+.fas {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #4c3b29dc;
+    text-decoration: none;
+}
+
+nav a:hover {
+        text-decoration: underline;
+    }
+.nav-button ul li {
+    font-size: 20px; 
+    font-family:cursive;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+    .search-container input[type="text"] {
+        padding: 5px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .search-container button {
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 .card-columns .card:hover .card-img {
