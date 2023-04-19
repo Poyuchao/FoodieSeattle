@@ -1,20 +1,20 @@
 [
-  {
-    "Id": "jenlooper-cactus",
-    "Maker": "@jenlooper",
-    "img": "https://user-images.githubusercontent.com/41929050/61567048-13938600-aa33-11e9-9cfd-712191013192.jpeg",
-    "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
-    "Title": "The Quantified Cactus: An Easy Plant Soil Moisture Sensor",
-    "Description": "This project is a good learning project to get comfortable with soldering and programming an Arduino.",
-    "Ratings": [
-      5,
-      5,
-      3,
-      2,
-      1,
-      5
-    ]
-  },
+    {
+        "Id": "jenlooper-cactus",
+        "Maker": "@jenlooper", 
+        "img": "https://user-images.githubusercontent.com/41929050/61567048-13938600-aa33-11e9-9cfd-712191013192.jpeg",
+        "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
+        "Title": "The Quantified Cactus: An Easy Plant Soil Moisture Sensor",
+        "Description": "Located in Pike Place Market, Sushi Kashiba is owned by the legendary Seattle chef Shiro Kashiba (3X James Beard Winner). The restaurant specializes in traditional Edomae-style sushi, which emphasizes the use of fresh, seasonal ingredients and techniques such as aging and marinating fish to enhance its flavor. This upscale dining experience allows customers to eat at the sushi counter or call ahead and reserve one of their tables. Pricing has us recommending this location for special occasions, and if you do decide to dine here, expect nothing less than perhaps your favorite meal of the year.",
+        "Ratings": [
+            5,
+            5,
+            3,
+            2,
+            1,
+            5
+        ]
+    },
   {
     "Id": "jenlooper-light",
     "Maker": "jenlooper",
