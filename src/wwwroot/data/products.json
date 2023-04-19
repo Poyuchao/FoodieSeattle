@@ -1,145 +1,145 @@
 [
-    {
-        "Id": "kashiba-pic",
-        "Maker": "@jenlooper", 
-        "img": "https://user-images.githubusercontent.com/41929050/61567048-13938600-aa33-11e9-9cfd-712191013192.jpeg",
-        "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
-        "Title": "Sushi Kashiba",
-        "Description": "Located in Pike Place Market, Sushi Kashiba is owned by the legendary Seattle chef Shiro Kashiba (3X James Beard Winner). The restaurant specializes in traditional Edomae-style sushi, which emphasizes the use of fresh, seasonal ingredients and techniques such as aging and marinating fish to enhance its flavor. This upscale dining experience allows customers to eat at the sushi counter or call ahead and reserve one of their tables. Pricing has us recommending this location for special occasions, and if you do decide to dine here, expect nothing less than perhaps your favorite meal of the year.",
-        "Ratings": [
-            5,
-            5,
-            3,
-            2,
-            1,
-            5
-        ]
-    },
-    {
-        "Id": "shiros-pic",
-        "Maker": "jenlooper",
-        "img": "https://user-images.githubusercontent.com/41929050/61567049-13938600-aa33-11e9-9c69-a4184bf8e524.jpeg",
-        "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
-        "Title": "Shiro's",
-        "Description": "Located in Belltown, Shiro’s is an exquisite sushi restaurant founded by Shiro Kashiba. This experience features a similar format to other high end sushi restaurants, where customers can sit at the counter (our recommendation) or reserve a table. Known as one of the best sushi restaurants in the country, Shiro’s specializes in traditional, high quality sushi only using the freshest ingredients available. Décor and ambiance remains simple, allowing diners to focus on the overall experience. Pricing is high, so for this location we recommend for special occasions.",
-        "Ratings": null
-    },
-    {
-        "Id": "bangrok-pik",
-        "Maker": "@jenlooper",
-        "img": "https://user-images.githubusercontent.com/41929050/61567053-13938600-aa33-11e9-9780-104fe4019659.png",
-        "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
-        "Title": "Bangrok Market",
-        "Description": "Named after the world famous market in Bangkok, Bangrok Market is Seattle’s interpretation of Thai street food. Located in Belltown, this experience aims to capture the overall flavor vibrancy and atmosphere of the Thai street food scene. Customers can expect fantastic curries, stir-fries, noodle dishes and small appetizers like spring rolls and satay. Restaurant also features colorful street art and offers an overall casual dining experience.",
-        "Ratings": null
-    },
-    {
-        "Id": "dough-zone=pic",
-        "Maker": "jenlooper",
-        "img": "https://user-images.githubusercontent.com/41929050/61567051-13938600-aa33-11e9-8ae7-0b5c19aafab4.jpeg",
-        "Url": "https://www.hackster.io/agent-hawking-1/create-a-compact-survival-kit-38bfdb",
-        "Title": "Dough Zone Dumpling House",
-        "Description": "Dough-Zone Dumpling House is great Seattle area chain specializing in Chinese dumplings and other traditional dishes. Their menu features a wide variety of dumplings, including pork, chicken, beef, and vegetable varieties, as well as classic Chinese dishes. Everything here is made using fresh ingredients and cooked to order. Ambiance is casual and inviting, with a modern and minimalist design. Dough Zone is a fantastic choice for a delicious and affordable meal in a more casual setting.",
-        "Ratings": null
-    },
-    {
-        "Id": "chengdu-taste-pic",
-        "Maker": "sailorhg",
-        "img": "https://user-images.githubusercontent.com/41929050/61567054-13938600-aa33-11e9-9163-eec98e239b7a.png",
-        "Url": "https://twitter.com/sailorhg/status/1090107740049952770",
-        "Title": "Chengdu Taste",
-        "Description": "Chengdu Taste is a Chinese restaurant specializing in Sichuan-style cuisine. The restaurant offers a wide range of dishes, including spicy hot pots, noodle soups, stir-fried dishes, and appetizers. Sichuan cuisine is known for its bold and complex flavors, which are achieved through the use of ingredients such as Sichuan peppercorns, chili peppers, and garlic. Chengdu Taste is highly regarded for its authentic and flavorful dishes, which are made with high-quality ingredients and cooked to perfection. The restaurant's interior is simple and modern, with traditional Chinese decor accents. Chengdu Taste is a great choice for those looking for authentic Sichuan cuisine in Seattle at an affordable price.",
-        "Ratings": null
-    },
+  {
+    "Id": "kashiba-pic",
+    "Maker": "@jenlooper",
+    "img": "https://s3.amazonaws.com/hoth.bizango/images/693886/ChefKashibaBehindSushiBar-fixed_feature.jpg",
+    "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
+    "Title": "Sushi Kashiba",
+    "Description": "Located in Pike Place Market, Sushi Kashiba is owned by the legendary Seattle chef Shiro Kashiba (3X James Beard Winner). The restaurant specializes in traditional Edomae-style sushi, which emphasizes the use of fresh, seasonal ingredients and techniques such as aging and marinating fish to enhance its flavor. This upscale dining experience allows customers to eat at the sushi counter or call ahead and reserve one of their tables. Pricing has us recommending this location for special occasions, and if you do decide to dine here, expect nothing less than perhaps your favorite meal of the year.",
+    "Ratings": [
+      5,
+      5,
+      3,
+      2,
+      1,
+      5
+    ]
+  },
+  {
+    "Id": "shiros-pic",
+    "Maker": "jenlooper",
+    "img": "https://shiros.com/wp-content/uploads/2017/07/cropped-Shiros_Sushi_Logo_modified_large.png",
+    "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
+    "Title": "Shiro's",
+    "Description": "Located in Belltown, Shiro’s is an exquisite sushi restaurant founded by Shiro Kashiba. This experience features a similar format to other high end sushi restaurants, where customers can sit at the counter (our recommendation) or reserve a table. Known as one of the best sushi restaurants in the country, Shiro’s specializes in traditional, high quality sushi only using the freshest ingredients available. Décor and ambiance remains simple, allowing diners to focus on the overall experience. Pricing is high, so for this location we recommend for special occasions.",
+    "Ratings": null
+  },
+  {
+    "Id": "bangrok-pik",
+    "Maker": "@jenlooper",
+    "img": "https://infatuation.imgix.net/media/images/reviews/bangrak-market/NateWatters_SEA_BangrakMarket_Spread-3.jpg",
+    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Title": "Bangrok Market",
+    "Description": "Named after the world famous market in Bangkok, Bangrok Market is Seattle’s interpretation of Thai street food. Located in Belltown, this experience aims to capture the overall flavor vibrancy and atmosphere of the Thai street food scene. Customers can expect fantastic curries, stir-fries, noodle dishes and small appetizers like spring rolls and satay. Restaurant also features colorful street art and offers an overall casual dining experience.",
+    "Ratings": null
+  },
+  {
+    "Id": "dough-zone=pic",
+    "Maker": "jenlooper",
+    "img": "https://cdn.vox-cdn.com/thumbor/lQd3yDTGq7ZsiT0Tg56zcM7bkNk=/0x0:2000x1335/1200x800/filters:focal(840x508:1160x828)/cdn.vox-cdn.com/uploads/chorus_image/image/56956543/DoughZone_36.0.jpg",
+    "Url": "https://www.hackster.io/agent-hawking-1/create-a-compact-survival-kit-38bfdb",
+    "Title": "Dough Zone Dumpling House",
+    "Description": "Dough-Zone Dumpling House is great Seattle area chain specializing in Chinese dumplings and other traditional dishes. Their menu features a wide variety of dumplings, including pork, chicken, beef, and vegetable varieties, as well as classic Chinese dishes. Everything here is made using fresh ingredients and cooked to order. Ambiance is casual and inviting, with a modern and minimalist design. Dough Zone is a fantastic choice for a delicious and affordable meal in a more casual setting.",
+    "Ratings": null
+  },
+  {
+    "Id": "chengdu-taste-pic",
+    "Maker": "sailorhg",
+    "img": "https://duyt4h9nfnj50.cloudfront.net/resized/6dcd96e05e5935dba0fa39749018b894-w2880-20.jpg",
+    "Url": "https://twitter.com/sailorhg/status/1090107740049952770",
+    "Title": "Chengdu Taste",
+    "Description": "Chengdu Taste is a Chinese restaurant specializing in Sichuan-style cuisine. The restaurant offers a wide range of dishes, including spicy hot pots, noodle soups, stir-fried dishes, and appetizers. Sichuan cuisine is known for its bold and complex flavors, which are achieved through the use of ingredients such as Sichuan peppercorns, chili peppers, and garlic. Chengdu Taste is highly regarded for its authentic and flavorful dishes, which are made with high-quality ingredients and cooked to perfection. The restaurant's interior is simple and modern, with traditional Chinese decor accents. Chengdu Taste is a great choice for those looking for authentic Sichuan cuisine in Seattle at an affordable price.",
+    "Ratings": null
+  },
   {
     "Id": "maneki-pic",
     "Maker": "sailorhg",
-    "img": "https://user-images.githubusercontent.com/41929050/61567055-142c1c80-aa33-11e9-96ff-9fbac6413625.png",
+    "img": "https://s3-media0.fl.yelpcdn.com/bphoto/5VK_0BfZAoolMWSI_mbrUQ/348s.jpg",
     "Url": "https://twitter.com/sailorhg/status/1090113666911891456",
     "Title": "Maneki",
     "Description": "Maneki is a great choice for those looking for authentic Japanese cuisine and a taste of Seattle's history. Located in the International District, Maneki has been serving traditional Japanese cuisine since 1904, making it the oldest Japanese restaurant in Seattle, and one of the oldest in the entire U.S. Maneki's menu features a wide range of Japanese dishes, including sushi, sashimi, tempura, and teriyaki, as well as traditional Japanese hot pot dishes such as sukiyaki and shabu-shabu. The restaurant is known for its fresh ingredients, expert prep, and welcoming atmosphere. Maneki's interior is understated and classic, with traditional Japanese decor accents. Pricing here is also relatively affordable and is overall and amazing dining experience.",
 
     "Ratings": null
   },
-    {
-        "Id": "annapurna-pic",
-        "Maker": "sailorhg",
-        "img": "https://user-images.githubusercontent.com/41929050/61567056-142c1c80-aa33-11e9-8682-10065d338145.png",
-        "Url": "https://twitter.com/sailorhg/status/1090122822007963648",
-        "Title": "Annapurna Cafe",
-        "Description": "Annapurna Cafe is an Indian and Nepalese restaurant located in Capitol Hill. The restaurant offers a wide range of dishes from both Nepalese and Indian descent, including curries, tandoori dishes, momos (Nepalese dumplings), and more. The restaurant's menu features many vegetarian and vegan options, as well as gluten-free options as well. Annapurna Cafe is known for its flavorful and authentic dishes, which are made with fresh ingredients and traditional cooking methods. The interior of the restaurant is cozy and welcoming, with traditional Nepalese and Indian decor accents. Annapurna Cafe is a great choice for those looking for a taste of Indian or Nepalese cuisine in Seattle at a good price, and is particularly popular among those with vegetarians and vegans.",
-        "Ratings": null
-    },
+  {
+    "Id": "annapurna-pic",
+    "Maker": "sailorhg",
+    "img": "https://img.cdn4dd.com/cdn-cgi/image/fit=cover,width=600,height=400,format=auto,quality=80/https://doordash-static.s3.amazonaws.com/media/store/header/341e4d5a-5687-446f-bcc4-58ea5620ebb9.jpg",
+    "Url": "https://twitter.com/sailorhg/status/1090122822007963648",
+    "Title": "Annapurna Cafe",
+    "Description": "Annapurna Cafe is an Indian and Nepalese restaurant located in Capitol Hill. The restaurant offers a wide range of dishes from both Nepalese and Indian descent, including curries, tandoori dishes, momos (Nepalese dumplings), and more. The restaurant's menu features many vegetarian and vegan options, as well as gluten-free options as well. Annapurna Cafe is known for its flavorful and authentic dishes, which are made with fresh ingredients and traditional cooking methods. The interior of the restaurant is cozy and welcoming, with traditional Nepalese and Indian decor accents. Annapurna Cafe is a great choice for those looking for a taste of Indian or Nepalese cuisine in Seattle at a good price, and is particularly popular among those with vegetarians and vegans.",
+    "Ratings": null
+  },
   {
     "Id": "tacos-chukis-pic",
     "Maker": "sailorhg",
-    "img": "https://user-images.githubusercontent.com/41929050/61567052-13938600-aa33-11e9-9a88-cd842073ba44.jpg",
+    "img": "https://s3-media0.fl.yelpcdn.com/bphoto/WZqLoD6JQDIpwO8IxTgXpw/348s.jpg",
     "Url": "https://twitter.com/sailorhg/status/1090117277540745216",
     "Title": "Tacos Chukis",
     "Description": "Tacos Chukis is a fantastic authentic Mexican taqueria located in Capitol Hill and South Lake Union that specializes in tacos and other Mexican street food. The restaurant's menu features a variety of tacos, including al pastor, carne asada, and pollo asado, as well as other dishes such as baby burritos, quesadillas, and tortas. The interior of the restaurant is very casual and colorful, and staff is very friendly. Great place to stop in for a quick bite, and is very affordable.",
     "Ratings": null
   },
-    {
-        "Id": "ba-bar-pic",
-        "Maker": "selinazawacki",
-        "img": "https://user-images.githubusercontent.com/41929050/61567060-142c1c80-aa33-11e9-8188-5a4803844a9e.png",
-        "Url": "https://www.instagram.com/p/BNvESj-j8PI/",
-        "Title": "Ba Bar",
-        "Description": "Ba Bar is a Vietnamese-inspired restaurant with locations in Capitol Hill and South Lake Union, and offers a blend of traditional Vietnamese cuisine and modern fusion dishes. The restaurant's menu features a wide range of dishes, including pho, banh mi, rice and noodle dishes, and small plates for sharing. Ba Bar is known for its use of fresh, locally-sourced ingredients and its unique flavor combinations, which are inspired by the owner's travels in Vietnam and other parts of Southeast Asia. The interior of the restaurant is chic and modern, with a lively and casual atmosphere. Ba Bar is a great choice for those looking for creative and flavorful Vietnamese cuisine in Seattle at an affordable price.",
-        "Ratings": null
-    },
-    {
-        "Id": "taurus-ox-pic",
-        "Maker": "selinazawacki",
-        "img": "https://user-images.githubusercontent.com/41929050/61567059-142c1c80-aa33-11e9-939b-2ecf4492786d.png",
-        "Url": "https://www.instagram.com/p/BNm6hZzDoEF/",
-        "Title": "Taurus Ox",
-        "Description": "Located in Capitol Hill, Taurus Ox is a modern Laotian and Asian-fusion inspired restaurant that blends traditional flavors with contemporary techniques and presentation. Taurus Ox is known for its innovative and unique dishes, such as the caramelized pork belly stew and the crispy duck confit bao. The interior of the restaurant is stylish and minimalist, with a cozy and intimate atmosphere. Taurus Ox also offers a carefully curated selection of beer, wine, and cocktails to complement its food. Taurus Ox is a great choice for those looking for a modern and unique dining experience.",
-        "Ratings": null
-    },
-    {
-        "Id": "ooink-ramen-pic",
-        "Maker": "vogueandcode",
-        "img": "https://user-images.githubusercontent.com/41929050/61567061-14c4b300-aa33-11e9-9fee-63ff2c0c9823.png",
-        "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
-        "Title": "Ooink Ramen",
-        "Description": "Ooink Ramen is a Japanese restaurant with locations in Fremont and Capitol Hill, that specializes in authentic Japanese ramen dishes. The restaurant's menu features a variety of ramen bowls, including tonkotsu (pork bone), miso, and shoyu (soy sauce) ramen, as well as other Japanese dishes such as gyoza and karaage. Ooink Ramen is known for its flavorful and comforting ramen dishes, which are always welcome in Seattle’s often cold and rainy environment. The interior of the restaurant is cozy and casual, with a lively and welcoming atmosphere. Ooink Ramen is a great choice for those looking for delicious and authentic Japanese ramen, and is a big favorite among students and young professionals.",
-        "Ratings": null
-    },
+  {
+    "Id": "ba-bar-pic",
+    "Maker": "selinazawacki",
+    "img": "https://media-cdn.tripadvisor.com/media/photo-s/19/72/5a/2a/060-wings-at-ba-bar-restaurant.jpg",
+    "Url": "https://www.instagram.com/p/BNvESj-j8PI/",
+    "Title": "Ba Bar",
+    "Description": "Ba Bar is a Vietnamese-inspired restaurant with locations in Capitol Hill and South Lake Union, and offers a blend of traditional Vietnamese cuisine and modern fusion dishes. The restaurant's menu features a wide range of dishes, including pho, banh mi, rice and noodle dishes, and small plates for sharing. Ba Bar is known for its use of fresh, locally-sourced ingredients and its unique flavor combinations, which are inspired by the owner's travels in Vietnam and other parts of Southeast Asia. The interior of the restaurant is chic and modern, with a lively and casual atmosphere. Ba Bar is a great choice for those looking for creative and flavorful Vietnamese cuisine in Seattle at an affordable price.",
+    "Ratings": null
+  },
+  {
+    "Id": "taurus-ox-pic",
+    "Maker": "selinazawacki",
+    "img": "https://seattlerefined.com/resources/media2/16x9/full/1015/center/80/b9f79eaa-12e6-4e1b-ad77-5c4e7d823633-large16x9_7479A4DC02BE4975955EC52FF4B154AC.jpeg",
+    "Url": "https://www.instagram.com/p/BNm6hZzDoEF/",
+    "Title": "Taurus Ox",
+    "Description": "Located in Capitol Hill, Taurus Ox is a modern Laotian and Asian-fusion inspired restaurant that blends traditional flavors with contemporary techniques and presentation. Taurus Ox is known for its innovative and unique dishes, such as the caramelized pork belly stew and the crispy duck confit bao. The interior of the restaurant is stylish and minimalist, with a cozy and intimate atmosphere. Taurus Ox also offers a carefully curated selection of beer, wine, and cocktails to complement its food. Taurus Ox is a great choice for those looking for a modern and unique dining experience.",
+    "Ratings": null
+  },
+  {
+    "Id": "ooink-ramen-pic",
+    "Maker": "vogueandcode",
+    "img": "https://draft.sandbox.weebly.com/uploads/b/fcc1d071728337daf869861d3fd000ca6e6a0ec0e2aa1c7f73381398c4880030/2022-07-28_22-22-52_1659018188.jpg",
+    "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
+    "Title": "Ooink Ramen",
+    "Description": "Ooink Ramen is a Japanese restaurant with locations in Fremont and Capitol Hill, that specializes in authentic Japanese ramen dishes. The restaurant's menu features a variety of ramen bowls, including tonkotsu (pork bone), miso, and shoyu (soy sauce) ramen, as well as other Japanese dishes such as gyoza and karaage. Ooink Ramen is known for its flavorful and comforting ramen dishes, which are always welcome in Seattle’s often cold and rainy environment. The interior of the restaurant is cozy and casual, with a lively and welcoming atmosphere. Ooink Ramen is a great choice for those looking for delicious and authentic Japanese ramen, and is a big favorite among students and young professionals.",
+    "Ratings": null
+  },
   {
     "Id": "kamonegi-pic",
     "Maker": "vogueandcode",
-    "img": "https://user-images.githubusercontent.com/41929050/61567062-14c4b300-aa33-11e9-9dcd-8bfed4ece810.png",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw-K6FNYPMEkcbtJ_4BAXksh6-_E52N6sxRg&usqp=CAU",
     "Url": "https://www.vogueandcode.com/shop/pretty-girls-code-tee",
     "Title": "Kamonegi",
     "Description": "Kamonegi is a Japanese restaurant located in Fremont that specializes in soba noodles and small plates. The restaurant's name, 'kamonegi', translates to 'duck and leek' in Japanese, which is a nod to the restaurant's signature dish: handmade soba noodles with duck and leek tempura. The menu at Kamonegi features a variety of small plates, including izakaya-style dishes, as well as a rotating selection of soba noodle dishes. Kamonegi is known for its high-quality ingredients, innovative flavor combinations, and skilled preparation techniques. The interior of the restaurant is cozy and intimate, and is a great choice for those looking for a unique and elevated dining experience in Seattle, and is particularly popular among the foodie crowd. Pricing is a bit more upscale.",
     "Ratings": null
   },
-    {
-        "Id": "gracia-pic",
-        "Maker": "vogueandcode",
-        "img": "https://user-images.githubusercontent.com/41929050/61567063-14c4b300-aa33-11e9-8515-bcb866da9ea3.png",
-        "Url": "https://www.vogueandcode.com/shop/ruby-sis-2",
-        "Title": "Gracia",
-        "Description": "Gracia is a Mexican restaurant located in Ballard that focuses on traditional Mexican cuisine with a modern twist. The restaurant's menu features a variety of dishes, including tacos, ceviche, and grilled meats, all made with extremely high-quality ingredients and authentic Mexican flavors. Gracia is known for its creative use of fresh seafood and vegetables, as well as its totopos and macha salsa. The interior of the restaurant is sleek and modern, with a casual yet sophisticated atmosphere. Gracia is a great choice for those looking for a bit more upscale and inventive experience and is particularly popular among foodies and young professionals.",
-        "Ratings": null
-    },
+  {
+    "Id": "gracia-pic",
+    "Maker": "vogueandcode",
+    "img": "https://images.squarespace-cdn.com/content/v1/565dd95fe4b081be39a322d0/1475456236996-EJQ05M9CS6J4OW1PKTE0/image-asset.jpeg?format=1500w",
+    "Url": "https://www.vogueandcode.com/shop/ruby-sis-2",
+    "Title": "Gracia",
+    "Description": "Gracia is a Mexican restaurant located in Ballard that focuses on traditional Mexican cuisine with a modern twist. The restaurant's menu features a variety of dishes, including tacos, ceviche, and grilled meats, all made with extremely high-quality ingredients and authentic Mexican flavors. Gracia is known for its creative use of fresh seafood and vegetables, as well as its totopos and macha salsa. The interior of the restaurant is sleek and modern, with a casual yet sophisticated atmosphere. Gracia is a great choice for those looking for a bit more upscale and inventive experience and is particularly popular among foodies and young professionals.",
+    "Ratings": null
+  },
   {
     "Id": "un-bien-pic",
     "Maker": "selinazawacki",
-    "img": "https://user-images.githubusercontent.com/41929050/61567057-142c1c80-aa33-11e9-9781-9e442418eaab.png",
+    "img": "https://media-cdn.tripadvisor.com/media/photo-p/12/6a/2e/90/photo0jpg.jpg",
     "Url": "https://www.instagram.com/p/BFktVYPinKQ/",
     "Title": "Un Bien",
     "Description": "Un Bien is a Caribbean-inspired sandwich shop located in Ballard that specializes in hearty and incredibly flavorful sandwiches. Founded by sons of the original owner of Paseo, Un Bien’s menu features a variety of sandwiches, including the favorite Caribbean roast pork and the grilled marinated chicken, both served on toasted baguette from Macrina Bakery with their signature garlic aioli. Un Bien is known for its big time flavor and unique blend of Caribbean and Pacific Northwest influences. The interior of the restaurant is covered outdoor, so we recommend takeout unless the weather is good. Un Bien is worth the trip, and has become well known nationally as one of the country’s best sandwiches.",
     "Ratings": null
   },
-    {
-        "Id": "spice-waala-pic",
-        "Maker": "selinazawacki",
-        "img": "https://user-images.githubusercontent.com/41929050/61567058-142c1c80-aa33-11e9-89fb-b4f30d84d69d.png",
-        "Url": "https://www.instagram.com/p/BEXlpiZCnJ3",
-        "Title": "Spice Waala",
-        "Description": "Spice Waala is an Indian street food restaurant with locations in Ballard and Capitol Hill, that specializes in chaat, a popular type of savory snack from India. The restaurant's menu features a variety of chaat dishes, such as samosas, papdi chaat, and bhel puri, as well as other Indian street food favorites like vada pav and kathi rolls. Spice Waala is known for its bold and flavorful spices, fresh ingredients, and authentic preparation techniques. The interior of the restaurant is bright and colorful, and is perfect for a quick bite or for takeout. Pricing is very affordable, and this place comes highly recommended for people that love spice or follow a vegetarian diet.",
-        "Ratings": null
-    }
+  {
+    "Id": "spice-waala-pic",
+    "Maker": "selinazawacki",
+    "img": "https://images.seattletimes.com/wp-content/uploads/2019/08/08062019_spicewalaa_152956.jpg?d=780x514",
+    "Url": "https://www.instagram.com/p/BEXlpiZCnJ3",
+    "Title": "Spice Waala",
+    "Description": "Spice Waala is an Indian street food restaurant with locations in Ballard and Capitol Hill, that specializes in chaat, a popular type of savory snack from India. The restaurant's menu features a variety of chaat dishes, such as samosas, papdi chaat, and bhel puri, as well as other Indian street food favorites like vada pav and kathi rolls. Spice Waala is known for its bold and flavorful spices, fresh ingredients, and authentic preparation techniques. The interior of the restaurant is bright and colorful, and is perfect for a quick bite or for takeout. Pricing is very affordable, and this place comes highly recommended for people that love spice or follow a vegetarian diet.",
+    "Ratings": null
+  }
 ]
