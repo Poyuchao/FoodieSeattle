@@ -1,0 +1,66 @@
+﻿<!--This is landing page for foodie seattle -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FoodieSeattle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to your CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-GdJQma1vJ53yzVoCfs2Hsf6n5IT2gJ/upnfpUpM01pXH6Urg+6UksdQRVzIwMWIj" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-cH1EBh0yN2QyvNvmP4wJ4h3e1f/0Zpncij1NUBc50pKjOy+6bsy01mU5z6U5qu5/S+OY1ZplA+2QmlXgdJSEcQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <script>function changeBg(){
+
+            const images = [
+
+                'url("/images/2.jpg")',
+                'url("/images/3.jpg")'
+
+
+            ]
+
+            const section = document.querySelector('body')
+            const bg = images[Math.floor(Math.random()*images.length)];
+            section.style.backgroundImage=bg;
+
+        }
+
+        setInterval(changeBg,1000)</script>
+    <header>
+        <h1 class="header-title"><i class="fas fa-utensils"></i><span>FoodieSeattle</span></h1>
+        <!-- <nav class="header-nav">
+
+            <ul>
+                <li><a href="#about"> About</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav> -->
+    </header>
+
+
+    <div class="wrapper">
+        <main>
+            <section>
+                <h2>Explore Restaurants In Seattle</h2>
+                <div class="button-link">
+                    <a href="mainPage/main.html">Let's Go</a>
+                    <button type="button">Let's Go</button>
+                </div>
+            </section>
+
+
+
+        </main>
+
+        <footer>
+            <p>&copy; 2023 FoodieSeattle. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

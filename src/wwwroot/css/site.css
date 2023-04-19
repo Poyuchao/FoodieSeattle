@@ -94,7 +94,8 @@ nav a:hover {
 
 .search-container {
     display: flex;
-    align-items: center;
+    justify-content:flex-end;
+    
 }
 
     .search-container input[type="text"] {
@@ -222,6 +223,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color:#f2f2f2;
 }
 p {
     font-family: 'Nunito', sans-serif;

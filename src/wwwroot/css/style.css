@@ -1,0 +1,166 @@
+﻿
+/* import font style */
+@import url('https://fonts.googleapis.com/css?family=Brush+Script+MT');
+
+@font-face {
+    font-family: 'MyFantasyFont';
+    src: url('path/to/my-fantasy-font.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+@import url('https://fonts.googleapis.com/css?family=Parisienne');
+@import url('https://fonts.googleapis.com/css?fmaily=Poppins:200,300,400,500,600,700,800,900');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-image: url("images/landing\ page\ background_photo.jpg");
+    background-size: cover;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* Style the header */
+
+header {
+    background-color: #e8b986c6;
+    color: #4c3b29;
+    padding: 20px;
+    display: flex;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 66px;
+    font-family: 'MyFantasyFont', cursive;
+}
+
+    .header-title::after {
+        content: "  ";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+        margin-left: 10px;
+    }
+
+    .header-title::before {
+        content: url("icons/icons8-space-needle-64.png");
+    }
+
+.fas {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #4c3b29dc;
+    text-decoration: none;
+}
+
+    nav a:hover {
+        text-decoration: none;
+    }
+
+/* Style the main content */
+
+main {
+    padding: 40px;
+}
+
+/* Style the section */
+
+section {
+    margin-bottom: 140px;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    section h2 {
+        font-size: 14vw;
+        color: #e5e5e2af;
+    }
+
+/* Style the footer */
+
+footer {
+    background-color: rgba(0, 0, 0, 0);
+    color: #e5e5e2cd;
+    padding: 20px;
+    text-align: center;
+}
+/* Sticky footer */
+
+
+.wrapper {
+    min-height: 100vh;
+    padding-bottom: 60px; /* height of the footer */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .wrapper > footer {
+        margin-top: auto;
+    }
+
+.header-nav {
+    padding-top: 10px;
+}
+
+/* button */
+button {
+    background-color: rgba(51, 51, 51, 0.647);
+    color: #e5e5e2cd;
+    border: none;
+    padding: 20px 20px;
+    border-radius: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    margin: 100px auto;
+    transform: translate(-50%, -50%);
+    font-family: 'Comic Sans MS', cursive;
+    position: relative;
+}
+
+    button:hover {
+        background-color: #555;
+    }
+
+a.button-link {
+    text-decoration: none;
+}
+
+    a.button-link:hover {
+        text-decoration: none;
+    }
