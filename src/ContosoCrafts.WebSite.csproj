@@ -10,7 +10,6 @@
     <Content Remove="wwwroot\htmlpages\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\htmlpages\" />
   </ItemGroup>
 </Project>
