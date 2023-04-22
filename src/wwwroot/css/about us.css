@@ -43,9 +43,13 @@
 }
 
     .text h2 {
-        font-size: 90px;
+        font-size: 45px;
         font-weight: 600;
         margin-bottom: 10px;
+    }
+
+    .logo h2{
+        float: right;
     }
 
     .text h5 {
