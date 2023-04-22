@@ -13,4 +13,9 @@
   <ItemGroup>
     <Folder Include="wwwroot\htmlpages\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\img\images\Movetop_img.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
