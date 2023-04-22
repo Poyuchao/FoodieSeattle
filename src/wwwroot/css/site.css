@@ -118,7 +118,7 @@ nav a:hover {
     
 }
 
-    .search-container input[type="text"] {
+.search-container input[type="text"] {
         padding: 5px;
         margin-right: 10px;
         border: none;
@@ -126,7 +126,7 @@ nav a:hover {
         font-size: 16px;
     }
 
-    .search-container button {
+.search-container button {
         background-color: transparent;
         color: white;
         border: none;
@@ -273,4 +273,23 @@ ul {
     background: -o-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
     background: -moz-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
     background: linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
+}
+
+.logoPic {
+    width: 220px;
+    height: auto; /* This ensures the image keeps its aspect ratio */
+    background:transparent;
+}
+.col-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-floating {
+    border-radius: 50%;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #252152;
+    border-color: #f0eff7;
 }
