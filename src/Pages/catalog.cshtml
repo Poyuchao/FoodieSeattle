@@ -1,0 +1,54 @@
+﻿@page
+@using Microsoft.AspNetCore.Components.Web
+@using ContosoCrafts.WebSite.Models
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@model IndexModel
+
+
+<!DOCTYPE html>
+<!---Coding By foodieSeattle--->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<title> An catalog Page | foodieSeattle </title>-->
+    <!---Custom Css File!--->
+    <link rel="stylesheet" href="./css/about us.css">
+</head>
+
+<p style="line-height:5.5em;"> </p>
+@{
+    int counter = 0;
+}
+<body>
+    <section class="catalog">
+    <p><a href="#" style="font-size: 20px;">+ Create</a></p>
+    <table>
+        <thead style="line-height: 60px">
+            <tr>
+                <th style="font-size: 30px; padding-right:400px;"> Restaurant</th>
+                <th style="font-size: 30px; text-align: right; padding-right: 100px;">Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody style="line-height: 50px">
+            @foreach (var product in ProductService.GetProducts())
+            {
+                <tr style="background-color: @(counter % 2 == 0 ? "beige" : "white")">
+                    <td style="font-size: 25px; position:center;">@product.Title</td>
+                    <td style="text-align: left; border-left: 0.5px solid burlywood; font-size: 20px;"><button style="background-color: @(counter % 2 == 0 ? "beige" : "white");  border: none;")">Read</button></td>
+                </tr>
+                counter++;
+            }
+        </tbody>
+    </table>
+    </section>
+</body>
+
+<p style="line-height:5.5em;"> </p>
+
+
+</html>
+
