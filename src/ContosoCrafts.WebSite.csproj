@@ -9,9 +9,11 @@
     <Content Remove="wwwroot\img\" />
     <Content Remove="wwwroot\htmlpages\" />
     <Content Remove="wwwroot\img\icons\Color icon - alternate.png" />
+    <Content Remove="wwwroot\img\logo\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\htmlpages\" />
+    <Folder Include="wwwroot\img\logo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\img\images\Movetop_img.png">
