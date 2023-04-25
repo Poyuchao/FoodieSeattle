@@ -293,3 +293,16 @@ ul {
     background-color: #252152;
     border-color: #f0eff7;
 }
+
+/*Format Video for Launch Page*/
+/*#restaurantVid {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1;
+}*/
