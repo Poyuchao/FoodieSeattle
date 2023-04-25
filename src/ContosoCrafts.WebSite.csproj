@@ -14,10 +14,14 @@
   <ItemGroup>
     <Folder Include="wwwroot\htmlpages\" />
     <Folder Include="wwwroot\img\logo\" />
+    <Folder Include="Pages\Launch\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\img\images\Movetop_img.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\Launch\" />
   </ItemGroup>
 </Project>
