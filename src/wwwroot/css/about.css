@@ -1,0 +1,83 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+.about-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-image: url('/img/images/landing_page_background_photo.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 200px);  /*Set minimum height for the container*/
+}
+
+.about-us .text {
+    background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+    width: 540px;
+    margin: auto;
+}
+
+.about-us .text h2,
+.about-us .text h5,
+.about-us .text p {
+    margin-top: 0; /* Remove default margin */
+
+}
+
+
+.pic {
+    height: auto;
+    width: 302px;
+}
+
+.text h2 {
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.logo h2 {
+    float: right;
+}
+
+.text h5 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+span {
+    color: #4070f4;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.data {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact {
+    font-size: 18px;
+    background: #4070f4;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.contact:hover {
+background: #000;
+border: 1px solid #4070f4;
+}
