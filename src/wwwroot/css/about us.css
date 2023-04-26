@@ -1,7 +1,15 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+.about-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-image: url('/img/images/landing_page_background_photo.jpg');
+    background-size: cover;
+    background-position: center;
+}
 
-
-.about-us {
+/*.about-us {
     height: 100vh;
     width: 100%;
     padding: 90px 0;
@@ -10,7 +18,7 @@
     background-size: cover;
 
 }
-
+    */
     .about-us .text {
         background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background */
         padding: 20px;
@@ -21,7 +29,7 @@
         .about-us .text p {
             margin-top: 0; /* Remove default margin */
         }
-
+        
 
 .pic {
     height: auto;
