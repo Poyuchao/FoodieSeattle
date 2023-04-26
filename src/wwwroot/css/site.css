@@ -294,6 +294,26 @@ ul {
     border-color: #f0eff7;
 }
 
+/* bottom-to-top */
+.move-top {
+    position: fixed;
+    bottom: 30px;
+    right: 7px;
+    z-index: 9999;
+    font-size: 40px;
+    color: black;
+    cursor: pointer;
+    opacity: 0.8;
+    display:none;
+}
+
+    .move-top:hover {
+        opacity: 1;
+    }
+
+/* //bottom-to-top */
+
+
 /*Format Video for Launch Page*/
 /*#restaurantVid {
     display: block;
