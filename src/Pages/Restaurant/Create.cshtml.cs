@@ -6,6 +6,10 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Restaurant
 {
+    /// <summary>
+    /// Create a Page Model for the 'Create' CRUDi Razor Page. Should add a new restaurant
+    /// and its respective attributes ProductModel and JSON file. 
+    /// </summary>
     public class CreateModel : PageModel
     {
         // Data middle tier
@@ -15,7 +19,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// Defualt Construtor
         /// </summary>
         /// <param name="logger"></param>
-        /// <param name="productService"></param>
+        /// <param name="productService">An instande of the productService to use</param>
         public CreateModel(JsonFileProductService productService)
         {
             ProductService = productService;
@@ -25,7 +29,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         public ProductModel Product;
 
         /// <summary>
-        /// REST Get request
+        /// REST Post request: to create a permanent restaurant object with user input data
         /// </summary>
         /// <param name="id"></param>
         public IActionResult OnGet()
