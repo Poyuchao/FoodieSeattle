@@ -14,8 +14,10 @@
 
   <ItemGroup>
     <None Remove="Pages\" />
+    <None Remove="Pages\Restaurant\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
+    <Folder Include="Pages\Restaurant\" />
   </ItemGroup>
 </Project>
