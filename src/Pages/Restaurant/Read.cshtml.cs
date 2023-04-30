@@ -11,24 +11,23 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ContosoCrafts.WebSite.Pages.Restaurant
 {
-    //This line defines a new class named ReadModel that inherits from the PageModel class.
+    /// <summary>
+    /// Read Page Model for the Read.cshtml Page, should return a restaurant's data to display
+    /// </summary>
     public class ReadModel : PageModel
     {
-        //This line creates a public property named ProductService of type JsonFileProductService. This property will be used to retrieve the products to display.
+        // Data middle tier.
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
         /// Defualt Construtor
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="productService"></param>
-        /// //This is the constructor for the ReadModel class. It takes an instance of JsonFileProductService as a parameter and assigns it to the ProductService property.
+        /// <param name="productService">Instance of the data service we will use</param>
         public ReadModel(JsonFileProductService productService)
         {
             ProductService = productService;
         }
 
-        // The data to show
         //This is a public property of type ProductModel named Product. This property will hold the data to display on the page.
         public ProductModel Product;
 
@@ -37,11 +36,10 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// </summary>
         /// <param name="id"></param>
 
-
-
-        //This is the OnGet method for the ReadModel class. It takes an id parameter and uses it to retrieve a single product from the JsonFileProductService.
-        //It then assigns the product to the Product property for display on the page.
-        //This method uses LINQ to filter the list of products to find the one with the matching id
+        /// <summary>
+        /// REST Get request.
+        /// </summary>
+        /// <param name="id">The unique id of the restaurant to show</param>
         public void OnGet(string id) => Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
     }
 }
