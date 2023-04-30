@@ -65,9 +65,8 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Find the data record
-        /// Update the fields
-        /// Save to the data store
+        /// Finds prouct in ProductModel, updates the product with user entered data,
+        /// and saves to the data store.
         /// </summary>
         /// <param name="data"></param>
         public ProductModel UpdateData(ProductModel data)
@@ -110,8 +109,8 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Create a new product using default values
-        /// After create the user can update to set values
+        /// Create a new product using default values. After creation, the user can
+        /// update to set values
         /// </summary>
         /// <returns></returns>
         public ProductModel CreateData()
