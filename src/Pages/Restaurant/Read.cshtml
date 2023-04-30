@@ -1,0 +1,40 @@
+﻿@*This line defines the URL pattern for this page. It expects an "id" parameter in the URL, which will be used to look up the product to display.*@
+@page "{id}"
+@*This line imports the namespace for the ProductService class, which is used to retrieve products.*@
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@*This line sets the page's model to the ReadModel class, which contains the data to display on the page.*@
+@model ContosoCrafts.WebSite.Pages.Restaurant.ReadModel
+
+
+
+@{
+    ViewData["Title"] = "Read";
+}
+
+
+<p style="line-height:5.5em;"> </p>
+
+
+<h1>Read</h1>
+<p style="line-height:5.5em;"> </p>
+
+<div class="content">
+    <h5 class="title" id="productTitle">@Model.Product.Title</h5>
+
+    <img class="card-img" src='@Model.Product.Image' alt='Image for @Model.Product.Title'>
+    <p style="line-height:5.5em;"> </p>
+    <p class="card-text">@Model.Product.Description</p>
+
+</div>
+
+<br />
+<br />
+@*This block displays buttons to update or delete the product, which link to the Update and Delete pages respectively. T
+    he asp-route-id attribute sets the id parameter in the URL to the current product's id.*@
+
+<div class="row">
+    <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary">Update</a>
+    <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
+</div>
+
