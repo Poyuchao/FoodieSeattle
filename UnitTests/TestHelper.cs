@@ -84,7 +84,7 @@ namespace UnitTests
             TempData = new TempDataDictionary(HttpContextDefault, Mock.Of<ITempDataProvider>());
 
 
-
+            // Initialize PageContext object and setup data
             PageContext = new PageContext(ActionContext)
             {
                 ViewData = ViewData,
