@@ -21,10 +21,12 @@
      <None Remove="Pages\" />
      <None Remove="Pages\Restaurant\" />
      <None Remove="Pages\Shared\" />
+     <None Remove="Services\" />
    </ItemGroup>
    <ItemGroup>
      <Folder Include="Pages\" />
      <Folder Include="Pages\Restaurant\" />
      <Folder Include="Pages\Shared\" />
+     <Folder Include="Services\" />
    </ItemGroup>
 </Project>
