@@ -11,13 +11,15 @@ namespace ContosoCrafts.WebSite.Services
 {
     public class JsonFileProductService
     {
+        // Constructor to inject the hosting environment
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
 
+        // Property to access the hosting environment
         public IWebHostEnvironment WebHostEnvironment { get; }
-
+        // Private method to return the full path of the products JSON file
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
@@ -35,7 +37,7 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
-
+        // Public method to add a rating to a product
         public void AddRating(string productId, int rating)
         {
             var products = GetProducts();
