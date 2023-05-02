@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ContosoCrafts.WebSite.Models;
 // Import the namespace for the services used by the ProductsController.
 using ContosoCrafts.WebSite.Services;
-//Declare a new namespace for the ProductsController..
+//Declare new namespace for the ProductsController..
 namespace ContosoCrafts.WebSite.Controllers
 {
     // Indicate that this controller should use the default behavior for API controllers.
