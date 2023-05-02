@@ -43,13 +43,12 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         }
 
         /// <summary>
-        /// Post the model back to the page
-        /// The model is in the class variable Product
-        /// Call the data layer to Update that data
-        /// Then return to the index page
+        /// Handles the onPost request to update a ProductModel object.
+        /// If the ModelState is invalid, the method returns the current page.
+        /// Otherwise, the method updates the data for the ProductModel object
+        /// using the ProductService, and redirects the user to the Index page.
         /// </summary>
-        /// <returns></returns>
-
+        /// <returns>redirect to Index page</returns>
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
