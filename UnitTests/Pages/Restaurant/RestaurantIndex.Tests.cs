@@ -1,8 +1,14 @@
-﻿using System.Linq;
+﻿// Import the System.Linq namespace for LINQ extension methods
+using System.Linq;
+// Import the NUnit.Framework namespace for NUnit testing
 using NUnit.Framework;
+// Import the Restaurant page model
 using ContosoCrafts.WebSite.Pages.Restaurant;
+// Import the NUnit.Framework.Internal namespace for NUnit testing
 using NUnit.Framework.Internal;
+// Import the ProductModel class
 using ContosoCrafts.WebSite.Models;
+// Import the System.Collections.Generic namespace for collections
 using System.Collections.Generic;
 
 
