@@ -48,10 +48,11 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         }
 
         /// <summary>
-        /// Post the model back to the page
-        /// The model is in the class variable Product
-        /// Call the data layer to Delete that data
-        /// Then return to the index page
+        /// The "OnPost" method is defined, which is called when the form on the page is submitted with a POST request. The method first checks if the model state is valid.
+        /// If it is not, the method returns the current page to show validation errors.
+        /// If the model state is valid, the "DeleteData" method on the "ProductService" property is called with the "Id" property of the "Product" object as the parameter.
+        /// This deletes the data for the specified record.
+        /// Finally, the method returns a redirect to the "Index" page of the restaurant data.
         /// </summary>
         /// <returns></returns>
         public IActionResult OnPost()
