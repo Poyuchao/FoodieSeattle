@@ -34,8 +34,12 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         public ProductModel Product { get; set; }
 
         /// <summary>
-        /// REST Get request
-        /// Loads the Data
+        /// The "OnGet" method is defined, which takes a string parameter called "id".
+        /// This method is called when the page is loaded with a GET request.
+        /// The method calls the "GetProducts" method on the "ProductService" property,
+        /// which returns a list of "ProductModel" objects.
+        /// The "FirstOrDefault" LINQ method is called on the list to find the first object whose "Id" property equals the "id" parameter.
+        /// If a matching object is found, it is assigned to the "Product" property.
         /// </summary>
         /// <param name="id"></param>
         public void OnGet(string id)
