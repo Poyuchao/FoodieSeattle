@@ -118,7 +118,7 @@ namespace ContosoCrafts.WebSite.Services
 
         /// <summary>
         /// Create a new product using default values. After creation, the user can
-        /// update to set values
+        /// update to set value
         /// </summary>
         /// <returns></returns>
         public ProductModel CreateData()
