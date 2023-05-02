@@ -14,6 +14,9 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
     public class DeleteModel : PageModel
     {
         // Data middletier
+        /// <summary>
+        /// The "DeleteModel" class is defined, which inherits from the "PageModel" class provided by the Razor Pages framework in ASP.NET Core.
+        /// </summary>
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
