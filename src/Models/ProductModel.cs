@@ -1,6 +1,6 @@
 // Import the System.Text.Json namespace for working with JSON data.
 using System.Text.Json;
-// Import the System.Text.Json.Serialization namespace for working with JSON serialization attributes.
+// Import the System.Text.Json.Serialization namespace for working with JSON serialization attribute.
 using System.Text.Json.Serialization;
 
 namespace ContosoCrafts.WebSite.Models
