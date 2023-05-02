@@ -11,6 +11,14 @@ namespace UnitTests.Services
 {
 	public interface JasonFileProductServiceTests
 	{
-	}
+        #region TestSetup
+
+        [SetUp]
+        public void TestInitialize()
+        {
+        }
+
+        #endregion TestSetup
+    }
 }
 
