@@ -14,6 +14,9 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
     public class DeleteModel : PageModel
     {
         // Data middletier
+        /// <summary>
+        /// The "DeleteModel" class is defined, which inherits from the "PageModel" class provided by the Razor Pages framework in ASP.NET Core.
+        /// </summary>
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
@@ -31,8 +34,12 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         public ProductModel Product { get; set; }
 
         /// <summary>
-        /// REST Get request
-        /// Loads the Data
+        /// The "OnGet" method is defined, which takes a string parameter called "id".
+        /// This method is called when the page is loaded with a GET request.
+        /// The method calls the "GetProducts" method on the "ProductService" property,
+        /// which returns a list of "ProductModel" objects.
+        /// The "FirstOrDefault" LINQ method is called on the list to find the first object whose "Id" property equals the "id" parameter.
+        /// If a matching object is found, it is assigned to the "Product" property.
         /// </summary>
         /// <param name="id"></param>
         public void OnGet(string id)
@@ -41,10 +48,11 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         }
 
         /// <summary>
-        /// Post the model back to the page
-        /// The model is in the class variable Product
-        /// Call the data layer to Delete that data
-        /// Then return to the index page
+        /// The "OnPost" method is defined, which is called when the form on the page is submitted with a POST request. The method first checks if the model state is valid.
+        /// If it is not, the method returns the current page to show validation errors.
+        /// If the model state is valid, the "DeleteData" method on the "ProductService" property is called with the "Id" property of the "Product" object as the parameter.
+        /// This deletes the data for the specified record.
+        /// Finally, the method returns a redirect to the "Index" page of the restaurant data.
         /// </summary>
         /// <returns></returns>
         public IActionResult OnPost()
