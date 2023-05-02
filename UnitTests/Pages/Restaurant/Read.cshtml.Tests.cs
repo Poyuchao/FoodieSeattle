@@ -42,7 +42,7 @@ namespace UnitTests.Pages.Restaurant.Read
 
             //Assert
 
-            Assert.AreEqual(expectedProduct, result);
+            Assert.AreEqual(expectedProduct, result);//match the result read unit
 
             
         }
