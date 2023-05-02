@@ -19,7 +19,9 @@ namespace ContosoCrafts.WebSite.Services
 
         // Property to access the hosting environment
         public IWebHostEnvironment WebHostEnvironment { get; }
-        // Private method to return the full path of the products JSON file
+        /// <summary>
+        /// Private method to return the full path of the products JSON file
+        /// </summary>
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
@@ -37,7 +39,11 @@ namespace ContosoCrafts.WebSite.Services
                     });
             }
         }
-        // Public method to add a rating to a product
+        /// <summary>
+        /// Public method to add a rating to a product
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="rating"></param>
         public void AddRating(string productId, int rating)
         {
             var products = GetProducts();
