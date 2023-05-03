@@ -35,6 +35,9 @@ namespace UnitTests.Services.JsonFileProductServiceTests
 
 
         #region GetProduct
+        ///<summary>
+        ///Verifies that the count of all restaurants is equal to fourteen in the JSON file.
+        ///</summary>
         public void ProveAllRestaurant_is_equal_to_fourteen_in_JsonFile()
         {
             //Arrange
@@ -67,6 +70,10 @@ namespace UnitTests.Services.JsonFileProductServiceTests
             Assert.AreEqual(false, result);
         }
 
+
+        /// <summary>
+        /// Verifies that adding a rating to a valid product with existing ratings should add a new rating.
+        /// </summary>
         [Test]
         public void AddRating_Valid_Product_WithRatings_Should_Add_Rating()
         {
@@ -84,6 +91,12 @@ namespace UnitTests.Services.JsonFileProductServiceTests
             Assert.AreEqual(2, updatedData.Ratings.Last());
         }
 
+
+
+        /// <summary>
+        /// Verifies that adding a rating to a valid product with no ratings should add a new rating.
+        /// </summary>
+
         [Test]
         public void AddRating_Valid_Product_NoRatings_Should_Add_Rating()
         {
@@ -100,6 +113,11 @@ namespace UnitTests.Services.JsonFileProductServiceTests
             Assert.AreEqual(4, updatedData.Ratings[0]);
         }
 
+
+        /// <summary>
+        /// Verifies that adding a rating to an invalid product not found should return false.
+        /// </summary>
+
         [Test]
         public void AddRating_InValid_Product_NotFound_Should_Return_False()
         {
@@ -114,6 +132,10 @@ namespace UnitTests.Services.JsonFileProductServiceTests
         }
 
 
+        /// <summary>
+        /// Verifies that adding a rating to an invalid product should return false.
+        /// </summary>
+
         [Test]
         public void AddRating_InValid_()
         {
@@ -126,6 +148,10 @@ namespace UnitTests.Services.JsonFileProductServiceTests
             Assert.AreEqual(false, result);
         }
 
+
+        /// <summary>
+        /// Verifies that adding a rating to an invalid product not found should return false.
+        /// </summary>
         [Test]
         public void AddRating_InValid_Rating_Below_Zero_Should_Return_False()
         {
