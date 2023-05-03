@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -157,6 +158,11 @@ namespace ContosoCrafts.WebSite.Services
             SaveData(newDataSet);
 
             return data;
+        }
+
+        public object GetAllData()
+        {
+            throw new NotImplementedException();
         }
     }
 }
