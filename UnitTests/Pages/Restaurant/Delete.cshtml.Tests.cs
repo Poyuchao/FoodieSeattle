@@ -10,7 +10,7 @@ using Moq;
 using System.Reflection;
 using System.Reflection.Metadata;
 
-namespace ContosoCrafts.WebSite.Pages.Product
+namespace UnitTests.Pages.Restaurant.Delete
 {
     /// <summary>
     /// Manage the deletion of data for a single record
