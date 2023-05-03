@@ -169,7 +169,9 @@ namespace UnitTests.Services.JsonFileProductServiceTests
 
 
 
-        // ....
+        /// <summary>
+        /// Verifies that adding a valid rating to a valid product should return true.
+        /// </summary>
 
         [Test]
         public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
