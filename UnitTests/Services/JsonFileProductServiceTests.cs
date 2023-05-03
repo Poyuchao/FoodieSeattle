@@ -192,6 +192,9 @@ namespace UnitTests.Services.JsonFileProductServiceTests
             Assert.AreEqual(5, dataNewList.Ratings.Last());
         }
 
+        /// <summary>
+        /// Verifies that adding a rating with a value above five should return false.
+        /// </summary>
 
         [Test]
         public void AddRating_InValid_Rating_Above_Five_Should_Return_False()
