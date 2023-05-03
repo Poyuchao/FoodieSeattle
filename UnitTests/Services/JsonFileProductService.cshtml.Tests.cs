@@ -98,7 +98,6 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Verifies that adding a rating to a valid product with no ratings should add a new rating.
         /// </summary>
-
         [Test]
         public void AddRating_Valid_Product_NoRatings_Should_Add_Rating()
         {
@@ -119,7 +118,6 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Verifies that adding a rating to an invalid product not found should return false.
         /// </summary>
-
         [Test]
         public void AddRating_InValid_Product_NotFound_Should_Return_False()
         {
@@ -137,7 +135,6 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Verifies that adding a rating to an invalid product should return false.
         /// </summary>
-
         [Test]
         public void AddRating_InValid_()
         {
@@ -174,7 +171,6 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Verifies that adding a valid rating to a valid product should return true.
         /// </summary>
-
         [Test]
         public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
         {
@@ -197,7 +193,6 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Verifies that adding a rating with a value above five should return false.
         /// </summary>
-
         [Test]
         public void AddRating_InValid_Rating_Above_Five_Should_Return_False()
         {
@@ -219,9 +214,6 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Verifies that updating invalid data should both return null.
         /// </summary>
-
-
-
         [Test]
         public void UpdateData_not_Valid_should_both_return_null()
         {
@@ -251,7 +243,6 @@ namespace UnitTests.Services.JsonFileProductService
         /// <summary>
         /// Verifies that updating an existing product should update the product and return the updated product.
         /// </summary>
-
         [Test]
         public void UpdateData_ExistingProduct_Should_UpdateProduct_And_ReturnUpdatedProduct()
         {
@@ -338,12 +329,6 @@ namespace UnitTests.Services.JsonFileProductService
 
         }
         #endregion DeleteData
-
-
-
     }
-
-
-
 }
 
