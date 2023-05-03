@@ -41,37 +41,58 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
         /// <summary>
-        /// Public method to add a rating to a product
+        /// Add rating to product
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="rating"></param>
-        public void AddRating(string productId, int rating)
+        /// <returns></returns>
+        public bool AddRating(string productId, int rating)
         {
+            if (string.IsNullOrEmpty(productId))
+            {
+                return false;
+            }
+
+            // List of all products from the database
             var products = GetProducts();
 
-            if (products.First(x => x.Id == productId).Ratings == null)
+            var data = products.FirstOrDefault(x => x.Id.Equals(productId));
+            if (data == null)
             {
-                products.First(x => x.Id == productId).Ratings = new int[] { rating };
-            }
-            else
-            {
-                var ratings = products.First(x => x.Id == productId).Ratings.ToList();
-                ratings.Add(rating);
-                products.First(x => x.Id == productId).Ratings = ratings.ToArray();
+                return false;
             }
 
-            using (var outputStream = File.OpenWrite(JsonFileName))
+            // Check Rating for boundries, do not allow ratings below 0
+            if (rating < 0)
             {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    products
-                );
+                return false;
             }
+
+            // Check Rating for boundries, do not allow ratings above 5
+            if (rating > 5)
+            {
+                return false;
+            }
+
+            // Check to see if the rating exist, if there are none, then create the array
+            if (data.Ratings == null)
+            {
+                data.Ratings = new int[] { };
+            }
+
+            // Add the Rating to the Array
+            var ratings = data.Ratings.ToList();
+            ratings.Add(rating);
+            data.Ratings = ratings.ToArray();
+
+            // Save the data back to the data store
+            SaveData(products);
+
+            return true;
         }
+
+
+
 
         /// <summary>
         /// Finds prouct in ProductModel, updates the product with user entered data,
@@ -164,5 +185,7 @@ namespace ContosoCrafts.WebSite.Services
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
