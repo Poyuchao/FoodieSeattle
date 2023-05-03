@@ -46,7 +46,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// Handles the onPost request to update a ProductModel object.
         /// If the ModelState is invalid, the method returns the current page.
         /// Otherwise, the method updates the data for the ProductModel object
-        /// using the ProductService, and redirects the user to the RestaurantIndex page.
+        /// using the ProductService, and redirects the user to the Restaurant/Index page.
         /// </summary>
         /// <returns>redirect to Index page</returns>
         public IActionResult OnPost()
