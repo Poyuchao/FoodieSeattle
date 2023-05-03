@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace UnitTests.Pages
 
 {
-    public class AboutTests
+    public class About
     {
     }
 }
