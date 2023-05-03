@@ -19,7 +19,7 @@ namespace UnitTests.Pages.Restaurant.Index
     /// <summary>
     /// Unit testing for the Restaurant/Index page
     /// </summary>
-    public class IndexTest
+    public class Index
     {
         // Declare a private field for the Restaurant page model
         private IndexModel IndexModel;
