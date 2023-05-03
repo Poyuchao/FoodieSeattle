@@ -1,9 +1,6 @@
 ﻿using System.Linq;
-
 using Microsoft.AspNetCore.Mvc;
-
 using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -48,13 +45,13 @@ namespace UnitTests.Pages.Product.Delete
 
             // Act
             // Call the OnGet() method of the PageModel object with a valid product ID.
-            pageModel.OnGet("selinazawacki-shirt");
+            pageModel.OnGet("burger-king");
 
             // Assert
             // Check that the ModelState of the PageModel object is valid and that the
             // Title of the returned Product matches the expected value.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Floppy Crop", pageModel.Product.Title);
+            Assert.AreEqual("Kashiba", pageModel.Product.Title);
         }
         #endregion OnGet
 
