@@ -9,7 +9,7 @@ using ContosoCrafts.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 
-namespace UnitTests.Pages.Product.Delete
+namespace UnitTests.Pages.Restaurant.Delete
 {
     /// <summary>
     /// Manage the deletion of data for a single record
