@@ -1,6 +1,9 @@
 ﻿using System.Linq;
+
 using Microsoft.AspNetCore.Mvc;
+
 using NUnit.Framework;
+
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,6 +16,18 @@ namespace UnitTests.Pages.Product.Delete
     /// </summary>
     public class DeleteTests
     {
+        // Global existing valid name property for use in tests
+        private const string Name = "Sushi Kashiba";
+
+        // Global existing valid Id property for use in tests
+        private const string Id = "kashiba-pic";
+
+        // Global attribute property for invalid model state
+        private const string ModelAttribute = "bogus";
+
+        // Global error string to test invalid model state
+        private const string Error = "bogus error";
+
         // Represents test setup region for DeleteModel pageModel
         #region TestSetup
         public static DeleteModel pageModel;
@@ -32,6 +47,28 @@ namespace UnitTests.Pages.Product.Delete
 
         #endregion TestSetup
 
+
+        /// <summary>
+        /// Tests whether the OnGet() method of a PageModel object returns valid
+        /// products given a valid product ID.
+        /// </summary>
+        #region OnGet
+        [Test]
+        public void OnGet_Valid_Should_Return_Products()
+        {
+            // Arrange
+
+            // Act
+            // Call the OnGet() method of the PageModel object with a valid product ID.
+            pageModel.OnGet(Id);
+
+            // Assert
+            // Check that the ModelState of the PageModel object is valid and that the
+            // Name of the returned Product matches the expected value.
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(Name, pageModel.Product.Title);
+        }
+        #endregion OnGet
 
 
 
@@ -71,15 +108,15 @@ namespace UnitTests.Pages.Product.Delete
             // Arrange
             pageModel.Product = new ProductModel
             {
-                Id = "mock",
-                Title = "mock",
-                Description = "mock",
-                Url = "mock",
-                Image = "mock"
+                Id = ModelAttribute,
+                Title = ModelAttribute,
+                Description = ModelAttribute,
+                Url = ModelAttribute,
+                Image = ModelAttribute
             };
 
             // Force an invalid error state
-            pageModel.ModelState.AddModelError("mock", "mock error");
+            pageModel.ModelState.AddModelError(ModelAttribute, Error);
 
             // Act
             var result = pageModel.OnPost() as ActionResult;
