@@ -14,15 +14,15 @@ using System.Collections.Generic;
 
 
 
-namespace UnitTests.Pages.RestaurantIndex
+namespace UnitTests.Pages.Restaurant.Index
 {
     /// <summary>
     /// Unit testing for the RestaurantIndex page
     /// </summary>
-    public class RestaurantIndexTest
+    public class IndexTest
     {
         // Declare a private field for the Restaurant page model
-        private RestaurantIndexModel IndexModel;
+        private IndexModel IndexModel;
         // Declare a private field for the expected list of products
         private List<ProductModel> expectedProducts;
 
@@ -35,7 +35,7 @@ namespace UnitTests.Pages.RestaurantIndex
         public void SetUp()
         {
             // Instantiate the Restaurant page model with a test ProductService dependency
-            IndexModel = new RestaurantIndexModel(TestHelper.ProductService);
+            IndexModel = new IndexModel(TestHelper.ProductService);
             // Initialize the expected list of products to the result of calling ToList()
             // on the products returned by the test ProductService
             expectedProducts = TestHelper.ProductService.GetProducts().ToList();
