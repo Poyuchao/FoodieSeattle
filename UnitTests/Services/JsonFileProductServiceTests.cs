@@ -275,6 +275,9 @@ namespace UnitTests.Services.JsonFileProductServiceTests
 
 
         #region CreateData
+        /// <summary>
+        /// Verifies that calling CreateData should return the new all products count greater than the old all products count.
+        /// </summary>
         [Test]
         public void CreateData_Should_Return_newAllProductNum_greater_than_oldAllProductsNum()
         {
@@ -290,6 +293,9 @@ namespace UnitTests.Services.JsonFileProductServiceTests
             Assert.Greater(NewAllProductsNum, OldAllProductsNum);
 
         }
+        /// <summary>
+        /// Verifies that calling CreateData should add a new product to the product list.
+        /// </summary>
 
         [Test]
         public void CreateData_Should_Add_New_Product_To_ProductList()
@@ -308,9 +314,12 @@ namespace UnitTests.Services.JsonFileProductServiceTests
 
         #endregion CreateData
 
-        
+
 
         #region DeleteData
+        /// <summary>
+        /// Verifies that calling DeleteData should return the new all products count less than the old all products count.
+        /// </summary>
         [Test]
         public void DeleteData_Should_Return_newAllProductNum_less_than_oldAllProductsNum()
         {
