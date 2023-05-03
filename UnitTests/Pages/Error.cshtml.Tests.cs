@@ -11,23 +11,16 @@ namespace UnitTests.Pages.Error
         #region TestSetup
 
 
-        /// <summary>
-        /// The ErrorModel instance used for testing.
-        /// </summary>
+        // The ErrorModel instance used for testing.
         public static ErrorModel pageModel;
 
         [SetUp]
         public void TestInitialize()
         {
-            /// <summary>
             /// Create a mock logger for the ErrorModel instance.
-            /// </summary>
             var MockLoggerDirect = Mock.Of<ILogger<ErrorModel>>();
 
-            /// <summary>
             /// Set up the ErrorModel instance with a PageContext and TempData.
-            /// </summary>
-
             pageModel = new ErrorModel(MockLoggerDirect)
             {
                 PageContext = TestHelper.PageContext,
