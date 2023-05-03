@@ -14,11 +14,13 @@ using ContosoCrafts.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc;
 
 /// <summary>
-/// Unit Test for all JsonFileProductServiceTests.cs blocks
+/// Unit Test for all JsonFileProductService.cshtml.Tests.cs blocks
 /// </summary>
-namespace UnitTests.Services.JsonFileProductServiceTests
+namespace UnitTests.Services.JsonFileProductService
 {
-    
+    /// <summary>
+    /// Unit tests for JsonFileProductService
+    /// </summary>
     public class JsonFileProductServiceTests
 	{
 
