@@ -58,7 +58,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
 
             ProductService.UpdateData(Product);
 
-            return RedirectToPage("/Restaurant/RestaurantIndex");
+            return RedirectToPage("/Restaurant/Index");
         }
     }
 }
