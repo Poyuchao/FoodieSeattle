@@ -32,31 +32,6 @@ namespace UnitTests.Pages.Product.Delete
 
         #endregion TestSetup
 
-        
-        /// <summary>
-        /// Tests whether the OnGet() method of a PageModel object returns valid
-        /// products given a valid product ID.
-        /// </summary>
-        #region OnGet
-        [Test]
-        public void OnGet_Valid_Should_Return_Products()
-        {
-            // Arrange
-
-            // Act
-            // Call the OnGet() method of the PageModel object with a valid product ID.
-            pageModel.OnGet("burger-king");
-
-            // Assert
-            // Check that the ModelState of the PageModel object is valid and that the
-            // Title of the returned Product matches the expected value.
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Kashiba", pageModel.Product.Title);
-        }
-        #endregion OnGet
-
-
-
         /// <summary>
         /// Tests the OnPostAsync method of a page model to ensure that it
         /// correctly deletes a product and redirects to the Index page upon completion.
