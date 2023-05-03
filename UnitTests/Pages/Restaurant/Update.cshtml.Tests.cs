@@ -13,9 +13,37 @@ namespace UnitTests.Pages.Restaurant.Update
     /// </summary>
     public class UpdateTests
     {
-        // UpdateModel object.
         #region TestSetup
+
+        // UpdateModel object.
         public static UpdateModel pageModel;
+
+        // Global valid existing Id property for use in tests
+        private const string ExistingId = "kashiba-pic";
+
+        // Global valid existing title property for use in tests
+        private const string ExistingTitle = "Sushi Kashiba";
+
+        // Global valid Mock Id property for use in tests
+        private const string MockId = "mamnoon-pic";
+
+        // Global valid Mock title property for use in tests
+        private const string MockTitle = "mamnoon";
+
+        // Global valid mock description property for use in tests
+        private const string MockDescription = "description";
+
+        // Global valid mock Url property for use in tests
+        private const string MockUrl = "url";
+
+        // Global valid mock Image property for use in tests
+        private const string MockImage = "image";
+
+        // Global ErrorAttribute property for invalid model state
+        private const string ErrorAttribute = "bogus";
+
+        // Global Error to test invalid model state
+        private const string Error = "bogus error";
 
         /// <summary>
         /// Initialize UpdateModel with a ProductService object. 
@@ -40,16 +68,13 @@ namespace UnitTests.Pages.Restaurant.Update
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
-            // Set up test restaurant attributes
-            string Id = "kashiba-pic";
-            string Title = "Sushi Kashiba";
 
             // Act
-            pageModel.OnGet(Id);
+            pageModel.OnGet(ExistingId);
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(Title, pageModel.Product.Title);
+            Assert.AreEqual(ExistingTitle, pageModel.Product.Title);
         }
         #endregion OnGet
 
@@ -66,11 +91,11 @@ namespace UnitTests.Pages.Restaurant.Update
             // Set up testing ProductModel object with sample data
             pageModel.Product = new ProductModel
             {
-                Id = "mamnoon-pic",
-                Title = "Mamnoon",
-                Description = "description",
-                Url = "url",
-                Image = "image"
+                Id = MockId,
+                Title = MockTitle,
+                Description = MockDescription,
+                Url = MockUrl,
+                Image = MockImage
             };
 
             // Act
@@ -92,7 +117,7 @@ namespace UnitTests.Pages.Restaurant.Update
             // Arrange
 
             // Force an invalid error state
-            pageModel.ModelState.AddModelError("bogus", "bogus error");
+            pageModel.ModelState.AddModelError(ErrorAttribute, Error);
 
             // Act
             var result = pageModel.OnPost() as ActionResult;
