@@ -16,16 +16,16 @@ namespace UnitTests.Pages.Product.Delete
     /// </summary>
     public class DeleteTests
     {
-        // Global existing valid name property for use in tests
-        private const string Name = "Sushi Kashiba";
+        // Global existing valid title property for use in tests
+        private const string title = "Sushi Kashiba";
 
         // Global existing valid Id property for use in tests
         private const string Id = "kashiba-pic";
 
-        // Global attribute property for invalid model state
-        private const string ModelAttribute = "bogus";
+        // Global ErrorAttribute property for invalid model state
+        private const string ErrorAttribute = "bogus";
 
-        // Global error string to test invalid model state
+        // Global Error to test invalid model state
         private const string Error = "bogus error";
 
         // Represents test setup region for DeleteModel pageModel
@@ -66,7 +66,7 @@ namespace UnitTests.Pages.Product.Delete
             // Check that the ModelState of the PageModel object is valid and that the
             // Name of the returned Product matches the expected value.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(Name, pageModel.Product.Title);
+            Assert.AreEqual(title, pageModel.Product.Title);
         }
         #endregion OnGet
 
@@ -108,15 +108,15 @@ namespace UnitTests.Pages.Product.Delete
             // Arrange
             pageModel.Product = new ProductModel
             {
-                Id = ModelAttribute,
-                Title = ModelAttribute,
-                Description = ModelAttribute,
-                Url = ModelAttribute,
-                Image = ModelAttribute
+                Id = ErrorAttribute,
+                Title = ErrorAttribute,
+                Description = ErrorAttribute,
+                Url = ErrorAttribute,
+                Image = ErrorAttribute
             };
 
             // Force an invalid error state
-            pageModel.ModelState.AddModelError(ModelAttribute, Error);
+            pageModel.ModelState.AddModelError(ErrorAttribute, Error);
 
             // Act
             var result = pageModel.OnPost() as ActionResult;
