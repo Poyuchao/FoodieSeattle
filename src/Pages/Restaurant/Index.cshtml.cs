@@ -8,13 +8,13 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Restaurant
 {
-    public class RestaurantIndexModel : PageModel
+    public class IndexModel : PageModel
     {
         /// <summary>
         /// Default Constructor
         /// </summary>
         /// <param name="productService"></param>
-        public RestaurantIndexModel (JsonFileProductService productService)
+        public IndexModel (JsonFileProductService productService)
         {
             ProductService = productService;
         }
