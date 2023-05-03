@@ -22,8 +22,10 @@
      <None Remove="Pages\Restaurant\" />
      <None Remove="Pages\Shared\" />
      <None Remove="Services\" />
+     <None Remove="Pages\Launch\" />
    </ItemGroup>
    <ItemGroup>
      <Folder Include="Pages\Shared\" />
+     <Folder Include="Pages\Launch\" />
    </ItemGroup>
 </Project>
