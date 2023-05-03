@@ -6,7 +6,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Restaurant;
 using ContosoCrafts.WebSite.Models;
 
-namespace UnitTests.Pages.Product.Update
+namespace UnitTests.Pages.Restaurant.Update
 {
     /// <summary>
     /// Unit tests for the Update page.
