@@ -3,7 +3,7 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Restaurant;
 
 
-namespace UnitTests.Pages.Product.Create
+namespace UnitTests.Pages.Restaurant.Create
 {
     /// <summary>
     /// Unit tests for create page
