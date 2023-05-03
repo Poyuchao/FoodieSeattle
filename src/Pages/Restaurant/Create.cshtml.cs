@@ -36,7 +36,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         {
             Product = ProductService.CreateData();
 
-            return RedirectToPage("/Restaurant/RestaurantIndex", new { Id = Product.Id });
+            return RedirectToPage("/Restaurant/Update", new { Id = Product.Id });
         }
     }
 }
