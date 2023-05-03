@@ -213,6 +213,13 @@ namespace UnitTests.Services.JsonFileProductServiceTests
         #endregion Addrating
 
         #region UpdateData
+
+        /// <summary>
+        /// Verifies that updating invalid data should both return null.
+        /// </summary>
+
+
+
         [Test]
         public void UpdateData_not_Valid_should_both_return_null()
         {
