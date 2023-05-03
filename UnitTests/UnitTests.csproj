@@ -25,6 +25,5 @@
    </ItemGroup>
    <ItemGroup>
      <Folder Include="Pages\Shared\" />
-     <Folder Include="Services\" />
    </ItemGroup>
 </Project>
