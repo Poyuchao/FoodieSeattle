@@ -10,9 +10,15 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
+    /// <summary>
+    /// Mediates communication between a ProductsController and Products Data.
+    /// </summary>
     public class JsonFileProductService
     {
-        // Constructor to inject the hosting environment
+        /// <summary>
+        /// Constructor to inject the hosting environment
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
@@ -20,6 +26,7 @@ namespace ContosoCrafts.WebSite.Services
 
         // Property to access the hosting environment
         public IWebHostEnvironment WebHostEnvironment { get; }
+
         /// <summary>
         /// Private method to return the full path of the products JSON file
         /// </summary>
@@ -28,7 +35,10 @@ namespace ContosoCrafts.WebSite.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
-        // Generate/retrieve a list of Product objects from JSON file.
+        /// <summary>
+        /// Generate/retrieve a list of Product objects from JSON file.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetProducts()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
@@ -101,6 +111,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="data"></param>
         public ProductModel UpdateData(ProductModel data)
         {
+            // Create new product model
             var products = GetProducts();
             var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
             if (productData == null)
@@ -108,6 +119,7 @@ namespace ContosoCrafts.WebSite.Services
                 return null;
             }
 
+            // Populate productData attributes
             productData.Title = data.Title;
             productData.Description = data.Description;
             productData.Url = data.Url;
@@ -165,7 +177,7 @@ namespace ContosoCrafts.WebSite.Services
 
 
         /// <summary>
-        /// Remove the item from the system
+        /// Removes the item from the system
         /// </summary>
         /// <returns></returns>
         public ProductModel DeleteData(string id)
@@ -180,12 +192,6 @@ namespace ContosoCrafts.WebSite.Services
 
             return data;
         }
-
-        public object GetAllData()
-        {
-            throw new NotImplementedException();
-        }
-
 
     }
 }
