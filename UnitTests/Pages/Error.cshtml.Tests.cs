@@ -6,6 +6,9 @@ using ContosoCrafts.WebSite.Pages;
 
 namespace UnitTests.Pages.Error
 {
+    /// <summary>
+    /// Unit testing for Error page
+    /// </summary>
     public class ErrorTests
     {
         #region TestSetup
@@ -14,6 +17,9 @@ namespace UnitTests.Pages.Error
         // The ErrorModel instance used for testing.
         public static ErrorModel pageModel;
 
+        /// <summary>
+        /// Initialize mock logger
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
