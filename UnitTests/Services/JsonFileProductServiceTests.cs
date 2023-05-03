@@ -244,6 +244,12 @@ namespace UnitTests.Services.JsonFileProductServiceTests
             Assert.IsNull(mcdonaldsRestaurant);
         }
 
+
+
+        /// <summary>
+        /// Verifies that updating an existing product should update the product and return the updated product.
+        /// </summary>
+
         [Test]
         public void UpdateData_ExistingProduct_Should_UpdateProduct_And_ReturnUpdatedProduct()
         {
