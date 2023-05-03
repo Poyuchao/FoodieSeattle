@@ -1,66 +1,117 @@
-﻿using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Linq;
-using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.Hosting;
-using Moq;
-using System.Reflection;
-using System.Reflection.Metadata;
+﻿using System.Linq;
 
-namespace UnitTests.Pages.Restaurant.Delete
+using Microsoft.AspNetCore.Mvc;
+
+using NUnit.Framework;
+
+using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Pages.Restaurant;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+
+namespace UnitTests.Pages.Product.Delete
 {
     /// <summary>
     /// Manage the deletion of data for a single record
     /// </summary>
-    public class DeleteModel : PageModel
+    public class DeleteTests
     {
-        // Data middletier
-        private readonly JsonFileProductService _productService;
+        // Represents test setup region for DeleteModel pageModel
+        #region TestSetup
+        public static DeleteModel pageModel;
 
         /// <summary>
-        /// Default Constructor
+        /// Initializes the test environment by creating a new DeleteModel
+        /// instance with a given ProductService.
         /// </summary>
-        /// <param name="productService"></param>
-        public DeleteModel(JsonFileProductService productService)
+        [SetUp]
+        public void TestInitialize()
         {
-            _productService = productService;
-        }
-
-        // Data that needs to be shown, bind it for the post
-        [BindProperty]
-        public ProductModel Product { get; set; }
-
-        /// <summary>
-        /// REST GET request
-        /// Loads the data
-        /// </summary>
-        /// <param name="id"></param>
-        public void OnGet(string id)
-        {
-            Product = _productService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
-        }
-
-        /// <summary>
-        /// Handles the POST request for deleting a product.
-        /// @return IActionResult - a response to the client's request.
-        /// If model state, invalid, function returns to current page.
-        /// Otherwise, it calls ProductService to delete the data for the given product ID.
-        /// Then, it redirects the client to the RestaurantIndex page.
-        /// </summary>
-        /// <returns></returns>
-        public IActionResult OnPost()
-        {
-            if (!ModelState.IsValid)
+            // Create new DeleteModel instance with productService
+            pageModel = new DeleteModel(TestHelper.ProductService)
             {
-                return Page();
-            }
-
-            _productService.DeleteData(Product.Id);
-
-            return RedirectToPage("/Restaurant/RestaurantIndex");
+            };
         }
+
+        #endregion TestSetup
+
+        
+        /// <summary>
+        /// Tests whether the OnGet() method of a PageModel object returns valid
+        /// products given a valid product ID.
+        /// </summary>
+        #region OnGet
+        [Test]
+        public void OnGet_Valid_Should_Return_Products()
+        {
+            // Arrange
+
+            // Act
+            // Call the OnGet() method of the PageModel object with a valid product ID.
+            pageModel.OnGet("selinazawacki-shirt");
+
+            // Assert
+            // Check that the ModelState of the PageModel object is valid and that the
+            // Title of the returned Product matches the expected value.
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("Floppy Crop", pageModel.Product.Title);
+        }
+        #endregion OnGet
+
+
+
+        /// <summary>
+        /// Tests the OnPostAsync method of a page model to ensure that it
+        /// correctly deletes a product and redirects to the Index page upon completion.
+        /// </summary>
+        #region OnPostAsync
+        [Test]
+        public void OnPostAsync_Valid_Should_Return_Products()
+        {
+            // Arrange
+
+            // First Create the product to delete
+            pageModel.Product = TestHelper.ProductService.CreateData();
+            pageModel.Product.Title = "Example to Delete";
+            TestHelper.ProductService.UpdateData(pageModel.Product);
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+
+            // Confirm the item is deleted
+            Assert.AreEqual(null, TestHelper.ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
+        }
+
+        /// <summary>
+        /// This function tests the OnPostAsync method of a page model to ensure that it
+        /// returns the current page when the model state is invalid.
+        /// </summary>
+        [Test]
+        public void OnPostAsync_InValid_Model_NotValid_Return_Page()
+        {
+            // Arrange
+            pageModel.Product = new ProductModel
+            {
+                Id = "mock",
+                Title = "mock",
+                Description = "mock",
+                Url = "mock",
+                Image = "mock"
+            };
+
+            // Force an invalid error state
+            pageModel.ModelState.AddModelError("mock", "mock error");
+
+            // Act
+            var result = pageModel.OnPost() as ActionResult;
+
+            // Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+        }
+        #endregion OnPostAsync
     }
 }
