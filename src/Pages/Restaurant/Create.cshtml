@@ -6,3 +6,64 @@
 @{
     ViewData["Title"] = "Create page";
 }
+
+<!--CRUDi: Create page to show: will redirect to Update Page-->
+
+<!--ACTIVATE ONCE CREATE.CSHTML.CS IS REDESIGNED-->
+@*<h1>Create</h1>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data" id="form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="product.Title" class="control-label">Restaurant Name</label>
+            <input asp-for="product.Title" class="form-control" />
+            <span asp-validation-for="product.Title" class="text-danger"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <label asp-for="product.Description" class="control-label">Brief Descripton</label>
+            <input asp-for="product.Description" class="form-control" />
+            <span asp-validation-for="product.Description" class="text-danger"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <label asp-for="product.Url" class="control-label">Link to Restaurant Website</label>
+            <input asp-for="product.Url" class="form-control" id="image-input" />
+            <span asp-validation-for="product.Image" class="text-danger"></span>
+            <span class="text-danger visually-hidden" id="image-error-text">Please provide the restaurant's main URL.</span>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <label asp-for="product.Image" class="control-label">Link to Restaurant Image</label>
+            <input asp-for="product.Image" class="form-control" id="image-input" />
+            <span asp-validation-for="product.Image" class="text-danger"></span>
+            <span class="text-danger visually-hidden" id="image-error-text">Please provide a valid image URL.</span>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <a type="button" value="Cancel" class="= btn btn-primary" asp-page="/Restaurant/Index">Cancel</a>
+            <input type="submit" value="Save" class="btn btn-primary" id="save" />
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossOrigin="anonymous"></script>
+<script src="~/js/imageUploadValidation.js"></script>*@
+
+
