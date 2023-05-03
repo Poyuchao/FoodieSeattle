@@ -52,7 +52,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// If it is not, the method returns the current page to show validation errors.
         /// If the model state is valid, the "DeleteData" method on the "ProductService" property is called with the "Id" property of the "Product" object as the parameter.
         /// This deletes the data for the specified record.
-        /// Finally, the method returns a redirect to the "Index" page of the restaurant data.
+        /// Finally, the method returns a redirect to the "RestaurantIndex" page of the restaurant data.
         /// </summary>
         /// <returns></returns>
         public IActionResult OnPost()
@@ -64,7 +64,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
 
             ProductService.DeleteData(Product.Id);
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Restaurant/RestaurantIndex");
         }
     }
 }
