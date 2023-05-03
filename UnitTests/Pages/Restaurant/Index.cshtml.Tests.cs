@@ -17,7 +17,7 @@ using System.Collections.Generic;
 namespace UnitTests.Pages.Restaurant.Index
 {
     /// <summary>
-    /// Unit testing for the RestaurantIndex page
+    /// Unit testing for the Restaurant/Index page
     /// </summary>
     public class IndexTest
     {
@@ -29,7 +29,7 @@ namespace UnitTests.Pages.Restaurant.Index
         [SetUp]
         /// <summary>
         /// Sets up the necessary objects and data for the test suite or class. Creates
-        /// an instance of the RestaurantIndexModel page model with a test ProductService
+        /// an instance of the Restaurant/IndexModel page model with a test ProductService
         /// dependency using the TestHelper class. It also initializes an expectedProducts list.
         /// </summary>
         public void SetUp()
@@ -42,7 +42,7 @@ namespace UnitTests.Pages.Restaurant.Index
         }
 
         /// <summary>
-        /// tests the "OnGet" method of the RestaurantIndexModel page model by checking
+        /// tests the "OnGet" method of the Restaurant/IndexModel page model by checking
         /// if it returns all the expected restaurants in data store (i.e. returns
         /// correct count).
         /// </summary>
