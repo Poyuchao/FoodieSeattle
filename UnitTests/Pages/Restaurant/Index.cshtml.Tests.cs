@@ -19,7 +19,7 @@ namespace UnitTests.Pages.Restaurant.Index
     /// <summary>
     /// Unit testing for the Restaurant/Index page
     /// </summary>
-    public class Index
+    public class IndexTests
     {
         // Declare a private field for the Restaurant page model
         private IndexModel IndexModel;
@@ -46,7 +46,7 @@ namespace UnitTests.Pages.Restaurant.Index
         /// if it returns all the expected restaurants in data store (i.e. returns
         /// correct count).
         /// </summary>
-                [Test]
+        [Test]
         public void OnGet_ReturnsAllRestaurantNums()
         {
             // Arrange
