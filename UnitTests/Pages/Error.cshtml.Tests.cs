@@ -59,7 +59,9 @@ namespace UnitTests.Pages.Error
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(activity.Id, pageModel.RequestId);
         }
-
+        /// <summary>
+        /// Test the OnGet method when an invalid Activity is set (i.e. null).
+        /// </summary>
         [Test]
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
