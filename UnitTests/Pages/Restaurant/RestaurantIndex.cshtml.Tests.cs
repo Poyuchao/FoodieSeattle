@@ -16,6 +16,9 @@ using System.Collections.Generic;
 
 namespace UnitTests.Pages.RestaurantIndex
 {
+    /// <summary>
+    /// Unit testing for the RestaurantIndex page
+    /// </summary>
     public class RestaurantIndexTest
     {
         // Declare a private field for the Restaurant page model
@@ -24,30 +27,43 @@ namespace UnitTests.Pages.RestaurantIndex
         private List<ProductModel> expectedProducts;
 
         [SetUp]
-        // Declare a setup method to instantiate the Restaurant page model and initialize the expected list of products
+        /// <summary>
+        /// Sets up the necessary objects and data for the test suite or class. Creates
+        /// an instance of the RestaurantIndexModel page model with a test ProductService
+        /// dependency using the TestHelper class. It also initializes an expectedProducts list.
+        /// </summary>
         public void SetUp()
         {
             // Instantiate the Restaurant page model with a test ProductService dependency
             IndexModel = new RestaurantIndexModel(TestHelper.ProductService);
-            // Initialize the expected list of products to the result of calling ToList() on the products returned by the test ProductService
+            // Initialize the expected list of products to the result of calling ToList()
+            // on the products returned by the test ProductService
             expectedProducts = TestHelper.ProductService.GetProducts().ToList();
         }
 
-        [Test]
+        /// <summary>
+        /// tests the "OnGet" method of the RestaurantIndexModel page model by checking
+        /// if it returns all the expected restaurants in data store (i.e. returns
+        /// correct count).
+        /// </summary>
+                [Test]
         public void OnGet_ReturnsAllRestaurantNums()
         {
             // Arrange
-            // Get the expected number of products by calling Count() on the products returned by the test ProductService
+            // Get the expected number of products by calling Count() on the products
+            // returned by the test ProductService
             var expectedRestaurantNums = TestHelper.ProductService.GetProducts().Count();
 
             // Act
             // Call the OnGet() method of the Restaurant page model to get the actual products
             IndexModel.OnGet();
-            // Get the actual number of products by calling Count() on the Products property of the Restaurant page model
+            // Get the actual number of products by calling Count() on the Products
+            // property of the Restaurant page model
             var actualRestaurantNums = IndexModel.Products.Count();
 
             // Assert
-            // Compare the expected number of products to the actual number of products and assert that they are equal
+            // Compare the expected number of products to the actual number of products
+            // and assert that they are equal
             Assert.AreEqual(expectedProducts.Count, actualRestaurantNums);
         }
     }
