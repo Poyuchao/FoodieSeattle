@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests.Services
+namespace UnitTests.Pages
+
 {
-    internal class AboutTests
+    public class AboutTests
     {
     }
 }
