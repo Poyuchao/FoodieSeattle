@@ -13,6 +13,7 @@
 .logo {
     margin-left: 2em;
     margin-right: 1em;
+    margin-right: auto;
 }
 
 /*header*/
@@ -21,13 +22,15 @@ navbarExample01 {
     background-color: #e8b986c6;
 }
 
+
 header {
     background-color: #e8b986c6;
     padding: 20px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: auto;
     align-items: center;
-   
 }
 
 .header-nav ul {
@@ -73,6 +76,8 @@ header {
 .header-title::before {
     content: url("");
 }
+
+
 
 .fas {
     font-size: 24px;
@@ -326,3 +331,24 @@ ul {
     opacity: 1;
     z-index: -1;
 }*/
+
+
+/*dropdown filter*/
+#filter {
+    height: 40px;
+    width: 200px;
+    font-size: 18px;
+    color: #333333;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: #4c3b29;
+    margin-left:auto;
+}
+
+#filter option {
+        font-size: 18px;
+        color: #4c3b29;
+    }
+
