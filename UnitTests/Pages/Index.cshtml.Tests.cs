@@ -8,7 +8,7 @@ using System.Linq;
 namespace UnitTests.Pages
 {
     /// <summary>
-    /// Unit tests for the Products Index Page.
+    /// Unit tests for the Restaurants Index Page.
     /// </summary>
     public class IndexTests
     {
@@ -25,7 +25,7 @@ namespace UnitTests.Pages
         {
             var mockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
 
-            _pageModel = new IndexModel(mockLoggerDirect, TestHelper.ProductService);
+            _pageModel = new IndexModel(mockLoggerDirect, TestHelper._RestaurantService);
         }
 
         #endregion TestSetup
@@ -48,10 +48,10 @@ namespace UnitTests.Pages
         }
 
         /// <summary>
-        /// Tests that when OnGet is called, products are returned. 
+        /// Tests that when OnGet is called, restaurants are returned. 
         /// </summary>
         [Test]
-        public void OnGet_Valid_Should_Return_Products()
+        public void OnGet_Valid_Should_Return_Restaurants()
         {
             // Arrange
 
@@ -59,7 +59,7 @@ namespace UnitTests.Pages
             _pageModel.OnGet();
 
             // Assert
-            Assert.AreEqual(true, _pageModel.Products.ToList().Any());
+            Assert.AreEqual(true, _pageModel.Restaurants.ToList().Any());
         }
 
         #endregion OnGet
