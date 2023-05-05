@@ -94,10 +94,10 @@ namespace UnitTests
             // Initialize test service with MockWebHostEnvironment
             _RestaurantService = new RestaurantService(MockWebHostEnvironment.Object);
 
-            // Declare JsonFileProductService instance
+            // Declare RestaurantService instance
             RestaurantService restaurantService;
 
-            // Initialize test productService with TestHelper.MockWebHostEnvironment
+            // Initialize test restaurantService with TestHelper.MockWebHostEnvironment
             restaurantService = new RestaurantService(TestHelper.MockWebHostEnvironment.Object);
         }
     }
