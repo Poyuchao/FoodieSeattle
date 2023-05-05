@@ -105,7 +105,7 @@ namespace ContosoCrafts.WebSite.Services
 
 
         /// <summary>
-        /// Finds prouct in RestaurantModel, updates the Restaurant with user entered data,
+        /// Finds restaurant in RestaurantModel, updates the Restaurant with user entered data,
         /// and saves to the data store.
         /// </summary>
         /// <param name="data"></param>
@@ -193,5 +193,39 @@ namespace ContosoCrafts.WebSite.Services
             return data;
         }
 
+        /// <summary>
+        /// Create a new restaurant object, add user input data to it, and save object in JSON file.
+        /// </summary>
+        /// <param name="name">name data entered by user</param>
+        /// <param name="image">image URL entered by user</param>
+        /// <param name="url">restaurant home website URL entered by user</param>
+        /// <param name="desc">short description entered by user</param>
+        /// <returns>A new RestaurantModel object to be later saved in JSON</returns>
+        public RestaurantModel AddData(string name, string desc, string url, string image)
+        {
+            // Create a new Restaurant model
+            var data = new RestaurantModel()
+            {
+                // Add user input data to the corresponding field
+                Id = name + "-pic",
+                Title = name,
+                Description = desc,
+                Url = url,
+                Image = image
+            };
+
+            // Get the current set, and append the new record to it 
+            var dataset = GetRestaurants();
+            var newdataset = dataset.Append(data);
+
+            // Save data set in JSON
+            SaveData(newdataset);
+
+            return data;
+        }
+
     }
+
+
+}
 }
