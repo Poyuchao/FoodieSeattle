@@ -23,9 +23,9 @@
 
     <header>
         <a href="/index">
-            <img class="logo" src="~/img/logo/Color_logo_no_background.png" width="316" height="62"/>
+            <img class="logo" src="~/img/logo/Color_logo_no_background.png" width="316" height="62" />
         </a>
-       
+
         <h1 class="header-title">
             <!--<i class="fas fa-utensils"></i><span style="font-size: 1.5em;font-weight:bold "><a href="/index" style="color: black">FoodieSeattle</a></span>-->
         </h1>
@@ -52,12 +52,29 @@
             </div>
 
         </nav>
-        <div class="search-container">
+
+        <!--filter dropdown-->
+        @*<label for="filter">Filter by:</label>*@
+    <select id="filter">
+        <option value="all">All Restaurants</option>
+        <option value="Caribbean">Caribbean</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Indian">Indian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Laotian">Laotian</option>
+        <option value="Mexican">Mexican</option>
+        <option value="Thai">Thai</option>
+        <option value="Vietnamese">Vietnamese</option>
+    </select>
+
+
+        <!--Search Bar-->
+        @*<div class="search-container">
             <form action="#">
                 <input type="text" placeholder="Search...">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
-        </div>
+        </div>*@
     </header>
 
 
