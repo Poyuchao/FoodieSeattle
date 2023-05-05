@@ -17,19 +17,19 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
     public class ReadModel : PageModel
     {
         // Data middle tier.
-        public JsonFileProductService ProductService { get; }
+        public RestaurantService _RestaurantService { get; }
 
         /// <summary>
         /// Defualt Construtor
         /// </summary>
-        /// <param name="productService">Instance of the data service we will use</param>
-        public ReadModel(JsonFileProductService productService)
+        /// <param name="restaurantService">Instance of the data service we will use</param>
+        public ReadModel(RestaurantService restaurantService)
         {
-            ProductService = productService;
+            _RestaurantService = restaurantService;
         }
 
-        //This is a public property of type ProductModel named Product. This property will hold the data to display on the page.
-        public ProductModel Product;
+        //This is a public property of type RestaurantModel named Restaurant. This property will hold the data to display on the page.
+        public RestaurantModel Restaurant;
 
         /// <summary>
         /// REST Get request
@@ -40,6 +40,6 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// REST Get request.
         /// </summary>
         /// <param name="id">The unique id of the restaurant to show</param>
-        public void OnGet(string id) => Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+        public void OnGet(string id) => Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
     }
 }
