@@ -20,19 +20,19 @@ namespace ContosoCrafts.WebSite.Pages
             RestaurantService restaurantService)
         {
             _logger = logger;
-            RestaurantService = restaurantService;
+            _RestaurantService = restaurantService;
         }
         //These are public properties named RestaurantService and Restaurants.
         //RestaurantService is of type RestaurantService, and Restaurants is of type IEnumerable<RestaurantModel>.
         //Restaurants will hold the list of Restaurants to display on the page.
-        public RestaurantService RestaurantService { get; }
+        public RestaurantService _RestaurantService { get; }
         public IEnumerable<RestaurantModel> Restaurants { get; private set; }
         //This is the OnGet method for the IndexModel class.
         //It retrieves the list of Restaurants using the RestaurantService property and assigns them to the
         //Restaurants property for display on the page.
         public void OnGet()
         {
-            Restaurants = RestaurantService.GetRestaurants();
+            Restaurants = _RestaurantService.GetRestaurants();
         }
     }
 }
