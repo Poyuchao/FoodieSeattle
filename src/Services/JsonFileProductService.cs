@@ -11,15 +11,15 @@ using Microsoft.AspNetCore.Hosting;
 namespace ContosoCrafts.WebSite.Services
 {
     /// <summary>
-    /// Mediates communication between a RestaurantController and Restaurants Data.
+    /// Mediates communication between a ProductsController and Products Data.
     /// </summary>
-    public class RestaurantService
+    public class JsonFileProductService
     {
         /// <summary>
         /// Constructor to inject the hosting environment
         /// </summary>
         /// <param name="webHostEnvironment"></param>
-        public RestaurantService(IWebHostEnvironment webHostEnvironment)
+        public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
@@ -28,22 +28,22 @@ namespace ContosoCrafts.WebSite.Services
         public IWebHostEnvironment WebHostEnvironment { get; }
 
         /// <summary>
-        /// Private method to return the full path of the Restaurants JSON file
+        /// Private method to return the full path of the products JSON file
         /// </summary>
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "Restaurants.json"); }
+            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
 
         /// <summary>
-        /// Generate/retrieve a list of Restaurant objects from JSON file.
+        /// Generate/retrieve a list of Product objects from JSON file.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<RestaurantModel> GetRestaurants()
+        public IEnumerable<ProductModel> GetProducts()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return JsonSerializer.Deserialize<RestaurantModel[]>(jsonFileReader.ReadToEnd(),
+                return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
@@ -51,22 +51,22 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
         /// <summary>
-        /// Add rating to 
+        /// Add rating to product
         /// </summary>
-        /// <param name="RestaurantId"></param>
+        /// <param name="productId"></param>
         /// <param name="rating"></param>
         /// <returns></returns>
-        public bool AddRating(string RestaurantId, int rating)
+        public bool AddRating(string productId, int rating)
         {
-            if (string.IsNullOrEmpty(RestaurantId))
+            if (string.IsNullOrEmpty(productId))
             {
                 return false;
             }
 
-            // List of all Restaurants from the database
-            var Restaurants = GetRestaurants();
+            // List of all products from the database
+            var products = GetProducts();
 
-            var data = Restaurants.FirstOrDefault(x => x.Id.Equals(RestaurantId));
+            var data = products.FirstOrDefault(x => x.Id.Equals(productId));
             if (data == null)
             {
                 return false;
@@ -96,7 +96,7 @@ namespace ContosoCrafts.WebSite.Services
             data.Ratings = ratings.ToArray();
 
             // Save the data back to the data store
-            SaveData(Restaurants);
+            SaveData(products);
 
             return true;
         }
@@ -105,59 +105,59 @@ namespace ContosoCrafts.WebSite.Services
 
 
         /// <summary>
-        /// Finds prouct in RestaurantModel, updates the Restaurant with user entered data,
+        /// Finds prouct in ProductModel, updates the product with user entered data,
         /// and saves to the data store.
         /// </summary>
         /// <param name="data"></param>
-        public RestaurantModel UpdateData(RestaurantModel data)
+        public ProductModel UpdateData(ProductModel data)
         {
-            // Create new Restaurant model
-            var Restaurants = GetRestaurants();
-            var RestaurantData = Restaurants.FirstOrDefault(x => x.Id.Equals(data.Id));
-            if (RestaurantData == null)
+            // Create new product model
+            var products = GetProducts();
+            var productData = products.FirstOrDefault(x => x.Id.Equals(data.Id));
+            if (productData == null)
             {
                 return null;
             }
 
-            // Populate RestaurantData attributes
-            RestaurantData.Title = data.Title;
-            RestaurantData.Description = data.Description;
-            RestaurantData.Url = data.Url;
-            RestaurantData.Image = data.Image;
+            // Populate productData attributes
+            productData.Title = data.Title;
+            productData.Description = data.Description;
+            productData.Url = data.Url;
+            productData.Image = data.Image;
 
-            SaveData(Restaurants);
+            SaveData(products);
 
-            return RestaurantData;
+            return productData;
         }
 
 
         /// <summary>
-        /// Save All Restaurant data to storage
+        /// Save All product data to storage
         /// </summary>
-        private void SaveData(IEnumerable<RestaurantModel> Restaurants)
+        private void SaveData(IEnumerable<ProductModel> products)
         {
 
             using (var outputStream = File.Create(JsonFileName))
             {
-                JsonSerializer.Serialize<IEnumerable<RestaurantModel>>(
+                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
                     new Utf8JsonWriter(outputStream, new JsonWriterOptions
                     {
                         SkipValidation = true,
                         Indented = true
                     }),
-                    Restaurants
+                    products
                 );
             }
         }
 
         /// <summary>
-        /// Create a new Restaurant using default values. After creation, the user can
+        /// Create a new product using default values. After creation, the user can
         /// update to set value
         /// </summary>
         /// <returns></returns>
-        public RestaurantModel CreateData()
+        public ProductModel CreateData()
         {
-            var data = new RestaurantModel()
+            var data = new ProductModel()
             {
                 Id = System.Guid.NewGuid().ToString(),
                 Title = "Enter Title",
@@ -167,7 +167,7 @@ namespace ContosoCrafts.WebSite.Services
             };
 
             // Get the current set, and append the new record to it
-            var dataSet = GetRestaurants();
+            var dataSet = GetProducts();
             dataSet = dataSet.Append(data);
 
             SaveData(dataSet);
@@ -180,51 +180,18 @@ namespace ContosoCrafts.WebSite.Services
         /// Removes the item from the system
         /// </summary>
         /// <returns></returns>
-        public RestaurantModel DeleteData(string id)
+        public ProductModel DeleteData(string id)
         {
             // Get the current set, and append the new record to it
-            var dataSet = GetRestaurants();
+            var dataSet = GetProducts();
             var data = dataSet.FirstOrDefault(m => m.Id.Equals(id));
 
-            var newDataSet = GetRestaurants().Where(m => m.Id.Equals(id) == false);
+            var newDataSet = GetProducts().Where(m => m.Id.Equals(id) == false);
 
             SaveData(newDataSet);
 
             return data;
         }
 
-        /// <summary>
-        /// Create a new restaurant object, add user input data to it, and save object in JSON file.
-        /// </summary>
-        /// <param name="name">name data entered by user</param>
-        /// <param name="image">image URL entered by user</param>
-        /// <param name="url">restaurant home website URL entered by user</param>
-        /// <param name="desc">short description entered by user</param>
-        /// <returns>A new NeighborhoodModel object to be later saved in JSON</returns>
-        public RestaurantModel AddData(string name, string desc, string url, string image)
-        {
-            // Create a new neighborhood model
-            var data = new RestaurantModel()
-            {
-                // Add user input data to the corresponding field
-                Id = name + "-pic",
-                Title = name,
-                Description = desc,
-                Url = url,
-                Image = image
-            };
-
-            // Get the current set, and append the new record to it 
-            var dataset = GetRestaurants();
-            var newdataset = dataset.Append(data);
-
-            // Save data set in JSON
-            SaveData(newdataset);
-
-            return data;
-        }
-
     }
-
-
 }

@@ -46,13 +46,13 @@ namespace UnitTests.Pages.Restaurant.Update
         private const string Error = "bogus error";
 
         /// <summary>
-        /// Initialize UpdateModel with a RestaurantService object. 
+        /// Initialize UpdateModel with a ProductService object. 
         /// </summary>
         [SetUp]
         public void TestInitialize()
         {
             // Initialize pageModel
-            pageModel = new UpdateModel(TestHelper._RestaurantService)
+            pageModel = new UpdateModel(TestHelper.ProductService)
             {
             };
         }
@@ -65,7 +65,7 @@ namespace UnitTests.Pages.Restaurant.Update
         /// </summary>
         #region OnGet
         [Test]
-        public void OnGet_Valid_Should_Return_Restaurants()
+        public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
 
@@ -74,7 +74,7 @@ namespace UnitTests.Pages.Restaurant.Update
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(ExistingTitle, pageModel.Restaurant.Title);
+            Assert.AreEqual(ExistingTitle, pageModel.Product.Title);
         }
         #endregion OnGet
 
@@ -85,11 +85,11 @@ namespace UnitTests.Pages.Restaurant.Update
         /// </summary>
         #region OnPost
         [Test]
-        public void OnPost_Valid_Should_Return_Restaurants()
+        public void OnPost_Valid_Should_Return_Products()
         {
             // Arrange
-            // Set up testing RestaurantModel object with sample data
-            pageModel.Restaurant = new RestaurantModel
+            // Set up testing ProductModel object with sample data
+            pageModel.Product = new ProductModel
             {
                 Id = MockId,
                 Title = MockTitle,

@@ -51,8 +51,8 @@ namespace UnitTests
         // Test PageContext object
         public static PageContext PageContext;
 
-        // Test instance of RestaurantService
-        public static RestaurantService _RestaurantService;
+        // Test instance of JsonFileProductService
+        public static JsonFileProductService ProductService;
 
         /// <summary>
         /// Default Constructor
@@ -92,13 +92,13 @@ namespace UnitTests
             };
 
             // Initialize test service with MockWebHostEnvironment
-            _RestaurantService = new RestaurantService(MockWebHostEnvironment.Object);
+            ProductService = new JsonFileProductService(MockWebHostEnvironment.Object);
 
-            // Declare RestaurantService instance
-            RestaurantService restaurantService;
+            // Declare JsonFileProductService instance
+            JsonFileProductService productService;
 
-            // Initialize test restaurantService with TestHelper.MockWebHostEnvironment
-            restaurantService = new RestaurantService(TestHelper.MockWebHostEnvironment.Object);
+            // Initialize test productService with TestHelper.MockWebHostEnvironment
+            productService = new JsonFileProductService(TestHelper.MockWebHostEnvironment.Object);
         }
     }
 }

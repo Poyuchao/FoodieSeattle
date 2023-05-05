@@ -6,10 +6,12 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Restaurant;
 // Import the NUnit.Framework.Internal namespace for NUnit testing
 using NUnit.Framework.Internal;
-// Import the RestaurantModel class
+// Import the ProductModel class
 using ContosoCrafts.WebSite.Models;
 // Import the System.Collections.Generic namespace for collections
 using System.Collections.Generic;
+
+
 
 
 namespace UnitTests.Pages.Restaurant.Index
@@ -21,22 +23,22 @@ namespace UnitTests.Pages.Restaurant.Index
     {
         // Declare a private field for the Restaurant page model
         private IndexModel IndexModel;
-        // Declare a private field for the expected list of restaurants
-        private List<RestaurantModel> expectedRestaurants;
+        // Declare a private field for the expected list of products
+        private List<ProductModel> expectedProducts;
 
         [SetUp]
         /// <summary>
         /// Sets up the necessary objects and data for the test suite or class. Creates
-        /// an instance of the Restaurant/IndexModel page model with a test RestaurantService
-        /// dependency using the TestHelper class. It also initializes an expectedRestaurants list.
+        /// an instance of the Restaurant/IndexModel page model with a test ProductService
+        /// dependency using the TestHelper class. It also initializes an expectedProducts list.
         /// </summary>
         public void SetUp()
         {
-            // Instantiate the Restaurant page model with a test RestaurantService dependency
-            IndexModel = new IndexModel(TestHelper._RestaurantService);
-            // Initialize the expected list of restaurants to the result of calling ToList()
-            // on the restaurants returned by the test RestaurantService
-            expectedRestaurants = TestHelper._RestaurantService.GetRestaurants().ToList();
+            // Instantiate the Restaurant page model with a test ProductService dependency
+            IndexModel = new IndexModel(TestHelper.ProductService);
+            // Initialize the expected list of products to the result of calling ToList()
+            // on the products returned by the test ProductService
+            expectedProducts = TestHelper.ProductService.GetProducts().ToList();
         }
 
         /// <summary>
@@ -48,21 +50,21 @@ namespace UnitTests.Pages.Restaurant.Index
         public void OnGet_ReturnsAllRestaurantNums()
         {
             // Arrange
-            // Get the expected number of restaurants by calling Count() on the restaurants
-            // returned by the test RestaurantService
-            var expectedRestaurantNums = TestHelper._RestaurantService.GetRestaurants().Count();
+            // Get the expected number of products by calling Count() on the products
+            // returned by the test ProductService
+            var expectedRestaurantNums = TestHelper.ProductService.GetProducts().Count();
 
             // Act
-            // Call the OnGet() method of the Restaurant page model to get the actual restaurants
+            // Call the OnGet() method of the Restaurant page model to get the actual products
             IndexModel.OnGet();
-            // Get the actual number of restaurants by calling Count() on the Restaurants
+            // Get the actual number of products by calling Count() on the Products
             // property of the Restaurant page model
-            var actualRestaurantNums = IndexModel.Restaurants.Count();
+            var actualRestaurantNums = IndexModel.Products.Count();
 
             // Assert
-            // Compare the expected number of restaurants to the actual number of restaurants
+            // Compare the expected number of products to the actual number of products
             // and assert that they are equal
-            Assert.AreEqual(expectedRestaurants.Count, actualRestaurantNums);
+            Assert.AreEqual(expectedProducts.Count, actualRestaurantNums);
         }
     }
 

@@ -34,13 +34,13 @@ namespace UnitTests.Pages.Restaurant.Delete
 
         /// <summary>
         /// Initializes the test environment by creating a new DeleteModel
-        /// instance with a given RestaurantService.
+        /// instance with a given ProductService.
         /// </summary>
         [SetUp]
         public void TestInitialize()
         {
-            // Create new DeleteModel instance with RestaurantService
-            pageModel = new DeleteModel(TestHelper._RestaurantService)
+            // Create new DeleteModel instance with productService
+            pageModel = new DeleteModel(TestHelper.ProductService)
             {
             };
         }
@@ -50,23 +50,23 @@ namespace UnitTests.Pages.Restaurant.Delete
 
         /// <summary>
         /// Tests whether the OnGet() method of a PageModel object returns valid
-        /// restaurants given a valid restaurant ID.
+        /// products given a valid product ID.
         /// </summary>
         #region OnGet
         [Test]
-        public void OnGet_Valid_Should_Return_Restaurants()
+        public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
 
             // Act
-            // Call the OnGet() method of the PageModel object with a valid restaurant ID.
+            // Call the OnGet() method of the PageModel object with a valid product ID.
             pageModel.OnGet(Id);
 
             // Assert
             // Check that the ModelState of the PageModel object is valid and that the
-            // Name of the returned Restaurant matches the expected value.
+            // Name of the returned Product matches the expected value.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(title, pageModel.Restaurant.Title);
+            Assert.AreEqual(title, pageModel.Product.Title);
         }
         #endregion OnGet
 
@@ -74,18 +74,18 @@ namespace UnitTests.Pages.Restaurant.Delete
 
         /// <summary>
         /// Tests the OnPostAsync method of a page model to ensure that it
-        /// correctly deletes a restaurant and redirects to the Index page upon completion.
+        /// correctly deletes a product and redirects to the Index page upon completion.
         /// </summary>
         #region OnPostAsync
         [Test]
-        public void OnPostAsync_Valid_Should_Return_Restaurants()
+        public void OnPostAsync_Valid_Should_Return_Products()
         {
             // Arrange
 
-            // First Create the restaurant to delete
-            pageModel.Restaurant = TestHelper._RestaurantService.CreateData();
-            pageModel.Restaurant.Title = "Example to Delete";
-            TestHelper._RestaurantService.UpdateData(pageModel.Restaurant);
+            // First Create the product to delete
+            pageModel.Product = TestHelper.ProductService.CreateData();
+            pageModel.Product.Title = "Example to Delete";
+            TestHelper.ProductService.UpdateData(pageModel.Product);
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;
@@ -95,7 +95,7 @@ namespace UnitTests.Pages.Restaurant.Delete
             Assert.AreEqual(true, result.PageName.Contains("Index"));
 
             // Confirm the item is deleted
-            Assert.AreEqual(null, TestHelper._RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(pageModel.Restaurant.Id)));
+            Assert.AreEqual(null, TestHelper.ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace UnitTests.Pages.Restaurant.Delete
         public void OnPostAsync_InValid_Model_NotValid_Return_Page()
         {
             // Arrange
-            pageModel.Restaurant = new RestaurantModel
+            pageModel.Product = new ProductModel
             {
                 Id = ErrorAttribute,
                 Title = ErrorAttribute,

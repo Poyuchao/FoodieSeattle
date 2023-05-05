@@ -13,17 +13,17 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// <summary>
         /// Default Constructor
         /// </summary>
-        /// <param name="restaurantService"></param>
-        public IndexModel (RestaurantService restaurantService)
+        /// <param name="productService"></param>
+        public IndexModel (JsonFileProductService productService)
         {
-            _RestaurantService = restaurantService;
+            ProductService = productService;
         }
 
         // Data Service
-        public RestaurantService _RestaurantService { get; }
+        public JsonFileProductService ProductService { get; }
 
         // Collection of the Data
-        public IEnumerable<RestaurantModel> Restaurants { get; private set; }
+        public IEnumerable<ProductModel> Products { get; private set; }
 
         /// <summary>
         /// REST OnGet
@@ -31,7 +31,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// </summary>
         public void OnGet()
         {
-            Restaurants = _RestaurantService.GetRestaurants();
+            Products = ProductService.GetProducts();
         }
     }
 }

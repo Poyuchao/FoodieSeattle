@@ -1,6 +1,6 @@
 ﻿@page "{id}"
 @using ContosoCrafts.WebSite.Services
-@inject RestaurantService _RestaurantService
+@inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Restaurant.DeleteModel
 
 
@@ -8,36 +8,36 @@
     ViewData["Title"] = "Delete page";
 }
 
-<!--CRUDi: Delete page to show: contains some data of the selected Restaurant and a button to confirm Delete-->
+<!--CRUDi: Delete page to show: contains some data of the selected product and a button to confirm Delete-->
 <h1>Delete</h1>
 
 <div class="container">
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @Html.HiddenFor(x => x.Restaurant.Id)
+        @Html.HiddenFor(x => x.Product.Id)
 
         <div class="form-group">
-            <label asp-for="Restaurant.Title" class="control-label"></label>
-            <input asp-for="Restaurant.Title" class="form-control" />
-            <span asp-validation-for="Restaurant.Title" class="text-danger"></span>
+            <label asp-for="Product.Title" class="control-label"></label>
+            <input asp-for="Product.Title" class="form-control" />
+            <span asp-validation-for="Product.Title" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Restaurant.Description" class="control-label"></label>
-            <input asp-for="Restaurant.Description" class="form-control" />
-            <span asp-validation-for="Restaurant.Description" class="text-danger"></span>
+            <label asp-for="Product.Description" class="control-label"></label>
+            <input asp-for="Product.Description" class="form-control" />
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Restaurant.Url" class="control-label"></label>
-            <input asp-for="Restaurant.Url" class="form-control" />
-            <span asp-validation-for="Restaurant.Url" class="text-danger"></span>
+            <label asp-for="Product.Url" class="control-label"></label>
+            <input asp-for="Product.Url" class="form-control" />
+            <span asp-validation-for="Product.Url" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Restaurant.Image" class="control-label"></label>
-            <input asp-for="Restaurant.Image" class="form-control" />
-            <span asp-validation-for="Restaurant.Image" class="text-danger"></span>
+            <label asp-for="Product.Image" class="control-label"></label>
+            <input asp-for="Product.Image" class="form-control" />
+            <span asp-validation-for="Product.Image" class="text-danger"></span>
         </div>
 
         <h1>Confirm Delete of this item</h1>

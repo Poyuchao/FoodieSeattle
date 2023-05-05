@@ -16,21 +16,21 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
     public class UpdateModel : PageModel
     {
         // Data middletier
-        public RestaurantService _RestaurantService { get; }
+        public JsonFileProductService ProductService { get; }
 
         /// <summary>
         /// Defualt Construtor
         /// </summary>
         /// <param name="logger"></param>
-        /// <param name="restaurantService"></param>
-        public UpdateModel(RestaurantService restaurantService)
+        /// <param name="productService"></param>
+        public UpdateModel(JsonFileProductService productService)
         {
-            _RestaurantService = restaurantService;
+            ProductService = productService;
         }
 
         // The data to show, bind to it for the post
         [BindProperty]
-        public RestaurantModel Restaurant { get; set; }
+        public ProductModel Product { get; set; }
 
         /// <summary>
         /// REST Get request
@@ -39,14 +39,14 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// <param name="id"></param>
         public void OnGet(string id)
         {
-            Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
 
         /// <summary>
-        /// Handles the onPost request to update a RestauranttModel object.
+        /// Handles the onPost request to update a ProductModel object.
         /// If the ModelState is invalid, the method returns the current page.
-        /// Otherwise, the method updates the data for the RestaurantModel object
-        /// using the RestaurantService, and redirects the user to the Restaurant/Index page.
+        /// Otherwise, the method updates the data for the ProductModel object
+        /// using the ProductService, and redirects the user to the Restaurant/Index page.
         /// </summary>
         /// <returns>redirect to Index page</returns>
         public IActionResult OnPost()
@@ -56,7 +56,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
                 return Page();
             }
 
-            _RestaurantService.UpdateData(Restaurant);
+            ProductService.UpdateData(Product);
 
             return RedirectToPage("/Restaurant/Index");
         }

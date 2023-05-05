@@ -1,43 +1,43 @@
 @using ContosoCrafts.WebSite.Models
 @using ContosoCrafts.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
-@inject RestaurantService _RestaurantService
+@inject JsonFileProductService ProductService
 
 <div class="card-columns">
-@foreach (var restaurant in _RestaurantService.GetRestaurants())
+@foreach (var product in ProductService.GetProducts())
 {
     <div class="card">
-        <div class="card-img" style="background-image: url('@restaurant.Image');">
+        <div class="card-img" style="background-image: url('@product.Image');">
         </div>
         <div class="card-body">
-            <h5 class="card-title">@restaurant.Title</h5>
+            <h5 class="card-title">@product.Title</h5>
         </div>
         <div class="card-footer">
-            <small class="text-muted"><button @onclick="(e => SelectRestaurant(restaurant.Id))" 
-              data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">More Info</button>
+            <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" 
+              data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
             </small>
         </div>
     </div>
 }
 </div>
 
-@if(selectedRestaurant != null)
+@if(selectedProduct != null)
 {
-  <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="restauranttTitle" aria-hidden="true">
+  <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="restauranttTitle">@selectedRestaurant.Title</h5>
+          <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="card">
-            <div class="card-img" style="background-image: url('@selectedRestaurant.Image');">
+            <div class="card-img" style="background-image: url('@selectedProduct.Image');">
             </div>
             <div class="card-body">
-                <p class="card-text">@selectedRestaurant.Description</p>
+                <p class="card-text">@selectedProduct.Description</p>
             </div>
           </div>
         </div>
@@ -72,13 +72,13 @@
 
 @code 
 {
-    RestaurantModel selectedRestaurant;
-    string selectedRestaurantId;
+    ProductModel selectedProduct;
+    string selectedProductId;
 
-    void SelectRestaurant(string restaurantId)
+    void SelectProduct(string productId)
     {
-      selectedRestaurantId = restaurantId;
-      selectedRestaurant = _RestaurantService.GetRestaurants().First(x => x.Id == restaurantId);
+      selectedProductId = productId;
+      selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
       GetCurrentRating();
     }
 
@@ -88,25 +88,25 @@
 
     void GetCurrentRating()
     {
-      if(selectedRestaurant.Ratings == null)
+      if(selectedProduct.Ratings == null)
       {
         currentRating = 0;
         voteCount = 0;
       }
       else
       {
-        voteCount = selectedRestaurant.Ratings.Count();
+        voteCount = selectedProduct.Ratings.Count();
         voteLabel = voteCount > 1 ? "Votes" : "Vote";
-        currentRating = selectedRestaurant.Ratings.Sum() / voteCount;
+        currentRating = selectedProduct.Ratings.Sum() / voteCount;
       }
 
-      System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
+      System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
     void SubmitRating(int rating)
     {
-      System.Console.WriteLine($"Rating received for {selectedRestaurant.Id}: {rating}");
-      _RestaurantService.AddRating(selectedRestaurantId, rating);
-      SelectRestaurant(selectedRestaurantId);
+      System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
+      ProductService.AddRating(selectedProductId, rating);
+      SelectProduct(selectedProductId);
     }
 }

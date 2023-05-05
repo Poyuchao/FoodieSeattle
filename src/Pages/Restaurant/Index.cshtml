@@ -23,11 +23,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var restaurant in Model.Restaurants)
+            @foreach (var product in Model.Products)
             {
                 <tr style="background-color: @(counter % 2 == 0 ? "beige" : "white")">
-                    <td style="font-size: 25px; position:center;">@restaurant.Title</td>
-                    <td style="text-align: left; font-size: 20px;"><a asp-page="Read" asp-route-id="@restaurant.Id">Read</a></td>
+                    <td style="font-size: 25px; position:center;">@product.Title</td>
+                    <td style="text-align: left; font-size: 20px;"><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
                 </tr>
                 counter++;
             }
