@@ -60,13 +60,13 @@ namespace UnitTests.Services.RestaurantService
         /// Invalid null Restaurant in Addrating should return false
         /// </summary>
         [Test]
-        public void AddRating_InValid_Product_Null_Should_Return_False()
+        public void AddRating_InValid_Restaurant_Null_Should_Return_False()
         {
             // Arrange
 
             // Act
             // Expected result
-            var result = TestHelper.ProductService.AddRating(null, 1);
+            var result = TestHelper._RestaurantService.AddRating(null, 1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -269,7 +269,7 @@ namespace UnitTests.Services.RestaurantService
 
         #region CreateData
         /// <summary>
-        /// Verifies that calling CreateData should return the new all restaurants count greater than the old all products count.
+        /// Verifies that calling CreateData should return the new all restaurants count greater than the old all restaurants count.
         /// </summary>
         [Test]
         public void CreateData_Should_Return_newAllRestaurantNum_greater_than_oldAllRestaurantsNum()
@@ -311,7 +311,7 @@ namespace UnitTests.Services.RestaurantService
 
         #region DeleteData
         /// <summary>
-        /// Verifies that calling DeleteData should return the new all restaurants count less than the old all products count.
+        /// Verifies that calling DeleteData should return the new all restaurants count less than the old all restaurants count.
         /// </summary>
         [Test]
         public void DeleteData_Should_Return_newAllRestaurantNum_less_than_oldAllRestaurantsNum()
