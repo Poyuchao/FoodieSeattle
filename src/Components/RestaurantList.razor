@@ -14,7 +14,7 @@
         </div>
         <div class="card-footer">
             <small class="text-muted"><button @onclick="(e => SelectRestaurant(restaurant.Id))" 
-              data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+              data-toggle="modal" data-target="#restauranttModal" class="btn btn-primary">More Info</button>
             </small>
         </div>
     </div>
@@ -23,11 +23,11 @@
 
 @if(selectedRestaurant != null)
 {
-  <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
+  <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="restauranttTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="productTitle">@selectedRestaurant.Title</h5>
+          <h5 class="modal-title" id="restauranttTitle">@selectedRestaurant.Title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
