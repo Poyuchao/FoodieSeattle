@@ -32,7 +32,7 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", ".json"); }
+            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "Restaurants.json"); }
         }
 
         /// <summary>
