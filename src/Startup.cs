@@ -21,14 +21,14 @@ namespace ContosoCrafts.WebSite
         // This method gets called by the runtime. Use this method to add services to the container.
         //This is the ConfigureServices method for the Startup class. It takes an IServiceCollection instance as
         //a parameter and is used to add services to the dependency injection container. In this method, the AddRazorPages, AddServerSideBlazor, AddHttpClient, AddControllers, a
-        //nd AddTransient<JsonFileProductService> methods are called to register the services for the application.
+        //nd AddTransient<RestaurantService> methods are called to register the services for the application.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHttpClient();
             services.AddControllers();
-            services.AddTransient<JsonFileProductService>();
+            services.AddTransient<RestaurantService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,10 +63,10 @@ namespace ContosoCrafts.WebSite
                 endpoints.MapControllers();
                 endpoints.MapBlazorHub();
 
-                // endpoints.MapGet("/products", (context) => 
+                // endpoints.MapGet("/restaurants", (context) => 
                 // {
-                //     var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
-                //     var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+                //     var restaurants = app.ApplicationServices.GetService<RestaurantService>().GetRestaurants();
+                //     var json = JsonSerializer.Serialize<IEnumerable<Restaurnat>>(restaurants);
                 //     return context.Response.WriteAsync(json);
                 // });
             });
