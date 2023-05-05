@@ -87,7 +87,34 @@
 <p style="line-height:5.5em;"> </p>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            //This line converts the forms NodeList into an array using the slice method and then loops over each form in the array using the forEach method.
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    //form.addEventListener('submit', function (event), the function performs form validation and stops the form from being submitted if there are validation errors.
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            //event.preventDefault() is called to prevent the form from being submitted and the page from reloading.
+                            event.preventDefault()
+                            // event.stopPropagation() is called inside the if statement to stop the propagation of the submit event if the form is invalid
+                            event.stopPropagation()
+                        } else {
+                            // Add a class to the valid feedback element to show it
+                            form.querySelector('.valid-feedback').classList.add('d-block');
+                        }
+
+                        //form.classList.add('was-validated') adds the was-validated class to the form element
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 }
