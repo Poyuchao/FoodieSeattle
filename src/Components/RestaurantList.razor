@@ -1,19 +1,19 @@
 @using ContosoCrafts.WebSite.Models
 @using ContosoCrafts.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
-@inject JsonFileProductService ProductService
+@inject RestaurantService _RestaurantService
 
 <div class="card-columns">
-@foreach (var product in ProductService.GetProducts())
+@foreach (var restaurant in _RestaurantService.GetRestaurants())
 {
     <div class="card">
-        <div class="card-img" style="background-image: url('@product.Image');">
+        <div class="card-img" style="background-image: url('@restaurant.Image');">
         </div>
         <div class="card-body">
-            <h5 class="card-title">@product.Title</h5>
+            <h5 class="card-title">@restaurant.Title</h5>
         </div>
         <div class="card-footer">
-            <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" 
+            <small class="text-muted"><button @onclick="(e => SelectRestaurant(restaurant.Id))" 
               data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
             </small>
         </div>
@@ -21,23 +21,23 @@
 }
 </div>
 
-@if(selectedProduct != null)
+@if(selectedRestaurant != null)
 {
   <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
+          <h5 class="modal-title" id="productTitle">@selectedRestaurant.Title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="card">
-            <div class="card-img" style="background-image: url('@selectedProduct.Image');">
+            <div class="card-img" style="background-image: url('@selectedRestaurant.Image');">
             </div>
             <div class="card-body">
-                <p class="card-text">@selectedProduct.Description</p>
+                <p class="card-text">@selectedRestaurant.Description</p>
             </div>
           </div>
         </div>
@@ -72,13 +72,13 @@
 
 @code 
 {
-    ProductModel selectedProduct;
-    string selectedProductId;
+    RestaurantModel selectedRestaurant;
+    string selectedRestaurantId;
 
-    void SelectProduct(string productId)
+    void SelectRestaurant(string restaurantId)
     {
-      selectedProductId = productId;
-      selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+      selectedRestaurantId = restaurantId;
+      selectedRestaurant = _RestaurantService.GetRestaurants().First(x => x.Id == restaurantId);
       GetCurrentRating();
     }
 
@@ -88,25 +88,25 @@
 
     void GetCurrentRating()
     {
-      if(selectedProduct.Ratings == null)
+      if(selectedRestaurant.Ratings == null)
       {
         currentRating = 0;
         voteCount = 0;
       }
       else
       {
-        voteCount = selectedProduct.Ratings.Count();
+        voteCount = selectedRestaurant.Ratings.Count();
         voteLabel = voteCount > 1 ? "Votes" : "Vote";
-        currentRating = selectedProduct.Ratings.Sum() / voteCount;
+        currentRating = selectedRestaurant.Ratings.Sum() / voteCount;
       }
 
-      System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
+      System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
     }
 
     void SubmitRating(int rating)
     {
-      System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
-      ProductService.AddRating(selectedProductId, rating);
-      SelectProduct(selectedProductId);
+      System.Console.WriteLine($"Rating received for {selectedRestaurant.Id}: {rating}");
+      _RestaurantService.AddRating(selectedRestaurantId, rating);
+      SelectRestaurant(selectedRestaurantId);
     }
 }
