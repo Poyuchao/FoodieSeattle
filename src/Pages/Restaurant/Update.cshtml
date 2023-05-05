@@ -7,47 +7,114 @@
     ViewData["Title"] = "Update page";
 }
 
+<p style="line-height:5.5em;"> </p>
 <h1>Update</h1>
-
+<p style="line-height:5.5em;"> </p>
 <!--CRUDi: Update page to show: Form for updating product/restaurant-->
-<div class="container">
-    <form method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @Html.HiddenFor(x => x.Product.Id)
+<!--class attribute is set to container needs-validation which is used for applying Bootstrap styling to the form and enabling client-side form validation respectively.-->
+<!--The method attribute is set to post which specifies the HTTP method to use when submitting the form.-->
+<!--The novalidate attribute is used to disable HTML5 built-in form validation.-->
+<form class="container needs-validation" method="post" novalidate>
 
-        <div class="form-group">
-            <label asp-for="Product.Title" class="control-label"></label>
-            <input asp-for="Product.Title" class="form-control" />
-            <span asp-validation-for="Product.Title" class="text-danger"></span>
+    <!--The asp-validation-summary attribute is set to ModelOnly which means that it will only display error messages for the top-level model-->
+    <!--Class attribute is set to text-danger which applies Bootstrap styling for the text color.-->
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!--This is a hidden input field that stores the Id property of the Product model.
+    It is generated using Razor syntax with the HiddenFor HTML helper method.-->
+    @Html.HiddenFor(x => x.Product.Id)
+
+    <!--This is a form group that contains a label and an input field for the Title property of the Product model.-->
+    <div class="form-group">
+
+        <!--The asp-for attribute is used to generate the label and input elements based on the Title property of the Product model.-->
+        <label asp-for="Product.Title" class="control-label"></label>
+
+        <!--The class attribute of the input field is set to form-control which applies Bootstrap styling to the input field.-->
+        <!--The id attribute is set to productTitle which is used to reference the input field in the JavaScript code.-->
+        <!--The required attribute is used to enable HTML5 built-in form validation to ensure that the input field is not empty.-->
+        <!--The data-val attribute is set to true which enables client-side validation using jQuery Unobtrusive Validation.-->
+        <!--The data-val-required attribute is used to specify a custom error message when the input field is empty.-->
+        <input asp-for="Product.Title" class="form-control" id="productTitle" required
+               data-val="true" data-val-required="Please provide the restaurant title" />
+
+        <!--The valid-feedback and invalid-feedback classes are used to display feedback messages when the input is valid or invalid, respectively.-->
+        <div class="valid-feedback">
+            Looks good!
         </div>
-
-        <div class="form-group">
-            <label asp-for="Product.Description" class="control-label"></label>
-            <input asp-for="Product.Description" class="form-control" />
-            <span asp-validation-for="Product.Description" class="text-danger"></span>
+        <div class="invalid-feedback">
+            Please provide a Restaurant title.
         </div>
+    </div>
 
-        <div class="form-group">
-            <label asp-for="Product.Url" class="control-label"></label>
-            <input asp-for="Product.Url" class="form-control" />
-            <span asp-validation-for="Product.Url" class="text-danger"></span>
+    <div class="form-group">
+        <label asp-for="Product.Description" class="control-label"></label>
+        <input asp-for="Product.Description" class="form-control" id="productDescription" required />
+        <div class="valid-feedback">
+            Looks good!
         </div>
-
-        <div class="form-group">
-            <label asp-for="Product.Image" class="control-label"></label>
-            <input asp-for="Product.Image" class="form-control" />
-            <span asp-validation-for="Product.Image" class="text-danger"></span>
+        <div class="invalid-feedback">
+            Please provide a description.
         </div>
+    </div>
 
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" />
+    <div class="form-group">
+        <label asp-for="Product.Url" class="control-label"></label>
+        <input asp-for="Product.Url" class="form-control" id="productUrl" required />
+        <div class="valid-feedback">
+            Looks good!
         </div>
-    </form>
+        <div class="invalid-feedback">
+            Please provide a valid URL.
+        </div>
+    </div>
 
-</div>
+    <div class="form-group">
+        <label asp-for="Product.Image" class="control-label"></label>
+        <input asp-for="Product.Image" class="form-control" id="productImage" required />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please provide an image.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+<p style="line-height:5.5em;"> </p>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <script>
+        //Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            //This line converts the forms NodeList into an array using the slice method and then loops over each form in the array using the forEach method.
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    //form.addEventListener('submit', function (event), the function performs form validation and stops the form from being submitted if there are validation errors.
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            //event.preventDefault() is called to prevent the form from being submitted and the page from reloading.
+                            event.preventDefault()
+                            // event.stopPropagation() is called inside the if statement to stop the propagation of the submit event if the form is invalid
+                            event.stopPropagation()
+                        } else {
+                            // Add a class to the valid feedback element to show it
+                            form.querySelector('.valid-feedback').classList.add('d-block');
+                        }
+
+                        //form.classList.add('was-validated') adds the was-validated class to the form element
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 }
