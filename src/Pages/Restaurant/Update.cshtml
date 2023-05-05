@@ -1,6 +1,6 @@
 ﻿@page "{id}"
 @using ContosoCrafts.WebSite.Services
-@inject JsonFileProductService ProductService
+@inject RestaurantService _RestaurantService
 @model ContosoCrafts.WebSite.Pages.Restaurant.UpdateModel
 
 @{
@@ -10,7 +10,7 @@
 <p style="line-height:5.5em;"> </p>
 <h1>Update</h1>
 <p style="line-height:5.5em;"> </p>
-<!--CRUDi: Update page to show: Form for updating product/restaurant-->
+<!--CRUDi: Update page to show: Form for updating restaurant-->
 <!--class attribute is set to container needs-validation which is used for applying Bootstrap styling to the form and enabling client-side form validation respectively.-->
 <!--The method attribute is set to post which specifies the HTTP method to use when submitting the form.-->
 <!--The novalidate attribute is used to disable HTML5 built-in form validation.-->
@@ -20,22 +20,22 @@
     <!--Class attribute is set to text-danger which applies Bootstrap styling for the text color.-->
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <!--This is a hidden input field that stores the Id property of the Product model.
+    <!--This is a hidden input field that stores the Id property of the Restaurant model.
     It is generated using Razor syntax with the HiddenFor HTML helper method.-->
-    @Html.HiddenFor(x => x.Product.Id)
+    @Html.HiddenFor(x => x.Restaurant.Id)
 
-    <!--This is a form group that contains a label and an input field for the Title property of the Product model.-->
+    <!--This is a form group that contains a label and an input field for the Title property of the Restaurant model.-->
     <div class="form-group">
 
-        <!--The asp-for attribute is used to generate the label and input elements based on the Title property of the Product model.-->
-        <label asp-for="Product.Title" class="control-label"></label>
+        <!--The asp-for attribute is used to generate the label and input elements based on the Title property of the Restaurant model.-->
+        <label asp-for="Restaurant.Title" class="control-label"></label>
 
         <!--The class attribute of the input field is set to form-control which applies Bootstrap styling to the input field.-->
-        <!--The id attribute is set to productTitle which is used to reference the input field in the JavaScript code.-->
+        <!--The id attribute is set to restaurantTitle which is used to reference the input field in the JavaScript code.-->
         <!--The required attribute is used to enable HTML5 built-in form validation to ensure that the input field is not empty.-->
         <!--The data-val attribute is set to true which enables client-side validation using jQuery Unobtrusive Validation.-->
         <!--The data-val-required attribute is used to specify a custom error message when the input field is empty.-->
-        <input asp-for="Product.Title" class="form-control" id="productTitle" required
+        <input asp-for="Restaurant.Title" class="form-control" id="restaurantTitle" required
                data-val="true" data-val-required="Please provide the restaurant title" />
 
         <!--The valid-feedback and invalid-feedback classes are used to display feedback messages when the input is valid or invalid, respectively.-->
@@ -48,8 +48,8 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Product.Description" class="control-label"></label>
-        <input asp-for="Product.Description" class="form-control" id="productDescription" required />
+        <label asp-for="Restaurant.Description" class="control-label"></label>
+        <input asp-for="Restaurant.Description" class="form-control" id="restaurantDescription" required />
         <div class="valid-feedback">
             Looks good!
         </div>
@@ -59,8 +59,8 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Product.Url" class="control-label"></label>
-        <input asp-for="Product.Url" class="form-control" id="productUrl" required />
+        <label asp-for="Restaurant.Url" class="control-label"></label>
+        <input asp-for="Restaurant.Url" class="form-control" id="restaurantUrl" required />
         <div class="valid-feedback">
             Looks good!
         </div>
@@ -70,8 +70,8 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Product.Image" class="control-label"></label>
-        <input asp-for="Product.Image" class="form-control" id="productImage" required />
+        <label asp-for="Restaurant.Image" class="control-label"></label>
+        <input asp-for="Restaurant.Image" class="form-control" id="restaurantImage" required />
         <div class="valid-feedback">
             Looks good!
         </div>
@@ -87,8 +87,7 @@
 <p style="line-height:5.5em;"> </p>
 
 @section Scripts {
-    <script>
-        //Example starter JavaScript for disabling form submissions if there are invalid fields
+    <script>//Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
 
@@ -115,6 +114,5 @@
                         form.classList.add('was-validated')
                     }, false)
                 })
-        })()
-    </script>
+        })()</script>
 }
