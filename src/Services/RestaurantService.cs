@@ -36,7 +36,7 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Generate/retrieve a list of Restaurand objects from JSON file.
+        /// Generate/retrieve a list of Restaurant objects from JSON file.
         /// </summary>
         /// <returns></returns>
         public IEnumerable<RestaurantModel> GetRestaurants()
