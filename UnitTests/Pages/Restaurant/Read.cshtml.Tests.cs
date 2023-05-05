@@ -19,40 +19,40 @@ namespace UnitTests.Pages.Restaurant.Read
         // Set up ReadModel
         private ReadModel callReadModel; 
 
-        // Set up ProductModel List
-        private List<ProductModel> expectedProducts;
+        // Set up RestaurantModel List
+        private List<RestaurantModel> expectedRestaurants;
 
         // Global valid existing Id property for use in tests
         private const string ExistingId = "kashiba-pic";
 
         /// <summary>
         /// Sets up the necessary objects and data for ReadTests. It creates a ReadModel
-        /// instance and initializes an expectedProducts list
+        /// instance and initializes an expectedRestaurants list
         /// </summary>
         [SetUp]
         public void SetUp()
         {
-            // Create ReadModel instance and expected product list
-            callReadModel = new ReadModel(TestHelper.ProductService);
-            expectedProducts = TestHelper.ProductService.GetProducts().ToList();
+            // Create ReadModel instance and expected restaurant list
+            callReadModel = new ReadModel(TestHelper._RestaurantService);
+            expectedRestaurants = TestHelper._RestaurantService.GetRestaurants().ToList();
         }
 
         /// <summary>
         /// Tests the "OnGet" method of the ReadModel class by checking if it returns
-        /// the expected product title for a valid product ID.
+        /// the expected restaurant title for a valid restaurant ID.
         /// </summary>
         [Test]
         public void OnGet_Retuen_Same_Data()
         {
             //arrange
-            var expectedProduct = TestHelper.ProductService.GetProducts().First().Title;
+            var expectedRestaurant = TestHelper._RestaurantService.GetRestaurants().First().Title;
 
             //Act
              callReadModel.OnGet(ExistingId);
-            var result = callReadModel.Product.Title;
+            var result = callReadModel.Restaurant.Title;
 
             //Assert
-            Assert.AreEqual(expectedProduct, result);//match the result read unit
+            Assert.AreEqual(expectedRestaurant, result);//match the result read unit
 
             
         }
