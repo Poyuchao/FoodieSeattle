@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace ContosoCrafts.WebSite.Models
 {
-    public class ProductModel
+    public class RestaurantModel
     {
         // Declare a public property Id of type string to represent the ID of the product.
         public string Id { get; set; }
@@ -24,7 +24,7 @@ namespace ContosoCrafts.WebSite.Models
         // Declare a public property Ratings of type int[] to represent the ratings of the product.
         public int[] Ratings { get; set; }
         // Override the ToString method to serialize the product to a JSON string using the JsonSerializer.
-        public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
+        public override string ToString() => JsonSerializer.Serialize<RestaurantModel>(this);
 
 
     }
