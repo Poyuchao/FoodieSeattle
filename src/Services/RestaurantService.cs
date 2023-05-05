@@ -225,7 +225,4 @@ namespace ContosoCrafts.WebSite.Services
         }
 
     }
-
-
-}
 }
