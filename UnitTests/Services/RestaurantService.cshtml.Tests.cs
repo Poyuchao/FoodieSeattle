@@ -2,11 +2,11 @@
 using System.Linq;
 // Import the NUnit.Framework namespace for NUnit testing
 using NUnit.Framework;
-// Import the JsonFileProductService page model
+// Import the RestaurantService page model
 using ContosoCrafts.WebSite.Services;
 // Import the NUnit.Framework.Internal namespace for NUnit testing
 using NUnit.Framework.Internal;
-// Import the ProductModel class
+// Import the RestaurantModel class
 using ContosoCrafts.WebSite.Models;
 // Import the System.Collections.Generic namespace for collections
 using System.Collections.Generic;
@@ -14,14 +14,14 @@ using ContosoCrafts.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc;
 
 /// <summary>
-/// Unit Test for all JsonFileProductService.cshtml.Tests.cs blocks
+/// Unit Test for all RestaurantService.cshtml.Tests.cs blocks
 /// </summary>
-namespace UnitTests.Services.JsonFileProductService
+namespace UnitTests.Services.RestaurantService
 {
     /// <summary>
-    /// Unit tests for JsonFileProductService
+    /// Unit tests for RestaurantService
     /// </summary>
-    public class JsonFileProductServiceTests
+    public class RestaurantServiceTests
 	{
 
         #region TestSetup
@@ -36,28 +36,28 @@ namespace UnitTests.Services.JsonFileProductService
 
 
 
-        #region GetProduct
+        #region GetRestaurant
         ///<summary>
         ///Verifies that the count of all restaurants is equal to fourteen in the JSON file.
         ///</summary>
         public void ProveAllRestaurant_is_equal_to_fourteen_in_JsonFile()
         {
             //Arrange
-            var productService = new ProductModel();
+            var restaurantModel = new RestaurantModel();
 
             //Act
             var fourteen = 14;
-            var result = TestHelper.ProductService.GetProducts().Count();
+            var result = TestHelper._RestaurantService.GetRestaurants().Count();
 
             //Assert
             Assert.AreEqual(fourteen, result);
         }
-        #endregion GetProduct
+        #endregion GetRestaurant
 
 
         #region Addrating
         /// <summary>
-        /// Invalid null product in Addrating should return false
+        /// Invalid null Restaurant in Addrating should return false
         /// </summary>
         [Test]
         public void AddRating_InValid_Product_Null_Should_Return_False()
@@ -74,18 +74,18 @@ namespace UnitTests.Services.JsonFileProductService
 
 
         /// <summary>
-        /// Verifies that adding a rating to a valid product with existing ratings should add a new rating.
+        /// Verifies that adding a rating to a valid restaurant with existing ratings should add a new rating.
         /// </summary>
         [Test]
-        public void AddRating_Valid_Product_WithRatings_Should_Add_Rating()
+        public void AddRating_Valid_Restaurant_WithRatings_Should_Add_Rating()
         {
             // Arrange
-            var data = TestHelper.ProductService.GetProducts().First(x => x.Ratings != null && x.Ratings.Length > 0);
+            var data = TestHelper._RestaurantService.GetRestaurants().First(x => x.Ratings != null && x.Ratings.Length > 0);
             var existingRatingsCount = data.Ratings.Length;
 
             // Act
-            var result = TestHelper.ProductService.AddRating(data.Id, 2);
-            var updatedData = TestHelper.ProductService.GetProducts().First(x => x.Id == data.Id);
+            var result = TestHelper._RestaurantService.AddRating(data.Id, 2);
+            var updatedData = TestHelper._RestaurantService.GetRestaurants().First(x => x.Id == data.Id);
 
             // Assert
             Assert.IsTrue(result);
@@ -96,17 +96,17 @@ namespace UnitTests.Services.JsonFileProductService
 
 
         /// <summary>
-        /// Verifies that adding a rating to a valid product with no ratings should add a new rating.
+        /// Verifies that adding a rating to a valid restaurant with no ratings should add a new rating.
         /// </summary>
         [Test]
-        public void AddRating_Valid_Product_NoRatings_Should_Add_Rating()
+        public void AddRating_Valid_Restaurant_NoRatings_Should_Add_Rating()
         {
             // Arrange
-            var data = TestHelper.ProductService.GetProducts().First(x => x.Ratings == null);
+            var data = TestHelper._RestaurantService.GetRestaurants().First(x => x.Ratings == null);
 
             // Act
-            var result = TestHelper.ProductService.AddRating(data.Id, 4);
-            var updatedData = TestHelper.ProductService.GetProducts().First(x => x.Id == data.Id);
+            var result = TestHelper._RestaurantService.AddRating(data.Id, 4);
+            var updatedData = TestHelper._RestaurantService.GetRestaurants().First(x => x.Id == data.Id);
 
             // Assert
             Assert.IsTrue(result);
@@ -116,16 +116,16 @@ namespace UnitTests.Services.JsonFileProductService
 
 
         /// <summary>
-        /// Verifies that adding a rating to an invalid product not found should return false.
+        /// Verifies that adding a rating to an invalid restaurant not found should return false.
         /// </summary>
         [Test]
-        public void AddRating_InValid_Product_NotFound_Should_Return_False()
+        public void AddRating_InValid_Restaurant_NotFound_Should_Return_False()
         {
             // Arrange
-            var fakeProductId = "fakeProductId";
+            var fakeRestaurantId = "fakeRestaurantId";
 
             // Act
-            var result = TestHelper.ProductService.AddRating(fakeProductId, 3);
+            var result = TestHelper._RestaurantService.AddRating(fakeRestaurantId, 3);
 
             // Assert
             Assert.IsFalse(result);
@@ -133,7 +133,7 @@ namespace UnitTests.Services.JsonFileProductService
 
 
         /// <summary>
-        /// Verifies that adding a rating to an invalid product should return false.
+        /// Verifies that adding a rating to an invalid restaurant should return false.
         /// </summary>
         [Test]
         public void AddRating_InValid_()
@@ -141,7 +141,7 @@ namespace UnitTests.Services.JsonFileProductService
             // Arrange
 
             // Act
-            var result = TestHelper.ProductService.AddRating(null, 1);
+            var result = TestHelper._RestaurantService.AddRating(null, 1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -149,7 +149,7 @@ namespace UnitTests.Services.JsonFileProductService
 
 
         /// <summary>
-        /// Verifies that adding a rating to an invalid product not found should return false.
+        /// Verifies that adding a rating to an invalid restaurant not found should return false.
         /// </summary>
         [Test]
         public void AddRating_InValid_Rating_Below_Zero_Should_Return_False()
@@ -157,10 +157,10 @@ namespace UnitTests.Services.JsonFileProductService
             // Arrange
 
             // Get the first data item
-            var data = TestHelper.ProductService.GetProducts().First();
+            var data = TestHelper._RestaurantService.GetRestaurants().First();
 
             // Act
-            var result = TestHelper.ProductService.AddRating(data.Id, -1);
+            var result = TestHelper._RestaurantService.AddRating(data.Id, -1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -169,20 +169,20 @@ namespace UnitTests.Services.JsonFileProductService
 
 
         /// <summary>
-        /// Verifies that adding a valid rating to a valid product should return true.
+        /// Verifies that adding a valid rating to a valid restaurant should return true.
         /// </summary>
         [Test]
-        public void AddRating_Valid_Product_Valid_Rating_Valid_Should_Return_True()
+        public void AddRating_Valid_Restaurant_Valid_Rating_Valid_Should_Return_True()
         {
             // Arrange
 
             // Get the First data item
-            var data = TestHelper.ProductService.GetProducts().First();
+            var data = TestHelper._RestaurantService.GetRestaurants().First();
             var countOriginal = data.Ratings.Length;
 
             // Act
-            var result = TestHelper.ProductService.AddRating(data.Id, 5);
-            var dataNewList = TestHelper.ProductService.GetProducts().First();
+            var result = TestHelper._RestaurantService.AddRating(data.Id, 5);
+            var dataNewList = TestHelper._RestaurantService.GetRestaurants().First();
 
             // Assert
             Assert.AreEqual(true, result);
@@ -199,10 +199,10 @@ namespace UnitTests.Services.JsonFileProductService
             // Arrange
 
             // Get the first data item
-            var data = TestHelper.ProductService.GetProducts().First();
+            var data = TestHelper._RestaurantService.GetRestaurants().First();
 
             // Act
-            var result = TestHelper.ProductService.AddRating(data.Id, 6);
+            var result = TestHelper._RestaurantService.AddRating(data.Id, 6);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -218,19 +218,19 @@ namespace UnitTests.Services.JsonFileProductService
         public void UpdateData_not_Valid_should_both_return_null()
         {
             // Arrange
-            var data = new ProductModel
+            var data = new RestaurantModel
             {
                 Id = "abc",
                 Title = "McDonald's",
                 Description = "McDonald's is a multinational fast-food restaurant chain known for its signature burgers, fries, and shakes. ",
-                Url = "https://example.com/new-product",
-                Image = "https://example.com/new-product-image.png"
+                Url = "https://example.com/new-restaurant",
+                Image = "https://example.com/new-restaurant-image.png"
             };
-            TestHelper.ProductService.UpdateData(data);
+            TestHelper._RestaurantService.UpdateData(data);
 
             // Act
-            var result = TestHelper.ProductService.UpdateData(data);
-            var restaurants = TestHelper.ProductService.GetProducts();
+            var result = TestHelper._RestaurantService.UpdateData(data);
+            var restaurants = TestHelper._RestaurantService.GetRestaurants();
             var mcdonaldsRestaurant = restaurants.FirstOrDefault(p => p.Title == "McDonald's");
 
             // Assert
@@ -241,13 +241,13 @@ namespace UnitTests.Services.JsonFileProductService
 
 
         /// <summary>
-        /// Verifies that updating an existing product should update the product and return the updated product.
+        /// Verifies that updating an existing restaurant should update the restaurant and return the updated restaurant.
         /// </summary>
         [Test]
-        public void UpdateData_ExistingProduct_Should_UpdateProduct_And_ReturnUpdatedProduct()
+        public void UpdateData_ExistingRestaurant_Should_UpdateRestaurant_And_ReturnUpdatedRestaurant()
         {
             // Arrange
-            var data = new ProductModel
+            var data = new RestaurantModel
             {
                Id= "shiros-pic",
                Title= "Shiro's",
@@ -257,8 +257,8 @@ namespace UnitTests.Services.JsonFileProductService
                 
             };
             // Act
-            var result = TestHelper.ProductService.UpdateData(data);
-            var restaurants = TestHelper.ProductService.GetProducts();
+            var result = TestHelper._RestaurantService.UpdateData(data);
+            var restaurants = TestHelper._RestaurantService.GetRestaurants();
             var ShiroRestaurant = restaurants.FirstOrDefault(p => p.Title == "Shiro's");
             // Assert
             Assert.AreEqual(ShiroRestaurant.Title, result.Title);
@@ -269,39 +269,39 @@ namespace UnitTests.Services.JsonFileProductService
 
         #region CreateData
         /// <summary>
-        /// Verifies that calling CreateData should return the new all products count greater than the old all products count.
+        /// Verifies that calling CreateData should return the new all restaurants count greater than the old all products count.
         /// </summary>
         [Test]
-        public void CreateData_Should_Return_newAllProductNum_greater_than_oldAllProductsNum()
+        public void CreateData_Should_Return_newAllRestaurantNum_greater_than_oldAllRestaurantsNum()
         {
             // Arrange
-            var productService = new ProductModel();
+            var restaurantService = new RestaurantModel();
 
             // Act
-            var OldAllProductsNum = TestHelper.ProductService.GetProducts().Count();
-            TestHelper.ProductService.CreateData();
-            var NewAllProductsNum = TestHelper.ProductService.GetProducts().Count();
+            var OldAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
+            TestHelper._RestaurantService.CreateData();
+            var NewAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
 
             // Assert
-            Assert.Greater(NewAllProductsNum, OldAllProductsNum);
+            Assert.Greater(NewAllRestaurantsNum, OldAllRestaurantsNum);
 
         }
         /// <summary>
-        /// Verifies that calling CreateData should add a new product to the product list.
+        /// Verifies that calling CreateData should add a new restaurant to the restaurant list.
         /// </summary>
 
         [Test]
-        public void CreateData_Should_Add_New_Product_To_ProductList()
+        public void CreateData_Should_Add_New_Restaurant_To_RestaurantList()
         {
             // Arrange
-            var productService = new ProductModel();
+            var restaurantService = new RestaurantModel();
 
             // Act
-            TestHelper.ProductService.CreateData();
-            var products = TestHelper.ProductService.GetProducts();
+            TestHelper._RestaurantService.CreateData();
+            var restaurants = TestHelper._RestaurantService.GetRestaurants();
 
             // Assert
-            Assert.IsTrue(products.Any(p => p.Title == "Enter Title"));
+            Assert.IsTrue(restaurants.Any(p => p.Title == "Enter Title"));
         }
 
 
@@ -311,21 +311,21 @@ namespace UnitTests.Services.JsonFileProductService
 
         #region DeleteData
         /// <summary>
-        /// Verifies that calling DeleteData should return the new all products count less than the old all products count.
+        /// Verifies that calling DeleteData should return the new all restaurants count less than the old all products count.
         /// </summary>
         [Test]
-        public void DeleteData_Should_Return_newAllProductNum_less_than_oldAllProductsNum()
+        public void DeleteData_Should_Return_newAllRestaurantNum_less_than_oldAllRestaurantsNum()
         {
             // Arrange
-            var productService = new ProductModel();
+            var restaurantService = new RestaurantModel();
 
             // Act
-            var OldAllProductsNum = TestHelper.ProductService.GetProducts().Count();
-            TestHelper.ProductService.DeleteData("kashiba-pic");
-            var NewAllProductsNum = TestHelper.ProductService.GetProducts().Count();
+            var OldAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
+            TestHelper._RestaurantService.DeleteData("kashiba-pic");
+            var NewAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
 
             // Assert
-            Assert.Less(NewAllProductsNum, OldAllProductsNum);
+            Assert.Less(NewAllRestaurantsNum, OldAllRestaurantsNum);
 
         }
         #endregion DeleteData
