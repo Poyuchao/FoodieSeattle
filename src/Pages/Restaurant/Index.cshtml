@@ -27,7 +27,7 @@
             {
                 <tr style="background-color: @(counter % 2 == 0 ? "beige" : "white")">
                     <td style="font-size: 25px; position:center;">@restaurant.Title</td>
-                    <td style="text-align: left; font-size: 20px;"><a asp-page="Read" asp-route-id="@restaurant.Id">Read</a></td>
+                    <td style="text-align: left; font-size: 20px;"><a asp-page="Read" asp-route-id="@restaurant.Id"> <img src="~/img/icons/open.png" alt="Read" style="width: 40px; height: 40px;" /></a></td>
                 </tr>
                 counter++;
             }
