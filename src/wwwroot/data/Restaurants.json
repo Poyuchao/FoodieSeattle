@@ -67,7 +67,7 @@
     "Title": "Annapurna Cafe",
     "Description": "Annapurna Cafe is an Indian and Nepalese restaurant located in Capitol Hill. The restaurant offers a wide range of dishes from both Nepalese and Indian descent, including curries, tandoori dishes, momos (Nepalese dumplings), and more. The restaurant\u0027s menu features many vegetarian and vegan options, as well as gluten-free options as well. Annapurna Cafe is known for its flavorful and authentic dishes, which are made with fresh ingredients and traditional cooking methods. The interior of the restaurant is cozy and welcoming, with traditional Nepalese and Indian decor accents. Annapurna Cafe is a great choice for those looking for a taste of Indian or Nepalese cuisine in Seattle at a good price, and is particularly popular among those with vegetarians and vegans.",
     "Ratings": null,
-    "Type": "India"
+    "Type": "Indian"
   },
   {
     "Id": "tacos-chukis-pic",
@@ -98,7 +98,6 @@
     "Description": "Located in Capitol Hill, Taurus Ox is a modern Laotian and Asian-fusion inspired restaurant that blends traditional flavors with contemporary techniques and presentation. Taurus Ox is known for its innovative and unique dishes, such as the caramelized pork belly stew and the crispy duck confit bao. The interior of the restaurant is stylish and minimalist, with a cozy and intimate atmosphere. Taurus Ox also offers a carefully curated selection of beer, wine, and cocktails to complement its food. Taurus Ox is a great choice for those looking for a modern and unique dining experience.",
     "Ratings": null,
     "Type": "Laotian"
-
   },
   {
     "Id": "ooink-ramen-pic",
@@ -148,8 +147,7 @@
     "Title": "Spice Waala",
     "Description": "Spice Waala is an Indian street food restaurant with locations in Ballard and Capitol Hill, that specializes in chaat, a popular type of savory snack from India. The restaurant\u0027s menu features a variety of chaat dishes, such as samosas, papdi chaat, and bhel puri, as well as other Indian street food favorites like vada pav and kathi rolls. Spice Waala is known for its bold and flavorful spices, fresh ingredients, and authentic preparation techniques. The interior of the restaurant is bright and colorful, and is perfect for a quick bite or for takeout. Pricing is very affordable, and this place comes highly recommended for people that love spice or follow a vegetarian diet.",
     "Ratings": null,
-    "Type": "India"
-
+    "Type": "Indian"
   },
   {
     "Id": "c305a274-d69b-4e39-81d8-b1ec4258c446",
@@ -158,6 +156,17 @@
     "Url": "Enter URL",
     "Title": "Enter Title",
     "Description": "Enter Description",
-    "Ratings": null
+    "Ratings": null,
+    "Type": null
+  },
+  {
+    "Id": "baf0f8e5-ad44-4a14-8999-2ac7c4caabbf",
+    "Maker": null,
+    "img": "",
+    "Url": "Enter URL",
+    "Title": "Enter Title",
+    "Description": "Enter Description",
+    "Ratings": null,
+    "Type": null
   }
 ]
