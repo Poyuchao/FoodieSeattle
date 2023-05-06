@@ -28,9 +28,9 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
             _RestaurantService = restaurantService;
         }
 
-        //This is a public property of type RestaurantModel named Restaurant. This property will hold the data to display on the page.
+        // This is a public property of type RestaurantModel named Restaurant. This property will hold the data to display on the page.
         public RestaurantModel Restaurant;
-        //Add a public property for the password
+        // Add a public property for the password
         [BindProperty]
         public string Password { get; set; }
 
