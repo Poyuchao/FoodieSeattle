@@ -35,21 +35,72 @@ namespace ContosoCrafts.WebSite.Services
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "Restaurants.json"); }
         }
 
+
+
+        public IEnumerable<RestaurantModel>parseRestaruantResult(StreamReader jsonFileReader)
+        {
+            return JsonSerializer.Deserialize<RestaurantModel[]>(jsonFileReader.ReadToEnd(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+        }
+
         /// <summary>
         /// Generate/retrieve a list of Restaurant objects from JSON file.
         /// </summary>
         /// <returns></returns>
         public IEnumerable<RestaurantModel> GetRestaurants()
         {
-            using (var jsonFileReader = File.OpenText(JsonFileName))
-            {
-                return JsonSerializer.Deserialize<RestaurantModel[]>(jsonFileReader.ReadToEnd(),
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-            }
+            
+                using (var jsonFileReader = File.OpenText(JsonFileName))
+                {
+                    return parseRestaruantResult(jsonFileReader);
+                }
+            
+
+            
         }
+
+
+        /// <summary>
+        /// Get restaurants types funciton
+        /// </summary>
+        /// <returns></returns>
+
+        public IEnumerable<RestaurantModel> GetRestaurantsByType(string type)
+        {
+            var restaurants = GetRestaurants();  // Get all restaurants
+            if (!string.IsNullOrEmpty(type))
+            {
+                restaurants = restaurants.Where(r => r.Type == type);  // Filter by type if type parameter is not null or empty
+            }
+            return restaurants;
+        }
+
+
+
+
+        /// <summary>
+        /// Returns a list of restaurants filtered by type.
+        /// </summary>
+        /// <param name="type">The type of restaurant to filter by.</param>
+        /// <returns>A list of restaurants that match the specified type.</returns>
+
+
+        //public IEnumerable<RestaurantModel> GetRestaurantsByType(string type)
+        //{
+        //    var restaurants = GetRestaurants();
+
+        //    if (!string.IsNullOrEmpty(type))
+        //    {
+        //        restaurants = restaurants.Where(r => r.Type.ToLower() == type.ToLower()).ToList();
+        //    }
+
+        //    return restaurants;
+        //}
+
         /// <summary>
         /// Add rating to 
         /// </summary>
@@ -225,4 +276,6 @@ namespace ContosoCrafts.WebSite.Services
         }
 
     }
+
+    
 }
