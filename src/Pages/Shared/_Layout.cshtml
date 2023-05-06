@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using ContosoCrafts.WebSite.Services
+@inject RestaurantService callRestaurantService
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -54,39 +56,43 @@
 
 
 
+
+
+
             </div>
 
         </nav>
 
+
+
         <!--filter dropdown-->
         @*<label for="filter">Filter by:</label>*@
-    <select id="filter">
-        <option value="all">All Restaurants</option>
-        <option value="Caribbean">Caribbean</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Indian">Indian</option>
-        <option value="Japanese">Japanese</option>
-        <option value="Laotian">Laotian</option>
-        <option value="Mexican">Mexican</option>
-        <option value="Thai">Thai</option>
-        <option value="Vietnamese">Vietnamese</option>
-    </select>
-
-
+        <select id="filter" onchange="GetRestaurantsByType(this.value)">
+             <option value=""selected>All Restaurants</option>
+             <option value="Caribbean">Caribbean</option>
+             <option value="Chinese">Chinese</option>
+             <option value="Indian">Indian</option>
+             <option value="Japanese">Japanese</option>
+             <option value="Laotian">Laotian</option>
+             <option value="Mexican">Mexican</option>
+             <option value="Thai">Thai</option>
+             <option value="Vietnamese">Vietnamese</option>
+         </select>
+            
         <!--Search Bar-->
         @*<div class="search-container">
-            <form action="#">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>*@
+                <form action="#">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>*@
     </header>
 
 
 
 
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container " >
+        <main role="main" class="pb-3" style="min-height: 100vh;">
             @RenderBody()
         </main>
     </div>
@@ -96,7 +102,7 @@
     <!--  footer -->
 
     <footer class="text-center text-lg-start text-black"
-          style="background-color: #e8b986c6">
+            style="background-color: #e8b986c6">
         <div class="container p-4 pb-0">
             <!-- Section: Links -->
             <section class="">
@@ -105,7 +111,7 @@
                     <!-- Grid column -->
                     <div class="col-6 col-sm-6 col-md-3 mx-auto mt-3">
 
-                        <img src ="~/img/logo/Color_logo_no_background.png" alt"foodieSeattleLogoPic" width="250" height="49" class="logoPic"/>
+                        <img src="~/img/logo/Color_logo_no_background.png" alt"foodieSeattleLogoPic" width="250" height="49" class="logoPic" />
 
 
                     </div>
@@ -123,7 +129,7 @@
                     <!-- Grid column -->
                     <!--    contact infomation        -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3" style="color:#4c3b29;">
-                        <h6 class="text-uppercase mb-4 font-weight-bold" >Contact US</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact US</h6>
                         <p><i class="fas fa-envelope mr-3"></i> FoodieSeattle@gmail.com</p>
                         <p><i class="fas fa-phone mr-3"></i> +1 234 567 8890</p>
                     </div>
@@ -142,14 +148,13 @@
                            role="button">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <!-- Github 
+                        <!-- Github
                         <a class="btn btn-primary btn-floating m-1"
                            style="background-color: #333333"
                            href="#!"
                            role="button">
                             <i class="fab fa-github"></i>
                         </a> -->
-
                         <!-- Instagram -->
                         <a class="btn btn-primary btn-floating m-1"
                            style="background-color: #ac2bac"
@@ -173,17 +178,17 @@
                 <!--Grid row-->
             </section>
             <!-- Section: Links -->
-        <!-- Grid container -->
+            <!-- Grid container -->
 
 
-        <br />
-        <br />
+            <br />
+            <br />
 
-        <hr size="3" style="margin:auto;" width="70%" color="black">
-        <div class="text-center p-3">
+            <hr size="3" style="margin:auto;" width="70%" color="black">
+            <div class="text-center p-3">
 
-            <p class="text-black"  href="https://mdbootstrap.com/">  © 2023 Copyright: FoodieSeattle | All rights reserved. </p>
-        </div>
+                <p class="text-black" href="https://mdbootstrap.com/">  © 2023 Copyright: FoodieSeattle | All rights reserved. </p>
+            </div>
         </div>
 
         <!-- End of .container -->
@@ -197,20 +202,19 @@
     </a>
     <!-- //move top icon -->
 
-    <script>
-    const moveTopBtn = document.querySelector('.move-top');
+    <script>const moveTopBtn = document.querySelector('.move-top');
 
-    // listen for scroll events on the window
-    window.addEventListener('scroll', function() {
-    // check if the user has scrolled a certain distance down the page
-    if (window.pageYOffset > 100) { // adjust the number to your preference
-    // show the move-top button
-    moveTopBtn.style.display = 'block';
-    } else {
-    // hide the move-top button
-    moveTopBtn.style.display = 'none';
-    }
-    });</script>
+        // listen for scroll events on the window
+        window.addEventListener('scroll', function () {
+            // check if the user has scrolled a certain distance down the page
+            if (window.pageYOffset > 100) { // adjust the number to your preference
+                // show the move-top button
+                moveTopBtn.style.display = 'block';
+            } else {
+                // hide the move-top button
+                moveTopBtn.style.display = 'none';
+            }
+        });</script>
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
