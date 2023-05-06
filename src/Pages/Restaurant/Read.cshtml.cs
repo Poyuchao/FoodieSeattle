@@ -30,7 +30,12 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
 
         //This is a public property of type RestaurantModel named Restaurant. This property will hold the data to display on the page.
         public RestaurantModel Restaurant;
+        //Add a public property for the password
+        [BindProperty]
+        public string Password { get; set; }
 
+        // Define the variable to keep track of password status
+        public bool PasswordEntered { get; set; }
         /// <summary>
         /// REST Get request
         /// </summary>
@@ -41,5 +46,22 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// </summary>
         /// <param name="id">The unique id of the restaurant to show</param>
         public void OnGet(string id) => Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+
+        public IActionResult OnPost()
+        {
+            if (Password == "6666")
+            {
+                PasswordEntered = true;
+                //retrieves the ProductModel object whose Id property matches the value of the "id" route parameter in the URL.
+                Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
+                return Page();
+            }
+            else
+            {
+                ModelState.AddModelError("Password", "Incorrect password.");
+                Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
+                return Page();
+            }
+        }
     }
 }
