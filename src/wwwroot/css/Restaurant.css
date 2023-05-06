@@ -1,0 +1,61 @@
+﻿.unlock-button {
+    background-color: #2E8B57;
+    color: #fff;
+    border-color: #2E8B57;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease-in-out;
+}
+
+    .unlock-button:hover {
+        background-color: yellowgreen;
+        border-color: yellowgreen;
+        color: black
+    }
+
+    .unlock-button i {
+        margin-left: 8px;
+    }
+
+
+.update-button {
+    background-color: black;
+    color: #fff;
+    border-color: black;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease-in-out;
+}
+
+    .update-button:hover {
+        background-color: #DC143C;
+        border-color: #DC143C;
+        color: black
+    }
+
+    .update-button i {
+        margin-left: 8px;
+    }
+
+
+.delete-button {
+    background-color: white;
+    color: black;
+    border-color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease-in-out;
+}
+
