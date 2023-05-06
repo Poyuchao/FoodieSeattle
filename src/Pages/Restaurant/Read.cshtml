@@ -51,9 +51,22 @@ else
 {
     <form method="post">
         <div class="form-group">
+            @if (!ModelState.IsValid)
+            {
+                <!--Error message when user input incorrect password-->
+                <input type="password" class="form-control error-input" id="password" name="password" placeholder="Sorry Invalid Password...Try again!">
+            }
+            else{
+               <!--user input password blank -->
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password to make changes to restaurant info...">
+            }
+          
+          
         </div>
+  
         <button type="submit" class="btn btn-primary unlock-button">Unlock<i class="fas fa-key"></i></button>
+       
+      
     </form>
 }
 
