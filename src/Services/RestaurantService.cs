@@ -175,7 +175,7 @@ namespace ContosoCrafts.WebSite.Services
             RestaurantData.Description = data.Description;
             RestaurantData.Url = data.Url;
             RestaurantData.Image = data.Image;
-
+            RestaurantData.Type = data.Type;
             SaveData(Restaurants);
 
             return RestaurantData;
