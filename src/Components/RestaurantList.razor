@@ -3,26 +3,71 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject RestaurantService _RestaurantService
 
-<div class="card-columns">
-    @foreach (var restaurant in _RestaurantService.GetRestaurants())
-    {
-        <div class="card">
-            <div class="card-img" style="background-image: url('@restaurant.Image');">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">@restaurant.Title</h5>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">
-                    <button @onclick="(e => SelectRestaurant(restaurant.Id))"
-                            data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">
-                        More Info
-                    </button>
-                </small>
-            </div>
-        </div>
-    }
+<div>
+    <label for="cuisineType">Filter by Cuisine Type:</label>
+    <select id="cuisineType" @onchange="@(e => FilteredRestaurants(e.Value.ToString()))">
+        <option value="">All Restaurants</option>
+        <option value="Caribbean">Caribbean</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Indian">Indian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Laotian">Laotian</option>
+        <option value="Mexican">Mexican</option>
+        <option value="Thai">Thai</option>
+        <option value="Vietnamese">Vietnamese</option>
+    </select>
 </div>
+
+@if (ifFilter)
+{
+    <div class="card-columns">
+        @foreach (var restaurant in filterRestaurants)
+        {
+            <div class="card">
+                <div class="card-img" style="background-image: url('@restaurant.Image');">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@restaurant.Title</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        <button @onclick="(e => SelectRestaurant(restaurant.Id))"
+                                data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">
+                            More Info
+                        </button>
+                    </small>
+                </div>
+            </div>
+        }
+    </div>
+
+
+}
+else
+{
+    <div class="card-columns">
+        @foreach (var restaurant in _RestaurantService.GetRestaurants())
+        {
+            <div class="card">
+                <div class="card-img" style="background-image: url('@restaurant.Image');">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@restaurant.Title</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        <button @onclick="(e => SelectRestaurant(restaurant.Id))"
+                                data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">
+                            More Info
+                        </button>
+                    </small>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
 
 @if (selectedRestaurant != null)
 {
@@ -75,7 +120,9 @@
 
 @code
 {
+    IEnumerable<RestaurantModel> filterRestaurants;
     RestaurantModel selectedRestaurant;
+    bool ifFilter = false;
     string selectedRestaurantId;
 
     void SelectRestaurant(string restaurantId)
@@ -91,19 +138,19 @@
 
     void GetCurrentRating()
     {
-        if (selectedRestaurant.Ratings == null)
-        {
-            currentRating = 0;
-            voteCount = 0;
-        }
-        else
-        {
-            voteCount = selectedRestaurant.Ratings.Count();
-            voteLabel = voteCount > 1 ? "Votes" : "Vote";
-            currentRating = selectedRestaurant.Ratings.Sum() / voteCount;
-        }
+        //if (selectedRestaurant.Ratings == null)
+        //{
+        //    currentRating = 0;
+        //    voteCount = 0;
+        //}
+        //else
+        //{
+        //    voteCount = selectedRestaurant.Ratings.Count();
+        //    voteLabel = voteCount > 1 ? "Votes" : "Vote";
+        //    currentRating = selectedRestaurant.Ratings.Sum() / voteCount;
+        //}
 
-        System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
+        //System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
     }
 
     void SubmitRating(int rating)
@@ -111,5 +158,14 @@
         System.Console.WriteLine($"Rating received for {selectedRestaurant.Id}: {rating}");
         _RestaurantService.AddRating(selectedRestaurantId, rating);
         SelectRestaurant(selectedRestaurantId);
+    }
+
+    IEnumerable<RestaurantModel> FilteredRestaurants(string type)
+    {
+        ifFilter = true;
+        Console.WriteLine(type);
+        //Console.WriteLine(_RestaurantService.GetRestaurantsByType(type).ToArray()[0].Title);
+        filterRestaurants = _RestaurantService.GetRestaurantsByType(type);
+        return _RestaurantService.GetRestaurantsByType(type);
     }
 }
