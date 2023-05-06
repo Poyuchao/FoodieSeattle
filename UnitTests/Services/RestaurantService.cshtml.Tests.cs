@@ -308,7 +308,6 @@ namespace UnitTests.Services.RestaurantService
         #endregion CreateData
 
 
-
         #region DeleteData
         /// <summary>
         /// Verifies that calling DeleteData should return the new all restaurants count less than the old all restaurants count.
@@ -329,6 +328,30 @@ namespace UnitTests.Services.RestaurantService
 
         }
         #endregion DeleteData
+
+        #region AddData
+        [Test]
+        public void TestAddData()
+        {
+            // Arrange
+            var restaurantModel = new RestaurantModel();
+            var title = "Kura sushi";
+            var desc = "Kura Sushi (Japanese: くら寿司, Hepburn: Kura zushi) is a Japanese sushi restaurant chain. Its headquarters are in Sakai, Osaka Prefecture.";
+            var url = "https://kurasushi.com/";
+            var image = "https://lh3.googleusercontent.com/p/AF1QipPk0SIY2o8w2UCDPiuPBiR-rm7ZqNEzpX6B8W7f=s680-w680-h510";
+      
+
+            // Act
+            var result = TestHelper._RestaurantService.AddData(title, desc, url, image);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(title, result.Title);
+            Assert.AreEqual(desc, result.Description);
+            Assert.AreEqual(url, result.Url);
+            Assert.AreEqual(image, result.Image);
+        }
+        #endregion AddData
     }
 }
 
