@@ -26,6 +26,7 @@ namespace ContosoCrafts.WebSite.Models
         // Override the ToString method to serialize the restaurant to a JSON string using the JsonSerializer.
         public override string ToString() => JsonSerializer.Serialize<RestaurantModel>(this);
 
+        public string Type { get; set; } // Add this property to the class
 
     }
 }
