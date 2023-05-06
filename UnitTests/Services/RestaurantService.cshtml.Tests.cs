@@ -329,7 +329,12 @@ namespace UnitTests.Services.RestaurantService
         }
         #endregion DeleteData
 
+
         #region AddData
+        /// <summary>
+        ///  check if the new restaurant's data matches the inputs provided by the user and if the dataset's 
+        ///  length increases by one after adding a new restaurant.
+        /// </summary>
         [Test]
         public void TestAddData()
         {
