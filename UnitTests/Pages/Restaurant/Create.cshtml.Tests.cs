@@ -29,6 +29,10 @@ namespace UnitTests.Pages.Restaurant.Create
         // Global valid Mock title property for use in tests
         private const string MockTitle = "mamnoon";
 
+
+        // Global valid Mock neighborhood property for use in tests
+        private const string MockNeighborhood = "Capitol Hill";
+
         // Global valid Mock food type property for use in tests
         private const string MockType = "Lebanese";
 
@@ -63,6 +67,7 @@ namespace UnitTests.Pages.Restaurant.Create
             // Store mock user input in String arrays to match FormCollection Value format.
             string[] idArray = { MockId };
             string[] nameArray = { MockTitle };
+            string[] neighborArray = { MockNeighborhood };
             string[] typeArray = { MockType };
             string[] DescArray = { MockDescription };
             string[] urlArray = { MockUrl };
@@ -72,6 +77,7 @@ namespace UnitTests.Pages.Restaurant.Create
             {
                 { "Restaurant.Id", idArray},
                 { "Restaurant.Title", nameArray },
+                { "Restaurant.Neighborhood", neighborArray },
                 { "Restaurant.CuisineType", typeArray},
                 { "Restaurant.Description", DescArray},
                 { "Restaurant.Url", urlArray },
