@@ -16,7 +16,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
     public class UpdateModel : PageModel
     {
         // Data middletier
-        public RestaurantService _RestaurantService { get; }
+        public RestaurantService restaurantService { get; }
 
         /// <summary>
         /// Defualt Construtor
@@ -25,7 +25,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// <param name="restaurantService"></param>
         public UpdateModel(RestaurantService restaurantService)
         {
-            _RestaurantService = restaurantService;
+            this.restaurantService = restaurantService;
         }
 
         // The data to show, bind to it for the post
@@ -39,7 +39,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// <param name="id"></param>
         public void OnGet(string id)
         {
-            Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+            Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
                 return Page();
             }
 
-            _RestaurantService.UpdateData(Restaurant);
+            restaurantService.UpdateData(Restaurant);
 
             return RedirectToPage("/Restaurant/Index");
         }
