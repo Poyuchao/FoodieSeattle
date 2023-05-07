@@ -68,10 +68,11 @@ namespace ContosoCrafts.WebSite.Services
         /// Get restaurants types funciton
         /// </summary>
         /// <returns></returns>
-
         public IEnumerable<RestaurantModel> GetRestaurantsByType(string type)
         {
-            var restaurants = GetRestaurants();  // Get all restaurants
+            // Get all restaurants
+            var restaurants = GetRestaurants();
+
             if (!string.IsNullOrEmpty(type))
             {
                 restaurants = restaurants.Where(r => r.Type == type);  // Filter by type if type parameter is not null or empty
