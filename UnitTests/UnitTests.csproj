@@ -23,9 +23,11 @@
      <None Remove="Pages\Shared\" />
      <None Remove="Services\" />
      <None Remove="Pages\Launch\" />
+     <None Remove="Controllers\" />
    </ItemGroup>
    <ItemGroup>
      <Folder Include="Pages\Shared\" />
      <Folder Include="Pages\Launch\" />
+     <Folder Include="Controllers\" />
    </ItemGroup>
 </Project>
