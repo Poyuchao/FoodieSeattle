@@ -16,11 +16,11 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// <param name="restaurantService"></param>
         public IndexModel(RestaurantService restaurantService)
         {
-            _RestaurantService = restaurantService;
+            this.restaurantService = restaurantService;
         }
 
         // Data Service
-        public RestaurantService _RestaurantService { get; }
+        public RestaurantService restaurantService { get; }
 
         // Collection of the Data
         public IEnumerable<RestaurantModel> Restaurants { get; private set; }
@@ -31,7 +31,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// </summary>
         public void OnGet()
         {
-            Restaurants = _RestaurantService.GetRestaurants();
+            Restaurants = restaurantService.GetRestaurants();
         }
     }
 }
