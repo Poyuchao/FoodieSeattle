@@ -52,7 +52,7 @@ namespace UnitTests.Pages.Restaurant.Update
         public void TestInitialize()
         {
             // Initialize pageModel
-            pageModel = new UpdateModel(TestHelper._RestaurantService)
+            pageModel = new UpdateModel(TestHelper.RestaurantServiceObject)
             {
             };
         }
