@@ -47,7 +47,7 @@ namespace UnitTests.Services.RestaurantService
 
             //Act
             var fourteen = 14;
-            var result = TestHelper._RestaurantService.GetRestaurants().Count();
+            var result = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
 
             //Assert
             Assert.AreEqual(fourteen, result);
@@ -66,7 +66,7 @@ namespace UnitTests.Services.RestaurantService
 
             // Act
             // Expected result
-            var result = TestHelper._RestaurantService.AddRating(null, 1);
+            var result = TestHelper.RestaurantServiceObject.AddRating(null, 1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -80,12 +80,12 @@ namespace UnitTests.Services.RestaurantService
         public void AddRating_Valid_Restaurant_WithRatings_Should_Add_Rating()
         {
             // Arrange
-            var data = TestHelper._RestaurantService.GetRestaurants().First(x => x.Ratings != null && x.Ratings.Length > 0);
+            var data = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Ratings != null && x.Ratings.Length > 0);
             var existingRatingsCount = data.Ratings.Length;
 
             // Act
-            var result = TestHelper._RestaurantService.AddRating(data.Id, 2);
-            var updatedData = TestHelper._RestaurantService.GetRestaurants().First(x => x.Id == data.Id);
+            var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 2);
+            var updatedData = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Id == data.Id);
 
             // Assert
             Assert.IsTrue(result);
@@ -102,11 +102,11 @@ namespace UnitTests.Services.RestaurantService
         public void AddRating_Valid_Restaurant_NoRatings_Should_Add_Rating()
         {
             // Arrange
-            var data = TestHelper._RestaurantService.GetRestaurants().First(x => x.Ratings == null);
+            var data = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Ratings == null);
 
             // Act
-            var result = TestHelper._RestaurantService.AddRating(data.Id, 4);
-            var updatedData = TestHelper._RestaurantService.GetRestaurants().First(x => x.Id == data.Id);
+            var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 4);
+            var updatedData = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Id == data.Id);
 
             // Assert
             Assert.IsTrue(result);
@@ -125,7 +125,7 @@ namespace UnitTests.Services.RestaurantService
             var fakeRestaurantId = "fakeRestaurantId";
 
             // Act
-            var result = TestHelper._RestaurantService.AddRating(fakeRestaurantId, 3);
+            var result = TestHelper.RestaurantServiceObject.AddRating(fakeRestaurantId, 3);
 
             // Assert
             Assert.IsFalse(result);
@@ -141,7 +141,7 @@ namespace UnitTests.Services.RestaurantService
             // Arrange
 
             // Act
-            var result = TestHelper._RestaurantService.AddRating(null, 1);
+            var result = TestHelper.RestaurantServiceObject.AddRating(null, 1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -157,10 +157,10 @@ namespace UnitTests.Services.RestaurantService
             // Arrange
 
             // Get the first data item
-            var data = TestHelper._RestaurantService.GetRestaurants().First();
+            var data = TestHelper.RestaurantServiceObject.GetRestaurants().First();
 
             // Act
-            var result = TestHelper._RestaurantService.AddRating(data.Id, -1);
+            var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, -1);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -177,12 +177,12 @@ namespace UnitTests.Services.RestaurantService
             // Arrange
 
             // Get the First data item
-            var data = TestHelper._RestaurantService.GetRestaurants().First();
+            var data = TestHelper.RestaurantServiceObject.GetRestaurants().First();
             var countOriginal = data.Ratings.Length;
 
             // Act
-            var result = TestHelper._RestaurantService.AddRating(data.Id, 5);
-            var dataNewList = TestHelper._RestaurantService.GetRestaurants().First();
+            var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 5);
+            var dataNewList = TestHelper.RestaurantServiceObject.GetRestaurants().First();
 
             // Assert
             Assert.AreEqual(true, result);
@@ -199,10 +199,10 @@ namespace UnitTests.Services.RestaurantService
             // Arrange
 
             // Get the first data item
-            var data = TestHelper._RestaurantService.GetRestaurants().First();
+            var data = TestHelper.RestaurantServiceObject.GetRestaurants().First();
 
             // Act
-            var result = TestHelper._RestaurantService.AddRating(data.Id, 6);
+            var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 6);
 
             // Assert
             Assert.AreEqual(false, result);
@@ -226,11 +226,11 @@ namespace UnitTests.Services.RestaurantService
                 Url = "https://example.com/new-restaurant",
                 Image = "https://example.com/new-restaurant-image.png"
             };
-            TestHelper._RestaurantService.UpdateData(data);
+            TestHelper.RestaurantServiceObject.UpdateData(data);
 
             // Act
-            var result = TestHelper._RestaurantService.UpdateData(data);
-            var restaurants = TestHelper._RestaurantService.GetRestaurants();
+            var result = TestHelper.RestaurantServiceObject.UpdateData(data);
+            var restaurants = TestHelper.RestaurantServiceObject.GetRestaurants();
             var mcdonaldsRestaurant = restaurants.FirstOrDefault(p => p.Title == "McDonald's");
 
             // Assert
@@ -257,8 +257,8 @@ namespace UnitTests.Services.RestaurantService
 
             };
             // Act
-            var result = TestHelper._RestaurantService.UpdateData(data);
-            var restaurants = TestHelper._RestaurantService.GetRestaurants();
+            var result = TestHelper.RestaurantServiceObject.UpdateData(data);
+            var restaurants = TestHelper.RestaurantServiceObject.GetRestaurants();
             var ShiroRestaurant = restaurants.FirstOrDefault(p => p.Title == "Shiro's");
             // Assert
             Assert.AreEqual(ShiroRestaurant.Title, result.Title);
@@ -278,9 +278,9 @@ namespace UnitTests.Services.RestaurantService
             var restaurantService = new RestaurantModel();
 
             // Act
-            var OldAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
-            TestHelper._RestaurantService.CreateData();
-            var NewAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
+            var OldAllRestaurantsNum = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
+            TestHelper.RestaurantServiceObject.CreateData();
+            var NewAllRestaurantsNum = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
 
             // Assert
             Assert.Greater(NewAllRestaurantsNum, OldAllRestaurantsNum);
@@ -297,8 +297,8 @@ namespace UnitTests.Services.RestaurantService
             var restaurantService = new RestaurantModel();
 
             // Act
-            TestHelper._RestaurantService.CreateData();
-            var restaurants = TestHelper._RestaurantService.GetRestaurants();
+            TestHelper.RestaurantServiceObject.CreateData();
+            var restaurants = TestHelper.RestaurantServiceObject.GetRestaurants();
 
             // Assert
             Assert.IsTrue(restaurants.Any(p => p.Title == "Enter Title"));
@@ -319,9 +319,9 @@ namespace UnitTests.Services.RestaurantService
             var restaurantService = new RestaurantModel();
 
             // Act
-            var OldAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
-            TestHelper._RestaurantService.DeleteData("kashiba-pic");
-            var NewAllRestaurantsNum = TestHelper._RestaurantService.GetRestaurants().Count();
+            var OldAllRestaurantsNum = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
+            TestHelper.RestaurantServiceObject.DeleteData("kashiba-pic");
+            var NewAllRestaurantsNum = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
 
             // Assert
             Assert.Less(NewAllRestaurantsNum, OldAllRestaurantsNum);
@@ -341,13 +341,14 @@ namespace UnitTests.Services.RestaurantService
             // Arrange
             var restaurantModel = new RestaurantModel();
             var title = "Kura sushi";
+            var type = "Japanese";
             var desc = "Kura Sushi (Japanese: くら寿司, Hepburn: Kura zushi) is a Japanese sushi restaurant chain. Its headquarters are in Sakai, Osaka Prefecture.";
             var url = "https://kurasushi.com/";
             var image = "https://lh3.googleusercontent.com/p/AF1QipPk0SIY2o8w2UCDPiuPBiR-rm7ZqNEzpX6B8W7f=s680-w680-h510";
       
 
             // Act
-            var result = TestHelper._RestaurantService.AddData(title, desc, url, image);
+            var result = TestHelper.RestaurantServiceObject.AddData(title, type, desc, url, image);
 
             // Assert
             Assert.IsNotNull(result);
