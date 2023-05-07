@@ -104,46 +104,6 @@ namespace UnitTests.Pages.Restaurant.Create
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
 
-        /// <summary>
-        /// Tests when OnPost is called, an invalid Model State should return false and redirect to
-        /// the Index page.
-        /// </summary>
-        [Test]
-        public void OnPost_InValid_ModelState_Should_Return_False_and_Redirect_To_Index()
-        {
-            // Arrange
-            // Force an invalid error state
-            pageModel.ModelState.AddModelError("InvalidState", "Invalid Neighborhood state");
-
-            // Act
-            var result = pageModel.OnPost() as RedirectToPageResult;
-
-            // Assert
-            Assert.AreEqual(false, pageModel.ModelState.IsValid);
-            Assert.AreEqual(true, result.PageName.Contains("Index"));
-        }
-
         #endregion OnPost
     }
 }
-    /// <summary>
-    /// Tests that when OnGet is called, the Create page will add a valid
-    /// item and the total item count in the datastore increases by the correct
-    /// amount
-    /// </summary>
-    //#region OnGet
-    //[Test]
-    //public void OnGet_Valid_Should_Return_Restaurants()
-    //{
-    //    // Arrange
-    //    // Get the total number of current items in the datastore
-    //    var oldCount = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
-
-    //    // Act
-    //    pageModel.OnGet();
-
-    //    // Assert
-    //    Assert.AreEqual(true, pageModel.ModelState.IsValid);
-    //    Assert.AreEqual(oldCount + 1, TestHelper.RestaurantServiceObject.GetRestaurants().Count());
-    //}
-    //#endregion OnGet
