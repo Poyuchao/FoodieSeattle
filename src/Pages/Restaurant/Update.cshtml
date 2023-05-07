@@ -28,7 +28,7 @@
     <div class="form-group">
 
         <!--The asp-for attribute is used to generate the label and input elements based on the Title property of the Restaurant model.-->
-        <label asp-for="Restaurant.Title" class="control-label"></label>
+        <label asp-for="Restaurant.Title" class="control-label">Restaurant Name</label>
 
         <!--The class attribute of the input field is set to form-control which applies Bootstrap styling to the input field.-->
         <!--The id attribute is set to restaurantTitle which is used to reference the input field in the JavaScript code.-->
@@ -43,51 +43,52 @@
             Looks good!
         </div>
         <div class="invalid-feedback">
-            Please provide a Restaurant title.
+            Please enter a Restaurant name.
         </div>
     </div>
 
-    <div class="form-group">
-        <label asp-for="Restaurant.Description" class="control-label"></label>
-        <input asp-for="Restaurant.Description" class="form-control" id="restaurantDescription" required />
-        <div class="valid-feedback">
-            Looks good!
-        </div>
-        <div class="invalid-feedback">
-            Please provide a description.
-        </div>
-    </div>
 
     <div class="form-group">
-        <label asp-for="Restaurant.Url" class="control-label"></label>
-        <input asp-for="Restaurant.Url" class="form-control" id="restaurantUrl" required />
-        <div class="valid-feedback">
-            Looks good!
-        </div>
-        <div class="invalid-feedback">
-            Please provide a valid URL.
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Restaurant.Image" class="control-label"></label>
-        <input asp-for="Restaurant.Image" class="form-control" id="restaurantImage" required />
-        <div class="valid-feedback">
-            Looks good!
-        </div>
-        <div class="invalid-feedback">
-            Please provide an image.
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Restaurant.Type" class="control-label"></label>
+        <label asp-for="Restaurant.Type" class="control-label">Cuisine Type</label>
         <input asp-for="Restaurant.Type" class="form-control" id="restaurantType" required />
         <div class="valid-feedback">
             Looks good!
         </div>
         <div class="invalid-feedback">
-            Please provide an restaurant type.
+            Please enter a cuisine type.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Restaurant.Description" class="control-label">Description</label>
+        <input asp-for="Restaurant.Description" class="form-control" id="restaurantDescription" required />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a short description.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Restaurant.Url" class="control-label">Link to Restaurant Home Website</label>
+        <input asp-for="Restaurant.Url" class="form-control" id="restaurantUrl" required />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a valid URL.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Restaurant.Image" class="control-label">Link to Restaurant Image</label>
+        <input asp-for="Restaurant.Image" class="form-control" id="restaurantImage" required />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a valid image URL.
         </div>
     </div>
 
@@ -96,6 +97,7 @@
     </div>
 </form>
 <p style="line-height:5.5em;"> </p>
+
 
 @section Scripts {
     <script>//Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -127,3 +129,4 @@
                 })
         })()</script>
 }
+
