@@ -341,6 +341,7 @@ namespace UnitTests.Services.RestaurantService
             // Arrange
             var restaurantModel = new RestaurantModel();
             var title = "Kura sushi";
+            var neighborhood = "bellevue";
             var type = "Japanese";
             var desc = "Kura Sushi (Japanese: くら寿司, Hepburn: Kura zushi) is a Japanese sushi restaurant chain. Its headquarters are in Sakai, Osaka Prefecture.";
             var url = "https://kurasushi.com/";
@@ -348,7 +349,7 @@ namespace UnitTests.Services.RestaurantService
       
 
             // Act
-            var result = TestHelper.RestaurantServiceObject.AddData(title, type, desc, url, image);
+            var result = TestHelper.RestaurantServiceObject.AddData(title, neighborhood, type, desc, url, image);
 
             // Assert
             Assert.IsNotNull(result);
@@ -378,6 +379,7 @@ namespace UnitTests.Services.RestaurantService
             var firstData = new RestaurantModel()
             {
                 Title = "Restaurant 1",
+                Neighborhood = "SLU",
                 Type = "Type 1",
                 Description = "Description1",
                 Url = "http://www.example.com/1",
@@ -386,6 +388,7 @@ namespace UnitTests.Services.RestaurantService
             var secondData = new RestaurantModel()
             {
                 Title = "Restaurant 2",
+                Neighborhood = "SLU",
                 Type = "Type 1",
                 Description = "Description2",
                 Url = "http://www.example.com/2",
@@ -394,9 +397,9 @@ namespace UnitTests.Services.RestaurantService
 
 
             // Act
-            TestHelper.RestaurantServiceObject.AddData(firstData.Title, firstData.Type,
+            TestHelper.RestaurantServiceObject.AddData(firstData.Title, firstData.Neighborhood, firstData.Type,
                 firstData.Description, firstData.Url, firstData.Image);
-            TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Type,
+            TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Neighborhood, secondData.Type, 
                 secondData.Description, secondData.Url, secondData.Image);
             var result = TestHelper.RestaurantServiceObject.GetRestaurantsByType("Type 1");
 
