@@ -100,6 +100,42 @@ namespace UnitTests
             // Initialize test restaurantService with TestHelper.MockWebHostEnvironment
             restaurantService = new RestaurantService(TestHelper.MockWebHostEnvironment.Object);
         }
+
+        /// <summary>
+        /// Initializes a new PageContext object with test data for use in unit tests.
+        /// This method creates a new DefaultHttpContext object, initializes a ModelStateDictionary object,
+        /// sets up an ActionContext with the default route data, and initializes ViewData and TempData
+        /// dictionaries. It then creates a new PageContext object with the ActionContext, ViewData, and
+        /// HttpContext properties set, and finaally returns the new object.
+        /// </summary>
+        /// <returns>A new PageContext object with test data.</returns>
+        public static PageContext InitiatePageContext()
+        {
+            // Initialize and set TraceIdentifier propertiy for HttpContextDefault. 
+            HttpContextDefault = new DefaultHttpContext()
+            {
+                TraceIdentifier = "trace",
+            };
+            HttpContextDefault.HttpContext.TraceIdentifier = "trace";
+
+            // Initialize ModelStateDictionary object. 
+            ModelState = new ModelStateDictionary();
+
+            // Initialize ActionContext. 
+            ActionContext = new ActionContext(HttpContextDefault, HttpContextDefault.GetRouteData(), new PageActionDescriptor(), ModelState);
+
+            // Initialize test Model and associated test data. 
+            ModelMetadataProvider = new EmptyModelMetadataProvider();
+            ViewData = new ViewDataDictionary(ModelMetadataProvider, ModelState);
+            TempData = new TempDataDictionary(HttpContextDefault, Mock.Of<ITempDataProvider>());
+
+            // Initialize PageContext object and set ViewData and HttpContext properties. 
+            return new PageContext(ActionContext)
+            {
+                ViewData = ViewData,
+                HttpContext = HttpContextDefault
+            };
+        }
     }
 }
 
