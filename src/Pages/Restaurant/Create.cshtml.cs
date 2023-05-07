@@ -14,7 +14,7 @@ using ContosoCrafts.WebSite.Services;
 //    public class CreateModel : PageModel
 //    {
 //        // Data middle tier
-//        public RestaurantService _RestaurantService { get; }
+//        public RestaurantService restaurantService { get; }
 
 //        /// <summary>
 //        /// Defualt Construtor
@@ -23,7 +23,7 @@ using ContosoCrafts.WebSite.Services;
 //        /// <param name="restaurantService">An instande of the restaurantService to use</param>
 //        public CreateModel(RestaurantService restaurantService)
 //        {
-//            _RestaurantService = restaurantService;
+//            this.restaurantService = restaurantService;
 //        }
 
 //        // The data to show
@@ -35,7 +35,7 @@ using ContosoCrafts.WebSite.Services;
 //        /// <param name="id"></param>
 //        public IActionResult OnGet()
 //        {
-//            Restaurant = _RestaurantService.CreateData();
+//            Restaurant = restaurantService.CreateData();
 
 //            return RedirectToPage("/Restaurant/Update", new { Id = Restaurant.Id });
 //        }
