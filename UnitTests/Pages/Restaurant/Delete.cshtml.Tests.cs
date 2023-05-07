@@ -40,7 +40,7 @@ namespace UnitTests.Pages.Restaurant.Delete
         public void TestInitialize()
         {
             // Create new DeleteModel instance with RestaurantService
-            pageModel = new DeleteModel(TestHelper._RestaurantService)
+            pageModel = new DeleteModel(TestHelper.RestaurantServiceObject)
             {
             };
         }
@@ -83,9 +83,9 @@ namespace UnitTests.Pages.Restaurant.Delete
             // Arrange
 
             // First Create the restaurant to delete
-            pageModel.Restaurant = TestHelper._RestaurantService.CreateData();
+            pageModel.Restaurant = TestHelper.RestaurantServiceObject.CreateData();
             pageModel.Restaurant.Title = "Example to Delete";
-            TestHelper._RestaurantService.UpdateData(pageModel.Restaurant);
+            TestHelper.RestaurantServiceObject.UpdateData(pageModel.Restaurant);
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;
@@ -95,7 +95,7 @@ namespace UnitTests.Pages.Restaurant.Delete
             Assert.AreEqual(true, result.PageName.Contains("Index"));
 
             // Confirm the item is deleted
-            Assert.AreEqual(null, TestHelper._RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(pageModel.Restaurant.Id)));
+            Assert.AreEqual(null, TestHelper.RestaurantServiceObject.GetRestaurants().FirstOrDefault(m => m.Id.Equals(pageModel.Restaurant.Id)));
         }
 
         /// <summary>
