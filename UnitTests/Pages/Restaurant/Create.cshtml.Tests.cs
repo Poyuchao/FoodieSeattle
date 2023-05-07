@@ -104,6 +104,25 @@ namespace UnitTests.Pages.Restaurant.Create
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
 
+        /// <summary>
+        /// Tests when OnPost is called, an invalid Model State should return false and redirect to
+        /// the Index page.
+        /// </summary>
+        [Test]
+        public void OnPost_InValid_ModelState_Should_Return_False_and_Redirect_To_Index()
+        {
+            // Arrange
+            // Force an invalid error state
+            pageModel.ModelState.AddModelError("InvalidState", "Invalid Restaurant state");
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
         #endregion OnPost
     }
 }
