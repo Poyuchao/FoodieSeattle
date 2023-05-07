@@ -37,7 +37,7 @@ namespace ContosoCrafts.WebSite.Services
 
 
 
-        public IEnumerable<RestaurantModel>parseRestaruantResult(StreamReader jsonFileReader)
+        public IEnumerable<RestaurantModel> parseRestaruantResult(StreamReader jsonFileReader)
         {
             return JsonSerializer.Deserialize<RestaurantModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
@@ -53,14 +53,14 @@ namespace ContosoCrafts.WebSite.Services
         /// <returns></returns>
         public IEnumerable<RestaurantModel> GetRestaurants()
         {
-            
-                using (var jsonFileReader = File.OpenText(JsonFileName))
-                {
-                    return parseRestaruantResult(jsonFileReader);
-                }
-            
 
-            
+            using (var jsonFileReader = File.OpenText(JsonFileName))
+            {
+                return parseRestaruantResult(jsonFileReader);
+            }
+
+
+
         }
 
 
@@ -252,7 +252,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="url">restaurant home website URL entered by user</param>
         /// <param name="desc">short description entered by user</param>
         /// <returns>A new RestaurantModel object to be later saved in JSON</returns>
-        public RestaurantModel AddData(string name, string desc, string url, string image)
+        public RestaurantModel AddData(string name, string cuisineType, string desc, string url, string image)
         {
             // Create a new Restaurant model
             var data = new RestaurantModel()
@@ -260,6 +260,7 @@ namespace ContosoCrafts.WebSite.Services
                 // Add user input data to the corresponding field
                 Id = name + "-pic",
                 Title = name,
+                Type = cuisineType,
                 Description = desc,
                 Url = url,
                 Image = image
@@ -277,5 +278,5 @@ namespace ContosoCrafts.WebSite.Services
 
     }
 
-    
+
 }
