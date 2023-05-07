@@ -30,6 +30,9 @@ namespace UnitTests.Pages.Restaurant.Update
         // Global valid Mock title property for use in tests
         private const string MockTitle = "mamnoon";
 
+        // Global valid Mock food type property for use in tests
+        private const string MockType = "Lebanese";
+
         // Global valid mock description property for use in tests
         private const string MockDescription = "description";
 
@@ -93,6 +96,7 @@ namespace UnitTests.Pages.Restaurant.Update
             {
                 Id = MockId,
                 Title = MockTitle,
+                Type = MockType,
                 Description = MockDescription,
                 Url = MockUrl,
                 Image = MockImage
