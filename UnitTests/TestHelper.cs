@@ -52,7 +52,7 @@ namespace UnitTests
         public static PageContext PageContext;
 
         // Test instance of RestaurantService
-        public static RestaurantService _RestaurantService;
+        public static RestaurantService RestaurantServiceObject;
 
         /// <summary>
         /// Default Constructor
@@ -92,7 +92,7 @@ namespace UnitTests
             };
 
             // Initialize test service with MockWebHostEnvironment
-            _RestaurantService = new RestaurantService(MockWebHostEnvironment.Object);
+            RestaurantServiceObject = new RestaurantService(MockWebHostEnvironment.Object);
 
             // Declare RestaurantService instance
             RestaurantService restaurantService;
