@@ -21,7 +21,7 @@ namespace UnitTests.Pages.Restaurant.Create
         public void TestInitialize()
         {
             // Initialize pageModel
-            pageModel = new CreateModel(TestHelper._RestaurantService)
+            pageModel = new CreateModel(TestHelper.RestaurantServiceObject)
             {
             };
         }
@@ -39,14 +39,14 @@ namespace UnitTests.Pages.Restaurant.Create
         {
             // Arrange
             // Get the total number of current items in the datastore
-            var oldCount = TestHelper._RestaurantService.GetRestaurants().Count();
+            var oldCount = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
 
             // Act
             pageModel.OnGet();
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(oldCount + 1, TestHelper._RestaurantService.GetRestaurants().Count());
+            Assert.AreEqual(oldCount + 1, TestHelper.RestaurantServiceObject.GetRestaurants().Count());
         }
         #endregion OnGet
     }
