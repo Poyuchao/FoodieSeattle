@@ -358,6 +358,87 @@ namespace UnitTests.Services.RestaurantService
             Assert.AreEqual(image, result.Image);
         }
         #endregion AddData
+
+        #region GetRestaurantsByType
+
+        /// <summary>
+        /// Tests the GetRestaurantsByType method with a valid restaurant type.
+        /// It sets up mock data with two restaurants of type "Type 1", and adds them
+        /// to the restaurant service using the TestHelper AddData method. It then calls
+        /// the GetRestaurantsByType method with parameter "Type 1",
+        /// and asserts that the method returns an IEnumerable of RestaurantModel objects
+        /// with a count of 2, and that the returned sequence contains both restaurants.
+        /// </summary>
+        [Test]
+        public void GetRestaurantsByType_ValidType_ReturnsMatchingRestaurants()
+        {
+            // Arrange
+            var restaurantModel = new RestaurantModel();
+            // Set up mock data
+            var firstData = new RestaurantModel()
+            {
+                Title = "Restaurant 1",
+                Type = "Type 1",
+                Description = "Description1",
+                Url = "http://www.example.com/1",
+                Image = "http://www.example.com/1/image.jpg",
+            };
+            var secondData = new RestaurantModel()
+            {
+                Title = "Restaurant 2",
+                Type = "Type 1",
+                Description = "Description2",
+                Url = "http://www.example.com/2",
+                Image = "http://www.example.com/2/image.jpg",
+            };
+
+
+            // Act
+            TestHelper.RestaurantServiceObject.AddData(firstData.Title, firstData.Type,
+                firstData.Description, firstData.Url, firstData.Image);
+            TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Type,
+                secondData.Description, secondData.Url, secondData.Image);
+            var result = TestHelper.RestaurantServiceObject.GetRestaurantsByType("Type 1");
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<IEnumerable<RestaurantModel>>(result);
+            Assert.AreEqual(2, result.Count());
+        }
+
+        /// <summary>
+        /// Tests the GetRestaurantsByType method with an empty restaurant type.
+        /// This test gets the current count of restaurants in the restaurant service
+        /// using the GetRestaurants method. It then calls the GetRestaurantsByType method
+        /// with an empty string as the parameter, and asserts that the
+        /// method returns an IEnumerable of RestaurantModel objects with a count equal to
+        /// the total number of restaurants, indicating that all restaurants were returned.
+        /// </summary>
+        [Test]
+        public void GetRestaurantsByType_InvalidType_ReturnsAllRestaurants()
+        {
+            // Arrange
+            var restaurantModel = new RestaurantModel();
+            var count = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
+
+
+            // Act
+            var result = TestHelper.RestaurantServiceObject.GetRestaurantsByType("");
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<IEnumerable<RestaurantModel>>(result);
+            Assert.AreEqual(count, result.Count());
+
+        }
+
+
+        #endregion GetRestaurantsByType
+
     }
+
+
+
+
 }
 
