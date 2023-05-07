@@ -336,7 +336,7 @@ namespace UnitTests.Services.RestaurantService
         ///  length increases by one after adding a new restaurant.
         /// </summary>
         [Test]
-        public void TestAddData()
+        public void AddData_NewRestaurant_SavesToJSONAndReturns()
         {
             // Arrange
             var restaurantModel = new RestaurantModel();
