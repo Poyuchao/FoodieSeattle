@@ -253,7 +253,8 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="url">restaurant home website URL entered by user</param>
         /// <param name="desc">short description entered by user</param>
         /// <returns>A new RestaurantModel object to be later saved in JSON</returns>
-        public RestaurantModel AddData(string name, string cuisineType, string desc, string url, string image)
+        public RestaurantModel AddData(string name, string neighborhood, string cuisineType,
+            string desc, string url, string image)
         {
             // Create a new Restaurant model
             var data = new RestaurantModel()
@@ -261,6 +262,7 @@ namespace ContosoCrafts.WebSite.Services
                 // Add user input data to the corresponding field
                 Id = name + "-pic",
                 Title = name,
+                Neighborhood = neighborhood,
                 Type = cuisineType,
                 Description = desc,
                 Url = url,
