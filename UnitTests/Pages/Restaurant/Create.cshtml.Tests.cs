@@ -1,7 +1,13 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Restaurant;
-
+using ContosoCrafts.WebSite.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Net;
+using System.Xml.Linq;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace UnitTests.Pages.Restaurant.Create
 {
@@ -10,9 +16,30 @@ namespace UnitTests.Pages.Restaurant.Create
     /// </summary>
     public class CreateTests
     {
-        // CreateModel object
         #region TestSetup
+        // CreateModel object
         public static CreateModel pageModel;
+
+        // Global RestaurantService to use for all test cases. 
+        public RestaurantService restaurantService;
+
+        // Global valid Mock Id property for use in tests
+        private const string MockId = "mamnoon-pic";
+
+        // Global valid Mock title property for use in tests
+        private const string MockTitle = "mamnoon";
+
+        // Global valid Mock food type property for use in tests
+        private const string MockType = "Lebanese";
+
+        // Global valid mock description property for use in tests
+        private const string MockDescription = "High end Labanese restaurant in Capitol Hill";
+
+        // Global valid mock Url property for use in tests
+        private const string MockUrl = "https://www.nadimama.com/mamnoon";
+
+        // Global valid mock Image property for use in tests
+        private const string MockImage = "https://mamnoontogo.net/wp-content/uploads/2021/10/mamnoon.png";
 
         /// <summary>
         /// Initialize CreateModel field
@@ -23,31 +50,100 @@ namespace UnitTests.Pages.Restaurant.Create
             // Initialize pageModel
             pageModel = new CreateModel(TestHelper.RestaurantServiceObject)
             {
+                PageContext = TestHelper.InitiatePageContext()
             };
+        }
+
+        /// <summary>
+        /// Creates a mock form collection with mock data.
+        /// </summary>
+        /// <returns>A FormCollection object holding a collection of form data</returns>
+        private FormCollection GetMockFormCollection()
+        {
+            // Store mock user input in String arrays to match FormCollection Value format.
+            string[] idArray = { MockId };
+            string[] nameArray = { MockTitle };
+            string[] typeArray = { MockType };
+            string[] DescArray = { MockDescription };
+            string[] urlArray = { MockUrl };
+            string[] imageArray = { MockImage };
+            // Create a FormCollection object to hold mock form data.
+            var formCol = new FormCollection(new Dictionary<string, Microsoft.Extensions.Primitives.StringValues>
+            {
+                { "Restaurant.Id", idArray},
+                { "Restaurant.Title", nameArray },
+                { "Restaurant.CuisineType", typeArray},
+                { "Restaurant.Description", DescArray},
+                { "Restaurant.Url", urlArray },
+                { "Restaurant.Image", imageArray},
+            });
+            return formCol;
         }
 
         #endregion TestSetup
 
+
+        #region OnPost
         /// <summary>
-        /// Tests that when OnGet is called, the Create page will add a valid
-        /// item and the total item count in the datastore increases by the correct
-        /// amount
+        /// Tests when OnPost is called, creating a new restaurant should return valid ModelState
+        /// and redirect to Index page.
         /// </summary>
-        #region OnGet
         [Test]
-        public void OnGet_Valid_Should_Return_Restaurants()
+        public void OnPost_Valid_Should_Return_Valid_Model_State_And_Redirect_To_Index()
         {
-            // Arrange
-            // Get the total number of current items in the datastore
-            var oldCount = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
+            // Arrange          
+            var formCol = GetMockFormCollection();
+            // Link FormCollection object with HTTPContext.
+            TestHelper.HttpContextDefault.Request.HttpContext.Request.Form = formCol;
 
             // Act
-            pageModel.OnGet();
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert page is successful.
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
+        /// <summary>
+        /// Tests when OnPost is called, an invalid Model State should return false and redirect to
+        /// the Index page.
+        /// </summary>
+        [Test]
+        public void OnPost_InValid_ModelState_Should_Return_False_and_Redirect_To_Index()
+        {
+            // Arrange
+            // Force an invalid error state
+            pageModel.ModelState.AddModelError("InvalidState", "Invalid Neighborhood state");
+
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(oldCount + 1, TestHelper.RestaurantServiceObject.GetRestaurants().Count());
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
-        #endregion OnGet
+
+        #endregion OnPost
     }
 }
+    /// <summary>
+    /// Tests that when OnGet is called, the Create page will add a valid
+    /// item and the total item count in the datastore increases by the correct
+    /// amount
+    /// </summary>
+    //#region OnGet
+    //[Test]
+    //public void OnGet_Valid_Should_Return_Restaurants()
+    //{
+    //    // Arrange
+    //    // Get the total number of current items in the datastore
+    //    var oldCount = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
+
+    //    // Act
+    //    pageModel.OnGet();
+
+    //    // Assert
+    //    Assert.AreEqual(true, pageModel.ModelState.IsValid);
+    //    Assert.AreEqual(oldCount + 1, TestHelper.RestaurantServiceObject.GetRestaurants().Count());
+    //}
+    //#endregion OnGet
