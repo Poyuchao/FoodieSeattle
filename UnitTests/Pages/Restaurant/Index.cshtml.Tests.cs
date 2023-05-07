@@ -33,10 +33,10 @@ namespace UnitTests.Pages.Restaurant.Index
         public void SetUp()
         {
             // Instantiate the Restaurant page model with a test RestaurantService dependency
-            IndexModel = new IndexModel(TestHelper._RestaurantService);
+            IndexModel = new IndexModel(TestHelper.RestaurantServiceObject);
             // Initialize the expected list of restaurants to the result of calling ToList()
             // on the restaurants returned by the test RestaurantService
-            expectedRestaurants = TestHelper._RestaurantService.GetRestaurants().ToList();
+            expectedRestaurants = TestHelper.RestaurantServiceObject.GetRestaurants().ToList();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace UnitTests.Pages.Restaurant.Index
             // Arrange
             // Get the expected number of restaurants by calling Count() on the restaurants
             // returned by the test RestaurantService
-            var expectedRestaurantNums = TestHelper._RestaurantService.GetRestaurants().Count();
+            var expectedRestaurantNums = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
 
             // Act
             // Call the OnGet() method of the Restaurant page model to get the actual restaurants
