@@ -81,6 +81,17 @@
     </div>
 
     <div class="form-group">
+        <label asp-for="Restaurant.Type" class="control-label"></label>
+        <input asp-for="Restaurant.Type" class="form-control" id="restaurantType" required />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please provide an restaurant type.
+        </div>
+    </div>
+
+    <div class="form-group">
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </form>
