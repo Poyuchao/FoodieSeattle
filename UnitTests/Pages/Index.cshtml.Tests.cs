@@ -25,7 +25,7 @@ namespace UnitTests.Pages
         {
             var mockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
 
-            _pageModel = new IndexModel(mockLoggerDirect, TestHelper._RestaurantService);
+            _pageModel = new IndexModel(mockLoggerDirect, TestHelper.RestaurantServiceObject);
         }
 
         #endregion TestSetup
