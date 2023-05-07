@@ -17,7 +17,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
     public class ReadModel : PageModel
     {
         // Data middle tier.
-        public RestaurantService _RestaurantService { get; }
+        public RestaurantService restaurantService { get; }
 
         /// <summary>
         /// Defualt Construtor
@@ -25,7 +25,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// <param name="restaurantService">Instance of the data service we will use</param>
         public ReadModel(RestaurantService restaurantService)
         {
-            _RestaurantService = restaurantService;
+            this.restaurantService = restaurantService;
         }
 
         // This is a public property of type RestaurantModel named Restaurant. This property will hold the data to display on the page.
@@ -45,7 +45,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// REST Get request.
         /// </summary>
         /// <param name="id">The unique id of the restaurant to show</param>
-        public void OnGet(string id) => Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+        public void OnGet(string id) => Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
 
         public IActionResult OnPost()
         {
@@ -53,13 +53,13 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
             {
                 PasswordEntered = true;
                 //retrieves the ProductModel object whose Id property matches the value of the "id" route parameter in the URL.
-                Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
+                Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
                 return Page();
             }
             else
             {
                 ModelState.AddModelError("Password", "Incorrect password.");
-                Restaurant = _RestaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
+                Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
                 return Page();
             }
         }
