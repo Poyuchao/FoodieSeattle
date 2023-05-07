@@ -33,8 +33,8 @@ namespace UnitTests.Pages.Restaurant.Read
         public void SetUp()
         {
             // Create ReadModel instance and expected restaurant list
-            callReadModel = new ReadModel(TestHelper._RestaurantService);
-            expectedRestaurants = TestHelper._RestaurantService.GetRestaurants().ToList();
+            callReadModel = new ReadModel(TestHelper.RestaurantServiceObject);
+            expectedRestaurants = TestHelper.RestaurantServiceObject.GetRestaurants().ToList();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace UnitTests.Pages.Restaurant.Read
         public void OnGet_Retuen_Same_Data()
         {
             //arrange
-            var expectedRestaurant = TestHelper._RestaurantService.GetRestaurants().First().Title;
+            var expectedRestaurant = TestHelper.RestaurantServiceObject.GetRestaurants().First().Title;
 
             //Act
             callReadModel.OnGet(ExistingId);
