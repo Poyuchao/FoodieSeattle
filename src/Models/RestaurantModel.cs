@@ -69,6 +69,12 @@ namespace ContosoCrafts.WebSite.Models
         [StringLength(50, ErrorMessage = "A restaurant name cannot exceed 50 characters. ")]
         public string Title { get; set; }
 
+        // Declare and validate a public property Title of type string to represent the neighborhood of the restaurant.
+        [Required(ErrorMessage = "Please enter the restaurant's neighborhood.")]
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Please enter a valid neighborhood.")]
+        [StringLength(30, ErrorMessage = "A neighborhood cannot exceed 30 characters. ")]
+        public string Neighborhood { get; set; }
+
         // Declare and validate a public property Description of type string to represent the description of the restaurant.
         [Required(ErrorMessage = "Please enter a brief description.")]
         [StringLength(500, ErrorMessage = "A Neighborhood description cannot exceed 500 characters. ")]
