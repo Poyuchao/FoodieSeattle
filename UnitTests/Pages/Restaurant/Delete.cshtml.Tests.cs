@@ -42,6 +42,7 @@ namespace UnitTests.Pages.Restaurant.Delete
             // Create new DeleteModel instance with RestaurantService
             pageModel = new DeleteModel(TestHelper.RestaurantServiceObject)
             {
+                PageContext = TestHelper.InitiatePageContext()
             };
         }
 
@@ -67,6 +68,63 @@ namespace UnitTests.Pages.Restaurant.Delete
             // Name of the returned Restaurant matches the expected value.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(title, pageModel.Restaurant.Title);
+        }
+
+        /// <summary>
+        /// Tests when OnGet is called, an invalid ModelState should return false
+        /// and redirect to Index page.
+        /// </summary>
+        [Test]
+        public void OnGet_InValid_ModelState_Should_Return_False_And_Redirect_To_Index_Page()
+        {
+            // Arrange
+            pageModel.Restaurant = new RestaurantModel
+            {
+                Id = "MockId",
+                Title = "MockTitle",
+                Neighborhood = "MockNeighborhood",
+                Type = "MockType",
+                Description = "MockDescription",
+                Url = "MockUrl",
+                Image = "MockImage"
+            };
+
+            // Force an invalid error state.
+            pageModel.ModelState.AddModelError("InvalidState", "Invalid restaurant state");
+
+            // Act
+            var result = pageModel.OnGet(pageModel.Restaurant.Id) as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
+        /// <summary>
+        /// Tests when OnGet is called, a valid Model State with a null restaurant
+        /// should redirect to Index page.
+        /// </summary>
+        [Test]
+        public void OnGet_Valid_ModelState_Null_Restaurant_Should_Redirect_To_Index_Page()
+        {
+            // Arrange
+            pageModel.Restaurant = new RestaurantModel
+            {
+                Id = null,
+                Title = null,
+                Neighborhood = null,
+                Type = null,
+                Description = null,
+                Url = null,
+                Image = null
+            };
+
+            // Act
+            var result = pageModel.OnGet(pageModel.Restaurant.Id) as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
         #endregion OnGet
 
