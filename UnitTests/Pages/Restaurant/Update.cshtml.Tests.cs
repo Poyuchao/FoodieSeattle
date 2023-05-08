@@ -6,6 +6,8 @@ using NUnit.Framework;
 using ContosoCrafts.WebSite.Pages.Restaurant;
 using ContosoCrafts.WebSite.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.Collections.Generic;
 
 namespace UnitTests.Pages.Restaurant.Update
 {
@@ -116,8 +118,9 @@ namespace UnitTests.Pages.Restaurant.Update
         }
 
         /// <summary>
-        /// Tests when OnGet is called, a valid Model State with a null neighborhood
-        /// should redirect to Index page.
+        /// This function tests the behavior of the "OnGet" method in the Update Razor Page,
+        /// when the ModelState is null and the RestaurantModel is also null. A valid Model
+        /// State with a null restaurant should redirect to the Index page.
         /// </summary>
         [Test]
         public void OnGet_Valid_ModelState_Null_Restaurant_Should_Redirect_To_Index_Page()
