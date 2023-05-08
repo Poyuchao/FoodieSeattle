@@ -81,7 +81,7 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
             // Get user input from the form: name, image link, short description, uploaded files.
             var name = Request.Form["Restaurant.Title"];
             var neighborhood = Request.Form["Restaurant.Neighborhood"];
-            var cuisineType = Request.Form["Restaurant.CuisineType"];
+            var cuisineType = Request.Form["Restaurant.Type"];
             var description = Request.Form["Restaurant.Description"];
             var url = Request.Form["Restaurant.Url"];
             var imageURL = Request.Form["Restaurant.Image"];
