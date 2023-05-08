@@ -1,6 +1,6 @@
 ﻿@page "{id}"
 @using ContosoCrafts.WebSite.Services
-@inject RestaurantService _RestaurantService
+@inject RestaurantService restaurantService
 @model ContosoCrafts.WebSite.Pages.Restaurant.UpdateModel
 
 @{
@@ -31,7 +31,7 @@
 
     <div class="form-group">
         <label asp-for="Restaurant.Type" class="control-label">Cuisine Type</label>
-        <input asp-for="Restaurant.Type" class="form-control" id="restaurantType" required />
+        <input asp-for="Restaurant.Type" class="form-control" required />
         <span asp-validation-for="Restaurant.Type" class="text-danger"></span>
     </div>
 
