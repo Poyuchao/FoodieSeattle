@@ -42,9 +42,21 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// If a matching object is found, it is assigned to the "Restaurant" property.
         /// </summary>
         /// <param name="id"></param>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToPage("/Restaurant/Index");
+            }
+
             Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+
+            if (Restaurant == null)
+            {
+                return RedirectToPage("/Restaurant/Index");
+            }
+
+            return Page();
         }
 
         /// <summary>
@@ -62,7 +74,11 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
                 return Page();
             }
 
-            restaurantService.DeleteData(Restaurant.Id);
+            // Delete all JSON data and image files associated with this restaurant.
+            if (Restaurant != null)
+            {
+                restaurantService.DeleteData(Restaurant.Id);
+            }
 
             return RedirectToPage("/Restaurant/Index");
         }
