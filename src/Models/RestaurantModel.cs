@@ -69,11 +69,17 @@ namespace ContosoCrafts.WebSite.Models
         [StringLength(50, ErrorMessage = "A restaurant name cannot exceed 50 characters. ")]
         public string Title { get; set; }
 
-        // Declare and validate a public property Title of type string to represent the neighborhood of the restaurant.
+        // Declare and validate a public property Neighborhood of type string to represent the neighborhood of the restaurant.
         [Required(ErrorMessage = "Please enter the restaurant's neighborhood.")]
         [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Please enter a valid neighborhood.")]
         [StringLength(30, ErrorMessage = "A neighborhood cannot exceed 30 characters. ")]
         public string Neighborhood { get; set; }
+
+        // Declare and validate a public property Type of type string to represent the cuisine type of a restaurant
+        [Required(ErrorMessage = "Please enter a cuisine type.")]
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Please enter a valid cuisine type.")]
+        [StringLength(20, ErrorMessage = "A cuisine type cannot exceed 20 characters. ")]
+        public string Type { get; set; }
 
         // Declare and validate a public property Description of type string to represent the description of the restaurant.
         [Required(ErrorMessage = "Please enter a brief description.")]
@@ -87,11 +93,6 @@ namespace ContosoCrafts.WebSite.Models
         // Override the ToString method to serialize the restaurant to a JSON string using the JsonSerializer.
         public override string ToString() => JsonSerializer.Serialize<RestaurantModel>(this);
 
-        // Declare and validate a public property Type of type string to represent the cuisine type of a restaurant
-        [Required(ErrorMessage = "Please enter a cuisine type.")]
-        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Please enter a valid cuisine type.")]
-        [StringLength(20, ErrorMessage = "A cuisine type cannot exceed 20 characters. ")]
-        public string Type { get; set; }
 
     }
 }
