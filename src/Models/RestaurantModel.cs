@@ -77,7 +77,7 @@ namespace ContosoCrafts.WebSite.Models
 
         // Declare and validate a public property Description of type string to represent the description of the restaurant.
         [Required(ErrorMessage = "Please enter a brief description.")]
-        [StringLength(500, ErrorMessage = "A Neighborhood description cannot exceed 500 characters. ")]
+        [StringLength(2000, ErrorMessage = "A Neighborhood description cannot exceed 2000 characters. ")]
         //public string Description { get; set; } = "Default";
         public string Description { get; set; }
 
