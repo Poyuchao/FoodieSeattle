@@ -101,8 +101,9 @@ namespace UnitTests.Pages.Restaurant.Delete
         }
 
         /// <summary>
-        /// Tests when OnGet is called, a valid Model State with a null restaurant
-        /// should redirect to Index page.
+        /// This function tests the behavior of the "OnGet" method in the Delete CRUDi Razor Page,
+        /// when the ModelState is null and the RestaurantModel is also null. A valid Model
+        /// State with a null restaurant should redirect to the Index page.
         /// </summary>
         [Test]
         public void OnGet_Valid_ModelState_Null_Restaurant_Should_Redirect_To_Index_Page()
