@@ -7,6 +7,7 @@ using ContosoCrafts.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using NUnit.Framework.Internal;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UnitTests.Pages.Restaurant.Read
 {
@@ -56,6 +57,84 @@ namespace UnitTests.Pages.Restaurant.Read
 
 
         }
+
+        [Test]
+        public void PasswordProperty_SetGet_ReturnsCorrectValue()
+        {
+            // Arrange
+       
+            var model = new ReadModel(TestHelper.RestaurantServiceObject);
+            var expectedPassword = "test123";
+
+            // Act
+            model.Password = expectedPassword;
+            var actualPassword = model.Password;
+
+            // Assert
+            Assert.AreEqual(expectedPassword, actualPassword);
+        }
+
+        [Test]
+        public void PasswordEnterProperty_SetGet_ReturnsCorrectValue()
+        {
+            // Arrange
+
+            var model = new ReadModel(TestHelper.RestaurantServiceObject);
+            var expectedPasswordEntered = true;
+
+            // Act
+            model.PasswordEntered = expectedPasswordEntered;
+            var actualPasswordEntered = model.PasswordEntered;
+
+            // Assert
+            Assert.AreEqual(expectedPasswordEntered, actualPasswordEntered);
+        }
+
+
+        [Test]
+        public void OnPost_ValidPassword_ReturnsPageResult()
+        {
+            // Arrange
+           
+            var model = new ReadModel(TestHelper.RestaurantServiceObject);
+            model.Password = "6666";
+            model.PageContext = new PageContext
+            {
+                RouteData = new Microsoft.AspNetCore.Routing.RouteData()
+            };
+            model.PageContext.RouteData.Values.Add("id", ExistingId); // Set the id value to a valid value for your test
+
+            // Act
+            var result = model.OnPost();
+
+            // Assert
+            Assert.IsInstanceOf<PageResult>(result);
+            Assert.IsTrue(model.PasswordEntered);
+        }
+
+        [Test]
+        public void OnPost_IncorrectPassword_ReturnsPageResultWithError()
+        {
+            // Arrange
+       
+            var model = new ReadModel(TestHelper.RestaurantServiceObject);
+            model.Password = "1234"; // Use an incorrect password
+            model.PageContext = new PageContext
+            {
+                RouteData = new Microsoft.AspNetCore.Routing.RouteData()
+            };
+            model.PageContext.RouteData.Values.Add("id", ExistingId); // Set the id value to a valid value for your test
+
+            // Act
+            var result = model.OnPost();
+
+            // Assert
+            Assert.IsInstanceOf<PageResult>(result);
+            Assert.IsFalse(model.PasswordEntered);
+            Assert.IsTrue(model.ModelState.ContainsKey("Password"));
+            Assert.IsTrue(model.ModelState["Password"].Errors.Any(e => e.ErrorMessage == "Incorrect password."));
+        }
+
 
 
 
