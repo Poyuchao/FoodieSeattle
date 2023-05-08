@@ -37,9 +37,24 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         /// Loads the Data
         /// </summary>
         /// <param name="id"></param>
-        public void OnGet(string id)
+
+
+        public IActionResult OnGet(string id)
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToPage("/Restaurant/Index");
+            }
+
+            //restaurant = restaurantService.GetRestaurantById(id);
             Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+
+            if (Restaurant == null)
+            {
+                return RedirectToPage("/Restaurant/Index");
+            }
+
+            return Page();
         }
 
         /// <summary>
@@ -53,10 +68,15 @@ namespace ContosoCrafts.WebSite.Pages.Restaurant
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return RedirectToPage("/Restaurant/Index");
             }
 
-            restaurantService.UpdateData(Restaurant);
+
+            // If restaurant is not null, update restaurant with user entered data. 
+            if (Restaurant != null)
+            {
+                Restaurant = restaurantService.UpdateData(Restaurant);
+            }
 
             return RedirectToPage("/Restaurant/Index");
         }
