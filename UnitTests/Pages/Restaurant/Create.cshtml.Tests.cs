@@ -29,7 +29,6 @@ namespace UnitTests.Pages.Restaurant.Create
         // Global valid Mock title property for use in tests
         private const string MockTitle = "mamnoon";
 
-
         // Global valid Mock neighborhood property for use in tests
         private const string MockNeighborhood = "Capitol Hill";
 
