@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Restaurant;
 using ContosoCrafts.WebSite.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UnitTests.Pages.Restaurant.Update
 {
@@ -29,6 +30,9 @@ namespace UnitTests.Pages.Restaurant.Update
 
         // Global valid Mock title property for use in tests
         private const string MockTitle = "mamnoon";
+
+        // Global valic Mock neighborhood property for use in tests
+        private const string MockNeighborhood = "Capitol Hill";
 
         // Global valid Mock food type property for use in tests
         private const string MockType = "Lebanese";
@@ -57,6 +61,7 @@ namespace UnitTests.Pages.Restaurant.Update
             // Initialize pageModel
             pageModel = new UpdateModel(TestHelper.RestaurantServiceObject)
             {
+                PageContext = TestHelper.InitiatePageContext()
             };
         }
 
@@ -79,6 +84,63 @@ namespace UnitTests.Pages.Restaurant.Update
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(ExistingTitle, pageModel.Restaurant.Title);
         }
+
+        /// <summary>
+        /// Tests when OnGet is called, an invalid ModelState should return false
+        /// and redirect to Index page.
+        /// </summary>
+        [Test]
+        public void OnGet_InValid_ModelState_Should_Return_False_And_Redirect_To_Index_Page()
+        {
+            // Arrange
+            pageModel.Restaurant = new RestaurantModel
+            {
+                Id = MockId,
+                Title = ErrorAttribute,
+                Neighborhood = MockNeighborhood,
+                Type = MockType,
+                Description = MockDescription,
+                Url = MockUrl,
+                Image = MockImage
+            };
+
+            // Force an invalid error state.
+            pageModel.ModelState.AddModelError("InvalidState", "Invalid restaurant state");
+
+            // Act
+            var result = pageModel.OnGet(pageModel.Restaurant.Id) as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
+        /// <summary>
+        /// Tests when OnGet is called, a valid Model State with a null neighborhood
+        /// should redirect to Index page.
+        /// </summary>
+        [Test]
+        public void OnGet_Valid_ModelState_Null_Restaurant_Should_Redirect_To_Index_Page()
+        {
+            // Arrange
+            pageModel.Restaurant = new RestaurantModel
+            {
+                Id = null,
+                Title = null,
+                Neighborhood = null,
+                Type = null,
+                Description = null,
+                Url = null,
+                Image = null
+            };
+
+            // Act
+            var result = pageModel.OnGet(pageModel.Restaurant.Id) as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
         #endregion OnGet
 
         /// <summary>
@@ -96,6 +158,7 @@ namespace UnitTests.Pages.Restaurant.Update
             {
                 Id = MockId,
                 Title = MockTitle,
+                Neighborhood = MockNeighborhood,
                 Type = MockType,
                 Description = MockDescription,
                 Url = MockUrl,
@@ -129,6 +192,7 @@ namespace UnitTests.Pages.Restaurant.Update
             // Assert
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
         }
+
         #endregion OnPost
     }
 }
