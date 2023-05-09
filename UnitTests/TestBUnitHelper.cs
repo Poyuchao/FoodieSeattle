@@ -1,15 +1,19 @@
+using Bunit;
 using NUnit.Framework;
 
 namespace UnitTests
 {
-    public class Tests
+    /// <summary>
+    /// Test Context used by bUnit
+    /// </summary>
+    public abstract class BunitTestContext : TestContextWrapper
     {
+        // The Setup sets the context
         [SetUp]
-        public void Setup()
-        {
-        }
+        public void Setup() => TestContext = new Bunit.TestContext();
 
-        [Test]
-        public void Test1() => Assert.Pass();
+        // When done displose removes it, to free up system resources
+        [TearDown]
+        public void TearDown() => TestContext.Dispose();
     }
 }
