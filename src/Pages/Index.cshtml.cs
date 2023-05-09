@@ -3,10 +3,10 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Models;
+using FoodieSeattle.WebSite.Services;
 
-namespace ContosoCrafts.WebSite.Pages
+namespace FoodieSeattle.WebSite.Pages
 {
     //This line defines a new class named IndexModel that inherits from the PageModel class.
     public class IndexModel : PageModel

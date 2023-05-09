@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Models;
+using FoodieSeattle.WebSite.Services;
 
 // OLD CODE
-//namespace ContosoCrafts.WebSite.Pages.Restaurant
+//namespace FoodieSeattle.WebSite.Pages.Restaurant
 //{
 //    /// <summary>
 //    /// Create a Page Model for the 'Create' CRUDi Razor Page. Should add a new restaurant
@@ -45,7 +45,7 @@ using ContosoCrafts.WebSite.Services;
 
 // NEW CODE
 
-namespace ContosoCrafts.WebSite.Pages.Restaurant
+namespace FoodieSeattle.WebSite.Pages.Restaurant
 {
     /// <summary>
     /// Create Page Model for the Create Razor Page: adds a new Restaurant to RestaurantModel and JSON file.

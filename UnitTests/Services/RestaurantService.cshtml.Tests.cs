@@ -3,14 +3,14 @@ using System.Linq;
 // Import the NUnit.Framework namespace for NUnit testing
 using NUnit.Framework;
 // Import the RestaurantService page model
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Services;
 // Import the NUnit.Framework.Internal namespace for NUnit testing
 using NUnit.Framework.Internal;
 // Import the RestaurantModel class
-using ContosoCrafts.WebSite.Models;
+using FoodieSeattle.WebSite.Models;
 // Import the System.Collections.Generic namespace for collections
 using System.Collections.Generic;
-using ContosoCrafts.WebSite.Pages.Restaurant;
+using FoodieSeattle.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc;
 
 /// <summary>

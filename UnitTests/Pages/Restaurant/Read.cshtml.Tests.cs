@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using ContosoCrafts.WebSite.Models;
+using FoodieSeattle.WebSite.Models;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Services;
 using Moq;
-using ContosoCrafts.WebSite.Pages.Restaurant;
+using FoodieSeattle.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using NUnit.Framework.Internal;

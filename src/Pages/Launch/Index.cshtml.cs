@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ContosoCrafts.WebSite.Pages.Launch
+namespace FoodieSeattle.WebSite.Pages.Launch
 {
 	public class IndexModel : PageModel
     {

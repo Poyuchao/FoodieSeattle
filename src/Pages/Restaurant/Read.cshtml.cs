@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Models;
+using FoodieSeattle.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ContosoCrafts.WebSite.Pages.Restaurant
+namespace FoodieSeattle.WebSite.Pages.Restaurant
 {
     /// <summary>
     /// Read Page Model for the Read.cshtml Page, should return a restaurant's data to display

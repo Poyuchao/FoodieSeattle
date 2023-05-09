@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using NUnit.Framework;
 
-using ContosoCrafts.WebSite.Pages.Restaurant;
-using ContosoCrafts.WebSite.Models;
+using FoodieSeattle.WebSite.Pages.Restaurant;
+using FoodieSeattle.WebSite.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;

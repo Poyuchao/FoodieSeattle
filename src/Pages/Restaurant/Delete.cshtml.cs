@@ -1,5 +1,5 @@
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Models;
+using FoodieSeattle.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq;
@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace ContosoCrafts.WebSite.Pages.Restaurant
+namespace FoodieSeattle.WebSite.Pages.Restaurant
 {/// <summary>
  /// Manage the Delete of the data for a single record
  /// </summary>

@@ -1,11 +1,11 @@
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace ContosoCrafts.WebSite
+namespace FoodieSeattle.WebSite
 {
     //This is the constructor for the Startup class. It takes an IConfiguration instance as a parameter, which is used to configure the application.
     //It also defines a public property named Configuration of type IConfiguration, which will be used to access the configuration data.

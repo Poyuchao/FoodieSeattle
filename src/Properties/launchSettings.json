@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ContosoCrafts.WebSite": {
+    "FoodieSeattle.WebSite": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:63680;http://localhost:63681",

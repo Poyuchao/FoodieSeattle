@@ -3,10 +3,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Models;
+using FoodieSeattle.WebSite.Services;
 
-namespace ContosoCrafts.WebSite.Pages.Restaurant
+namespace FoodieSeattle.WebSite.Pages.Restaurant
 {
     public class IndexModel : PageModel
     {

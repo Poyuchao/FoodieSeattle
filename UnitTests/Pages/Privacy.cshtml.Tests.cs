@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 using Moq;
 
-using ContosoCrafts.WebSite.Pages;
+using FoodieSeattle.WebSite.Pages;
 
 namespace UnitTests.Pages.Privacy
 {

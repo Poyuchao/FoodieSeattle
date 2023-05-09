@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-using ContosoCrafts.WebSite.Models;
+using FoodieSeattle.WebSite.Models;
 
 using Microsoft.AspNetCore.Hosting;
 
-namespace ContosoCrafts.WebSite.Services
+namespace FoodieSeattle.WebSite.Services
 {
     /// <summary>
     /// Mediates communication between a RestaurantController and Restaurants Data.

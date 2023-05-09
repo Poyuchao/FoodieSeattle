@@ -3,11 +3,11 @@ using System.Collections.Generic;
 // Import the Microsoft.AspNetCore.Mvc namespace for creating web applications using the MVC pattern.
 using Microsoft.AspNetCore.Mvc;
 // Import the namespace for the models used by the RestaurantsController.
-using ContosoCrafts.WebSite.Models;
+using FoodieSeattle.WebSite.Models;
 // Import the namespace for the services used by the RestaurantsController.
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Services;
 //Declare new namespace for the RestaurantsController..
-namespace ContosoCrafts.WebSite.Controllers
+namespace FoodieSeattle.WebSite.Controllers
 {
     // Indicate that this controller should use the default behavior for API controllers.
     [ApiController]

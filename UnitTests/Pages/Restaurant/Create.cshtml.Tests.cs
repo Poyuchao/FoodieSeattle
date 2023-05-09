@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Pages.Restaurant;
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Pages.Restaurant;
+using FoodieSeattle.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net;

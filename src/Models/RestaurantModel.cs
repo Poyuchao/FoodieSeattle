@@ -5,7 +5,7 @@
 //// Import the System.Text.Json.Serialization namespace for working with JSON serialization attribute.
 //using System.Text.Json.Serialization;
 
-//namespace ContosoCrafts.WebSite.Models
+//namespace FoodieSeattle.WebSite.Models
 //{
 //    public class RestaurantModel
 //    {
@@ -44,7 +44,7 @@ using System.Text.Json;
 // Import the System.Text.Json.Serialization namespace for working with JSON serialization attribute.
 using System.Text.Json.Serialization;
 
-namespace ContosoCrafts.WebSite.Models
+namespace FoodieSeattle.WebSite.Models
 {
     public class RestaurantModel
     {

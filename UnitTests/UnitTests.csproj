@@ -14,7 +14,7 @@
   </ItemGroup>
 
    <ItemGroup>
-    <ProjectReference Include="..\src\ContosoCrafts.WebSite.csproj" />
+    <ProjectReference Include="..\src\FoodieSeattle.WebSite.csproj" />
    </ItemGroup>
 
    <ItemGroup>

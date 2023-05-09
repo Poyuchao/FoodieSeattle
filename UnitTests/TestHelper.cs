@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Routing;
 
 using Moq;
 
-using ContosoCrafts.WebSite.Services;
+using FoodieSeattle.WebSite.Services;
 using NUnit.Framework.Internal;
 
 namespace UnitTests
