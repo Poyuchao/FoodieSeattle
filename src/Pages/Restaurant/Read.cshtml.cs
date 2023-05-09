@@ -1,5 +1,4 @@
-﻿
-//These lines import the necessary namespaces for this class.
+﻿//These lines import the necessary namespaces for this class.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +19,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         public RestaurantService restaurantService { get; }
 
         /// <summary>
-        /// Defualt Construtor
+        /// Default Construtor
         /// </summary>
         /// <param name="restaurantService">Instance of the data service we will use</param>
         public ReadModel(RestaurantService restaurantService)
@@ -36,10 +35,6 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
 
         // Define the variable to keep track of password status
         public bool PasswordEntered { get; set; }
-        /// <summary>
-        /// REST Get request
-        /// </summary>
-        /// <param name="id"></param>
 
         /// <summary>
         /// REST Get request.
@@ -47,6 +42,12 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         /// <param name="id">The unique id of the restaurant to show</param>
         public void OnGet(string id) => Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
 
+        /// <summary>
+        /// Processes the OnPost request for the ReadModel instance, setting the PasswordEntered
+        /// flag and retrieving the corresponding RestaurantModel object if the correct password
+        /// is provided. Or it adds a validation error to the ModelState if password is incorrect.
+        /// </summary>
+        /// <returns>An IActionResult representing the page result, either with the corresponding RestaurantModel object or with a validation error message.</returns>
         public IActionResult OnPost()
         {
             if (Password == "6666")
