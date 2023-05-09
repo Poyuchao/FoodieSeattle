@@ -17,6 +17,7 @@ namespace UnitTests.Pages.Restaurant.Read
     /// </summary>
     public class ReadTests
     {
+        #region SetUp
         // Set up ReadModel
         private ReadModel callReadModel;
 
@@ -38,6 +39,10 @@ namespace UnitTests.Pages.Restaurant.Read
             expectedRestaurants = TestHelper.RestaurantServiceObject.GetRestaurants().ToList();
         }
 
+        #endregion SetUp
+
+        #region OnGet
+
         /// <summary>
         /// Tests the "OnGet" method of the ReadModel class by checking if it returns
         /// the expected restaurant title for a valid restaurant ID.
@@ -57,6 +62,10 @@ namespace UnitTests.Pages.Restaurant.Read
 
 
         }
+
+        #endregion OnGet
+
+        #region Password
 
         /// <summary>
         /// Tests that the Password property of a ReadModel instance can be set and
@@ -97,6 +106,10 @@ namespace UnitTests.Pages.Restaurant.Read
             // Assert
             Assert.AreEqual(expectedPasswordEntered, actualPasswordEntered);
         }
+
+        #endregion Password
+
+        #region OnPost
 
         /// <summary>
         /// Tests that the OnPost method of a ReadModel instance returns a
@@ -146,5 +159,7 @@ namespace UnitTests.Pages.Restaurant.Read
             Assert.IsInstanceOf<PageResult>(result);
             Assert.IsFalse(model.PasswordEntered);           
         }
+
+        #endregion OnPost
     }
 }
