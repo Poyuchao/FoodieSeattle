@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using FoodieSeattle.WebSite.Controllers;
 using FoodieSeattle.WebSite.Models;
 using FoodieSeattle.WebSite.Services;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
+using static FoodieSeattle.WebSite.Controllers.RestaurantsController;
 
 namespace UnitTests.Controllers
 {
@@ -66,6 +68,31 @@ namespace UnitTests.Controllers
         }
 
         #endregion Get
+
+        #region Patch
+
+        /// <summary>
+        /// Tests Patch method of the RestaurantsController adds a rating
+        /// to a known restaurant and returns an HTTP 200 OK response.
+        /// </summary>
+        [Test]
+        public void Patch_AddsRatingAndReturnsOk()
+        {
+            // Arrange
+            var controller = new RestaurantsController(restaurantService);
+            var knownId = "bangrok-pic";
+            var rating = 5;
+            var ratingRequest = new RatingRequest { RestaurantId = knownId, Rating = rating}; 
+
+            // Act
+            var result = controller.Patch(ratingRequest) as OkResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(200, result.StatusCode);
+        }
+
+        #endregion Patch
     }
 
 
