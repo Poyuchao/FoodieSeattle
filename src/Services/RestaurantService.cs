@@ -30,13 +30,19 @@ namespace FoodieSeattle.WebSite.Services
         /// <summary>
         /// Private method to return the full path of the Restaurants JSON file
         /// </summary>
+        /// <returns>A string representing the full path of the JSON file.</returns>
         private string JsonFileName
         {
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "Restaurants.json"); }
         }
 
 
-
+        /// <summary>
+        /// Parses a JSON file containing an array of RestaurantModel objects and returns
+        /// them as an IEnumerable.
+        /// </summary>
+        /// <param name="jsonFileReader"></param>
+        /// <returns>An IEnumerable of RestaurantModel objects</returns>
         public IEnumerable<RestaurantModel> parseRestaruantResult(StreamReader jsonFileReader)
         {
             return JsonSerializer.Deserialize<RestaurantModel[]>(jsonFileReader.ReadToEnd(),
