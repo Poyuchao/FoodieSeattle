@@ -24,10 +24,12 @@
      <None Remove="Services\" />
      <None Remove="Pages\Launch\" />
      <None Remove="Controllers\" />
+     <None Remove="Models\" />
    </ItemGroup>
    <ItemGroup>
      <Folder Include="Pages\Shared\" />
      <Folder Include="Pages\Launch\" />
      <Folder Include="Controllers\" />
+     <Folder Include="Models\" />
    </ItemGroup>
 </Project>
