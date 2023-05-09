@@ -43,7 +43,7 @@ namespace UnitTests.Pages.Restaurant.Read
         /// the expected restaurant title for a valid restaurant ID.
         /// </summary>
         [Test]
-        public void OnGet_Retuen_Same_Data()
+        public void OnGet_Return_Same_Data()
         {
             //arrange
             var expectedRestaurant = TestHelper.RestaurantServiceObject.GetRestaurants().First().Title;
@@ -58,6 +58,10 @@ namespace UnitTests.Pages.Restaurant.Read
 
         }
 
+        /// <summary>
+        /// Tests that the Password property of a ReadModel instance can be set and
+        /// retrieved correctly.
+        /// </summary>
         [Test]
         public void PasswordProperty_SetGet_ReturnsCorrectValue()
         {
@@ -74,6 +78,10 @@ namespace UnitTests.Pages.Restaurant.Read
             Assert.AreEqual(expectedPassword, actualPassword);
         }
 
+        /// <summary>
+        /// Tests that the PasswordEntered property of a ReadModel instance can be set
+        /// and retrieved correctly.
+        /// </summary>
         [Test]
         public void PasswordEnterProperty_SetGet_ReturnsCorrectValue()
         {
@@ -90,7 +98,10 @@ namespace UnitTests.Pages.Restaurant.Read
             Assert.AreEqual(expectedPasswordEntered, actualPasswordEntered);
         }
 
-
+        /// <summary>
+        /// Tests that the OnPost method of a ReadModel instance returns a
+        /// PageResult when a valid password is provided.
+        /// </summary>
         [Test]
         public void OnPost_ValidPassword_ReturnsPageResult()
         {
@@ -112,19 +123,20 @@ namespace UnitTests.Pages.Restaurant.Read
             Assert.IsTrue(model.PasswordEntered);
         }
 
+        /// <summary>
+        /// Tests that the OnPost method of a ReadModel instance returns a
+        /// PageResult with an error when an incorrect password is provided.
+        /// </summary>
         [Test]
         public void OnPost_IncorrectPassword_ReturnsPageResultWithError()
         {
             // Arrange
-       
             var model = new ReadModel(TestHelper.RestaurantServiceObject);
             model.Password = "1234"; // Use an incorrect password
             model.PageContext = new PageContext
             {
                 RouteData = new Microsoft.AspNetCore.Routing.RouteData()
             };
-
-
             model.PageContext.RouteData.Values.Add("id", ExistingId);
 
             // Act
@@ -132,12 +144,7 @@ namespace UnitTests.Pages.Restaurant.Read
 
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
-            Assert.IsFalse(model.PasswordEntered);
-           
+            Assert.IsFalse(model.PasswordEntered);           
         }
-
-
-
-
     }
 }
