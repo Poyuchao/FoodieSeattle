@@ -76,7 +76,7 @@ namespace UnitTests.Controllers
         /// to a known restaurant and returns an HTTP 200 OK response.
         /// </summary>
         [Test]
-        public void Patch_AddsRatingAndReturnsOk()
+        public void Patch_Adds_Rating_And_Returns_Ok()
         {
             // Arrange
             var controller = new RestaurantsController(restaurantService);
