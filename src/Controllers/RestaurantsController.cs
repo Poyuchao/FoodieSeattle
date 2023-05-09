@@ -20,17 +20,17 @@ namespace FoodieSeattle.WebSite.Controllers
         public RestaurantsController(RestaurantService restaurantService)
         {
             // Assign the restaurantService parameter to the RestaurantService property.
-            RestaurantService = restaurantService;
+            this.restaurantService = restaurantService;
         }
         // Declare a public property RestaurantService of type RestaurantService.
-        public RestaurantService RestaurantService { get; }
+        public RestaurantService restaurantService { get; }
         // Indicate that this method should handle HTTP GET requests.
         [HttpGet]
         // Define the Get method.
         public IEnumerable<RestaurantModel> Get()
         {
             // Call the GetRestaurants method of the RestaurantService and return the result.
-            return RestaurantService.GetRestaurants();
+            return restaurantService.GetRestaurants();
         }
         // Indicate that this method should handle HTTP PATCH requests.
         [HttpPatch]
@@ -38,7 +38,7 @@ namespace FoodieSeattle.WebSite.Controllers
         public ActionResult Patch([FromBody] RatingRequest request)
         {
             // Call the AddRating method of the RestaurantService to add the rating to the restaurant.
-            RestaurantService.AddRating(request.RestaurantId, request.Rating);
+            restaurantService.AddRating(request.RestaurantId, request.Rating);
             // Return an HTTP 200 OK status code.
             return Ok();
         }
