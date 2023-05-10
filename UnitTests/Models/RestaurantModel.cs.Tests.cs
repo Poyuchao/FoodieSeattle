@@ -91,5 +91,23 @@ namespace UnitTests
 
 
         #endregion description
+
+        #region rating
+        [Test]
+        public void TestRatingsProperty()
+        {
+            // Arrange
+            var restaurant = new RestaurantModel();
+            var expectedRatings = new int[] { 4};
+
+            // Act
+            restaurant.Ratings = expectedRatings;
+            var actualRatings = restaurant.Ratings;
+
+            // Assert
+            CollectionAssert.AreEqual(expectedRatings, actualRatings);
+        }
+
+        #endregion rating
     }
 }
