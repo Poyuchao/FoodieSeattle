@@ -11,8 +11,7 @@ namespace FoodieSeattle.WebSite.Models
     {
         // Declare a public property Id of type string to represent the ID of the restaurant.
         public string Id { get; set; }
-        // Declare a public property Maker of type string to represent the maker of the restaurant.
-        public string Maker { get; set; }
+      
         // Use the JsonPropertyName attribute to map the Image property to the "img" field in the JSON data.
         [JsonPropertyName("img")]
 
