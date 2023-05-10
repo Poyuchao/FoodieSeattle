@@ -70,6 +70,9 @@ namespace UnitTests
 
         #endregion ToString
 
+        /// <summary>
+        ///Unit test method to test the Description property of the RestaurantModel class.
+        /// </summary>
         #region description
         [Test]
         public void TestDescriptionProperty()
@@ -91,7 +94,9 @@ namespace UnitTests
 
 
         #endregion description
-
+        /// <summary>
+        /// Unit test for the <see cref="RestaurantModel"/> ratings property.
+        /// </summary>
         #region rating
         [Test]
         public void TestRatingsProperty()
