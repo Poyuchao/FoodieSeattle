@@ -3,7 +3,6 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject RestaurantService _RestaurantService
 
-
 @*This Razor component displays a list of restaurants with a filter option based on cuisine type. When a user selects a cuisine type, the component filters the list of restaurants to display only those that serve the selected cuisine.
     The component also allows the user to view more information about a restaurant, including its name, image, and description, and to rate the restaurant on a scale of one to five stars. The selected rating is stored in the database and used to calculate the restaurant's average rating.*@
 
@@ -67,11 +66,18 @@
         }
 </style>
 
-
+@*.*@
 
 @if (ifFilter)
 {
-    <div class="card-columns">
+        ///<summary>
+        ///If ifFilter is true, the filterRestaurants collection is looped through using a foreach
+        ///loop to display a card for each restaurant in the collection.
+       /// The card displays the restaurant image, title,
+        ///and a button to view more information about the restaurant
+        
+        /// </summary>
+        <div class="card-columns">
         @foreach (var restaurant in filterRestaurants)
         {
             <div class="card">
@@ -93,9 +99,14 @@
     </div>
 
 
-}
-else
-{
+    }
+    else
+    {
+        ///<summary>
+        ///If ifFilter is false, the GetRestaurants() method from the _RestaurantService is called to retrieve all restaurants, which are then looped through using a
+        ///foreach loop to display a card for each restaurant in the collection.
+        ///The card displays the restaurant image, title, and a button to view more information about the restaurant.
+        ///</summary>
     <div class="card-columns">
         @foreach (var restaurant in _RestaurantService.GetRestaurants())
         {
