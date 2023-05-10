@@ -232,7 +232,12 @@
         _RestaurantService.AddRating(selectedRestaurantId, rating);
         SelectRestaurant(selectedRestaurantId);
     }
-
+    /// <summary>
+    /// The FilteredRestaurants method takes a string parameter type representing the cuisine type selected by the user from the dropdown menu. It sets the ifFilter flag to true and assigns the result of calling the _RestaurantService.GetRestaurantsByType(type) method to the filterRestaurants variable.
+    /// It then returns the result of calling _RestaurantService.GetRestaurantsByType(type).
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
     IEnumerable<RestaurantModel> FilteredRestaurants(string type)
     {
         ifFilter = true;
