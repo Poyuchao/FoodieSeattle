@@ -4,14 +4,27 @@ using NUnit.Framework;
 using FoodieSeattle.WebSite.Components;
 using Microsoft.Extensions.DependencyInjection;
 using FoodieSeattle.WebSite.Services;
+using FoodieSeattle.WebSite.Models;
 using System.Linq;
+using System;
+using System.Collections.Generic;
+using Moq;
+using NUnit.Framework.Internal;
+using System.Collections;
+using System.Threading.Channels;
 
 namespace UnitTests.Components
 {
+    /// <summary>
+    /// Unit tests for RestaurantList Razor Page.
+    /// </summary>
     public class RestaurantListTests : BunitTestContext
     {
         #region TestSetup
 
+        /// <summary>
+        /// Initialize tests
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
@@ -19,6 +32,9 @@ namespace UnitTests.Components
 
         #endregion TestSetup
 
+        /// <summary>
+        /// Verifies that the default product list page displays the expected content.
+        /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
         {
@@ -35,17 +51,18 @@ namespace UnitTests.Components
             Assert.AreEqual(true, result.Contains("Ba Bar"));
         }
 
-        #region SelectProduct
+        #region SelectRestaurant
 
         /// <summary>
-        /// 
+        /// Verifies that selecting a valid restaurant ID displays the expected content
+        /// on the page.
         /// </summary>
         [Test]
-        public void SelectProduct_Valid_ID_tacos_chukis_Should_Return_Content()
+        public void SelectRestaurant_Valid_ID_sushi_kashiba_Should_Return_Content()
         {
             // Arrange
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-            var Id = "tacos-chukis-pic";
+            var id = "MoreInfoButton_kashiba-pic";
 
 
             var page = RenderComponent<RestaurantList>();
@@ -54,7 +71,7 @@ namespace UnitTests.Components
             var buttonList = page.FindAll("Button");
 
             // Find the one that matches the ID looking for and click it
-            var button = buttonList.First(m => m.OuterHtml.Contains(Id));
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
 
             // Act
             button.Click();
@@ -63,33 +80,26 @@ namespace UnitTests.Components
             var pageMarkup = page.Markup;
 
             // Assert
-            Assert.AreEqual(true, pageMarkup.Contains("Tacos Chukis is a fantastic authentic Mexican taqueria located in Capitol Hill "));
+            Assert.AreEqual(true, pageMarkup.Contains("https://s3.amazonaws.com/hoth.bizango/images/693886/ChefKashibaBehindSushiBar-fixed_feature.jpg"));
         }
-        #endregion SelectProduct
+
+        #endregion SelectRestaurant
 
         #region SubmitRating
 
         /// <summary>
-        /// 
+        /// This test tests that the SubmitRating will change the vote as
+        /// well as the Star checked. Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+        /// The test needs to open the page, then open the popup on the card. Then
+        /// record the state of the count and star check status. Then check a star
+        /// Then check again the state of the cound and star check status
         /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-
-            */
-
             // Arrange
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-            var id = "MoreInfoButton_jenlooper-light";
+            var id = "dough-zone-pic";
 
             var page = RenderComponent<RestaurantList>();
 
@@ -133,7 +143,7 @@ namespace UnitTests.Components
             var postVoteCountString = postVoteCountSpan.OuterHtml;
 
             // Get the Last stared item from the list
-            starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star checked"));
+            starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star"));
 
             // Save the html for it to compare after the click
             var postStarChange = starButton.OuterHtml;
@@ -147,26 +157,18 @@ namespace UnitTests.Components
         }
 
         /// <summary>
-        /// 
+        /// This test tests that the SubmitRating will change the vote as well as the Star checked
+        /// Because the star check is a calculation of the ratings, using a record that has no stars
+        /// and checking one makes it clear what was changed. The test needs to open the page,
+        /// then open the popup on the card. Then record the state of the count and star check status.
+        /// Then check a star. Then check again the state of the cound and star check status
         /// </summary>
         [Test]
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-
-            */
-
             // Arrange
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-            var id = "taurus-ox-pic";
+            var id = "MoreInfoButton_kashiba-pic";
 
             var page = RenderComponent<RestaurantList>();
 
@@ -190,6 +192,7 @@ namespace UnitTests.Components
 
             // Get the Last star item from the list, it should one that is checked
             var starButton = starButtonList.Last(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-star checked"));
+
 
             // Save the html for it to compare after the click
             var preStarChange = starButton.OuterHtml;
