@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'FoodieSeattle.WebSite' " />
+  <ItemGroup>
+    <Content Remove="wwwroot\img\" />
+    <Content Remove="wwwroot\htmlpages\" />
+    <Content Remove="wwwroot\img\icons\Color icon - alternate.png" />
+    <Content Remove="wwwroot\img\logo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\htmlpages\" />
+    <Folder Include="wwwroot\img\logo\" />
+    <Folder Include="Pages\Launch\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\img\images\Movetop_img.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+      <Content Update="wwwroot\data\Restaurants.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+  </ItemGroup>
+</Project>
