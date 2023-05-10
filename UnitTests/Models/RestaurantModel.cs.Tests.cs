@@ -23,13 +23,14 @@ namespace UnitTests
         private const string MockType = "Lebanese";
 
         // Global valid mock description property for use in tests
-        private const string MockDescription = "description";
+        private const string MockDescription = "Ba Bar is a Vietnamese-inspired restaurant with locations in Capitol Hill and South Lake Union, and offers a blend of traditional Vietnamese cuisine and modern fusion dishes. The restaurant\u0027s menu features a wide range of dishes, including pho, banh mi, rice and noodle dishes, and small plates for sharing. Ba Bar is known for its use of fresh, locally-sourced ingredients and its unique flavor combinations, which are inspired by the owner\u0027s travels in Vietnam and other parts of Southeast Asia. The interior of the restaurant is chic and modern, with a lively and casual atmosphere. Ba Bar is a great choice for those looking for creative and flavorful Vietnamese cuisine in Seattle at an affordable price.";
 
         // Global valid mock Url property for use in tests
         private const string MockUrl = "https://www.nadimama.com/mamnoon";
 
         // Global valid mock Image property for use in tests
         private const string MockImage = "https://mamnoontogo.net/wp-content/uploads/2021/10/mamnoon.png";
+
 
         #endregion TestSetup
 
@@ -69,6 +70,26 @@ namespace UnitTests
 
         #endregion ToString
 
+        #region description
+        [Test]
+        public void TestDescriptionProperty()
+        {
+            // Arrange
+            var restaurant = new RestaurantModel
+            {
+                Description = MockDescription
+            };
+            var expectedDescription = MockDescription;
 
+            // Act
+            restaurant.Description = expectedDescription;
+            var actualDescription = restaurant.Description;
+
+            // Assert
+            Assert.AreEqual(expectedDescription, actualDescription);
+        }
+
+
+        #endregion description
     }
 }
