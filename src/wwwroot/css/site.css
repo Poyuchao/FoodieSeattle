@@ -24,23 +24,38 @@ navbarExample01 {
 
 
 header {
-    background: linear-gradient( #F7F7F2, #F5F1E7, #e8b986c6);
+    background: linear-gradient(#F7F7F2, #F5F1E7, #e8b986c6);
     padding: 30px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: auto;
     align-items: center;
+    margin-bottom: auto;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.nav-button {
+    margin-left: auto;
+}
+
+header-nav {
+    display: flex;
+    justify-content: center;
 }
 
 .header-nav ul {
     display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 .header-nav li {
-    margin-right: 10px;
+    /* margin-right: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,10 +66,11 @@ header {
     padding: 15px 25px;
     font-size: 20px;
 }
-.header-nav li:hover {
-    color: #fff; /* Change text color */
-    border-color: #fff; /* Change border color */
-}
+
+    .header-nav li:hover {
+        color: #fff; /* Change text color */
+        border-color: #fff; /* Change border color */
+    }
 
 .header-title {
     font-family: 'Nunito', sans-serif;
@@ -66,38 +82,26 @@ header {
     font-weight: bold;
 }
 
-.header-title a:hover {
-        color: black; 
+    .header-title a:hover {
+        color: black;
         text-decoration: none;
     }
 
+    .header-title::after {
+        content: "  ";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 24px;
+        margin-left: 10px;
+    }
 
-
-.header-title::after {
-    content: "  ";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 24px;
-    margin-left: 10px;
-
-}
-
-.header-title::before {
-    content: url("");
-}
-
-
+    .header-title::before {
+        content: url("");
+    }
 
 .fas {
     font-size: 24px;
     margin-right: 10px;
-}
-
-h1 {
-    margin: 0;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
 }
 
 nav ul {
@@ -118,13 +122,15 @@ nav a {
     text-decoration: none;
 }
 
-nav a:hover {
-        text-decoration:none;
+    nav a:hover {
+        text-decoration: none;
     }
+
 .nav-button ul li {
     font-size: 20px;
     font-family: 'Nunito', sans-serif;
 }
+
 
 .search-container {
     display: flex;
