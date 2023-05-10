@@ -220,7 +220,12 @@
 
         //System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
     }
-
+    /// <summary>
+    /// This method handles the submission of a user's rating for a particular restaurant.
+    /// It takes an integer rating as a parameter and updates the rating for the currently selected restaurant using the _RestaurantService.AddRating method.
+    /// It then calls the SelectRestaurant method to update the selected restaurant's information and display the updated rating.
+    /// </summary>
+    /// <param name="rating"></param>
     void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedRestaurant.Id}: {rating}");
