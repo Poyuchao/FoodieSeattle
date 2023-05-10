@@ -66,7 +66,7 @@
         }
 </style>
 
-@*.*@
+
 
 @if (ifFilter)
 {
@@ -132,8 +132,14 @@
 
 
 @if (selectedRestaurant != null)
-{
-    <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="restauranttTitle" aria-hidden="true">
+    {
+        //<summary>
+        /// This section contains the code for the modal that appears when a user clicks on a restaurant to view more information about it.
+        /// It displays the restaurant's title, image, and description. Users can also rate the restaurant by clicking on the star icons.
+        /// The number of votes and the average rating are displayed below the star icons.
+        /// </summary>
+
+        <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="restauranttTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
