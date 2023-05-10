@@ -8,7 +8,14 @@
     "Neighborhood": "Belltown",
     "Type": "Japanese",
     "Description": "Located in Pike Place Market, Sushi Kashiba is owned by the legendary Seattle chef Shiro Kashiba (3X James Beard Winner). The restaurant specializes in traditional Edomae-style sushi, which emphasizes the use of fresh, seasonal ingredients and techniques such as aging and marinating fish to enhance its flavor. This upscale dining experience allows customers to eat at the sushi counter or call ahead and reserve one of their tables. Pricing has us recommending this location for special occasions, and if you do decide to dine here, expect nothing less than perhaps your favorite meal of the year.",
-    "Ratings": null
+    "Ratings": [
+        5,
+        5,
+        3,
+        5,
+        4,
+        5
+    ]
   },
   {
     "Id": "shiros-pic",
@@ -18,7 +25,7 @@
     "Title": "Shiro\u0027s",
     "Neighborhood": "Belltown",
     "Type": "Japanese",
-    "Description": "Located in Belltown, Shiro\u2019s is an exquisite sushi restaurant founded by Shiro Kashiba. This experience features a similar format to other high end sushi restaurants, where customers can sit at the counter (our recommendation) or reserve a table. Known as one of the best sushi restaurants in the country, Shiro\u2019s specializes in traditional, high quality sushi only using the freshest ingredients available. D\u00E9cor and ambiance remains simple, allowing diners to focus on the overall experience. Pricing is high, so for this location we recommend for special occasions.",
+    "Description": "Located in Belltown, Shiros is an exquisite sushi restaurant founded by Shiro Kashiba. This experience features a similar format to other high end sushi restaurants, where customers can sit at the counter (our recommendation) or reserve a table. Known as one of the best sushi restaurants in the country, Shiro\u2019s specializes in traditional, high quality sushi only using the freshest ingredients available. D\u00E9cor and ambiance remains simple, allowing diners to focus on the overall experience. Pricing is high, so for this location we recommend for special occasions.",
     "Ratings": null
   },
   {
