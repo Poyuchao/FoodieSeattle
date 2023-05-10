@@ -59,13 +59,10 @@ namespace FoodieSeattle.WebSite.Services
         /// <returns></returns>
         public IEnumerable<RestaurantModel> GetRestaurants()
         {
-
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
                 return parseRestaruantResult(jsonFileReader);
             }
-
-
 
         }
 
@@ -86,36 +83,15 @@ namespace FoodieSeattle.WebSite.Services
             return restaurants;
         }
 
-
-
-
         /// <summary>
-        /// Returns a list of restaurants filtered by type.
-        /// </summary>
-        /// <param name="type">The type of restaurant to filter by.</param>
-        /// <returns>A list of restaurants that match the specified type.</returns>
-
-
-        //public IEnumerable<RestaurantModel> GetRestaurantsByType(string type)
-        //{
-        //    var restaurants = GetRestaurants();
-
-        //    if (!string.IsNullOrEmpty(type))
-        //    {
-        //        restaurants = restaurants.Where(r => r.Type.ToLower() == type.ToLower()).ToList();
-        //    }
-
-        //    return restaurants;
-        //}
-
-        /// <summary>
-        /// Add rating to 
+        /// Add rating to restaurant
         /// </summary>
         /// <param name="RestaurantId"></param>
         /// <param name="rating"></param>
         /// <returns></returns>
         public bool AddRating(string RestaurantId, int rating)
         {
+            System.Console.WriteLine("Added rating " + rating + " to " + RestaurantId);
             if (string.IsNullOrEmpty(RestaurantId))
             {
                 return false;
@@ -158,8 +134,6 @@ namespace FoodieSeattle.WebSite.Services
 
             return true;
         }
-
-
 
 
         /// <summary>
