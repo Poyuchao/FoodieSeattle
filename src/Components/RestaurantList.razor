@@ -3,6 +3,10 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject RestaurantService _RestaurantService
 
+
+@*This Razor component displays a list of restaurants with a filter option based on cuisine type. When a user selects a cuisine type, the component filters the list of restaurants to display only those that serve the selected cuisine.
+    The component also allows the user to view more information about a restaurant, including its name, image, and description, and to rate the restaurant on a scale of one to five stars. The selected rating is stored in the database and used to calculate the restaurant's average rating.*@
+
 <div class="cuisine-filter">
     <label for="cuisineType">Cuisine Filter:</label>
     <select id="cuisineType" @onchange="@(e => FilteredRestaurants(e.Value.ToString()))">
@@ -44,15 +48,16 @@
             box-shadow: none;
             font-size: 20px;
         }
-        #cuisineType {
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            color: #333;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #fff;
-        }
+
+    #cuisineType {
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        color: #333;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+    }
 
         #cuisineType option {
             font-family: Arial, sans-serif;
