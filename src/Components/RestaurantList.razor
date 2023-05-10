@@ -1,8 +1,7 @@
 @using FoodieSeattle.WebSite.Models
 @using FoodieSeattle.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
-@inject RestaurantService _RestaurantService
-
+@inject RestaurantService restaurantService
 @*This Razor component displays a list of restaurants with a filter option based on cuisine type. When a user selects a cuisine type, the component filters the list of restaurants to display only those that serve the selected cuisine.
     The component also allows the user to view more information about a restaurant, including its name, image, and description, and to rate the restaurant on a scale of one to five stars. The selected rating is stored in the database and used to calculate the restaurant's average rating.*@
 
@@ -70,14 +69,13 @@
 
 @if (ifFilter)
 {
-        ///<summary>
-        ///If ifFilter is true, the filterRestaurants collection is looped through using a foreach
-        ///loop to display a card for each restaurant in the collection.
-       /// The card displays the restaurant image, title,
-        ///and a button to view more information about the restaurant
-        
-        /// </summary>
-        <div class="card-columns">
+    ///<summary>
+    ///If ifFilter is true, the filterRestaurants collection is looped through using a foreach
+    ///loop to display a card for each restaurant in the collection.
+    /// The card displays the restaurant image, title,
+    ///and a button to view more information about the restaurant
+    /// </summary>
+    <div class="card-columns">
         @foreach (var restaurant in filterRestaurants)
         {
             <div class="card">
@@ -88,27 +86,22 @@
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">
-                        <button @onclick="(e => SelectRestaurant(restaurant.Id))"
-                                data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">
-                            More Info
-                        </button>
+                        <button @onclick="(e => SelectRestaurant(restaurant.Id))" id="MoreInfoButton_@restaurant.Id" data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">More Info</button>
                     </small>
                 </div>
             </div>
         }
     </div>
-
-
-    }
-    else
-    {
+}
+else
+{
     ///<summary>
-    ///If ifFilter is false, the GetRestaurants() method from the _RestaurantService is called to retrieve all restaurants, which are then looped through using a
+    ///If ifFilter is false, the GetRestaurants() method from the restaurantService is called to retrieve all restaurants, which are then looped through using a
     ///foreach loop to display a card for each restaurant in the collection.
     ///The card displays the restaurant image, title, and a button to view more information about the restaurant.
     ///</summary>
     <div class="card-columns">
-        @foreach (var restaurant in _RestaurantService.GetRestaurants())
+        @foreach (var restaurant in restaurantService.GetRestaurants())
         {
             <div class="card">
                 <div class="card-img" style="background-image: url('@restaurant.Image');">
@@ -118,10 +111,7 @@
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">
-                        <button @onclick="(e => SelectRestaurant(restaurant.Id))"
-                                id="MoreInfoButton_@restaurant.Id" data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">
-                            More Info
-                        </button>
+                        <button @onclick="(e => SelectRestaurant(restaurant.Id))" id="MoreInfoButton_@restaurant.Id" data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">More Info</button>
                     </small>
                 </div>
             </div>
@@ -129,21 +119,18 @@
     </div>
 }
 
-
-
 @if (selectedRestaurant != null)
-    {
-        //<summary>
-        /// This section contains the code for the modal that appears when a user clicks on a restaurant to view more information about it.
-        /// It displays the restaurant's title, image, and description. Users can also rate the restaurant by clicking on the star icons.
-        /// The number of votes and the average rating are displayed below the star icons.
-        /// </summary>
-
-        <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="restauranttTitle" aria-hidden="true">
+{
+    ///<summary>
+    /// This section contains the code for the modal that appears when a user clicks on a restaurant to view more information about it.
+    /// It displays the restaurant's title, image, and description. Users can also rate the restaurant by clicking on the star icons.
+    /// The number of votes and the average rating are displayed below the star icons.
+    /// </summary>
+    <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="restaurantTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="restauranttTitle">@selectedRestaurant.Title</h5>
+                    <h5 class="modal-title" id="restaurantTitle">@selectedRestaurant.Title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -158,50 +145,59 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    @{
+                    <div class="container-fluid">
+                        <div class="col">
+                            @{
+                                var voteString = @voteCount + " " + @voteLabel;
 
-                        var voteString = @voteCount + " " + @voteLabel;
+                                if (voteCount == 0)
+                                {
+                                    //voteString = "Be the first to vote!";
+                                    voteString = "Ratings system pending"; // Display until ratings system is fixed
+                                }
 
-                        if (voteCount == 0)
-                        {
-                            <span>Be the first to vote!</span>
-                        }
-                        else
-                        {
-                            <span>@voteCount @voteLabel</span>
-                        }
-                        @for (int i = 1; i < 6; i++)
-                        {
-                            var currentStar = i;
-                            if (i <= currentRating)
-                            {
-                                <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
+                                <span>@voteString</span>
+
+                                for (int i = 1; i < 6; i++)
+                                {
+                                    var currentStar = i;
+                                    var checkedText = "";
+
+                                    if (i <= currentRating)
+                                    {
+                                        checkedText = "checked";
+                                    }
+
+                                    <span class="fa fa-star @checkedText" @onclick="(e=> SubmitRating(currentStar))"></span>
+                                }
                             }
-                            else
-                            {
-                                <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-                            }
-                        }
-                    }
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 @code
-{
+ {
     IEnumerable<RestaurantModel> filterRestaurants;
     RestaurantModel selectedRestaurant;
     bool ifFilter = false;
     string selectedRestaurantId;
 
+    /// <summary>
+    /// Updates the `selectedRestaurantId` and `selectedRestaurant` variables with the
+    /// provided `restaurantId`.
+    /// </summary>
+    /// <param name="restaurantId"></param>
     void SelectRestaurant(string restaurantId)
     {
         selectedRestaurantId = restaurantId;
-        selectedRestaurant = _RestaurantService.GetRestaurants().First(x => x.Id == restaurantId);
+        selectedRestaurant = restaurantService.GetRestaurants().First(x => x.Id == restaurantId);
         GetCurrentRating();
     }
 
@@ -209,6 +205,9 @@
     int voteCount = 0;
     string voteLabel;
 
+    /// <summary>
+    /// Gets current rating of restaurant
+    /// </summary>
     void GetCurrentRating()
     {
         if (selectedRestaurant.Ratings == null)
@@ -223,23 +222,24 @@
             currentRating = selectedRestaurant.Ratings.Sum() / voteCount;
         }
 
-        //System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
+        System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
     }
+
     /// <summary>
     /// This method handles the submission of a user's rating for a particular restaurant.
-    /// It takes an integer rating as a parameter and updates the rating for the currently selected restaurant using the _RestaurantService.AddRating method.
+    /// It takes an integer rating as a parameter and updates the rating for the currently selected restaurant using the restaurantService.AddRating method.
     /// It then calls the SelectRestaurant method to update the selected restaurant's information and display the updated rating.
     /// </summary>
     /// <param name="rating"></param>
     void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedRestaurant.Id}: {rating}");
-        _RestaurantService.AddRating(selectedRestaurantId, rating);
+        restaurantService.AddRating(selectedRestaurantId, rating);
         SelectRestaurant(selectedRestaurantId);
     }
     /// <summary>
-    /// The FilteredRestaurants method takes a string parameter type representing the cuisine type selected by the user from the dropdown menu. It sets the ifFilter flag to true and assigns the result of calling the _RestaurantService.GetRestaurantsByType(type) method to the filterRestaurants variable.
-    /// It then returns the result of calling _RestaurantService.GetRestaurantsByType(type).
+    /// The FilteredRestaurants method takes a string parameter type representing the cuisine type selected by the user from the dropdown menu. It sets the ifFilter flag to true and assigns the result of calling the restaurantService.GetRestaurantsByType(type) method to the filterRestaurants variable.
+    /// It then returns the result of calling restaurantService.GetRestaurantsByType(type).
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
@@ -247,8 +247,8 @@
     {
         ifFilter = true;
         Console.WriteLine(type);
-        //Console.WriteLine(_RestaurantService.GetRestaurantsByType(type).ToArray()[0].Title);
-        filterRestaurants = _RestaurantService.GetRestaurantsByType(type);
-        return _RestaurantService.GetRestaurantsByType(type);
+        //Console.WriteLine(restaurantService.GetRestaurantsByType(type).ToArray()[0].Title);
+        filterRestaurants = restaurantService.GetRestaurantsByType(type);
+        return restaurantService.GetRestaurantsByType(type);
     }
 }
