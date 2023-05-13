@@ -37,8 +37,6 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         /// Loads the Data
         /// </summary>
         /// <param name="id"></param>
-
-
         public IActionResult OnGet(string id)
         {
             if (!ModelState.IsValid)
@@ -46,8 +44,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
                 return RedirectToPage("/Restaurant/Index");
             }
 
-            //restaurant = restaurantService.GetRestaurantById(id);
-            Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+            Restaurant = restaurantService.GetRestaurantById(id);
 
             if (Restaurant == null)
             {
