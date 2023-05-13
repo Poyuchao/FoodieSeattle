@@ -49,7 +49,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
                 return RedirectToPage("/Restaurant/Index");
             }
 
-            Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(id));
+            Restaurant = restaurantService.GetRestaurantById(id);
 
             if (Restaurant == null)
             {
