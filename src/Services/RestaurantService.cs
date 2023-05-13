@@ -66,6 +66,26 @@ namespace FoodieSeattle.WebSite.Services
 
         }
 
+        /// <summary>
+        /// Returns null if passed invalid id.
+        /// Returns a single restaurant corresponding to the id.
+        /// </summary>
+        /// <param name="id">id of the requested restaurant</param>
+        /// <returns>RestaurantModel of the requested restaurant</returns>
+        public RestaurantModel GetRestaurantById(string id)
+        {
+            try
+            {
+                var data = GetRestaurants().Where(x => x.Id == id);
+                RestaurantModel singleRestaurant = data.ElementAt(0);
+                return singleRestaurant;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                // If the id passed is invalid, we return null.
+                return null;
+            }
+        }
 
         /// <summary>
         /// Get restaurants types funciton
