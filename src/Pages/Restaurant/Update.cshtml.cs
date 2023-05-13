@@ -66,10 +66,10 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         /// <returns>redirect to Index page</returns>
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return RedirectToPage("/Restaurant/Index");
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return RedirectToPage("/Restaurant/Index");
+            //}
 
 
             // If restaurant is not null, update restaurant with user entered data. 
