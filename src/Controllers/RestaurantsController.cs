@@ -9,11 +9,11 @@ using FoodieSeattle.WebSite.Services;
 //Declare new namespace for the RestaurantsController..
 namespace FoodieSeattle.WebSite.Controllers
 {
-    // Indicate that this controller should use the default behavior for API controllers.
+    /// <summary>
+    /// RestaurantsController for Restaurants Pages and Model
+    /// </summary>
     [ApiController]
-    // Specify the route template for this controller
     [Route("[controller]")]
-    // Declare the RestaurantController class, which is derived from ControllerBase.
     public class RestaurantsController : ControllerBase
     {
         // Define the constructor for the RestaurantsController.
@@ -22,19 +22,23 @@ namespace FoodieSeattle.WebSite.Controllers
             // Assign the restaurantService parameter to the RestaurantService property.
             this.restaurantService = restaurantService;
         }
+
         // Declare a public property RestaurantService of type RestaurantService.
         public RestaurantService restaurantService { get; }
-        // Indicate that this method should handle HTTP GET requests.
+
+        // Indicate that this method should handle HTTP GET request,
+        // define the Get method.
         [HttpGet]
-        // Define the Get method.
         public IEnumerable<RestaurantModel> Get()
         {
             // Call the GetRestaurants method of the RestaurantService and return the result.
             return restaurantService.GetRestaurants();
         }
-        // Indicate that this method should handle HTTP PATCH requests.
-        [HttpPatch]
-        // Define the Patch method and specify that the request body should be deserialized into a RatingRequest object.
+
+        // Indicate that this method should handle HTTP PATCH requests,
+        // define the Patch method and specify that the request body should be
+        // deserialized into a RatingRequest object.
+        [HttpPatch]       
         public ActionResult Patch([FromBody] RatingRequest request)
         {
             // Call the AddRating method of the RestaurantService to add the rating to the restaurant.
@@ -42,7 +46,11 @@ namespace FoodieSeattle.WebSite.Controllers
             // Return an HTTP 200 OK status code.
             return Ok();
         }
-        // Define the RatingRequest class, which has two properties.
+
+        /// <summary>
+        /// Represents a request object used for submitting ratings for a restaurant.
+        /// It contains properties for the restaurant ID and the rating value.
+        /// </summary>
         public class RatingRequest
         {
             // Declare a public property RestaurantId of type string.
