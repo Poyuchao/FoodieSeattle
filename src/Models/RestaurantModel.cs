@@ -52,6 +52,7 @@ namespace FoodieSeattle.WebSite.Models
         // Override the ToString method to serialize the restaurant to a JSON string using the JsonSerializer.
         public override string ToString() => JsonSerializer.Serialize<RestaurantModel>(this);
 
-
+        // Store the Comments entered by the users on this restaurant
+        public List<CommentModel> Comments { get; set; } = new List<CommentModel>();
     }
 }
