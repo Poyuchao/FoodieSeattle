@@ -2,7 +2,7 @@
   {
     "Id": "kashiba-pic",
     "img": "https://s3.amazonaws.com/hoth.bizango/images/693886/ChefKashibaBehindSushiBar-fixed_feature.jpg",
-    "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
+    "Url": "https://sushikashiba.com/",
     "Title": "Sushi Kashiba",
     "Neighborhood": "Belltown",
     "Type": "Japanese",
@@ -13,7 +13,7 @@
   {
     "Id": "shiros-pic",
     "img": "https://shiros.com/wp-content/uploads/2017/07/cropped-Shiros_Sushi_Logo_modified_large.png",
-    "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
+    "Url": "https://shiros.com/",
     "Title": "Shiro\u0027s",
     "Neighborhood": "Belltown",
     "Type": "Japanese",
@@ -24,7 +24,7 @@
   {
     "Id": "bangrok-pic",
     "img": "https://infatuation.imgix.net/media/images/reviews/bangrak-market/NateWatters_SEA_BangrakMarket_Spread-3.jpg",
-    "Url": "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    "Url": "https://www.bangrakmarket.com/",
     "Title": "Bangrok Market",
     "Neighborhood": "Belltown",
     "Type": "Thai",
@@ -35,7 +35,7 @@
   {
     "Id": "dough-zone-pic",
     "img": "https://cdn.vox-cdn.com/thumbor/lQd3yDTGq7ZsiT0Tg56zcM7bkNk=/0x0:2000x1335/1200x800/filters:focal(840x508:1160x828)/cdn.vox-cdn.com/uploads/chorus_image/image/56956543/DoughZone_36.0.jpg",
-    "Url": "https://www.hackster.io/agent-hawking-1/create-a-compact-survival-kit-38bfdb",
+    "Url": "https://www.doughzonedumplinghouse.com/",
     "Title": "Dough Zone Dumpling House",
     "Neighborhood": "International District",
     "Type": "Chinese",
@@ -46,7 +46,7 @@
   {
     "Id": "chengdu-taste-pic",
     "img": "https://duyt4h9nfnj50.cloudfront.net/resized/6dcd96e05e5935dba0fa39749018b894-w2880-20.jpg",
-    "Url": "https://twitter.com/sailorhg/status/1090107740049952770",
+    "Url": "https://www.theinfatuation.com/seattle/reviews/chengdu-taste-seatttle",
     "Title": "Chengdu Taste",
     "Neighborhood": "International District",
     "Type": "Chinese",
@@ -57,7 +57,7 @@
   {
     "Id": "maneki-pic",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/5VK_0BfZAoolMWSI_mbrUQ/348s.jpg",
-    "Url": "https://twitter.com/sailorhg/status/1090113666911891456",
+    "Url": "https://manekiseattle.com/",
     "Title": "Maneki",
     "Neighborhood": "International District",
     "Type": "Japanese",
@@ -68,7 +68,7 @@
   {
     "Id": "annapurna-pic",
     "img": "https://img.cdn4dd.com/cdn-cgi/image/fit=cover,width=600,height=400,format=auto,quality=80/https://doordash-static.s3.amazonaws.com/media/store/header/341e4d5a-5687-446f-bcc4-58ea5620ebb9.jpg",
-    "Url": "https://twitter.com/sailorhg/status/1090122822007963648",
+    "Url": "https://www.annapurnacafe.com/",
     "Title": "Annapurna Cafe",
     "Neighborhood": "Capitol Hill",
     "Type": "Indian",
@@ -79,7 +79,7 @@
   {
     "Id": "tacos-chukis-pic",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/WZqLoD6JQDIpwO8IxTgXpw/348s.jpg",
-    "Url": "https://twitter.com/sailorhg/status/1090117277540745216",
+    "Url": "https://www.seattlechukis.com/",
     "Title": "Tacos Chukis",
     "Neighborhood": "Capitol Hill",
     "Type": "Mexican",
@@ -90,7 +90,7 @@
   {
     "Id": "ba-bar-pic",
     "img": "https://media-cdn.tripadvisor.com/media/photo-s/19/72/5a/2a/060-wings-at-ba-bar-restaurant.jpg",
-    "Url": "https://www.instagram.com/p/BNvESj-j8PI/",
+    "Url": "https://babarseattle.com/",
     "Title": "Ba Bar",
     "Neighborhood": "Capitol Hill",
     "Type": "Vietnamese",
@@ -101,7 +101,7 @@
   {
     "Id": "taurus-ox-pic",
     "img": "https://seattlerefined.com/resources/media2/16x9/full/1015/center/80/b9f79eaa-12e6-4e1b-ad77-5c4e7d823633-large16x9_7479A4DC02BE4975955EC52FF4B154AC.jpeg",
-    "Url": "https://www.instagram.com/p/BNm6hZzDoEF/",
+    "Url": "https://www.taurusox.com/",
     "Title": "Taurus Ox",
     "Neighborhood": "Capitol Hill",
     "Type": "Laotian",
@@ -112,7 +112,7 @@
   {
     "Id": "ooink-ramen-pic",
     "img": "https://draft.sandbox.weebly.com/uploads/b/fcc1d071728337daf869861d3fd000ca6e6a0ec0e2aa1c7f73381398c4880030/2022-07-28_22-22-52_1659018188.jpg",
-    "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
+    "Url": "https://www.ooinkramen.com/",
     "Title": "Ooink Ramen",
     "Neighborhood": "Fremont",
     "Type": "Japanese",
@@ -123,7 +123,7 @@
   {
     "Id": "kamonegi-pic",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw-K6FNYPMEkcbtJ_4BAXksh6-_E52N6sxRg\u0026usqp=CAU",
-    "Url": "https://www.vogueandcode.com/shop/pretty-girls-code-tee",
+    "Url": "https://www.kamonegiseattle.com/",
     "Title": "Kamonegi",
     "Neighborhood": "Fremont",
     "Type": "Japanese",
@@ -134,7 +134,7 @@
   {
     "Id": "gracia-pic",
     "img": "https://images.squarespace-cdn.com/content/v1/565dd95fe4b081be39a322d0/1475456236996-EJQ05M9CS6J4OW1PKTE0/image-asset.jpeg?format=1500w",
-    "Url": "https://www.vogueandcode.com/shop/ruby-sis-2",
+    "Url": "http://www.graciaseattle.com/",
     "Title": "Gracia",
     "Neighborhood": "Ballard",
     "Type": "Mexican",
@@ -145,7 +145,7 @@
   {
     "Id": "un-bien-pic",
     "img": "https://media-cdn.tripadvisor.com/media/photo-p/12/6a/2e/90/photo0jpg.jpg",
-    "Url": "https://www.instagram.com/p/BFktVYPinKQ/",
+    "Url": "https://www.unbienseattle.com/",
     "Title": "Un Bien",
     "Neighborhood": "Ballard",
     "Type": "Caribbean",
@@ -156,7 +156,7 @@
   {
     "Id": "spice-waala-pic",
     "img": "https://images.seattletimes.com/wp-content/uploads/2019/08/08062019_spicewalaa_152956.jpg?d=780x514",
-    "Url": "https://www.instagram.com/p/BEXlpiZCnJ3",
+    "Url": "https://www.spicewaala.com/",
     "Title": "Spice Waala",
     "Neighborhood": "Ballard",
     "Type": "Indian",
