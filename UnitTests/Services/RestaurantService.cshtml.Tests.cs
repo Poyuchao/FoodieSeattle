@@ -12,6 +12,9 @@ using FoodieSeattle.WebSite.Models;
 using System.Collections.Generic;
 using FoodieSeattle.WebSite.Pages.Restaurant;
 using Microsoft.AspNetCore.Mvc;
+using static System.Net.Mime.MediaTypeNames;
+using System.Net;
+using System.Xml.Linq;
 
 /// <summary>
 /// Unit Test for all RestaurantService.cshtml.Tests.cs blocks
@@ -25,6 +28,33 @@ namespace UnitTests.Services.RestaurantService
     {
 
         #region TestSetup
+        // Global invalid id property for use in tests. 
+        private const string InvalidId = "BOGUS";
+
+        // Global invalid test name property for use in tests. 
+        private const string InvalidTitle = "Bogusland";
+
+        // Global valid Mock Id property for use in tests
+        private const string MockId = "kura-sushi-pic";
+
+        // Global valid Mock title property for use in tests
+        private const string MockTitle = "Kura sushi";
+
+        // Global valid Mock neighborhood property for use in tests
+        private const string MockNeighborhood = "Bellevue";
+
+        // Global valid Mock food type property for use in tests
+        private const string MockType = "Japanese";
+
+        // Global valid mock description property for use in tests
+        private const string MockDescription = "Kura Sushi (Japanese: くら寿司, Hepburn: Kura zushi) is a Japanese sushi restaurant chain. Its headquarters are in Sakai, Osaka Prefecture.";
+
+        // Global valid mock Url property for use in tests
+        private const string MockUrl = "https://kurasushi.com/";
+
+        // Global valid mock Image property for use in tests
+        private const string MockImage = "https://lh3.googleusercontent.com/p/AF1QipPk0SIY2o8w2UCDPiuPBiR-rm7ZqNEzpX6B8W7f=s680-w680-h510";
+
         /// <summary>
         /// Initializations for all tests to be conducted
         /// </summary>
@@ -122,7 +152,7 @@ namespace UnitTests.Services.RestaurantService
         public void AddRating_InValid_Restaurant_NotFound_Should_Return_False()
         {
             // Arrange
-            var fakeRestaurantId = "fakeRestaurantId";
+            var fakeRestaurantId = InvalidId;
 
             // Act
             var result = TestHelper.RestaurantServiceObject.AddRating(fakeRestaurantId, 3);
@@ -252,14 +282,16 @@ namespace UnitTests.Services.RestaurantService
                 Id = "shiros-pic",
                 Title = "Shiro's",
                 Description = "Located in Belltown, Shiro’s is an exquisite sushi restaurant founded by Shiro Kashiba. This experience features a similar format to other high end sushi restaurants, where customers can sit at the counter (our recommendation) or reserve a table. Known as one of the best sushi restaurants in the country, Shiro’s specializes in traditional, high quality sushi only using the freshest ingredients available. Décor and ambiance remains simple, allowing diners to focus on the overall experience. Pricing is high, so for this location we recommend for special occasions.",
-                Url = "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
+                Url = "https://shiros.com/",
                 Image = "https://shiros.com/wp-content/uploads/2017/07/cropped-Shiros_Sushi_Logo_modified_large.png",
 
             };
+
             // Act
             var result = TestHelper.RestaurantServiceObject.UpdateData(data);
             var restaurants = TestHelper.RestaurantServiceObject.GetRestaurants();
             var ShiroRestaurant = restaurants.FirstOrDefault(p => p.Title == "Shiro's");
+
             // Assert
             Assert.AreEqual(ShiroRestaurant.Title, result.Title);
         }
@@ -286,10 +318,10 @@ namespace UnitTests.Services.RestaurantService
             Assert.Greater(NewAllRestaurantsNum, OldAllRestaurantsNum);
 
         }
+
         /// <summary>
         /// Verifies that calling CreateData should add a new restaurant to the restaurant list.
         /// </summary>
-
         [Test]
         public void CreateData_Should_Add_New_Restaurant_To_RestaurantList()
         {
@@ -340,12 +372,12 @@ namespace UnitTests.Services.RestaurantService
         {
             // Arrange
             var restaurantModel = new RestaurantModel();
-            var title = "Kura sushi";
-            var neighborhood = "bellevue";
-            var type = "Japanese";
-            var desc = "Kura Sushi (Japanese: くら寿司, Hepburn: Kura zushi) is a Japanese sushi restaurant chain. Its headquarters are in Sakai, Osaka Prefecture.";
-            var url = "https://kurasushi.com/";
-            var image = "https://lh3.googleusercontent.com/p/AF1QipPk0SIY2o8w2UCDPiuPBiR-rm7ZqNEzpX6B8W7f=s680-w680-h510";
+            var title = MockTitle;
+            var neighborhood = MockNeighborhood;
+            var type = MockType;
+            var desc = MockDescription;
+            var url = MockUrl;
+            var image = MockImage;
       
 
             // Act
@@ -357,16 +389,20 @@ namespace UnitTests.Services.RestaurantService
             Assert.AreEqual(desc, result.Description);
             Assert.AreEqual(url, result.Url);
             Assert.AreEqual(image, result.Image);
+
+            //TearDown
+            TestHelper.RestaurantServiceObject.DeleteData(restaurantModel.Id);
         }
         #endregion AddData
+
 
         #region GetRestaurantsByType
 
         /// <summary>
         /// Tests the GetRestaurantsByType method with a valid restaurant type.
-        /// It sets up mock data with two restaurants of type "Type 1", and adds them
+        /// It sets up mock data with two restaurants of type Type1, and adds them
         /// to the restaurant service using the TestHelper AddData method. It then calls
-        /// the GetRestaurantsByType method with parameter "Type 1",
+        /// the GetRestaurantsByType method with parameter Type1,
         /// and asserts that the method returns an IEnumerable of RestaurantModel objects
         /// with a count of 2, and that the returned sequence contains both restaurants.
         /// </summary>
@@ -375,21 +411,23 @@ namespace UnitTests.Services.RestaurantService
         {
             // Arrange
             var restaurantModel = new RestaurantModel();
+
             // Set up mock data
             var firstData = new RestaurantModel()
             {
-                Title = "Restaurant 1",
-                Neighborhood = "SLU",
-                Type = "Type 1",
-                Description = "Description1",
-                Url = "http://www.example.com/1",
-                Image = "http://www.example.com/1/image.jpg",
+                Title = MockTitle,
+                Neighborhood = MockNeighborhood,
+                Type = "Type1",
+                Description = MockDescription,
+                Url = MockUrl,
+                Image = MockImage,
             };
+
             var secondData = new RestaurantModel()
             {
                 Title = "Restaurant 2",
                 Neighborhood = "SLU",
-                Type = "Type 1",
+                Type = "Type1",
                 Description = "Description2",
                 Url = "http://www.example.com/2",
                 Image = "http://www.example.com/2/image.jpg",
@@ -401,12 +439,16 @@ namespace UnitTests.Services.RestaurantService
                 firstData.Description, firstData.Url, firstData.Image);
             TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Neighborhood, secondData.Type, 
                 secondData.Description, secondData.Url, secondData.Image);
-            var result = TestHelper.RestaurantServiceObject.GetRestaurantsByType("Type 1");
+            var result = TestHelper.RestaurantServiceObject.GetRestaurantsByType("Type1");
 
             // Assert
             Assert.IsNotNull(result);
             Assert.IsInstanceOf<IEnumerable<RestaurantModel>>(result);
             Assert.AreEqual(2, result.Count());
+
+            //TearDown
+            TestHelper.RestaurantServiceObject.DeleteData(firstData.Id);
+            TestHelper.RestaurantServiceObject.DeleteData(secondData.Id);
         }
 
         /// <summary>
@@ -435,9 +477,49 @@ namespace UnitTests.Services.RestaurantService
 
         }
 
-
         #endregion GetRestaurantsByType
 
+        #region GetRestaurantsById
+
+        /// <summary>
+        /// Tests GetRestaurantById by retrieving the first restaurant and confirming not null. 
+        /// </summary>
+        [Test]
+        public void GetRestaurantById_Valid_Should_Return_Not_Null()
+        {
+            // Arrange
+
+            // Add restaurant to database and store it as testRestaurant.
+            TestHelper.RestaurantServiceObject.AddData(MockTitle, MockNeighborhood, MockType,
+                MockDescription, MockUrl, MockImage);
+            var testRestaurant = TestHelper.RestaurantServiceObject.GetRestaurants().Last();
+
+            //Act
+            var result = TestHelper.RestaurantServiceObject.GetRestaurantById(testRestaurant.Id);
+
+            //Assert
+            Assert.NotNull(result);
+
+            // TearDown
+            TestHelper.RestaurantServiceObject.DeleteData(testRestaurant.Id);
+        }
+
+        /// <summary>
+        /// Tests GetRestaurantById catches out of bounds input and returns null. 
+        /// </summary>
+        [Test]
+        public void GetRestaurantById_Invalid_Should_Return_Null()
+        {
+            // Arrange
+
+            //Act
+            var invalidResult = TestHelper.RestaurantServiceObject.GetRestaurantById(InvalidId);
+
+            //Assert
+            Assert.Null(invalidResult);
+        }
+
+        #endregion GetRestaurantsById
     }
 
 
