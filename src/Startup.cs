@@ -25,6 +25,7 @@ namespace FoodieSeattle.WebSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddServerSideBlazor();
             services.AddHttpClient();
             services.AddControllers();
