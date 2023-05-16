@@ -2,8 +2,12 @@
 @using FoodieSeattle.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
 @inject RestaurantService restaurantService
-@*This Razor component displays a list of restaurants with a filter option based on cuisine type. When a user selects a cuisine type, the component filters the list of restaurants to display only those that serve the selected cuisine.
-    The component also allows the user to view more information about a restaurant, including its name, image, and description, and to rate the restaurant on a scale of one to five stars. The selected rating is stored in the database and used to calculate the restaurant's average rating.*@
+@*This Razor component displays a list of restaurants with a filter option based on cuisine type.
+    When a user selects a cuisine type, the component filters the list of restaurants to display
+    only those that serve the selected cuisine. The component also allows the user to view more
+    information about a restaurant, including its name, image, and description, and to rate the
+    restaurant on a scale of one to five stars. The selected rating is stored in the database and
+    used to calculate the restaurant's average rating.*@
 
 <div class="cuisine-filter">
     <label for="cuisineType">Cuisine Filter:</label>
@@ -302,7 +306,6 @@ else
 
     /// <summary>
     /// Add the comment to the restaurant
-    /// Best to refactor this to be a method to call in the Middle Tier Data service, rathern than putting the logic here...
     /// </summary>
     /// <param name="comment"></param>
     void AddComment()
@@ -314,7 +317,7 @@ else
         // Add it to the Comment List
         selectedRestaurant.Comments.Add(new CommentModel() { Comment = NewCommentText });
 
-        // Call for the Product to be saved
+        // Call for the Restaurant to be saved
         restaurantService.UpdateData(selectedRestaurant);
 
         // Set the NewComment flag to false to hide the input box
