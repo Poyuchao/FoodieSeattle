@@ -1,13 +1,17 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 .about-container {
-    width: 100%;
-    max-width: 800px;
+    width: 70vw;
+    max-width: 2200px;
     margin: 0 auto;
     padding: 20px;
     background-image: url('/img/images/landing_page_background_photo.jpg');
     background-size: cover;
     background-position: center;
-    min-height: calc(100vh - 200px);  /*Set minimum height for the container*/
+    min-height: 1200px; /*Set minimum height for the container*/
+    position: relative;
+    left: 0;
+    right: auto;
+    transform: none;
 }
 
 .about-us .text {
