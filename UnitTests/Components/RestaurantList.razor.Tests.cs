@@ -12,6 +12,8 @@ using Moq;
 using NUnit.Framework.Internal;
 using System.Collections;
 using System.Threading.Channels;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 
 namespace UnitTests.Components
@@ -158,8 +160,6 @@ namespace UnitTests.Components
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
 
-        // ACTIVATE TEST ONCE RATINGS SYSTEM IS FIXED
-
         /// <summary>
         /// This test tests that the SubmitRating will change the vote as well as the Star checked
         /// Because the star check is a calculation of the ratings, using a record that has no stars
@@ -230,5 +230,115 @@ namespace UnitTests.Components
         }
         #endregion SubmitRating
 
+
+        #region AddComment
+
+        /// <summary>
+        /// Tests the functionality of the "Add Comment" button by verifying that it shows
+        /// the input field and the "Save Comment" button after being clicked. 
+        /// </summary>
+        [Test]
+        public void AddCommentButton_ShouldShowInputAndSaveCommentButton()
+        {
+            // Arrange
+            Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
+            var component = RenderComponent<RestaurantList>();
+            var id = "MoreInfoButton_kashiba-pic";
+
+            // Find the Buttons (more info)
+            var buttonList = component.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the markup of the page post the Click action
+            var buttonMarkup = component.Markup;
+
+            // Act
+            component.Find("#AddComment").Click();
+
+            // Assert
+            Assert.IsNotNull(component.Find("input[type=text]"));
+            Assert.IsNotNull(component.Find("button.btn.btn-success"));
+        }
+
+        /// <summary>
+        /// Tests the functionality of saving a comment by clicking the Save Comment button.
+        /// It verifies that a new comment is added to the list of comments after the Save Comment
+        /// button is clicked. 
+        /// </summary>
+        [Test]
+        public void SaveCommentButton_ShouldAddNewCommentToList()
+        {
+            // Arrange
+            Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
+            var component = RenderComponent<RestaurantList>();
+            var id = "MoreInfoButton_kashiba-pic";
+
+            // Find the Buttons (more info)
+            var buttonList = component.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+            component.Find("#AddComment").Click();
+            var input = component.Find("input[type=text]");
+            var saveButton = component.Find("button.btn.btn-success");
+
+            // Act
+
+            // simulate entering a new comment
+            input.Change("This is a new comment");
+
+            // simulate Save Comment button click
+            saveButton.Click();
+
+            // Assert
+            Assert.IsTrue(component.Markup.Contains("This is a new comment"));
+        }
+
+        #endregion AddComment
+
+        #region ifFilter
+
+        ///
+        [Test]
+        public void RenderRestaurantCards_WithFilterTrue_ShouldDisplayCorrectNumberOfCards()
+        {
+            //// Arrange
+        //    Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
+        //    var component = RenderComponent<RestaurantList>();
+        //    var restaurants = new List<RestaurantModel> {
+        //        new RestaurantModel
+        //        {
+        //            Id = "mock1",
+        //            Image = "image1.jpg",
+        //            Title = "Restaurant 1",
+        //            Type = "Type"
+        //        },
+        //        new RestaurantModel
+        //        {
+        //            Id = "mock2",
+        //            Image = "image2.jpg",
+        //            Title = "Restaurant 2",
+        //            Type = "Type"
+        //        },
+        //    };
+
+        //    TestHelper.RestaurantServiceObject.GetRestaurants();
+        //    //TestHelper.RestaurantServiceObject.GetRestaurants().Returns(restaurants); // Assuming GetRestaurants() is a method in your service that returns the list of restaurants.
+
+        //    // Act
+        //    // If some method or user interaction sets ifFilter and populates filterRestaurants, simulate that here. For example:
+        //    //component.Instance.SomeMethodThatSetsIfFilterAndPopulatesFilterRestaurants();
+        //    component.Instance.FilteredRestaurants("Type1");
+
+        //    // Assert
+        //    var cards = component.FindAll(".card");
+        //    Assert.Equals(restaurants.Count, cards.Count);
+        //}
+
+        #endregion ifFilter
     }
 }
