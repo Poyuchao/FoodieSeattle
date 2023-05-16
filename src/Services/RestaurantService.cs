@@ -176,6 +176,7 @@ namespace FoodieSeattle.WebSite.Services
             RestaurantData.Url = data.Url;
             RestaurantData.Image = data.Image;
             RestaurantData.Type = data.Type;
+            RestaurantData.Ratings = data.Ratings;
 
             // Populate restaurant comments
             RestaurantData.Comments = data.Comments;
