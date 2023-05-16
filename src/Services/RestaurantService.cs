@@ -43,7 +43,7 @@ namespace FoodieSeattle.WebSite.Services
         /// </summary>
         /// <param name="jsonFileReader"></param>
         /// <returns>An IEnumerable of RestaurantModel objects</returns>
-        public IEnumerable<RestaurantModel> parseRestaruantResult(StreamReader jsonFileReader)
+        public IEnumerable<RestaurantModel> parseRestaurantResult(StreamReader jsonFileReader)
         {
             return JsonSerializer.Deserialize<RestaurantModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
@@ -61,7 +61,7 @@ namespace FoodieSeattle.WebSite.Services
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
-                return parseRestaruantResult(jsonFileReader);
+                return parseRestaurantResult(jsonFileReader);
             }
 
         }
@@ -111,7 +111,6 @@ namespace FoodieSeattle.WebSite.Services
         /// <returns></returns>
         public bool AddRating(string RestaurantId, int rating)
         {
-            System.Console.WriteLine("Added rating " + rating + " to " + RestaurantId);
             if (string.IsNullOrEmpty(RestaurantId))
             {
                 return false;
@@ -284,6 +283,5 @@ namespace FoodieSeattle.WebSite.Services
         }
 
     }
-
 
 }
