@@ -7,7 +7,14 @@
     "Neighborhood": "Belltown",
     "Type": "Japanese",
     "Description": "Located in Pike Place Market, Sushi Kashiba is owned by the legendary Seattle chef Shiro Kashiba (3X James Beard Winner). The restaurant specializes in traditional Edomae-style sushi, which emphasizes the use of fresh, seasonal ingredients and techniques such as aging and marinating fish to enhance its flavor. This upscale dining experience allows customers to eat at the sushi counter or call ahead and reserve one of their tables. Pricing has us recommending this location for special occasions, and if you do decide to dine here, expect nothing less than perhaps your favorite meal of the year.",
-    "Ratings": null,
+    "Ratings": [
+        5,
+        5,
+        4,
+        5,
+        4,
+        5
+    ],
     "Comments": []
   },
   {
