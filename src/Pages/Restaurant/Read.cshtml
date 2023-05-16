@@ -32,8 +32,10 @@
     <img class="card-img" src='@Model.Restaurant.Image' alt='Image for @Model.Restaurant.Title'>
     <p style="line-height:5.5em;"> </p>
     <p class="card-text">@Model.Restaurant.Description</p>
-
 </div>
+
+<!--Show restaurant homepage button that will open a new tab-->
+<a href="@Model.Restaurant.Url" class="btn btn-primary" target="_blank">Visit Restaurant Homepage</a>
 
 <br />
 <br />
@@ -56,17 +58,18 @@ else
                 <!--Error message when user input incorrect password-->
                 <input type="password" class="form-control error-input" id="password" name="password" placeholder="Sorry Invalid Password...Try again!">
             }
-            else{
-               <!--user input password blank -->
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password to make changes to restaurant info...">
+            else
+            {
+                <!--user input password blank -->
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password to make changes to restaurant info...">
             }
-          
-          
+
+
         </div>
-  
+
         <button type="submit" class="btn btn-primary unlock-button">Unlock<i class="fas fa-key"></i></button>
-       
-      
+
+
     </form>
 }
 
