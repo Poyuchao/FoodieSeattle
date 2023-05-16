@@ -1,38 +1,34 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
-.about-container {
-    width: 70vw;
-    max-width: 2200px;
-    margin: 0 auto;
-    padding: 20px;
+﻿/*about page body*/
+body {
+    /* Set the background image and adjust its properties */
     background-image: url('/img/images/landing_page_background_photo.jpg');
+}
+
+
+.about-us {
     background-size: cover;
     background-position: center;
-    min-height: 1200px; /*Set minimum height for the container*/
-    position: relative;
-    left: 0;
-    right: auto;
-    transform: none;
 }
 
-.about-us .text {
-    background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 200px);
-    width: 540px;
-    margin: auto;
-}
-
-.about-us .text h2,
-.about-us .text h5,
-.about-us .text p {
-    margin-top: 0; /* Remove default margin */
-
-}
-
+    /*white text block*/
+    .about-us .text {
+        /* Add a semi-transparent white background */
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 20px;
+        display: flex;
+        /*direction of the flex container's main axis column is specified,
+        which means the flex items are stacked vertically from top to bottom.*/
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /*adjust the block height */
+        min-height: 180px;
+        /*adjust the block width */
+        width: 1300px;
+        margin: auto;
+        margin-bottom: 70px;
+        position: center;
+    }
 
 .pic {
     height: auto;
@@ -53,6 +49,7 @@
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 span {
@@ -63,6 +60,7 @@ span {
     font-size: 18px;
     line-height: 25px;
     letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .data {
@@ -70,6 +68,48 @@ span {
     text-align: center;
 }
 
+/*intorduce out foodie title*/
+.title {
+    text-align: center;
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: black; /* Adjust the color to your preference */
+}
+
+
+/*members */
+.team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.member {
+    width: 200px;
+    text-align: center;
+    margin: 20px;
+}
+
+    .member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .member h3 {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .member p {
+        margin-top: 10px;
+    }
+
+
+/*
 .contact {
     font-size: 18px;
     background: #4070f4;
@@ -85,3 +125,4 @@ span {
 background: #000;
 border: 1px solid #4070f4;
 }
+*/
