@@ -307,38 +307,39 @@ namespace UnitTests.Components
         public void RenderRestaurantCards_WithFilterTrue_ShouldDisplayCorrectNumberOfCards()
         {
             //// Arrange
-        //    Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-        //    var component = RenderComponent<RestaurantList>();
-        //    var restaurants = new List<RestaurantModel> {
-        //        new RestaurantModel
-        //        {
-        //            Id = "mock1",
-        //            Image = "image1.jpg",
-        //            Title = "Restaurant 1",
-        //            Type = "Type"
-        //        },
-        //        new RestaurantModel
-        //        {
-        //            Id = "mock2",
-        //            Image = "image2.jpg",
-        //            Title = "Restaurant 2",
-        //            Type = "Type"
-        //        },
-        //    };
+            //    Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
+            //    var component = RenderComponent<RestaurantList>();
+            //    var restaurants = new List<RestaurantModel> {
+            //        new RestaurantModel
+            //        {
+            //            Id = "mock1",
+            //            Image = "image1.jpg",
+            //            Title = "Restaurant 1",
+            //            Type = "Type"
+            //        },
+            //        new RestaurantModel
+            //        {
+            //            Id = "mock2",
+            //            Image = "image2.jpg",
+            //            Title = "Restaurant 2",
+            //            Type = "Type"
+            //        },
+            //    };
 
-        //    TestHelper.RestaurantServiceObject.GetRestaurants();
-        //    //TestHelper.RestaurantServiceObject.GetRestaurants().Returns(restaurants); // Assuming GetRestaurants() is a method in your service that returns the list of restaurants.
+            //    TestHelper.RestaurantServiceObject.GetRestaurants();
+            //    //TestHelper.RestaurantServiceObject.GetRestaurants().Returns(restaurants); // Assuming GetRestaurants() is a method in your service that returns the list of restaurants.
 
-        //    // Act
-        //    // If some method or user interaction sets ifFilter and populates filterRestaurants, simulate that here. For example:
-        //    //component.Instance.SomeMethodThatSetsIfFilterAndPopulatesFilterRestaurants();
-        //    component.Instance.FilteredRestaurants("Type1");
+            //    // Act
+            //    // If some method or user interaction sets ifFilter and populates filterRestaurants, simulate that here. For example:
+            //    //component.Instance.SomeMethodThatSetsIfFilterAndPopulatesFilterRestaurants();
+            //    component.Instance.FilteredRestaurants("Type1");
 
-        //    // Assert
-        //    var cards = component.FindAll(".card");
-        //    Assert.Equals(restaurants.Count, cards.Count);
-        //}
+            //    // Assert
+            //    var cards = component.FindAll(".card");
+            //    Assert.Equals(restaurants.Count, cards.Count);
+            //}
 
-        #endregion ifFilter
+            #endregion ifFilter
+        }
     }
 }
