@@ -2,27 +2,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.cuisine-filter label {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-right: 10px;
-}
+    .cuisine-filter label {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-right: 10px;
+    }
 
-.cuisine-filter select {
-    padding: 5px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: none;
-    font-size: 20px;
-}
+
 
 #cuisineType {
     font-family: Arial, sans-serif;
@@ -34,10 +27,56 @@
     background-color: #fff;
 }
 
-    #cuisineType option {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        color: #333;
-        background-color: #fff;
+#cuisine option {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+}
+
+.Neighborhood-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /*add the gap between filter and restaurant info*/
+    margin-bottom: 5px;
+}
+
+    .Neighborhood-filter label {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-right: 10px;
     }
 
+    .Neighborhood-filter select,
+    .cuisine-filter select {
+        padding: 5px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: none;
+        font-size: 20px;
+        /* Adjust the width value to your desired size */
+        width: 200px;
+    }
+
+#NeighborhoodType {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+#Neighborhood option {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+}
