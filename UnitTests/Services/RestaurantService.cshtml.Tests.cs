@@ -378,7 +378,7 @@ namespace UnitTests.Services.RestaurantService
             var desc = MockDescription;
             var url = MockUrl;
             var image = MockImage;
-      
+
 
             // Act
             var result = TestHelper.RestaurantServiceObject.AddData(title, neighborhood, type, desc, url, image);
@@ -437,7 +437,7 @@ namespace UnitTests.Services.RestaurantService
             // Act
             TestHelper.RestaurantServiceObject.AddData(firstData.Title, firstData.Neighborhood, firstData.Type,
                 firstData.Description, firstData.Url, firstData.Image);
-            TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Neighborhood, secondData.Type, 
+            TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Neighborhood, secondData.Type,
                 secondData.Description, secondData.Url, secondData.Image);
             var result = TestHelper.RestaurantServiceObject.GetRestaurantsByType("Type1");
 
@@ -548,11 +548,33 @@ namespace UnitTests.Services.RestaurantService
 
         }
 
+
+        [Test]
+
+        public void GetRestaurantByNeighborhoodFromBelltown_Is_Three()
+        {
+            //Arrange
+            var trueCount = TestHelper.RestaurantServiceObject.GetRestaurantsByNeighborhood("Belltown").Count();
+
+            var expectedCount = 2;
+
+
+            //Act
+
+
+            //Assert
+            Assert.AreEqual(expectedCount, trueCount);
+
+
+        }
+
+
+
+
         #endregion GetRestaurantByNeighborhood
+
+
+
     }
-
-
-
-
 }
 
