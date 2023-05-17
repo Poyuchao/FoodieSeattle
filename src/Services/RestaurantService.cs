@@ -104,6 +104,23 @@ namespace FoodieSeattle.WebSite.Services
         }
 
         /// <summary>
+        /// Get restaurants neighborhood funciton
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<RestaurantModel> GetRestaurantsByNeighborhood(string neighborhood)
+        {
+            // Get all restaurants
+            var restaurants = GetRestaurants();
+
+            if (!string.IsNullOrEmpty(neighborhood))
+            {
+                restaurants = restaurants.Where(r => r.Neighborhood == neighborhood);  // Filter by neighborhood if neighborhood parameter is not null or empty
+            }
+            return restaurants;
+        }
+
+
+        /// <summary>
         /// Add rating to restaurant
         /// </summary>
         /// <param name="RestaurantId"></param>
