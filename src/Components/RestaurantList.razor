@@ -35,11 +35,11 @@
     <label for="NeighborhoodType">Neighborhood Filter:</label>
     <select id="NeighborhoodType" @onchange="@(e => FilteredNeighborhoodRestaurants(e.Value.ToString()))">
         <option value="">All Neighborhood</option>
+        <option value="Ballard">Ballard</option>
         <option value="Belltown">Belltown</option>
-        <option value="International District">International District</option>
         <option value="Capitol Hill">Capitol Hill</option>
         <option value="Fremont">Fremont</option>
-        <option value="Ballard">Ballard</option>
+        <option value="International District">International District</option>
     </select>
 </div>
 
@@ -55,7 +55,7 @@
     ///and a button to view more information about the restaurant
     /// </summary>
     <div class="card-columns">
-        @foreach (var restaurant in filterTypeRestaurants)
+        @foreach (var restaurant in filteredRestaurants)
         {
             <div class="card">
                 <div class="card-img" style="background-image: url('@restaurant.Image');">
@@ -199,12 +199,28 @@ else
 
 @code
 {
-    IEnumerable<RestaurantModel> filterTypeRestaurants;
-    IEnumerable<RestaurantModel> filterNeighborhoodRestaurants;
+    // Hold list of restaurants for either filter
+    IEnumerable<RestaurantModel> filteredRestaurants;
+
+    // Hold a cuisine type
+    string selectedCuisine = "";
+
+    // Hold a neighborhood
+    string selectedNeighborhood = "";
+
+    // Hold the selected restaurant from RestaurantModel
     RestaurantModel selectedRestaurant;
+
+    // Bool logic variable for filtering
     bool ifFilter = false;
+
+    // Hold the Id of a selected restaurant
     string selectedRestaurantId;
-    
+
+    // Save the variables below for in case new filter back end has any issues
+    //IEnumerable<RestaurantModel> filterTypeRestaurants;
+    //IEnumerable<RestaurantModel> filterNeighborhoodRestaurants;
+
 
 
     /// <summary>
@@ -219,8 +235,13 @@ else
         GetCurrentRating();
     }
 
+    // Hold a restaurant's rating
     int currentRating = 0;
+
+    // Hold the number of votes on hand for a restaurant
     int voteCount = 0;
+
+    // Hold the string contents of the vote label to display
     string voteLabel;
 
     /// <summary>
@@ -301,38 +322,82 @@ else
         NewComment = false;
     }
 
+    /// <summary>
+    /// Filters the list of restaurants based on the specified type of cuisine.
+    /// </summary>
+    /// <param name="type"></param>
+    void FilteredTypeRestaurants(string type)
+    {
+        selectedCuisine = type;
+        ApplyFilters();
+    }
 
+    /// <summary>
+    /// Filters the list of restaurants based on the neighborhood location.
+    /// </summary>
+    /// <param name="neighborhood"></param>
+    void FilteredNeighborhoodRestaurants(string neighborhood)
+    {
+        selectedNeighborhood = neighborhood;
+        ApplyFilters();
+    }
+
+    /// <summary>
+    /// Applies filters to the list of restaurants based on the selected cuisine and neighborhood.
+    /// The filtered list of restaurants will be stored in the 'filteredRestaurants' variable.
+    /// This will retrieve the list of restaurants from the restaurant service
+    /// and then apply filters based on the selected cuisine and neighborhood, if any.
+    /// If a cuisine is selected, only restaurants with that cuisine will be included in
+    /// the filtered list, and vice versa.
+    /// </summary>
+    void ApplyFilters()
+    {
+        var restaurants = restaurantService.GetRestaurants();
+
+        if (!string.IsNullOrEmpty(selectedCuisine))
+        {
+            restaurants = restaurants.Where(r => r.Type == selectedCuisine);
+        }
+
+        if (!string.IsNullOrEmpty(selectedNeighborhood))
+        {
+            restaurants = restaurants.Where(r => r.Neighborhood == selectedNeighborhood);
+        }
+
+        filteredRestaurants = restaurants;
+        ifFilter = true;
+    }
+
+    /// Old code for filters - save for now until additional testing complete
     /// <summary>
     /// The FilteredTypeRestaurants method takes a string parameter type representing the cuisine type selected by the user from the dropdown menu. It sets the ifFilter flag to true and assigns the result of calling the restaurantService.GetRestaurantsByType(type) method to the filterRestaurants variable.
     /// It then returns the result of calling restaurantService.GetRestaurantsByType(type).
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    IEnumerable<RestaurantModel> FilteredTypeRestaurants(string type)
-    {
-        ifFilter = true;
-        Console.WriteLine(type);
-        //Console.WriteLine(restaurantService.GetRestaurantsByType(type).ToArray()[0].Title);
-        filterTypeRestaurants = restaurantService.GetRestaurantsByType(type);
-        return restaurantService.GetRestaurantsByType(type);
-    }
+    //IEnumerable<RestaurantModel> FilteredTypeRestaurants(string type)
+    //{
+    //    ifFilter = true;
+    //    Console.WriteLine(type);
+    //    //Console.WriteLine(restaurantService.GetRestaurantsByType(type).ToArray()[0].Title);
+    //    filterTypeRestaurants = restaurantService.GetRestaurantsByType(type);
+    //    return restaurantService.GetRestaurantsByType(type);
+    //}
 
-    /// <summary>
-    /// The  FilteredNeighborhoodRestaurants method takes a string parameter neighborhood representing the neighborhood selected by the user from the dropdown menu. It sets the ifFilter flag to true and assigns the result of calling the restaurantService.GetRestaurantsByType(type) method to the filterRestaurants variable.
-    /// It then returns the result of calling restaurantService.GetRestaurantsByNeighborhood(neighborhood).
-    /// </summary>
-    /// <param name="neighborhood"></param>
-    /// <returns></returns>
+    ///// <summary>
+    ///// The  FilteredNeighborhoodRestaurants method takes a string parameter neighborhood representing the neighborhood selected by the user from the dropdown menu. It sets the ifFilter flag to true and assigns the result of calling the restaurantService.GetRestaurantsByType(type) method to the filterRestaurants variable.
+    ///// It then returns the result of calling restaurantService.GetRestaurantsByNeighborhood(neighborhood).
+    ///// </summary>
+    ///// <param name="neighborhood"></param>
+    ///// <returns></returns>
+    //IEnumerable<RestaurantModel> FilteredNeighborhoodRestaurants(string neighborhood)
+    //{
+    //    ifFilter = true;
+    //    Console.WriteLine(neighborhood);
+    //    //Console.WriteLine(restaurantService.GetRestaurantsByNeighborhood(neighborhood).ToArray()[0].Title);
+    //    filterTypeRestaurants = restaurantService.GetRestaurantsByNeighborhood(neighborhood);
+    //    return restaurantService.GetRestaurantsByNeighborhood(neighborhood);
+    //}
 
-
-    IEnumerable<RestaurantModel> FilteredNeighborhoodRestaurants(string neighborhood)
-    {
-        ifFilter = true;
-        Console.WriteLine(neighborhood);
-        //Console.WriteLine(restaurantService.GetRestaurantsByNeighborhood(neighborhood).ToArray()[0].Title);
-        filterTypeRestaurants = restaurantService.GetRestaurantsByNeighborhood(neighborhood);
-        return restaurantService.GetRestaurantsByNeighborhood(neighborhood);
-    }
-    
 
 }
