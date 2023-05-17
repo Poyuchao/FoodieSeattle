@@ -28,6 +28,7 @@ namespace UnitTests.Services.RestaurantService
     {
 
         #region TestSetup
+
         // Global invalid id property for use in tests. 
         private const string InvalidId = "BOGUS";
 
@@ -64,8 +65,6 @@ namespace UnitTests.Services.RestaurantService
         }
         #endregion TestSetup
 
-
-
         #region GetRestaurant
         ///<summary>
         ///Verifies that the count of all restaurants is equal to result in the JSON file.
@@ -85,7 +84,6 @@ namespace UnitTests.Services.RestaurantService
         }
         #endregion GetRestaurant
 
-
         #region Addrating
         /// <summary>
         /// Invalid null Restaurant in Addrating should return false
@@ -102,7 +100,6 @@ namespace UnitTests.Services.RestaurantService
             // Assert
             Assert.AreEqual(false, result);
         }
-
 
         /// <summary>
         /// Verifies that adding a rating to a valid restaurant with existing ratings should add a new rating.
@@ -124,8 +121,6 @@ namespace UnitTests.Services.RestaurantService
             Assert.AreEqual(2, updatedData.Ratings.Last());
         }
 
-
-
         /// <summary>
         /// Verifies that adding a rating to a valid restaurant with no ratings should add a new rating.
         /// </summary>
@@ -145,7 +140,6 @@ namespace UnitTests.Services.RestaurantService
             Assert.AreEqual(4, updatedData.Ratings[0]);
         }
 
-
         /// <summary>
         /// Verifies that adding a rating to an invalid restaurant not found should return false.
         /// </summary>
@@ -162,7 +156,6 @@ namespace UnitTests.Services.RestaurantService
             Assert.IsFalse(result);
         }
 
-
         /// <summary>
         /// Verifies that adding a rating to an invalid restaurant should return false.
         /// </summary>
@@ -177,7 +170,6 @@ namespace UnitTests.Services.RestaurantService
             // Assert
             Assert.AreEqual(false, result);
         }
-
 
         /// <summary>
         /// Verifies that adding a rating to an invalid restaurant not found should return false.
@@ -196,8 +188,6 @@ namespace UnitTests.Services.RestaurantService
             // Assert
             Assert.AreEqual(false, result);
         }
-
-
 
         /// <summary>
         /// Verifies that adding a valid rating to a valid restaurant should return true.
@@ -268,8 +258,6 @@ namespace UnitTests.Services.RestaurantService
             Assert.IsNull(result);
             Assert.IsNull(mcdonaldsRestaurant);
         }
-
-
 
         /// <summary>
         /// Verifies that updating an existing restaurant should update the restaurant and return the updated restaurant.
@@ -523,6 +511,7 @@ namespace UnitTests.Services.RestaurantService
         #endregion GetRestaurantsById
 
         #region GetRestaurantByNeighborhood
+
         /// <summary>
         /// Tests the GetRestaurantsByNeighborhood method with an empty restaurant type.
         /// This test gets the current count of restaurants in the restaurant service
@@ -549,12 +538,11 @@ namespace UnitTests.Services.RestaurantService
 
         }
 
-
-        [Test]
         /// <summary>
         /// Tests the GetRestaurantsByNeighborhood to extract the restaurants which from Belltown
         /// The restaurant number will same as the expected number
         /// </summary>
+        [Test]
         public void GetRestaurantByNeighborhoodFromBelltown_Is_Three()
         {
             //Arrange
@@ -572,12 +560,7 @@ namespace UnitTests.Services.RestaurantService
         }
 
 
-
-
         #endregion GetRestaurantByNeighborhood
-
-
-
     }
 }
 
