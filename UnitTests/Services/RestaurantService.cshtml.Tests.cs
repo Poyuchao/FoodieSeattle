@@ -68,15 +68,16 @@ namespace UnitTests.Services.RestaurantService
 
         #region GetRestaurant
         ///<summary>
-        ///Verifies that the count of all restaurants is equal to fourteen in the JSON file.
+        ///Verifies that the count of all restaurants is equal to result in the JSON file.
         ///</summary>
+       [Test]
         public void ProveAllRestaurant_is_equal_to_fourteen_in_JsonFile()
         {
             //Arrange
             var restaurantModel = new RestaurantModel();
 
             //Act
-            var fourteen = 14;
+            var fourteen = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
             var result = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
 
             //Assert
@@ -550,7 +551,10 @@ namespace UnitTests.Services.RestaurantService
 
 
         [Test]
-
+        /// <summary>
+        /// Tests the GetRestaurantsByNeighborhood to extract the restaurants which from Belltown
+        /// The restaurant number will same as the expected number
+        /// </summary>
         public void GetRestaurantByNeighborhoodFromBelltown_Is_Three()
         {
             //Arrange
@@ -560,7 +564,6 @@ namespace UnitTests.Services.RestaurantService
 
 
             //Act
-
 
             //Assert
             Assert.AreEqual(expectedCount, trueCount);
