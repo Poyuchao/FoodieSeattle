@@ -520,6 +520,35 @@ namespace UnitTests.Services.RestaurantService
         }
 
         #endregion GetRestaurantsById
+
+        #region GetRestaurantByNeighborhood
+        /// <summary>
+        /// Tests the GetRestaurantsByNeighborhood method with an empty restaurant type.
+        /// This test gets the current count of restaurants in the restaurant service
+        /// using the GetRestaurants method. It then calls the GetRestaurantsByNeighborhood method
+        /// with an empty string as the parameter, and asserts that the
+        /// method returns an IEnumerable of RestaurantModel objects with a count equal to
+        /// the total number of restaurants, indicating that all restaurants were returned.
+        /// </summary>
+        [Test]
+        public void GetRestaurantsByNeighborhood_InvalidType_ReturnsAllRestaurants()
+        {
+            // Arrange
+            var restaurantModel = new RestaurantModel();
+            var count = TestHelper.RestaurantServiceObject.GetRestaurants().Count();
+
+
+            // Act
+            var result = TestHelper.RestaurantServiceObject.GetRestaurantsByNeighborhood("");
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<IEnumerable<RestaurantModel>>(result);
+            Assert.AreEqual(count, result.Count());
+
+        }
+
+        #endregion GetRestaurantByNeighborhood
     }
 
 
