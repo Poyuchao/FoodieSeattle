@@ -1,0 +1,43 @@
+﻿.cuisine-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.cuisine-filter label {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 10px;
+}
+
+.cuisine-filter select {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+    font-size: 20px;
+}
+
+#cuisineType {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+    #cuisineType option {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #333;
+        background-color: #fff;
+    }
+
