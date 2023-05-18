@@ -63,9 +63,11 @@ namespace UnitTests.Services.RestaurantService
         public void TestInitialize()
         {
         }
+
         #endregion TestSetup
 
         #region GetRestaurant
+
         ///<summary>
         ///Verifies that the count of all restaurants is equal to result in the JSON file.
         ///</summary>
@@ -558,7 +560,6 @@ namespace UnitTests.Services.RestaurantService
 
 
         }
-
 
         #endregion GetRestaurantByNeighborhood
     }
