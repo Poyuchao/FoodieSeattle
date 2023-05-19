@@ -22,10 +22,9 @@ navbarExample01 {
     background-color: #e8b986c6;
 }
 
-
 header {
     background: linear-gradient(#F7F7F2, #F5F1E7, #e8b986c6);
-    padding: 30px 0;
+    min-height: 180px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -237,6 +236,14 @@ html {
   }
 }
 
+
+footer {
+    /*adjust footer background color*/
+    background-color: #e8b986c6;
+    /*fixed the footer height to 180px*/
+    min-height: 180px;
+}
+
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
@@ -273,14 +280,7 @@ h1 {
 ul {
     font-family: 'Nunito', sans-serif;
 }
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
-    font-family: 'Nunito', sans-serif;
-}
+
 /*Backgrounds*/
 .bg-navbar {
     background: -webkit-linear-gradient(110deg, #e9a8a6 60%, #252152 60%);
