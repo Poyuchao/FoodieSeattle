@@ -24,6 +24,7 @@ navbarExample01 {
 
 header {
     background: linear-gradient(#F7F7F2, #F5F1E7, #e8b986c6);
+    /*Fixed the header height*/
     min-height: 180px;
     display: flex;
     flex-wrap: wrap;
