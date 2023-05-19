@@ -2,6 +2,12 @@
 body {
     /* Set the background image and adjust its properties */
     background-image: url('/img/images/landing_page_background_photo.jpg');
+    /*removed the repeat background image*/
+    background-repeat: no-repeat;
+    /*set up the image cover the body block*/
+    background-size: cover;
+    /*set up the image in the center*/
+    background-position: center;
 }
 
 
