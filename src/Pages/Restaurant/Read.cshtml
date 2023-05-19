@@ -26,50 +26,58 @@
 <p style="line-height:5.5em;"> </p>
 
 <!--Show images and other content-->
-<div class="content">
-    <h4 class="title" id="restaurantTitle">@Model.Restaurant.Title</h4>
-    <p style="line-height:5.5em;"> </p>
-    <img class="card-img" src='@Model.Restaurant.Image' alt='Image for @Model.Restaurant.Title'>
-    <p style="line-height:5.5em;"> </p>
-    <p class="card-text">@Model.Restaurant.Description</p>
-</div>
+<div class="read-container">
+    <div class="content">
+        <h2 class="title" id="restaurantTitle">@Model.Restaurant.Title</h2>
+        <p style="line-height:5.5em;"> </p>
+        <img class="card-img" src='@Model.Restaurant.Image' alt='Image for @Model.Restaurant.Title'>
+        <p style="line-height:5.5em;"> </p>
+        <p class="card-text">@Model.Restaurant.Description</p>
+        <h3 class="card-info">Cuisine&Neighborhood</h3>
+        <p class="card-cuisine">Cuisine Type:   @Model.Restaurant.Type</p>
 
-<!--Show restaurant homepage button that will open a new tab-->
-<a href="@Model.Restaurant.Url" class="btn btn-primary" target="_blank">Visit Restaurant Homepage</a>
+        <p class="card-neighborhood">Restaurant Area:     @Model.Restaurant.Neighborhood</p>
+        <a href="@Model.Restaurant.Url" class="btn btn-primary visit-button" target="_blank"><img src="~/img/icons/visit us.png" alt="visit us" style="width: 150px; height: 50px;" /></a>
 
-<br />
-<br />
-@*This block displays buttons to update or delete the restaurant, which link to the Update and Delete pages respectively. T
-    he asp-route-id attribute sets the id parameter in the URL to the current restaurant's id.*@
 
-@if (Model.PasswordEntered == true)
-{
-    <div class="row">
-        <a asp-page="Update" asp-route-id="@Model.Restaurant.Id" class="btn btn-primary update-button">Update</a>
-        <a asp-page="Delete" asp-route-id="@Model.Restaurant.Id" class="btn btn-danger delete-button">Delete</a>
+        @*This block displays buttons to update or delete the restaurant, which link to the Update and Delete pages respectively. T
+        he asp-route-id attribute sets the id parameter in the URL to the current restaurant's id.*@
+
+        @if (Model.PasswordEntered == true)
+        {
+            <div class="row">
+                <a asp-page="Update" asp-route-id="@Model.Restaurant.Id" class="btn btn-primary update-button">Update</a>
+                <a asp-page="Delete" asp-route-id="@Model.Restaurant.Id" class="btn btn-danger delete-button">Delete</a>
+            </div>
+        }
+        else
+        {
+            <form method="post">
+                <div class="form-group">
+                    @if (!ModelState.IsValid)
+                    {
+                        <!--Error message when user input incorrect password-->
+                        <input type="password" class="form-control error-input" id="password" name="password" placeholder="Sorry Invalid Password...Try again!">
+                    }
+                    else
+                    {
+                        <!--user input password blank -->
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password to make changes to restaurant info...">
+                    }
+
+
+                </div>
+
+                <button type="submit" class="btn btn-primary unlock-button">Unlock<i class="fas fa-key"></i></button>
+
+
+            </form>
+        }
     </div>
-}
-else
-{
-    <form method="post">
-        <div class="form-group">
-            @if (!ModelState.IsValid)
-            {
-                <!--Error message when user input incorrect password-->
-                <input type="password" class="form-control error-input" id="password" name="password" placeholder="Sorry Invalid Password...Try again!">
-            }
-            else
-            {
-                <!--user input password blank -->
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password to make changes to restaurant info...">
-            }
+</div>
+<!--Show restaurant homepage button that will open a new tab-->
 
 
-        </div>
-
-        <button type="submit" class="btn btn-primary unlock-button">Unlock<i class="fas fa-key"></i></button>
-
-
-    </form>
-}
+<br />
+<br />
 
