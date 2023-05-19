@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index page";
 }
+<link rel="stylesheet" href="/css/Restaurant.css" />
 <p style="line-height:5.5em;"> </p>
 
 
@@ -13,19 +14,19 @@
 <!--CRUDi: Index page to show: contains a list of restaurants and links to Create, Read -->
 <div class="container">
 
-    <a asp-page="Create" class="btn btn-link" style="font-size: 20px; margin-bottom: 20px; border-radius: 20px; padding: 10px 20px; font-weight: bold; text-transform: uppercase; border: 2px solid sienna; ">+ Create</a>
+    <a asp-page="Create" class="btn btn-link" style="font-size: 20px; margin-bottom: 20px; border-radius: 20px; padding: 10px 20px; font-weight: bold; text-transform: uppercase; border: 2px solid white;background-color:wheat;color:black ">Create</a>
 
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th style="font-size: 30px;">Restaurants</th>
-                <th style="font-size: 30px;">Action</th>
+                <th style="font-size: 30px;background-color:oldlace;color:black">Restaurants</th>
+                <th style="font-size: 30px;background-color:oldlace;">Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var restaurant in Model.Restaurants)
             {
-                <tr style="background-color: @(counter % 2 == 0 ? "beige" : "white")">
+                <tr style="background-color: @(counter % 2 == 0 ? "wheat" : "oldlace")">
                     <td style="font-size: 25px; position:center;">@restaurant.Title</td>
                     <td style="text-align: left; font-size: 20px;"><a asp-page="Read" asp-route-id="@restaurant.Id"> <img src="~/img/icons/open.png" alt="Read" style="width: 40px; height: 40px;" /></a></td>
                 </tr>
