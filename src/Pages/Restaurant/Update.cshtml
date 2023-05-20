@@ -16,6 +16,13 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     @Html.HiddenFor(x => x.Restaurant.Id)
 
+    <div class="form-group">
+        <label asp-for="Restaurant.Id" class="control-label">Restaurant Id</label>
+        <input asp-for="Restaurant.Id" class="form-control" readonly />
+        <span asp-validation-for="Restaurant.Id" class="text-danger"></span>
+    </div>
+
+
     <!--This is a form group that contains a label and an input field for the Title property of the Restaurant model.-->
     <div class="form-group">
         <label asp-for="Restaurant.Title" class="control-label">Restaurant Name</label>
@@ -23,11 +30,15 @@
         <span asp-validation-for="Restaurant.Title" class="text-danger"></span>
     </div>
 
+    <br />
+
     <div class="form-group">
         <label asp-for="Restaurant.Neighborhood" class="control-label">Restaurant Neighborhood</label>
         <input asp-for="Restaurant.Neighborhood" class="form-control" required />
         <span asp-validation-for="Restaurant.Neighborhood" class="text-danger"></span>
     </div>
+
+    <br />
 
     <div class="form-group">
         <label asp-for="Restaurant.Type" class="control-label">Cuisine Type</label>
@@ -35,6 +46,7 @@
         <span asp-validation-for="Restaurant.Type" class="text-danger"></span>
     </div>
 
+    <br />
 
     <div class="form-group">
         <label asp-for="Restaurant.Description" class="control-label">Description</label>
@@ -42,19 +54,25 @@
         <span asp-validation-for="Restaurant.Description" class="text-danger"></span>
     </div>
 
+    <br />
+
     <div class="form-group">
         <label asp-for="Restaurant.Url" class="control-label">Link to Restaurant Home Website</label>
         <input asp-for="Restaurant.Url" class="form-control" id="restaurantUrl" required />
         <span asp-validation-for="Restaurant.Url" class="text-danger"></span>
-        <span class="text-danger visually-hidden" id="url-error-text">Please enter a valid URL.</span>
+        <span class="text-danger visually-hidden" id="url-error-text"></span>
     </div>
+
+    <br />
 
     <div class="form-group">
         <label asp-for="Restaurant.Image" class="control-label">Link to Restaurant Image</label>
         <input asp-for="Restaurant.Image" class="form-control" id="restaurantImage" required />
         <span asp-validation-for="Restaurant.Image" class="text-danger"></span>
-        <span class="text-danger visually-hidden" id="image-error-text">Please enter a valid URL.</span>
+        <span class="text-danger visually-hidden" id="image-error-text"></span>
     </div>
+
+    <br />
 
     <div class="form-group">
         <a type="button" value="Cancel" class="= btn btn-primary" asp-page="/Restaurant/Index">Cancel</a>
