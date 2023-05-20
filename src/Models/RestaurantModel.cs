@@ -24,19 +24,19 @@ namespace FoodieSeattle.WebSite.Models
 
         // Declare and validate a public property Title of type string to represent the title of the restaurant.
         [Required(ErrorMessage = "Please enter a restaurant name.")]
-        [RegularExpression(@"^[a-z A-Z]+$+'", ErrorMessage = "Please enter a valid restaurant name.")]
+        [RegularExpression(@"^[a-z A-Z\s']+$", ErrorMessage = "Please enter a valid restaurant name.")]
         [StringLength(50, ErrorMessage = "A restaurant name cannot exceed 50 characters. ")]
         public string Title { get; set; }
 
         // Declare and validate a public property Neighborhood of type string to represent the neighborhood of the restaurant.
         [Required(ErrorMessage = "Please enter the restaurant's neighborhood.")]
-        [RegularExpression(@"^[a-z A-Z]+$+'", ErrorMessage = "Please enter a valid neighborhood.")]
+        [RegularExpression(@"^[a-z A-Z\s']+$", ErrorMessage = "Please enter a valid neighborhood.")]
         [StringLength(30, ErrorMessage = "A neighborhood cannot exceed 30 characters. ")]
         public string Neighborhood { get; set; }
 
         // Declare and validate a public property Type of type string to represent the cuisine type of a restaurant
         [Required(ErrorMessage = "Please enter a cuisine type.")]
-        [RegularExpression(@"^[a-z A-Z]+$+'", ErrorMessage = "Please enter a valid cuisine type.")]
+        [RegularExpression(@"^[a-z A-Z\s']+$", ErrorMessage = "Please enter a valid cuisine type.")]
         [StringLength(20, ErrorMessage = "A cuisine type cannot exceed 20 characters. ")]
         public string Type { get; set; }
 
