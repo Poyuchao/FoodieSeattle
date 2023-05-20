@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body>
+<body id="dynamic-background">
     <!--<!--<!--<!--Creat a new header and buttons--><!----><!---->
 
 
@@ -36,7 +36,7 @@
                 <ul>
                     <!---
 
-                    <li class="featured"><a href="About.cshtml">Feature</a></li> 
+                    <li class="featured"><a href="About.cshtml">Feature</a></li>
 
                     <li class="Top Restaurants"><a href="/index">Top Restaurants</a></li>
 
@@ -55,34 +55,12 @@
         </nav>
 
 
-
-        <!--filter dropdown-->
-        @*<label for="filter">Filter by:</label>*@
-        @*<select id="filter" onchange="GetRestaurantsByType(this.value)">
-             <option value=""selected>All Restaurants</option>
-             <option value="Caribbean">Caribbean</option>
-             <option value="Chinese">Chinese</option>
-             <option value="Indian">Indian</option>
-             <option value="Japanese">Japanese</option>
-             <option value="Laotian">Laotian</option>
-             <option value="Mexican">Mexican</option>
-             <option value="Thai">Thai</option>
-             <option value="Vietnamese">Vietnamese</option>
-         </select>*@
-            
-        <!--Search Bar-->
-        @*<div class="search-container">
-                <form action="#">
-                    <input type="text" placeholder="Search...">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>*@
     </header>
 
 
 
 
-    <div class="container" >
+    <div class="container">
         <main role="main" class="pb-3" style="min-height: 100vh;">
             @RenderBody()
         </main>
@@ -134,7 +112,7 @@
                         </a>
 
                         <!--Facebook-->
-                        <a href="#!" role="button" style="margin-right: 10px";>
+                        <a href="#!" role="button" style="margin-right: 10px" ;>
                             <i class="fab fa-facebook-f fa-2x" style="color: #4c3b29;"></i>
                         </a>
 
@@ -191,6 +169,50 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
+
+
+    
+    <script>
+        // function for dynamic background
+        var images = [
+
+                'landing_page_background_photo.jpg',
+                '2.jpg',
+                '3.jpg',
+                // add more image file names here...
+        ];
+
+        var currentImageIndex = 0;
+
+        function changeBackgroundImage() {
+
+            document.body.style.backgroundImage = "url('/img/images/" + images[currentImageIndex] + "')";
+
+            document.body.style.backgroundSize = "cover"; // for full window background
+
+            currentImageIndex++;
+
+        if (currentImageIndex == images.length) { // Reset the counter to loop the images
+
+            currentImageIndex = 0;
+
+            }
+
+        }
+
+            window.onload = function () {
+                // Set the initial background
+                changeBackgroundImage();
+
+                // Change the background every 5 seconds
+                setInterval(changeBackgroundImage, 5000);
+            };
+
+
+           
+            
+    </script>
+
 
 </body>
 </html>
