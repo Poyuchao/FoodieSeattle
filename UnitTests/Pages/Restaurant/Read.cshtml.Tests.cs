@@ -134,6 +134,7 @@ namespace UnitTests.Pages.Restaurant.Read
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
             Assert.IsTrue(model.PasswordEntered);
+            Assert.IsFalse(model.IsPasswordInvalid);
         }
 
         /// <summary>
@@ -157,9 +158,12 @@ namespace UnitTests.Pages.Restaurant.Read
 
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
-            Assert.IsFalse(model.PasswordEntered);           
+            Assert.IsFalse(model.PasswordEntered);
+            Assert.IsTrue(model.IsPasswordInvalid);
         }
 
         #endregion OnPost
+
+        
     }
 }
