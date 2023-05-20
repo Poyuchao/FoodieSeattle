@@ -216,8 +216,8 @@ a {
 }
 .btn-primary:hover {
     color: #fff;
-    background-color: #e9a8a6;
-    border-color: #e9a8a6;
+    background-color: #09a552;
+    border-color: #09a552;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -311,12 +311,12 @@ ul {
 }
 .btn-primary {
     color: #fff;
-    background-color: #252152;
+    background-color: #03A062;
     border-color: #f0eff7;
 }
 
 /* bottom-to-top */
-.move-top {
+.move-top { 
     position: fixed;
     bottom: 30px;
     right: 7px;
