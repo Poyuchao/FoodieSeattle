@@ -83,7 +83,7 @@ header-nav {
 }
 
 .header-nav ul li a:hover {
-    color: #03A062;
+    color: #5BC286;
 }
 
     .header-title a:hover {
@@ -209,7 +209,7 @@ a.navbar-brand {
 }
 
 a.move-top:hover {
-    color: #03A062;
+    color: #5BC286;
 }
 
 /* Provide sufficient contrast against white background */
@@ -224,8 +224,8 @@ a {
 }
 .btn-primary:hover {
     color: #fff;
-    background-color: #09a552;
-    border-color: #09a552;
+    background-color: #4CBD7B;
+    border-color: #4CBD7B;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -319,14 +319,20 @@ ul {
 }
 .btn-primary {
     color: #fff;
-    background-color: #03A062;
+    background-color: #5BC286;
     border-color: #f0eff7;
 }
 
 .btn-primary:active,
 .btn-primary:focus {
-    background-color: #03A062;
+    background-color: #5BC286;
     outline: none;
+}
+
+.btn-visit {
+    color: #fff;
+    background-color: #e8b986c6;
+    border-color: #f0eff7;
 }
 
 /* bottom-to-top */
