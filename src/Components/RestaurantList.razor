@@ -2,6 +2,7 @@
 @using FoodieSeattle.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
 @inject RestaurantService restaurantService
+
 @*This Razor component displays a list of restaurants with a filter option based on cuisine type.
     When a user selects a cuisine type, the component filters the list of restaurants to display
     only those that serve the selected cuisine. The component also allows the user to view more
@@ -11,6 +12,9 @@
 
 <link rel="stylesheet" href="./css/filter.css">
 
+
+
+@*Filters*@
 
 <div class="cuisine-filter">
     <label for="cuisineType">Cuisine Filter:</label>
@@ -190,6 +194,14 @@ else
     </div>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+
+
+
 }
 
 
@@ -358,4 +370,10 @@ else
         ifFilter = true;
     }
 
+
+
+
+
 }
+
+
