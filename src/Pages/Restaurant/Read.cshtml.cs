@@ -36,6 +36,9 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         // Define the variable to keep track of password status
         public bool PasswordEntered { get; set; }
 
+        // Flag for the view
+        public bool IsPasswordInvalid { get; set; } = false;
+
         /// <summary>
         /// REST Get request.
         /// </summary>
@@ -61,6 +64,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
             {
                 ModelState.AddModelError("Password", "Incorrect password.");
                 Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
+                IsPasswordInvalid = true;
                 return Page();
             }
         }
