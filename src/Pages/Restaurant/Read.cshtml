@@ -44,7 +44,7 @@
         @*This block displays buttons to update or delete the restaurant, which link to the Update and Delete pages respectively. T
         he asp-route-id attribute sets the id parameter in the URL to the current restaurant's id.*@
 
-        @if (Model.PasswordEntered == true)
+        @*if (Model.PasswordEntered == true)
         {
             <div class="row">
                 <a asp-page="Update" asp-route-id="@Model.Restaurant.Id" class="btn btn-primary update-button">Update</a>
@@ -73,7 +73,33 @@
 
 
             </form>
+        }*@
+        @if (Model.PasswordEntered == true)
+        {
+            <div class="row">
+                <a asp-page="Update" asp-route-id="@Model.Restaurant.Id" class="btn btn-primary update-button">Update</a>
+                <a asp-page="Delete" asp-route-id="@Model.Restaurant.Id" class="btn btn-danger delete-button">Delete</a>
+            </div>
         }
+        else
+        {
+            <form method="post">
+                <div class="form-group">
+                    @if (Model.IsPasswordInvalid)
+                    {
+                        <!--Error message when user input incorrect password-->
+                        <input type="password" class="form-control error-input" id="password" name="password" placeholder="Sorry Invalid Password...Try again!">
+                    }
+                    else
+                    {
+                        <!--user input password blank -->
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password to make changes to restaurant info...">
+                    }
+                </div>
+                <button type="submit" class="btn btn-primary unlock-button">Unlock<i class="fas fa-key"></i></button>
+            </form>
+        }
+
     </div>
 </div>
 <!--Show restaurant homepage button that will open a new tab-->
