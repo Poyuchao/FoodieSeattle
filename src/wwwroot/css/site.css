@@ -82,6 +82,10 @@ header-nav {
     font-weight: bold;
 }
 
+.header-nav ul li a:hover {
+    color: #03A062;
+}
+
     .header-title a:hover {
         color: black;
         text-decoration: none;
@@ -202,6 +206,10 @@ a.navbar-brand {
     font-size: xx-large;
     text-align: center;
     word-break: break-all;
+}
+
+a.move-top:hover {
+    color: #03A062;
 }
 
 /* Provide sufficient contrast against white background */
