@@ -56,8 +56,10 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
             if (Password == "6666")
             {
                 PasswordEntered = true;
-                //retrieves the ProductModel object whose Id property matches the value of the "id" route parameter in the URL.
+
+                //retrieves the RestaurantModel object whose Id property matches the value of the "id" route parameter in the URL.
                 Restaurant = restaurantService.GetRestaurants().FirstOrDefault(m => m.Id.Equals(RouteData.Values["id"]));
+
                 return Page();
             }
             else
