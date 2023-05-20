@@ -323,6 +323,12 @@ ul {
     border-color: #f0eff7;
 }
 
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: #03A062;
+    outline: none;
+}
+
 /* bottom-to-top */
 .move-top { 
     position: fixed;
