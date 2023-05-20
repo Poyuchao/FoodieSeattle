@@ -1,11 +1,9 @@
 ﻿using System.Linq;
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
-
 using FoodieSeattle.WebSite.Models;
 using FoodieSeattle.WebSite.Services;
-
+using System;
 
 namespace FoodieSeattle.WebSite.Pages.Restaurant
 {
@@ -63,11 +61,10 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         /// <returns>redirect to Index page</returns>
         public IActionResult OnPost()
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return RedirectToPage("/Restaurant/Index");
-            //}
-
+            if (!ModelState.IsValid)
+            {
+                return RedirectToPage("/Restaurant/Index");
+            }
 
             // If restaurant is not null, update restaurant with user entered data. 
             if (Restaurant != null)
