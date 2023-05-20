@@ -69,10 +69,10 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         /// <returns></returns>
         public IActionResult OnPost()
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             // Delete all JSON data and image files associated with this restaurant.
             if (Restaurant != null)
