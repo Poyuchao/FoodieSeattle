@@ -1,4 +1,12 @@
-﻿.cuisine-filter {
+﻿/*body {
+    background-image: url('/img/images/2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    /* Additional styles if needed */
+/*}*/
+
+
+.cuisine-filter {
     display: flex;
     justify-content: space-between;
     align-items: center;
