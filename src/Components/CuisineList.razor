@@ -1,14 +1,10 @@
-@using FoodieSeattle.WebSite.Models
+﻿@using FoodieSeattle.WebSite.Models
 @using FoodieSeattle.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
 @inject RestaurantService restaurantService
-@*This Razor component displays a list of all restaurants in the system.The component also allows
-    the user to view more information about a restaurant, including its name, image, and description,
-    and to rate the restaurant on a scale of one to five stars. The selected rating is stored in the
-    database and used to calculate the restaurant's average rating.*@
 
 <div class="card-columns">
-    @foreach (var restaurant in restaurantService.GetRestaurants())
+    @foreach (var restaurant in Restaurants)
     {
         <div class="card">
             <a href="/Restaurant/Read/@restaurant.Id">
@@ -20,13 +16,15 @@
             </div>
             <div class="card-footer">
                 <small class="text-muted">
-                    <button @onclick="(e => SelectRestaurant(restaurant.Id))" id="MoreInfoButton_@restaurant.Id" data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">More Info</button>
+                    <button id="MoreInfoButton_@restaurant.Id" @onclick="(e => SelectRestaurant(restaurant.Id))"
+                            data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">
+                        More Info
+                    </button>
                 </small>
             </div>
         </div>
     }
 </div>
-
 
 @if (selectedRestaurant != null)
 {
@@ -129,12 +127,17 @@
 
 @code
 {
+    // Filtered Restaurants Coming from Cuisine.cshtml
+    [Parameter]
+    public IEnumerable<RestaurantModel> Restaurants { get; set; }
+
     // Hold the selected restaurant from RestaurantModel
     RestaurantModel selectedRestaurant;
 
     // Hold the Id of a selected restaurant
     string selectedRestaurantId;
 
+    
     /// <summary>
     /// Updates the `selectedRestaurantId` and `selectedRestaurant` variables with the
     /// provided `restaurantId`.
@@ -142,9 +145,11 @@
     /// <param name="restaurantId"></param>
     void SelectRestaurant(string restaurantId)
     {
+        Console.WriteLine($"SelectRestaurant called with ID: {restaurantId}");
         selectedRestaurantId = restaurantId;
         selectedRestaurant = restaurantService.GetRestaurants().First(x => x.Id == restaurantId);
         GetCurrentRating();
+
     }
 
     // Hold a restaurant's rating
@@ -235,5 +240,3 @@
     }
 
 }
-
-

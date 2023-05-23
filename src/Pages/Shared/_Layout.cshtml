@@ -1,4 +1,5 @@
-﻿@using FoodieSeattle.WebSite.Services
+﻿
+@using FoodieSeattle.WebSite.Services
 @inject RestaurantService callRestaurantService
 <!DOCTYPE html>
 <html lang="en">
@@ -13,64 +14,68 @@
     <link href="https://fonts.googleapis.com/css?family=Yellowtail&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <base href="/" />
 </head>
 
-<body id="dynamic-background">
-    @section Scripts {
-        <script src="~/js/site.js"></script>
-    }
+<body>
 
     <!--<!--<!--<!--Creat a new header and buttons--><!----><!---->
 
-
     <header>
-        <a href="/index">
-            <img class="logo" src="~/img/logo/Color_logo_no_background.png" width="316" height="62" />
-        </a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-navbar border-bottom box-shadow mb-3">
+            <div class="container">
+                <a href="/index">
+                    <img class="logo" src="~/img/logo/Color_logo_no_background.png" width="316" height="62" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/" id="neighborhoodDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Neighborhoods <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="neighborhoodDropdown">
+                                @foreach (var neighborhood in callRestaurantService.GetNeighborhoods())
+                                {
+                                    <a class="dropdown-item" href="/Neighborhood/@neighborhood">@neighborhood</a>
+                                }
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/" id="cuisineDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cuisines <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="cuisineDropdown">
+                                @foreach (var cuisine in callRestaurantService.GetCuisines())
+                                {
+                                    @*<a href="/Cuisine/@cuisine">@cuisine</a>*@
+                                    <a class="dropdown-item" href="/Cuisine/@cuisine">@cuisine</a>
+                                }
+                            </div>
+                        </li>
 
-        <!---<h1 class="header-title">
-            <!--<i class="fas fa-utensils"></i><span style="font-size: 1.5em;font-weight:bold "><a href="/index" style="color: black">FoodieSeattle</a></span>
-        </h1> -->
-
-        <nav class="header-nav">
-
-            <div class="nav-button">
-
-
-                <ul>
-                    <!---
-
-                    <li class="featured"><a href="About.cshtml">Feature</a></li>
-
-                    <li class="Top Restaurants"><a href="/index">Top Restaurants</a></li>
-
-                    -->
-
-                    <li class="Catalog"><a href="/Restaurant/Index">Catalog</a></li>
-
-                    <li class="About"><a href="/about">About</a></li>
-
-                    <li class="privacy"><a href="/privacy">Privacy</a></li>
-
-                </ul>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Restaurant/Index">Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark privacy-button" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
         </nav>
-
-
     </header>
-
-
-
-
     <div class="container">
         <main role="main" class="pb-3" style="min-height: 100vh;">
             @RenderBody()
         </main>
     </div>
-
-
 
     <!--  footer -->
 
@@ -147,7 +152,6 @@
 
     </footer>
 
-
     <!-- move top icon -->
     <a href="#" class="move-top">
         <i class="fa fa-chevron-up"></i>
@@ -173,9 +177,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
-
-
-
 
 </body>
 </html>

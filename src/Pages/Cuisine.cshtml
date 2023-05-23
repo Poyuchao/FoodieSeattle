@@ -1,0 +1,12 @@
+﻿@page "/Cuisine/{cuisine?}"
+@using FoodieSeattle.WebSite.Components
+@using Microsoft.AspNetCore.Components.Web
+@model FoodieSeattle.WebSite.Pages.CuisineModel
+@{
+    ViewData["Title"] = "Cuisine Page";
+}
+
+
+@((await Html.RenderComponentAsync<CuisineList>(RenderMode.ServerPrerendered,
+    new { restaurants = Model.Restaurants })))
+<script src="~/_framework/blazor.server.js"></script>
