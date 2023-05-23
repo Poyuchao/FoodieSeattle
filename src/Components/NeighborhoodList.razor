@@ -1,0 +1,237 @@
+﻿@using FoodieSeattle.WebSite.Models
+@using FoodieSeattle.WebSite.Services
+@using Microsoft.AspNetCore.Components.Web
+@inject RestaurantService restaurantService
+
+<div class="card-columns">
+    @foreach (var restaurant in Restaurants)
+    {
+        <div class="card">
+            <a href="/Restaurant/Read/@restaurant.Id">
+                <div class="card-img" style="background-image: url('@restaurant.Image');">
+                </div>
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">@restaurant.Title</h5>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <button id="MoreInfoButton_@restaurant.Id" @onclick="(e => SelectRestaurant(restaurant.Id))"
+                            data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">
+                        More Info
+                    </button>
+                </small>
+            </div>
+        </div>
+    }
+</div>
+
+@if (selectedRestaurant != null)
+{
+    ///<summary>
+    /// This section contains the code for the modal that appears when a user clicks on a restaurant to view more information about it.
+    /// It displays the restaurant's title, image, and description. Users can also rate the restaurant by clicking on the star icons.
+    /// The number of votes and the average rating are displayed below the star icons.
+    /// </summary>
+    <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="restaurantTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="restaurantTitle">@selectedRestaurant.Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-img" style="background-image: url('@selectedRestaurant.Image');">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">@selectedRestaurant.Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="container-fluid">
+                        <div class="col">
+                            @{
+                                var voteString = @voteCount + " " + @voteLabel;
+
+                                if (voteCount == 0)
+                                {
+                                    voteString = "Be the first to vote!";
+                                }
+
+                                <span>@voteString</span>
+
+                                for (int i = 1; i < 6; i++)
+                                {
+                                    var currentStar = i;
+                                    var checkedText = "";
+
+                                    if (i <= currentRating)
+                                    {
+                                        checkedText = "checked";
+                                    }
+
+                                    <span class="fa fa-star @checkedText" @onclick="(e=> SubmitRating(currentStar))"></span>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        @{
+                            // First show all the existing comments
+                            foreach (var comment in selectedRestaurant.Comments)
+                            {
+                                <div class="row">
+                                    <div class="col">
+                                        @comment.Comment
+                                    </div>
+                                </div>
+                            }
+
+                            // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
+                            if (NewComment)
+                            {
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
+                                        <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
+                                    </div>
+                                </div>
+                            }
+
+                            // If this is not a new comment, then show the buttons for Adding comment and Close
+                            if (NewComment == false)
+                            {
+                                <div class="row">
+                                    <div class="col">
+                                        <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-primary">Add Comment</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+@code
+{
+    [Parameter]
+    public IEnumerable<RestaurantModel> Restaurants { get; set; }
+
+    // Hold the selected restaurant from RestaurantModel
+    RestaurantModel selectedRestaurant;
+
+    // Hold the Id of a selected restaurant
+    string selectedRestaurantId;
+
+    /// <summary>
+    /// Updates the `selectedRestaurantId` and `selectedRestaurant` variables with the
+    /// provided `restaurantId`.
+    /// </summary>
+    /// <param name="restaurantId"></param>
+    void SelectRestaurant(string restaurantId)
+    {
+        selectedRestaurantId = restaurantId;
+        selectedRestaurant = restaurantService.GetRestaurants().First(x => x.Id == restaurantId);
+        GetCurrentRating();
+    }
+
+    // Hold a restaurant's rating
+    int currentRating = 0;
+
+    // Hold the number of votes on hand for a restaurant
+    int voteCount = 0;
+
+    // Hold the string contents of the vote label to display
+    string voteLabel;
+
+    /// <summary>
+    /// Gets current rating of restaurant
+    /// </summary>
+    void GetCurrentRating()
+    {
+        if (selectedRestaurant.Ratings == null)
+        {
+            currentRating = 0;
+            voteCount = 0;
+        }
+        else
+        {
+            voteCount = selectedRestaurant.Ratings.Count();
+            voteLabel = voteCount > 1 ? "Votes" : "Vote";
+            currentRating = selectedRestaurant.Ratings.Sum() / voteCount;
+        }
+
+        System.Console.WriteLine($"Current rating for {selectedRestaurant.Id}: {currentRating}");
+    }
+
+    /// <summary>
+    /// This method handles the submission of a user's rating for a particular restaurant.
+    /// It takes an integer rating as a parameter and updates the rating for the currently selected restaurant using the restaurantService.AddRating method.
+    /// It then calls the SelectRestaurant method to update the selected restaurant's information and display the updated rating.
+    /// </summary>
+    /// <param name="rating"></param>
+    void SubmitRating(int rating)
+    {
+        System.Console.WriteLine($"Rating received for {selectedRestaurant.Id}: {rating}");
+        restaurantService.AddRating(selectedRestaurantId, rating);
+        SelectRestaurant(selectedRestaurantId);
+    }
+
+    // New Comment Flag to show the input box or not
+    bool NewComment = false;
+
+    // Next Comment Text is what the comment text is
+    string NewCommentText = "";
+
+    /// <summary>
+    /// Enable the New Comment Entry by setting the NewComment flag
+    /// </summary>
+    /// <param name="comment"></param>
+    void ShowNewCommentInput()
+    {
+        // Setting the new Comment flag to true will show the input box
+        NewComment = true;
+    }
+
+    /// <summary>
+    /// Set the New Comment Text variable to the data just entered in the input box
+    /// </summary>
+    /// <param name="newCommentText"></param>
+    void UpdateCommentText(string newCommentText)
+    {
+        NewCommentText = newCommentText;
+    }
+
+    /// <summary>
+    /// Add the comment to the restaurant
+    /// </summary>
+    /// <param name="comment"></param>
+    void AddComment()
+    {
+        // Refactor to be a call to the middle tier
+        // restaurantService.AddCommentToRestaurant(selectedRestaurant, comment);
+
+
+        // Add it to the Comment List
+        selectedRestaurant.Comments.Add(new CommentModel() { Comment = NewCommentText });
+
+        // Call for the Restaurant to be saved
+        restaurantService.UpdateData(selectedRestaurant);
+
+        // Set the NewComment flag to false to hide the input box
+        NewComment = false;
+    }
+
+}
