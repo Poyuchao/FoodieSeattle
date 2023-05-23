@@ -2,101 +2,31 @@
 @using FoodieSeattle.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
 @inject RestaurantService restaurantService
+@*This Razor component displays a list of all restaurants in the system.The component also allows
+    the user to view more information about a restaurant, including its name, image, and description,
+    and to rate the restaurant on a scale of one to five stars. The selected rating is stored in the
+    database and used to calculate the restaurant's average rating.*@
 
-@*This Razor component displays a list of restaurants with a filter option based on cuisine type.
-    When a user selects a cuisine type, the component filters the list of restaurants to display
-    only those that serve the selected cuisine. The component also allows the user to view more
-    information about a restaurant, including its name, image, and description, and to rate the
-    restaurant on a scale of one to five stars. The selected rating is stored in the database and
-    used to calculate the restaurant's average rating.*@
-
-<link rel="stylesheet" href="./css/filter.css">
-
-
-
-@*Filters*@
-
-<div class="cuisine-filter">
-    <label for="cuisineType">Cuisine Filter:</label>
-    <select id="cuisineType" @onchange="@(e => FilteredTypeRestaurants(e.Value.ToString()))">
-        <option value="">All Cuisine</option>
-        <option value="Caribbean">Caribbean</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Indian">Indian</option>
-        <option value="Japanese">Japanese</option>
-        <option value="Laotian">Laotian</option>
-        <option value="Mexican">Mexican</option>
-        <option value="Thai">Thai</option>
-        <option value="Vietnamese">Vietnamese</option>
-    </select>
-</div>
-
-<div class="Neighborhood-filter">
-    <label for="NeighborhoodType">Neighborhood Filter:</label>
-    <select id="NeighborhoodType" @onchange="@(e => FilteredNeighborhoodRestaurants(e.Value.ToString()))">
-        <option value="">All Neighborhood</option>
-        <option value="Ballard">Ballard</option>
-        <option value="Belltown">Belltown</option>
-        <option value="Capitol Hill">Capitol Hill</option>
-        <option value="Fremont">Fremont</option>
-        <option value="International District">International District</option>
-    </select>
-</div>
-
-
-
-
-@if (ifFilter)
-{
-    ///<summary>
-    ///If ifFilter is true, the filterRestaurants collection is looped through using a foreach
-    ///loop to display a card for each restaurant in the collection.
-    /// The card displays the restaurant image, title,
-    ///and a button to view more information about the restaurant
-    /// </summary>
-    <div class="card-columns">
-        @foreach (var restaurant in filteredRestaurants)
-        {
-            <div class="card">
+<div class="card-columns">
+    @foreach (var restaurant in restaurantService.GetRestaurants())
+    {
+        <div class="card">
+            <a href="/Restaurant/Read/@restaurant.Id">
                 <div class="card-img" style="background-image: url('@restaurant.Image');">
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">@restaurant.Title</h5>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">
-                        <button @onclick="(e => SelectRestaurant(restaurant.Id))" id="MoreInfoButton_@restaurant.Id" data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">More Info</button>
-                    </small>
-                </div>
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">@restaurant.Title</h5>
             </div>
-        }
-    </div>
-}
-else
-{
-    ///<summary>
-    ///If ifFilter is false, the GetRestaurants() method from the restaurantService is called to retrieve all restaurants, which are then looped through using a
-    ///foreach loop to display a card for each restaurant in the collection.
-    ///The card displays the restaurant image, title, and a button to view more information about the restaurant.
-    ///</summary>
-    <div class="card-columns">
-        @foreach (var restaurant in restaurantService.GetRestaurants())
-        {
-            <div class="card">
-                <div class="card-img" style="background-image: url('@restaurant.Image');">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">@restaurant.Title</h5>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">
-                        <button @onclick="(e => SelectRestaurant(restaurant.Id))" id="MoreInfoButton_@restaurant.Id" data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">More Info</button>
-                    </small>
-                </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <button @onclick="(e => SelectRestaurant(restaurant.Id))" id="MoreInfoButton_@restaurant.Id" data-toggle="modal" data-target="#restaurantModal" class="btn btn-primary">More Info</button>
+                </small>
             </div>
-        }
-    </div>
-}
+        </div>
+    }
+</div>
+
 
 @if (selectedRestaurant != null)
 {
@@ -192,35 +122,15 @@ else
             </div>
         </div>
     </div>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-
-
-
-
-
 }
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 @code
 {
-    // Hold list of restaurants for either filter
-    IEnumerable<RestaurantModel> filteredRestaurants;
-
-    // Hold a cuisine type
-    string selectedCuisine = "";
-
-    // Hold a neighborhood
-    string selectedNeighborhood = "";
-
     // Hold the selected restaurant from RestaurantModel
     RestaurantModel selectedRestaurant;
-
-    // Bool logic variable for filtering
-    bool ifFilter = false;
 
     // Hold the Id of a selected restaurant
     string selectedRestaurantId;
@@ -323,56 +233,6 @@ else
         // Set the NewComment flag to false to hide the input box
         NewComment = false;
     }
-
-    /// <summary>
-    /// Filters the list of restaurants based on the specified type of cuisine.
-    /// </summary>
-    /// <param name="type"></param>
-    void FilteredTypeRestaurants(string type)
-    {
-        selectedCuisine = type;
-        ApplyFilters();
-    }
-
-    /// <summary>
-    /// Filters the list of restaurants based on the neighborhood location.
-    /// </summary>
-    /// <param name="neighborhood"></param>
-    void FilteredNeighborhoodRestaurants(string neighborhood)
-    {
-        selectedNeighborhood = neighborhood;
-        ApplyFilters();
-    }
-
-    /// <summary>
-    /// Applies filters to the list of restaurants based on the selected cuisine and neighborhood.
-    /// The filtered list of restaurants will be stored in the 'filteredRestaurants' variable.
-    /// This will retrieve the list of restaurants from the restaurant service
-    /// and then apply filters based on the selected cuisine and neighborhood, if any.
-    /// If a cuisine is selected, only restaurants with that cuisine will be included in
-    /// the filtered list, and vice versa.
-    /// </summary>
-    void ApplyFilters()
-    {
-        var restaurants = restaurantService.GetRestaurants();
-
-        if (!string.IsNullOrEmpty(selectedCuisine))
-        {
-            restaurants = restaurants.Where(r => r.Type == selectedCuisine);
-        }
-
-        if (!string.IsNullOrEmpty(selectedNeighborhood))
-        {
-            restaurants = restaurants.Where(r => r.Neighborhood == selectedNeighborhood);
-        }
-
-        filteredRestaurants = restaurants;
-        ifFilter = true;
-    }
-
-
-
-
 
 }
 
