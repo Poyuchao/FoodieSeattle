@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-
 using FoodieSeattle.WebSite.Models;
-
 using Microsoft.AspNetCore.Hosting;
 
 namespace FoodieSeattle.WebSite.Services
@@ -117,6 +115,12 @@ namespace FoodieSeattle.WebSite.Services
                 restaurants = restaurants.Where(r => r.Neighborhood == neighborhood);  // Filter by neighborhood if neighborhood parameter is not null or empty
             }
             return restaurants;
+        }
+
+        public IEnumerable<RestaurantModel> GetAllRestaurantsById(IEnumerable<string> Ids)
+        {
+            var restaurants = GetRestaurants();
+            return restaurants.Where(restaurant => Ids.Contains(restaurant.Id));
         }
 
 
@@ -298,6 +302,30 @@ namespace FoodieSeattle.WebSite.Services
             SaveData(newdataset);
 
             return data;
+        }
+
+        /// <summary>
+        /// Returns a list of of individual restaurant cuisines in order
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetCuisines()
+        {
+            // replace this with your actual method to get restaurants
+            var restaurants = GetRestaurants();
+
+            return restaurants.Select(r => r.Type).Distinct().OrderBy(c => c);
+        }
+
+        /// <summary>
+        /// Returns a list of individual restaurant neighborhoods in order
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetNeighborhoods()
+        {
+            // replace this with your actual method to get restaurants
+            var restaurants = GetRestaurants();
+
+            return restaurants.Select(r => r.Neighborhood).Distinct().OrderBy(n => n);
         }
 
     }
