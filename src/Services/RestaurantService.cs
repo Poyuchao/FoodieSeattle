@@ -117,13 +117,6 @@ namespace FoodieSeattle.WebSite.Services
             return restaurants;
         }
 
-        public IEnumerable<RestaurantModel> GetAllRestaurantsById(IEnumerable<string> Ids)
-        {
-            var restaurants = GetRestaurants();
-            return restaurants.Where(restaurant => Ids.Contains(restaurant.Id));
-        }
-
-
         /// <summary>
         /// Add rating to restaurant
         /// </summary>
