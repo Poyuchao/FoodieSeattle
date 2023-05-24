@@ -34,7 +34,7 @@ namespace UnitTests.Components
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
 
             // Act
-            var page = RenderComponent<NeighborhoodList>(parameters => parameters.Add(p => p.Restaurants,
+            var page = RenderComponent<CuisineList>(parameters => parameters.Add(p => p.Restaurants,
                 TestHelper.RestaurantServiceObject.GetRestaurantsByType("Mexican")));
 
             // Get the Cards retrned
@@ -60,7 +60,7 @@ namespace UnitTests.Components
 
 
             // Act
-            var page = RenderComponent<NeighborhoodList>(parameters => parameters.Add(p => p.Restaurants,
+            var page = RenderComponent<CuisineList>(parameters => parameters.Add(p => p.Restaurants,
                 TestHelper.RestaurantServiceObject.GetRestaurantsByType("Japanese")));
 
             // Find the Buttons (more info)
@@ -98,7 +98,7 @@ namespace UnitTests.Components
             var id = "maneki-pic";
 
             // Act
-            var page = RenderComponent<NeighborhoodList>(parameters => parameters.Add(p => p.Restaurants,
+            var page = RenderComponent<CuisineList>(parameters => parameters.Add(p => p.Restaurants,
                 TestHelper.RestaurantServiceObject.GetRestaurantsByType("Japanese")));
 
             // Find the Buttons (more info)
@@ -169,7 +169,7 @@ namespace UnitTests.Components
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
             var id = "MoreInfoButton_ba-bar-pic";
 
-            var page = RenderComponent<NeighborhoodList>(parameters => parameters.Add(p => p.Restaurants,
+            var page = RenderComponent<CuisineList>(parameters => parameters.Add(p => p.Restaurants,
                 TestHelper.RestaurantServiceObject.GetRestaurantsByType("Vietnamese")));
 
             // Find the Buttons (more info)
@@ -238,7 +238,7 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-            var component = RenderComponent<NeighborhoodList>(parameters => parameters.Add(p => p.Restaurants,
+            var component = RenderComponent<CuisineList>(parameters => parameters.Add(p => p.Restaurants,
                 TestHelper.RestaurantServiceObject.GetRestaurantsByType("Japanese")));
             var id = "MoreInfoButton_kashiba-pic";
 
@@ -270,7 +270,7 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-            var component = RenderComponent<NeighborhoodList>(parameters => parameters.Add(p => p.Restaurants,
+            var component = RenderComponent<CuisineList>(parameters => parameters.Add(p => p.Restaurants,
                 TestHelper.RestaurantServiceObject.GetRestaurantsByType("Japanese")));
             var id = "MoreInfoButton_kashiba-pic";
 
