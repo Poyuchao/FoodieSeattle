@@ -297,30 +297,6 @@ namespace FoodieSeattle.WebSite.Services
             return data;
         }
 
-        /// <summary>
-        /// Returns a list of of individual restaurant cuisines in order
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<string> GetCuisines()
-        {
-            // replace this with your actual method to get restaurants
-            var restaurants = GetRestaurants();
-
-            return restaurants.Select(r => r.Type).Distinct().OrderBy(c => c);
-        }
-
-        /// <summary>
-        /// Returns a list of individual restaurant neighborhoods in order
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<string> GetNeighborhoods()
-        {
-            // replace this with your actual method to get restaurants
-            var restaurants = GetRestaurants();
-
-            return restaurants.Select(r => r.Neighborhood).Distinct().OrderBy(n => n);
-        }
-
     }
 
 }
