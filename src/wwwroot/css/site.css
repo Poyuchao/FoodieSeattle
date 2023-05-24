@@ -35,6 +35,7 @@ nav ul {
 }
 
 nav li {
+    color: #4c3b29dc;
     display: inline-block;
     margin-right: 20px;
 }
@@ -45,6 +46,7 @@ nav a {
 }
 
     nav a:hover {
+        color: #0366d6;
         text-decoration: none;
     }
 
@@ -168,10 +170,15 @@ a {
     font-weight: bold;
     margin-right: 10px;
     white-space: nowrap;
+    color: #4c3b29 !important;
+}
+
+.navbar-nav .nav-link {
+    color: #4c3b29;
 }
 
 .navbar ul li a:hover {
-    color: #5BC286;
+    color: #5BC286 !important;
 }
 
 /* Sticky footer styles
