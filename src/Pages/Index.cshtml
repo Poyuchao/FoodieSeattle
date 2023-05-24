@@ -11,10 +11,6 @@
 <p style="line-height:5.5em;"> </p>
 
 <!--Index page and homepage-->
-<!--Video Import for Homepage-->
-<!--<video autoplay muted loop preload="auto" id="restauramtVid">
-    <source src="~/img/restaurant name/restaurant-vid.mov" type="video/mp4" height="20%" width="20%" />
-</video>-->
 @(await Html.RenderComponentAsync<RestaurantList>(RenderMode.ServerPrerendered))
 
 <script src="_framework/blazor.server.js"></script>
