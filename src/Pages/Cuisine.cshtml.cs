@@ -22,7 +22,8 @@ namespace FoodieSeattle.WebSite.Pages
         private ILogger<CuisineModel> _logger;
 
         /// <summary>
-        /// 
+        /// CuisineModel Constructor. This will set _logger to logger parameter and will also set
+        /// this restaurantService to restaurantService parameter. 
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="restaurantService"></param>
@@ -33,7 +34,8 @@ namespace FoodieSeattle.WebSite.Pages
         }
 
         /// <summary>
-        /// 
+        /// OnGet function. This will update the SelectedCuisine and return a list of
+        /// restaurants based on the SelectedCuisine type.
         /// </summary>
         /// <param name="cuisine"></param>
         public void OnGet(string cuisine)
