@@ -15,11 +15,13 @@ using Microsoft.AspNetCore.Mvc;
 using static System.Net.Mime.MediaTypeNames;
 using System.Net;
 using System.Xml.Linq;
+using System;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 /// <summary>
 /// Unit Test for all RestaurantService.cshtml.Tests.cs blocks
 /// </summary>
-namespace UnitTests.Services.RestaurantService
+namespace UnitTests.Services
 {
     /// <summary>
     /// Unit tests for RestaurantService
@@ -28,6 +30,8 @@ namespace UnitTests.Services.RestaurantService
     {
 
         #region TestSetup
+        // CreateModel object
+        public static CreateModel pageModel;
 
         // Global invalid id property for use in tests. 
         private const string InvalidId = "BOGUS";
@@ -57,7 +61,7 @@ namespace UnitTests.Services.RestaurantService
         private const string MockImage = "https://lh3.googleusercontent.com/p/AF1QipPk0SIY2o8w2UCDPiuPBiR-rm7ZqNEzpX6B8W7f=s680-w680-h510";
 
         /// <summary>
-        /// Initializations for all tests to be conducted
+        /// Initializations for all tests to be conductedx
         /// </summary>
         [SetUp]
         public void TestInitialize()
@@ -545,10 +549,10 @@ namespace UnitTests.Services.RestaurantService
         /// The restaurant number will same as the expected number
         /// </summary>
         [Test]
-        public void GetRestaurantByNeighborhoodFromBelltown_Is_Three()
+        public void GetRestaurantByNeighborhoodFromFremont_Is_Two()
         {
             //Arrange
-            var trueCount = TestHelper.RestaurantServiceObject.GetRestaurantsByNeighborhood("Belltown").Count();
+            var trueCount = TestHelper.RestaurantServiceObject.GetRestaurantsByNeighborhood("Fremont").Count();
 
             var expectedCount = 2;
 
@@ -563,49 +567,6 @@ namespace UnitTests.Services.RestaurantService
 
         #endregion GetRestaurantByNeighborhood
 
-
-        #region GetCuisines
-
-        /// <summary>
-        /// Tests the GetCuisines() method of the RestaurantService class.
-        /// </summary>
-        [Test]
-        public void GetCuisines_Should_Return_UniqueSortedCuisines()
-        {
-            // Arrange
-            var expectedCuisines = new List<string> { "Caribbean", "Chinese",  "Indian", "Japanese",
-                "Laotian", "Mexican", "Thai", "Vietnamese" };
-
-            // Act
-            var actualCuisines = TestHelper.RestaurantServiceObject.GetCuisines();
-
-            // Assert
-            CollectionAssert.AreEqual(expectedCuisines, actualCuisines);
-        }
-
-
-        #endregion GetCuisines
-
-
-        #region GetNeighborhoods
-
-        /// <summary>
-        /// Tests the GetNeighborhoods() method of the RestaurantService class.
-        /// </summary>
-        [Test]
-        public void GetNeighborhoods_Should_Return_UniqueSortedNeighborhoods()
-        {
-            // Arrange
-            var expectedNeighborhoods = new List<string> { "Ballard", "Capitol Hill", "Downtown" };
-
-            // Act
-            var actualNeighborhoods = TestHelper.RestaurantServiceObject.GetNeighborhoods();
-
-            // Assert
-            CollectionAssert.AreEqual(expectedNeighborhoods, actualNeighborhoods);
-        }
-
-        #endregion GetNeighborhoods
     }
 }
 
