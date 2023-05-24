@@ -21,14 +21,12 @@
    <ItemGroup>
      <None Remove="Pages\" />
      <None Remove="Pages\Restaurant\" />
-     <None Remove="Pages\Shared\" />
      <None Remove="Services\" />
      <None Remove="Controllers\" />
      <None Remove="Models\" />
      <None Remove="Components\" />
    </ItemGroup>
    <ItemGroup>
-     <Folder Include="Pages\Shared\" />
      <Folder Include="Controllers\" />
      <Folder Include="Models\" />
      <Folder Include="Components\" />
