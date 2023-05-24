@@ -19,21 +19,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace UnitTests.Components
 {
     /// <summary>
-    /// Unit tests for RestaurantList Razor Page.
+    /// Unit tests for RestaurantList Razor Component.
     /// </summary>
     public class RestaurantListTests : BunitTestContext
     {
-        #region TestSetup
-
-        /// <summary>
-        /// Initialize tests
-        /// </summary>
-        [SetUp]
-        public void TestInitialize()
-        {
-        }
-
-        #endregion TestSetup
 
         /// <summary>
         /// Verifies that the default restaurant list page displays the expected content.
@@ -228,6 +217,7 @@ namespace UnitTests.Components
             Assert.AreEqual(true, postVoteCountString.Contains("7 Votes"));
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
+
         #endregion SubmitRating
 
 
@@ -300,46 +290,6 @@ namespace UnitTests.Components
 
         #endregion AddComment
 
-        #region ifFilter
 
-        ///
-        [Test]
-        public void RenderRestaurantCards_WithFilterTrue_ShouldDisplayCorrectNumberOfCards()
-        {
-            //// Arrange
-            //    Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-            //    var component = RenderComponent<RestaurantList>();
-            //    var restaurants = new List<RestaurantModel> {
-            //        new RestaurantModel
-            //        {
-            //            Id = "mock1",
-            //            Image = "image1.jpg",
-            //            Title = "Restaurant 1",
-            //            Type = "Type"
-            //        },
-            //        new RestaurantModel
-            //        {
-            //            Id = "mock2",
-            //            Image = "image2.jpg",
-            //            Title = "Restaurant 2",
-            //            Type = "Type"
-            //        },
-            //    };
-
-            //    TestHelper.RestaurantServiceObject.GetRestaurants();
-            //    //TestHelper.RestaurantServiceObject.GetRestaurants().Returns(restaurants); // Assuming GetRestaurants() is a method in your service that returns the list of restaurants.
-
-            //    // Act
-            //    // If some method or user interaction sets ifFilter and populates filterRestaurants, simulate that here. For example:
-            //    //component.Instance.SomeMethodThatSetsIfFilterAndPopulatesFilterRestaurants();
-            //    component.Instance.FilteredRestaurants("Type1");
-
-            //    // Assert
-            //    var cards = component.FindAll(".card");
-            //    Assert.Equals(restaurants.Count, cards.Count);
-            //}
-
-            #endregion ifFilter
-        }
     }
 }
