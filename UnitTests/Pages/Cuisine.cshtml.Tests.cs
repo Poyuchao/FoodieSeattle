@@ -1,4 +1,5 @@
 using FoodieSeattle.WebSite.Pages;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
@@ -52,5 +53,26 @@ namespace UnitTests.Pages
         }
 
         #endregion OnGet
+
+        #region TestGet
+
+        /// <summary>
+        /// Tests the get accessor of the SelectedCuisine property.
+        /// </summary>
+        [Test]
+        public void SelectedCuisine_Get_Should_Return_ExpectedValue()
+        {
+            // Arrange
+            var expectedValue = "Mexican";
+
+            // Act
+            pageModel.SelectedCuisine = expectedValue;
+            var actualValue = pageModel.SelectedCuisine;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        #endregion TestGet
     }
 }
