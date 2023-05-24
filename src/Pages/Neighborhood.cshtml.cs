@@ -35,7 +35,7 @@ namespace FoodieSeattle.WebSite.Pages
 
         /// <summary>
         /// OnGet function. Sets the SelectedNeighborhood, and returns a sorted, group
-        /// of restaurants with no duplicates.
+        /// of restaurants with no duplicate based on the SelectedNeighborhood.
         /// </summary>
         /// <param name="Neighborhood"></param>
         public void OnGet(string Neighborhood)
