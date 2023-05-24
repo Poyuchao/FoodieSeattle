@@ -196,7 +196,7 @@ html {
 
 footer {
     /*adjust footer background color*/
-    background-color: #e8b986c6;
+    background-color: #e8b986;
     /*fixed the footer height to 180px*/
     min-height: 180px;
 }
@@ -244,7 +244,7 @@ ul {
 
 /*Backgrounds*/
 .bg-navbar {
-    background-color: #e8b986c6;
+    background-color: #e8b986;
 }
 
 .bg-footer {
