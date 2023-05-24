@@ -9,7 +9,7 @@ namespace FoodieSeattle.WebSite.Pages
 {
 	public class NeighborhoodModel : PageModel
     {
-        //
+        // Gets the RestaurantService
         public RestaurantService restaurantService { get; }
 
         // This will hold the selected Neighborhood type
@@ -22,7 +22,8 @@ namespace FoodieSeattle.WebSite.Pages
         private ILogger<NeighborhoodModel> _logger;
 
         /// <summary>
-        /// 
+        /// NeighborhoodModel Constructor. Will set _logger equal to passed in logger param,
+        /// this restaurantService to restaurantService.
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="restaurantService"></param>
@@ -33,7 +34,8 @@ namespace FoodieSeattle.WebSite.Pages
         }
 
         /// <summary>
-        /// 
+        /// OnGet function. Sets the SelectedNeighborhood, and returns a sorted, group
+        /// of restaurants with no duplicates.
         /// </summary>
         /// <param name="Neighborhood"></param>
         public void OnGet(string Neighborhood)
