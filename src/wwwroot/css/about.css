@@ -30,7 +30,8 @@ body {
         /*adjust the block height */
         min-height: 180px;
         /*adjust the block width */
-        width: 1300px;
+        /*width: 1300px;*/
+        width: 100%;
         margin: auto;
         /*adjust the gap between text block and footer*/
         margin-bottom:10px;
@@ -115,22 +116,3 @@ span {
     .member p {
         margin-top: 10px;
     }
-
-
-/*
-.contact {
-    font-size: 18px;
-    background: #4070f4;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    padding: 8px 25px;
-    border-radius: 6px;
-    transition: 0.5s;
-}
-
-.contact:hover {
-background: #000;
-border: 1px solid #4070f4;
-}
-*/
