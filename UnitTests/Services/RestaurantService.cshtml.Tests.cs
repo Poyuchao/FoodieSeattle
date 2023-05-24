@@ -562,6 +562,50 @@ namespace UnitTests.Services.RestaurantService
         }
 
         #endregion GetRestaurantByNeighborhood
+
+
+        #region GetCuisines
+
+        /// <summary>
+        /// Tests the GetCuisines() method of the RestaurantService class.
+        /// </summary>
+        [Test]
+        public void GetCuisines_Should_Return_UniqueSortedCuisines()
+        {
+            // Arrange
+            var expectedCuisines = new List<string> { "Caribbean", "Chinese",  "Indian", "Japanese",
+                "Laotian", "Mexican", "Thai", "Vietnamese" };
+
+            // Act
+            var actualCuisines = TestHelper.RestaurantServiceObject.GetCuisines();
+
+            // Assert
+            CollectionAssert.AreEqual(expectedCuisines, actualCuisines);
+        }
+
+
+        #endregion GetCuisines
+
+
+        #region GetNeighborhoods
+
+        /// <summary>
+        /// Tests the GetNeighborhoods() method of the RestaurantService class.
+        /// </summary>
+        [Test]
+        public void GetNeighborhoods_Should_Return_UniqueSortedNeighborhoods()
+        {
+            // Arrange
+            var expectedNeighborhoods = new List<string> { "Ballard", "Capitol Hill", "Downtown" };
+
+            // Act
+            var actualNeighborhoods = TestHelper.RestaurantServiceObject.GetNeighborhoods();
+
+            // Assert
+            CollectionAssert.AreEqual(expectedNeighborhoods, actualNeighborhoods);
+        }
+
+        #endregion GetNeighborhoods
     }
 }
 
