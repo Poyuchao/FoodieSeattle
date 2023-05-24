@@ -52,5 +52,26 @@ namespace UnitTests.Pages
         }
 
         #endregion OnGet
+
+        #region TestGet
+
+        /// <summary>
+        /// Tests the get accessor of the SelectedNeighborhood property.
+        /// </summary>
+        [Test]
+        public void SelectedCuisine_Get_Should_Return_ExpectedValue()
+        {
+            // Arrange
+            var expectedValue = "Ballard";
+
+            // Act
+            pageModel.SelectedNeighborhood = expectedValue;
+            var actualValue = pageModel.SelectedNeighborhood;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        #endregion TestGet
     }
 }
