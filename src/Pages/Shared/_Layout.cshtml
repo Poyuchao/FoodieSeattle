@@ -38,7 +38,8 @@
                                 Neighborhoods <i class="fa fa-caret-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="neighborhoodDropdown">
-                                @foreach (var neighborhood in callRestaurantService.GetNeighborhoods())
+                                @*@foreach (var neighborhood in callRestaurantService.GetNeighborhoods())*@
+                                @foreach (var neighborhood in callRestaurantService.GetRestaurants().Where(r => r.Neighborhood != null).Select(r => r.Neighborhood).Distinct().OrderBy(c => c))
                                 {
                                     <a class="dropdown-item" href="/Neighborhood/@neighborhood">@neighborhood</a>
                                 }
@@ -49,9 +50,10 @@
                                 Cuisines <i class="fa fa-caret-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="cuisineDropdown">
-                                @foreach (var cuisine in callRestaurantService.GetCuisines())
+                                @*@foreach (var cuisine in callRestaurantService.GetCuisines())*@
+                                @foreach (var cuisine in callRestaurantService.GetRestaurants().Where(r => r.Type != null).Select(r => r.Type).Distinct().OrderBy(c => c))
+
                                 {
-                                    @*<a href="/Cuisine/@cuisine">@cuisine</a>*@
                                     <a class="dropdown-item" href="/Cuisine/@cuisine">@cuisine</a>
                                 }
                             </div>
