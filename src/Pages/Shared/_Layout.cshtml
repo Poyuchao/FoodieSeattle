@@ -38,7 +38,6 @@
                                 Neighborhoods <i class="fa fa-caret-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="neighborhoodDropdown">
-                                @*@foreach (var neighborhood in callRestaurantService.GetNeighborhoods())*@
                                 @foreach (var neighborhood in callRestaurantService.GetRestaurants().Where(r => r.Neighborhood != null).Select(r => r.Neighborhood).Distinct().OrderBy(c => c))
                                 {
                                     <a class="dropdown-item" href="/Neighborhood/@neighborhood">@neighborhood</a>
@@ -50,7 +49,6 @@
                                 Cuisines <i class="fa fa-caret-down"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="cuisineDropdown">
-                                @*@foreach (var cuisine in callRestaurantService.GetCuisines())*@
                                 @foreach (var cuisine in callRestaurantService.GetRestaurants().Where(r => r.Type != null).Select(r => r.Type).Distinct().OrderBy(c => c))
 
                                 {
@@ -112,7 +110,6 @@
                         <p><i class="fas fa-envelope mr-3"></i> FoodieSeattle@gmail.com</p>
                         <p><i class="fas fa-phone mr-3"></i> +1 234 567 8890</p>
                     </div>
-                    <!-- Grid column -->
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3" style="color:#4c3b29;">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
