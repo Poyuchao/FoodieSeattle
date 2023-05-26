@@ -1,0 +1,68 @@
+﻿@page
+@model FoodieSeattle.WebSite.Pages.SearchModel
+@{
+    ViewData["Title"] = "Search";
+}
+<link rel="stylesheet" href="/css/Restaurant.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+@{
+    int counter = 0;
+}
+
+<!-- If results are empty, display an error message -->
+@if (Model.Results.Count() == 0)
+{
+
+    <div class="search-header">
+        <h1 style="color:oldlace" class="search-header"><strong>Sorry, we don't have any restaurant profiles related to "@Model.Query".</strong></h1>
+    </div>
+
+}
+
+else
+{
+    <div class="search-results-container">
+        <h1 style="color:oldlace" class="search-results-h1"><strong>Search Results for "@Model.Query"</strong></h1>
+
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th style="background-color:oldlace;color:black">
+                    
+                </th>
+                <th style="background-color:oldlace;color:black">
+                    Restaurant Name
+                </th>
+                <th style="background-color:oldlace;color:black">
+                    Cuisine Type
+                </th>
+                <th style="background-color:oldlace;color:black">
+                    Neighborhood
+                </th>
+                <th style="background-color:oldlace;color:black">
+                    See More
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through each recipe in the search results and display the details -->
+            @foreach (var restaurants in Model.Results)
+            {
+                <tr style="background-color: @(counter % 2 == 0 ? "wheat" : "oldlace")">
+                    <td><img src="@restaurants.Image" alt="Restaurant Image" style="height: 40px; width: auto;"></td>
+                    <td>@restaurants.Title</td>
+                    <td>@restaurants.Type</td>
+                    <td>@restaurants.Neighborhood</td>
+                    <td style="text-align: left; font-size: 20px;">
+                        <a asp-page="/Restaurant/Read" asp-route-id="@restaurants.Id">
+                            <img src="~/img/icons/open.png" alt="Read" style="width: 40px; height: 40px;" />
+                        </a>
+                    </td>
+                </tr>
+                counter++;
+                }
+        </tbody>
+    </table>
+}
