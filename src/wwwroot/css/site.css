@@ -165,7 +165,7 @@ a {
 
 .nav-link {
     font-family: 'Nunito', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-right: 10px;
     white-space: nowrap;
@@ -205,6 +205,12 @@ button.accept-policy {
     line-height: inherit;
 }
 
+/* Style the Searchbar
+---------------------------------------------------*/
+.search-box-stretch {
+    flex: 1;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -241,8 +247,8 @@ ul {
     background: linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
 }
 
-.logoPic {
-    width: 220px;
+.logoFoot {
+    width: 150px;
     height: auto; /* This ensures the image keeps its aspect ratio */
     background: transparent;
 }
