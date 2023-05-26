@@ -205,6 +205,12 @@ button.accept-policy {
     line-height: inherit;
 }
 
+/* Searchbar Styling
+-------------------------------------------------- */
+.custom-icon-color {
+    color: #4c3b29;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
