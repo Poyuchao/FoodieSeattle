@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-navbar border-bottom box-shadow mb-3">
             <div class="container">
                 <a href="/index">
-                    <img class="logo" src="~/img/logo/Color_logo_no_background.png" width="316" height="62" />
+                    <img class="logo" src="~/img/logo/Color_logo_no_background.png" width="250" height="49" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -66,6 +66,38 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark privacy-button" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0" action="/Search" method="get">
+                                <div class="input-group rounded search-box-stretch">
+                                    <input class="form-control mr-sm-2 rounded" type="search" name="query" placeholder="Search Restaurants" aria-label="Search" required>
+                                    <span class="input-group-text bg-transparent border-0" id="search-addon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4c3b29" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </form>
+                        </li>
+
+
+
+                        @*<li class="nav-item">
+
+            <form class="form-inline my-2 my-lg-0" action="/Search" method="get">
+                <div class="input-group search-box search-box-mobile">
+
+                    <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search Restaurants" aria-label="Search" required>
+                    <div class="input-group-append">
+                        <button class="btn my-2 my-sm-0 search-button" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=#4c3b29 class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </li>*@
                     </ul>
                 </div>
             </div>
@@ -88,7 +120,7 @@
                     <!-- Grid column -->
                     <div class="col-6 col-sm-6 col-md-3 mx-auto mt-3">
 
-                        <img src="~/img/logo/Color_logo_no_background.png" alt"foodieSeattleLogoPic" width="250" height="49" class="logoPic" />
+                        <img src="~/img/logo/Color_logo_no_background.png" alt"foodieSeattleLogoPic" width="250" height="49" class="logoFoot" />
 
 
                     </div>
