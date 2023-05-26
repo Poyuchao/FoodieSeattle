@@ -205,12 +205,6 @@ button.accept-policy {
     line-height: inherit;
 }
 
-/* Style the Searchbar
----------------------------------------------------*/
-.search-box-stretch {
-    flex: 1;
-}
-
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
