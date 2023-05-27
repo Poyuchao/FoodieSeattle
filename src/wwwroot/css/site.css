@@ -325,6 +325,85 @@ ul {
     }
 
 
+/*Format Video for Launch Page
+------------------------------- */
+.banner {
+    text-align: center;
+    color: #fff;
+}
+
+    .banner .overlay {
+        width: 100%;
+        height: 100%;
+    }
+
+.intro-text {
+    position: relative;
+    padding: 20% 0 15% 0;
+}
+
+.banner .intro-text h1 {
+    line-height: 50px;
+    letter-spacing: 5px;
+    margin-bottom: 55px;
+    -webkit-animation: bounceIn;
+    -moz-animation: rubberBand;
+    -o-animation: bounceIn;
+    animation: bounceIn;
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+    .banner .intro-text h1 span {
+        color: #ff432e;
+    }
+
+.banner .intro-text p {
+    color: #fff;
+    line-height: 35px;
+    letter-spacing: 3px;
+    margin-bottom: 55px;
+    -webkit-animation: bounceInLeft;
+    -moz-animation: fadeInLeft;
+    -o-animation: fadeInLeft;
+    animation: bounceLeft;
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+.banner .intro-text .btn-primary {
+    border-color: #fff;
+    color: #fff;
+    border-radius: 0;
+    width: 130px;
+}
+
+.banner .btn-primary:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #111;
+}
+
+
+#restaurantVid {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*object-fit: contain;*/
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1;
+    transform: translateY(-20%) translateX(-15%);
+    /*transform: scale(0.85);*/
+}
+
 /*dynamic-background*/
 #dynamic-background::before {
     content: "";
