@@ -38,6 +38,63 @@
         <p class="card-cuisine">Cuisine Type:   @Model.Restaurant.Type</p>
 
         <p class="card-neighborhood">Restaurant Neighborhood:     @Model.Restaurant.Neighborhood</p>
+        <!--Show restaurant location on map -->
+       
+        <div class="googleMap">
+            <div class="col-md-6">
+                @*bootstrap right side*@
+                <div id="map" style=" height:400px; width: 700px;"></div>
+
+                <script>
+                    var map;
+
+                    function initMap() { //This function serves as the callback for the Google Maps API and is executed when the API finishes loading.
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            center: { lat: 47.608013, lng: -122.335167 },
+                            zoom: 12,// map is initialized by creating a new google.maps.Map object and passing the ID of an HTML element with the ID "map" where the map will be displayed. The map is centered at coordinates { lat: 47.608013, lng: -122.335167 } and zoomed to level 12.
+                        });
+
+                        var geocoder = new google.maps.Geocoder();//This object is used to convert addresses into geographic coordinates 
+
+                        var restaurantAddress = "@Model.Restaurant.Neighborhood";
+                        if (restaurantAddress == "Ballard") { // ballard 
+                            restaurantAddress="Sunset Hill"
+                        }
+                        geocoder.geocode({ address: restaurantAddress }, function (results, status) {//The callback function receives the geocoding results and the status of the request.
+
+                            if (status == google.maps.GeocoderStatus.OK) {
+
+                                var restaurantLocation = results[0].geometry.location;
+
+                                var restaurantMarker = new google.maps.Marker({
+                                    position: restaurantLocation,
+                                    map: map,
+                                });
+
+                                var infoWindow = new google.maps.InfoWindow({
+                                    content: "<h3>@Model.Restaurant.Title</h3>"+"<p>"+"<h6>@Model.Restaurant.Neighborhood</h6>" + "<p>"+"<h6>@Model.Restaurant.Type</h6>" + "</p>"  
+                                });
+
+                                restaurantMarker.addListener('click', function () {
+                                    infoWindow.open(map, restaurantMarker);
+                                });
+
+                                map.setCenter(restaurantLocation);
+                            } else {
+                                alert("Geocode was not successful for the following reason: " + status);
+                            }
+                        });
+                    }
+
+                </script>
+
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxAw-kRVRqgTvvEdqy_8UJgZx2tmJx1IQ&callback=initMap&language=en"></script>
+            </div>
+            </div>
+   
+
+
+        <!--Visit Restaurant Button-->
         <a href="@Model.Restaurant.Url" class="btn btn-visit visit-button" target="_blank"><img src="~/img/icons/visit-rest.png" alt="visit us" style="width: 150px; height: auto;" /></a>
 
 
