@@ -43,7 +43,7 @@ namespace FoodieSeattle.WebSite.Pages
             SelectedNeighborhood = Neighborhood;
 
             // Fetch the restaurants of the selected Neighborhood type
-            Restaurants = restaurantService.GetRestaurants().Where(r => r.Neighborhood == Neighborhood).ToList();
+            Restaurants = restaurantService.GetRestaurants().Where(r => r.Neighborhood == Neighborhood).OrderBy(c => c.Title).ToList();
         }
     }
 }
