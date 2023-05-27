@@ -10,7 +10,34 @@
 <!-- modify a space between header and body"  -->
 <p style="line-height:5.5em;"> </p>
 
-<!--Index page and homepage-->
-@(await Html.RenderComponentAsync<RestaurantList>(RenderMode.ServerPrerendered))
+<div id="video-container">
+    @*<div id="video-container" style="display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; position: relative;">*@
+    <video autoplay muted loop preload="auto" id="restaurantVid" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; width: auto; object-fit: cover;">
+        <source src="~/img/videos/restaurant-vid.mov" type="video/mp4" />
+    </video>
+
+
+    <div class="banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="intro-text">
+                    <h1 class="homepage-title-content" id="fade-in">FoodieSeattle</h1>
+                    <p class="homepage-tagline-content" id="fade-in">Find Your Favorite Dining Experiences!</p>
+                    <a class="btn btn-primary btn-xl" role="button" id="enter-button">Enter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="restaurant-list" style="display: none;">
+    @(await Html.RenderComponentAsync<RestaurantList>(RenderMode.ServerPrerendered))
+</div>
+
+<script>document.getElementById('enter-button').addEventListener('click', function () {
+        document.getElementById('video-container').style.display = 'none';
+        document.getElementById('restaurant-list').style.display = 'block';
+    });</script>
 
 <script src="_framework/blazor.server.js"></script>
