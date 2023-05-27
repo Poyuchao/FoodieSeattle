@@ -30,9 +30,6 @@ else
         <thead>
             <tr>
                 <th style="background-color:oldlace;color:black">
-                    
-                </th>
-                <th style="background-color:oldlace;color:black">
                     Restaurant Name
                 </th>
                 <th style="background-color:oldlace;color:black">
@@ -51,7 +48,6 @@ else
             @foreach (var restaurants in Model.Results)
             {
                 <tr style="background-color: @(counter % 2 == 0 ? "wheat" : "oldlace")">
-                    <td><img src="@restaurants.Image" alt="Restaurant Image" style="height: 40px; width: auto;"></td>
                     <td>@restaurants.Title</td>
                     <td>@restaurants.Type</td>
                     <td>@restaurants.Neighborhood</td>
