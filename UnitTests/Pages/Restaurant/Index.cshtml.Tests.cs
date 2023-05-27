@@ -39,6 +39,8 @@ namespace UnitTests.Pages.Restaurant.Index
             expectedRestaurants = TestHelper.RestaurantServiceObject.GetRestaurants().ToList();
         }
 
+        #region OnGet
+
         /// <summary>
         /// tests the "OnGet" method of the Restaurant/IndexModel page model by checking
         /// if it returns all the expected restaurants in data store (i.e. returns
@@ -64,6 +66,35 @@ namespace UnitTests.Pages.Restaurant.Index
             // and assert that they are equal
             Assert.AreEqual(expectedRestaurants.Count, actualRestaurantNums);
         }
+
+        /// <summary>
+        /// Tests the "OnGet" method of the Restaurant/IndexModel page model by checking
+        /// if it returns all the expected restaurants in data store in a sorted order.
+        /// </summary>
+        [Test]
+        public void OnGet_Returns_All_And_Sorted_Restaurants()
+        {
+            // Arrange
+            var expectedRestaurantNums = TestHelper.RestaurantServiceObject.GetRestaurants().OrderBy(r => r.Title).ToList();
+
+            // Act
+            IndexModel.OnGet();
+            var actualRestaurants = IndexModel.Restaurants.ToList();
+
+            // Assert
+            // Compare the expected number of restaurants to the actual number of restaurants
+            // and assert that they are equal
+            Assert.AreEqual(expectedRestaurantNums.Count, actualRestaurants.Count);
+
+            // Check that restaurants are ordered by Title
+            for (var i = 0; i < actualRestaurants.Count; i++)
+            {
+                Assert.AreEqual(expectedRestaurantNums[i].Title, actualRestaurants[i].Title);
+            }
+        }
+
+
+        #endregion OnGet
     }
 
 }
