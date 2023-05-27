@@ -50,7 +50,7 @@ namespace FoodieSeattle.WebSite.Pages
             Results = restaurants.Where(x => x.Title.Contains(Query, StringComparison.OrdinalIgnoreCase)
                 || x.Neighborhood.Contains(Query, StringComparison.OrdinalIgnoreCase)
                 || x.Type.Contains(Query, StringComparison.OrdinalIgnoreCase))
-            .Distinct().ToList();
+            .OrderBy(r => r.Title).Distinct().ToList();
         }
     }
 }
