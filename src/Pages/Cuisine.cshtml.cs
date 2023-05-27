@@ -44,7 +44,7 @@ namespace FoodieSeattle.WebSite.Pages
             SelectedCuisine = cuisine;
 
             // Fetch the restaurants of the selected cuisine type
-            Restaurants = restaurantService.GetRestaurants().Where(r => r.Type == cuisine).ToList();
+            Restaurants = restaurantService.GetRestaurants().Where(r => r.Type == cuisine).OrderBy(r => r.Title).ToList();
         }
     }
 }
