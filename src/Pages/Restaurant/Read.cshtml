@@ -56,10 +56,10 @@
 
                         var geocoder = new google.maps.Geocoder();//This object is used to convert addresses into geographic coordinates 
 
-                        var restaurantAddress = "@Model.Restaurant.Neighborhood";
-                        if (restaurantAddress == "Ballard") { // ballard 
-                            restaurantAddress="Sunset Hill"
-                        }
+                        var restaurantAddress = "@Model.Restaurant.Neighborhood, Seattle, WA";
+                        //if (restaurantAddress == "Ballard") { // ballard 
+                        //    restaurantAddress="Sunset Hill"
+                        //}
                         geocoder.geocode({ address: restaurantAddress }, function (results, status) {//The callback function receives the geocoding results and the status of the request.
 
                             if (status == google.maps.GeocoderStatus.OK) {
