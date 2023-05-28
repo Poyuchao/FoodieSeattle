@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using NUnit.Framework.Internal;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using FoodieSeattle.WebSite.Controllers;
 
 namespace UnitTests.Pages.Restaurant.Read
 {
@@ -109,14 +110,14 @@ namespace UnitTests.Pages.Restaurant.Read
 
         #endregion Password
 
-        #region OnPost
+        #region OnPostUnlock
 
         /// <summary>
-        /// Tests that the OnPost method of a ReadModel instance returns a
+        /// Tests that the OnPostUnlock method of a ReadModel instance returns a
         /// PageResult when a valid password is provided.
         /// </summary>
         [Test]
-        public void OnPost_ValidPassword_ReturnsPageResult()
+        public void OnPostUnlock_ValidPassword_ReturnsPageResult()
         {
             // Arrange
            
@@ -142,7 +143,7 @@ namespace UnitTests.Pages.Restaurant.Read
         /// PageResult with an error when an incorrect password is provided.
         /// </summary>
         [Test]
-        public void OnPost_IncorrectPassword_ReturnsPageResultWithError()
+        public void OnPostUnlock_IncorrectPassword_ReturnsPageResultWithError()
         {
             // Arrange
             var model = new ReadModel(TestHelper.RestaurantServiceObject);
@@ -162,8 +163,66 @@ namespace UnitTests.Pages.Restaurant.Read
             Assert.IsTrue(model.IsPasswordInvalid);
         }
 
-        #endregion OnPost
+        #endregion OnPostUnlock
 
-        
+        #region OnPostAddComment
+
+        /// <summary>
+        /// Tests the OnPostAddComment function of the Read page,
+        /// valid comment should return the page
+        /// </summary>
+        [Test]
+        public void OnPostAddComment_Valid_Comment_Should_RedirectToPageResult()
+        {
+
+            // Arrange
+            // test restaurant id
+            var id = "spice-waala-pic";
+
+            // test restaurant comment
+            var comment = "Fantastic Indian street food!";
+
+
+            // Act
+            var result = callReadModel.OnPostAddComment(id, comment);
+
+            // Assert
+            Assert.AreEqual(true, callReadModel.ModelState.IsValid);
+            Assert.AreEqual(typeof(RedirectToPageResult), result.GetType());
+        }
+
+        /// <summary>
+        /// Tests the OnPostAddComment function of the Read page, valid comment
+        /// should create a comment object
+        /// </summary>
+        [Test]
+        public void OnPostAddComment_Valid_Comment_Should_Create_New_Comment_Object()
+        {
+
+            // Arrange
+            // test restaurant id
+            var id = "spice-waala-pic";
+
+            // test restauratn comment
+            var comment = "Fantastic Indian street food!";
+
+            // Act
+            // Result of OnPostAddComment
+            var result = callReadModel.OnPostAddComment(id, comment);
+
+            // Get product from database
+            var restaurant = TestHelper.RestaurantServiceObject.GetRestaurants().First(p => p.Id == id);
+
+            // Get new comment from product
+            var newComment = restaurant.Comments[0];
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(comment, newComment.Comment);
+        }
+
+        #endregion OnPostAddComment
+
+
     }
 }
