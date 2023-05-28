@@ -85,7 +85,7 @@ namespace UnitTests.Components
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
 
             // Get the ID of the restaurant to select
-            var id = "MoreInfoButton_spice-waala-pic";
+            var id = "MoreInfoButton_un-bien-pic";
 
             // Render the page
             var page = RenderComponent<NeighborhoodList>(parameters => parameters.Add(p => p.Restaurants,
