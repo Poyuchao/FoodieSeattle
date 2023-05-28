@@ -75,7 +75,7 @@ namespace UnitTests
         /// </summary>
         #region description
         [Test]
-        public void TestDescriptionProperty()
+        public void Description_Property_When_Set_Should_Return_Expected_Value()
         {
             // Arrange
             var restaurant = new RestaurantModel
@@ -99,7 +99,7 @@ namespace UnitTests
         /// </summary>
         #region rating
         [Test]
-        public void TestRatingsProperty()
+        public void Ratings_Property_When_Set_Should_Return_Expected_Value()
         {
             // Arrange
             var restaurant = new RestaurantModel();
