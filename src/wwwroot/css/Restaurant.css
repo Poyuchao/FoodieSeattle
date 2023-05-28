@@ -23,9 +23,9 @@
 
 
 .update-button {
-    background-color: black;
+    background-color: #4c3b29;
     color: #fff;
-    border-color: black;
+    border-color: #fff;
     padding: 8px 16px;
     border-radius: 4px;
     font-size: 16px;
@@ -39,7 +39,7 @@
     .update-button:hover {
         background-color: #DC143C;
         border-color: #DC143C;
-        color: black
+        color: #fff;
     }
 
     .update-button i {
