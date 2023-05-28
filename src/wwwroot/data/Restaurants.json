@@ -44,10 +44,19 @@
     "Type": "Thai",
     "Description": "Named after the world famous market in Bangkok, Bangrok Market is Seattle\u2019s interpretation of Thai street food. Located in Belltown, this experience aims to capture the overall flavor vibrancy and atmosphere of the Thai street food scene. Customers can expect fantastic curries, stir-fries, noodle dishes and small appetizers like spring rolls and satay. Restaurant also features colorful street art and offers an overall casual dining experience.",
     "Ratings": [
-        5,
-        4
+      5,
+      4
     ],
-    "Comments": []
+    "Comments": [
+      {
+        "Id": "3708b519-9613-4f73-9f70-da572fef143c",
+        "Comment": "Unlike anything else I\u0027ve experienced in Seattle! Everyone needs to go to this place"
+      },
+      {
+        "Id": "b99fcc8b-c74f-4c6f-add7-9fb46c0986ca",
+        "Comment": "Try the skewers, or any of their creamy curries!"
+      }
+    ]
   },
   {
     "Id": "dough-zone-pic",
@@ -56,7 +65,7 @@
     "Title": "Dough Zone Dumpling House",
     "Neighborhood": "International District",
     "Type": "Chinese",
-    "Description": "Dough-Zone Dumpling House is great Seattle area chain specializing in Chinese dumplings and other traditional dishes. Their menu features a wide variety of dumplings, including pork, chicken, beef, and vegetable varieties, as well as classic Chinese dishes. Everything here is made using fresh ingredients and cooked to order. Ambiance is casual and inviting, with a modern and minimalist design. Dough Zone is a fantastic choice for a delicious and affordable meal in a more casual setting.",
+    "Description": "Dough-Zone Dumpling House is a great Seattle area chain specializing in Chinese dumplings and other traditional dishes. Their menu features a wide variety of dumplings, including pork, chicken, beef, and vegetable varieties, as well as classic Chinese dishes. Everything here is made using fresh ingredients and cooked to order. Ambiance is casual and inviting, with a modern and minimalist design. Dough Zone is a fantastic choice for a delicious and affordable meal in a more casual setting.",
     "Ratings": [
       5,
       5,
@@ -71,7 +80,16 @@
       5,
       5
     ],
-    "Comments": []
+    "Comments": [
+      {
+        "Id": "01ec51b1-3144-4cf2-a6a0-f62abdda6d81",
+        "Comment": "Really awesome assortment of dumplings, and pricing was reasonable as well!"
+      },
+      {
+        "Id": "d989351d-8159-40e5-a6d1-417810251775",
+        "Comment": "Come here once a week with the family, they absolutely love the chicken dumplings!"
+      }
+    ]
   },
   {
     "Id": "chengdu-taste-pic",
@@ -82,10 +100,19 @@
     "Type": "Chinese",
     "Description": "Chengdu Taste is a Chinese restaurant specializing in Sichuan-style cuisine. The restaurant offers a wide range of dishes, including spicy hot pots, noodle soups, stir-fried dishes, and appetizers. Sichuan cuisine is known for its bold and complex flavors, which are achieved through the use of ingredients such as Sichuan peppercorns, chili peppers, and garlic. Chengdu Taste is highly regarded for its authentic and flavorful dishes, which are made with high-quality ingredients and cooked to perfection. The restaurant\u0027s interior is simple and modern, with traditional Chinese decor accents. Chengdu Taste is a great choice for those looking for authentic Sichuan cuisine in Seattle at an affordable price.",
     "Ratings": [
-        3,
-        4
+      3,
+      4
     ],
-    "Comments": []
+    "Comments": [
+      {
+        "Id": "f11e9b86-c970-4089-8933-2ca0d25b6761",
+        "Comment": "Tried this place in LA, and I\u0027m so excited for them to also have a Seattle location!"
+      },
+      {
+        "Id": "9ac331f5-8230-470a-aaed-e7533589e44c",
+        "Comment": "Absolutely terrific Szechuan food, this spot is a gem!"
+      }
+    ]
   },
   {
     "Id": "maneki-pic",
@@ -107,12 +134,21 @@
     "Type": "Indian",
     "Description": "Annapurna Cafe is an Indian and Nepalese restaurant located in Capitol Hill. The restaurant offers a wide range of dishes from both Nepalese and Indian descent, including curries, tandoori dishes, momos (Nepalese dumplings), and more. The restaurant\u0027s menu features many vegetarian and vegan options, as well as gluten-free options as well. Annapurna Cafe is known for its flavorful and authentic dishes, which are made with fresh ingredients and traditional cooking methods. The interior of the restaurant is cozy and welcoming, with traditional Nepalese and Indian decor accents. Annapurna Cafe is a great choice for those looking for a taste of Indian or Nepalese cuisine in Seattle at a good price, and is particularly popular among those with vegetarians and vegans.",
     "Ratings": [
-        4,
-        5,
-        3,
-        4
+      4,
+      5,
+      3,
+      4
     ],
-    "Comments": []
+    "Comments": [
+      {
+        "Id": "5c3426a9-fda5-44a8-8a4c-f754cbb19ce2",
+        "Comment": "Great hole in the wall place in Cap Hill! "
+      },
+      {
+        "Id": "f104ee79-d4d8-4870-88e0-d692fe7ad5a1",
+        "Comment": "Really great vegetarian options, and flavors were fantastic!"
+      }
+    ]
   },
   {
     "Id": "tacos-chukis-pic",
@@ -141,7 +177,16 @@
       4,
       5
     ],
-    "Comments": []
+    "Comments": [
+      {
+        "Id": "39f49996-c88d-4b9b-9b4f-ef21bf246497",
+        "Comment": "The chicken wings are a must!"
+      },
+      {
+        "Id": "97e20e8c-1860-4ab9-ad03-66e4b192656d",
+        "Comment": "Nothing beats their pho on a cold and rainy day!"
+      }
+    ]
   },
   {
     "Id": "taurus-ox-pic",
@@ -199,7 +244,16 @@
     "Type": "Mexican",
     "Description": "Gracia is a Mexican restaurant located in Ballard that focuses on traditional Mexican cuisine with a modern twist. The restaurant\u0027s menu features a variety of dishes, including tacos, ceviche, and grilled meats, all made with extremely high-quality ingredients and authentic Mexican flavors. Gracia is known for its creative use of fresh seafood and vegetables, as well as its totopos and macha salsa. The interior of the restaurant is sleek and modern, with a casual yet sophisticated atmosphere. Gracia is a great choice for those looking for a bit more upscale and inventive experience and is particularly popular among foodies and young professionals.",
     "Ratings": null,
-    "Comments": []
+    "Comments": [
+      {
+        "Id": "9d99d69e-e25f-4320-92ff-96e8ba7e583f",
+        "Comment": "I urge everyone to order the totopos with macha salsa, absolutely amazing! "
+      },
+      {
+        "Id": "a44e986a-fa27-4154-858a-609dde79bb31",
+        "Comment": "All of their seafood dishes are fantastic! Really great ambiance as well"
+      }
+    ]
   },
   {
     "Id": "un-bien-pic",
