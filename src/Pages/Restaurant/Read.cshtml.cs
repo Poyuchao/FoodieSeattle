@@ -43,7 +43,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         //get rating 
         public int[] Ratings { get; set; }
 
-        //return rating
+        //function to return the average rate 
         public double CalculateAverageRating()
         {
             //The way I thougt to avoid the rating array to be 0 otherwise when it is NULL, the website will display error message
@@ -62,6 +62,24 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
             return restaurantRatings.Average();
 
 
+        }
+
+        //function to return the vote number
+        public double getVoteNumber()
+        {
+            if (Restaurant.Ratings == null)
+            {
+                return 0.0;
+            }
+
+            int[] restaurantRatings = Restaurant.Ratings;
+
+            if (restaurantRatings.Length == 0)
+            {
+                return 0.0;
+            }
+
+            return restaurantRatings.Count();
         }
 
         /// <summary>
