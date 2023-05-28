@@ -31,11 +31,11 @@
         <h2 class="title" id="restaurantTitle">@Model.Restaurant.Title</h2>
         <p style="line-height:5.5em;"> </p>
         <img class="card-img" src='@Model.Restaurant.Image' alt='Image for @Model.Restaurant.Title'>
-        
+
         <p style="line-height:5.5em;"> </p>
-       <div class="card-info">
+        <div class="card-info">
             <div class="why-love-container">
-                <h3 class="why-love-heading">Why We Love It</h3>
+                <h3 class="heading-style">Why We Love It</h3>
                 <div class="stars-container">
                     @for (int i = 0; i < 5; i++)
                     {
@@ -59,12 +59,15 @@
             </div>
         </div>
         <p class="card-text">@Model.Restaurant.Description</p>
-        <h3 class="card-info">Details & Location</h3>
+        <h3 class="heading-style">Details & Location</h3>
         <p class="card-cuisine">Cuisine Type:   @Model.Restaurant.Type</p>
-
         <p class="card-neighborhood">Restaurant Neighborhood:     @Model.Restaurant.Neighborhood</p>
-        <!--Show restaurant location on map -->
 
+
+        <!--Visit Restaurant Button-->
+        <a href="@Model.Restaurant.Url" class="btn btn-visit visit-button" target="_blank">Visit Restaurant <i class="fa-solid fa-utensils"></i></a>
+
+        <!--Show restaurant location on map -->
         <div class="googleMap">
             <div class="col-md-6">
                 @*bootstrap right side*@
@@ -115,17 +118,37 @@
             </div>
         </div>
 
-
-
-        <!--Visit Restaurant Button-->
-        @*<a href="@Model.Restaurant.Url" class="btn btn-visit visit-button" target="_blank">Visit Restaurant</a>*@
-        <a href="@Model.Restaurant.Url" class="btn btn-visit visit-button" target="_blank">Visit Restaurant <i class="fa-solid fa-utensils"></i></a>
+        <!--Display Comments Section-->
+        <div class="comment-section">
+            <h3 class="heading-style">Comments</h3>
+            <form method="post" asp-page-handler="AddComment">
+                <div class="form-group">
+                    <label>Have Thoughts About the Restaurant? Tell Us!</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Leave a comment" maxlength="1000" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <ul>
+                @if (Model.Restaurant.Comments != null)
+                {
+                    <!-- Display comments in reverse chronological order -->
+                    for (int i = Model.Restaurant.Comments.Count - 1; i >= 0; i--)
+                    {
+                        var comment = Model.Restaurant.Comments[i];
+                        <li>
+                            <div class="comment-details">
+                                <div>"@comment.Comment"</div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
 
 
 
         @*This block displays buttons to update or delete the restaurant, which link to the Update and Delete pages respectively. T
         he asp-route-id attribute sets the id parameter in the URL to the current restaurant's id.*@
-
         @if (Model.PasswordEntered == true)
         {
             <div class="row">
@@ -135,7 +158,7 @@
         }
         else
         {
-            <form method="post">
+            <form method="post" asp-page-handler="Unlock">
                 <div class="form-group">
                     @if (Model.IsPasswordInvalid)
                     {
