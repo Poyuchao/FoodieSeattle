@@ -94,7 +94,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         /// is provided. Or it adds a validation error to the ModelState if password is incorrect.
         /// </summary>
         /// <returns>An IActionResult representing the page result, either with the corresponding RestaurantModel object or with a validation error message.</returns>
-        public IActionResult OnPost()
+        public IActionResult OnPostUnlock()
 
         {
             if (Password == "6666")
@@ -113,6 +113,27 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
                 IsPasswordInvalid = true;
                 return Page();
             }
+        }
+
+        /// <summary>
+        /// REST Post request for comments
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="comment"></param>
+        /// <returns>Page</returns>
+        public IActionResult OnPostAddComment(string id, string comment)
+        {
+            Restaurant = restaurantService.GetRestaurantById(id);
+
+            if (!string.IsNullOrEmpty(comment))
+            { 
+                Restaurant.Comments.Add(new CommentModel() { Comment = comment });
+
+                // Call for the Restaurant to be saved
+                restaurantService.UpdateData(Restaurant);
+            }
+
+            return RedirectToPage("Read", new { id = id });
         }
     }
 }
