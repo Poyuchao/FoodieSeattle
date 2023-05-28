@@ -107,24 +107,53 @@ namespace UnitTests.Services
             Assert.AreEqual(false, result);
         }
 
+        ///// <summary>
+        ///// Verifies that adding a rating to a valid restaurant with existing ratings should add a new rating.
+        ///// </summary>
+        //[Test]
+        //public void AddRating_Valid_Restaurant_WithRatings_Should_Add_Rating()
+        //{
+        //    // Arrange
+        //    var data = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Ratings != null && x.Ratings.Length > 0);
+        //    var existingRatingsCount = data.Ratings.Length;
+
+        //    // Act
+        //    var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 2);
+        //    var updatedData = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Id == data.Id);
+
+        //    // Assert
+        //    Assert.IsTrue(result);
+        //    Assert.AreEqual(existingRatingsCount + 1, updatedData.Ratings.Length);
+        //    Assert.AreEqual(2, updatedData.Ratings.Last());
+        //}
+
         /// <summary>
-        /// Verifies that adding a rating to a valid restaurant with existing ratings should add a new rating.
+        /// Verifies adding a rating to a valid restaurant adds rating
         /// </summary>
         [Test]
-        public void AddRating_Valid_Restaurant_WithRatings_Should_Add_Rating()
+        public void AddRating_Valid_Rating_Valid_Rating_Should_Return_True()
         {
+
             // Arrange
-            var data = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Ratings != null && x.Ratings.Length > 0);
-            var existingRatingsCount = data.Ratings.Length;
+
+            // Get the First data item
+            var data = TestHelper.RestaurantServiceObject.GetRestaurants().First();
+
+            // Get the count of ratings
+            var countOriginal = data.Ratings.Length;
 
             // Act
-            var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 2);
-            var updatedData = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Id == data.Id);
+
+            // Result of adding a valid rating
+            var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 4);
+
+            // Result of adding a valid rating
+            var dataNewList = TestHelper.RestaurantServiceObject.GetRestaurants().First();
 
             // Assert
             Assert.IsTrue(result);
-            Assert.AreEqual(existingRatingsCount + 1, updatedData.Ratings.Length);
-            Assert.AreEqual(2, updatedData.Ratings.Last());
+            Assert.AreEqual(countOriginal + 1, dataNewList.Ratings.Length);
+            Assert.AreEqual(4, dataNewList.Ratings.Last());
         }
 
         /// <summary>
