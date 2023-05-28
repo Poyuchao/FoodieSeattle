@@ -8,12 +8,12 @@
     "Type": "Japanese",
     "Description": "Located in Pike Place Market, Sushi Kashiba is owned by the legendary Seattle chef Shiro Kashiba (3X James Beard Winner). The restaurant specializes in traditional Edomae-style sushi, which emphasizes the use of fresh, seasonal ingredients and techniques such as aging and marinating fish to enhance its flavor. This upscale dining experience allows customers to eat at the sushi counter or call ahead and reserve one of their tables. Pricing has us recommending this location for special occasions, and if you do decide to dine here, expect nothing less than perhaps your favorite meal of the year.",
     "Ratings": [
-        5,
-        5,
-        4,
-        5,
-        4,
-        5
+      5,
+      5,
+      4,
+      5,
+      4,
+      5
     ],
     "Comments": []
   },
@@ -25,13 +25,13 @@
     "Neighborhood": "Belltown",
     "Type": "Japanese",
     "Description": "Located in Belltown, Shiros is an exquisite sushi restaurant founded by Shiro Kashiba. This experience features a similar format to other high end sushi restaurants, where customers can sit at the counter (our recommendation) or reserve a table. Known as one of the best sushi restaurants in the country, Shiro\u2019s specializes in traditional, high quality sushi only using the freshest ingredients available. D\u00E9cor and ambiance remains simple, allowing diners to focus on the overall experience. Pricing is high, so for this location we recommend for special occasions.",
-        "Ratings": [
-        5,
-        5,
-        4,
-        5,
-        4,
-        5
+    "Ratings": [
+      5,
+      5,
+      4,
+      5,
+      4,
+      5
     ],
     "Comments": []
   },
@@ -54,7 +54,20 @@
     "Neighborhood": "International District",
     "Type": "Chinese",
     "Description": "Dough-Zone Dumpling House is great Seattle area chain specializing in Chinese dumplings and other traditional dishes. Their menu features a wide variety of dumplings, including pork, chicken, beef, and vegetable varieties, as well as classic Chinese dishes. Everything here is made using fresh ingredients and cooked to order. Ambiance is casual and inviting, with a modern and minimalist design. Dough Zone is a fantastic choice for a delicious and affordable meal in a more casual setting.",
-    "Ratings": null,
+    "Ratings": [
+      5,
+      5,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      4,
+      5,
+      5
+    ],
     "Comments": []
   },
   {
@@ -65,7 +78,9 @@
     "Neighborhood": "International District",
     "Type": "Chinese",
     "Description": "Chengdu Taste is a Chinese restaurant specializing in Sichuan-style cuisine. The restaurant offers a wide range of dishes, including spicy hot pots, noodle soups, stir-fried dishes, and appetizers. Sichuan cuisine is known for its bold and complex flavors, which are achieved through the use of ingredients such as Sichuan peppercorns, chili peppers, and garlic. Chengdu Taste is highly regarded for its authentic and flavorful dishes, which are made with high-quality ingredients and cooked to perfection. The restaurant\u0027s interior is simple and modern, with traditional Chinese decor accents. Chengdu Taste is a great choice for those looking for authentic Sichuan cuisine in Seattle at an affordable price.",
-    "Ratings": null,
+    "Ratings": [
+      1
+    ],
     "Comments": []
   },
   {
@@ -110,16 +125,14 @@
     "Type": "Vietnamese",
     "Description": "Ba Bar is a Vietnamese-inspired restaurant with locations in Capitol Hill and South Lake Union, and offers a blend of traditional Vietnamese cuisine and modern fusion dishes. The restaurant\u0027s menu features a wide range of dishes, including pho, banh mi, rice and noodle dishes, and small plates for sharing. Ba Bar is known for its use of fresh, locally-sourced ingredients and its unique flavor combinations, which are inspired by the owner\u0027s travels in Vietnam and other parts of Southeast Asia. The interior of the restaurant is chic and modern, with a lively and casual atmosphere. Ba Bar is a great choice for those looking for creative and flavorful Vietnamese cuisine in Seattle at an affordable price.",
     "Ratings": [
-        5,
-        4,
-        4,
-        5,
-        4,
-        5
+      5,
+      4,
+      4,
+      5,
+      4,
+      5
     ],
-        "Comments"
-        :
-        []
+    "Comments": []
   },
   {
     "Id": "taurus-ox-pic",
@@ -129,7 +142,13 @@
     "Neighborhood": "Capitol Hill",
     "Type": "Laotian",
     "Description": "Located in Capitol Hill, Taurus Ox is a modern Laotian and Asian-fusion inspired restaurant that blends traditional flavors with contemporary techniques and presentation. Taurus Ox is known for its innovative and unique dishes, such as the caramelized pork belly stew and the crispy duck confit bao. The interior of the restaurant is stylish and minimalist, with a cozy and intimate atmosphere. Taurus Ox also offers a carefully curated selection of beer, wine, and cocktails to complement its food. Taurus Ox is a great choice for those looking for a modern and unique dining experience.",
-    "Ratings": null,
+    "Ratings": [
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
     "Comments": []
   },
   {
@@ -151,8 +170,16 @@
     "Neighborhood": "Fremont",
     "Type": "Japanese",
     "Description": "Kamonegi is a Japanese restaurant located in Fremont that specializes in soba noodles and small plates. The restaurant\u0027s name, \u0027kamonegi\u0027, translates to \u0027duck and leek\u0027 in Japanese, which is a nod to the restaurant\u0027s signature dish: handmade soba noodles with duck and leek tempura. The menu at Kamonegi features a variety of small plates, including izakaya-style dishes, as well as a rotating selection of soba noodle dishes. Kamonegi is known for its high-quality ingredients, innovative flavor combinations, and skilled preparation techniques. The interior of the restaurant is cozy and intimate, and is a great choice for those looking for a unique and elevated dining experience in Seattle, and is particularly popular among the foodie crowd. Pricing is a bit more upscale.",
-    "Ratings": null,
-    "Comments": []
+    "Ratings": [
+      3,
+      3
+    ],
+    "Comments": [
+      {
+        "Id": "b052a8d9-302c-4519-914a-93a8b38ed20b",
+        "Comment": ""
+      }
+    ]
   },
   {
     "Id": "gracia-pic",
@@ -184,7 +211,9 @@
     "Neighborhood": "Ballard",
     "Type": "Indian",
     "Description": "Spice Waala is an Indian street food restaurant with locations in Ballard and Capitol Hill, that specializes in chaat, a popular type of savory snack from India. The restaurant\u0027s menu features a variety of chaat dishes, such as samosas, papdi chaat, and bhel puri, as well as other Indian street food favorites like vada pav and kathi rolls. Spice Waala is known for its bold and flavorful spices, fresh ingredients, and authentic preparation techniques. The interior of the restaurant is bright and colorful, and is perfect for a quick bite or for takeout. Pricing is very affordable, and this place comes highly recommended for people that love spice or follow a vegetarian diet.",
-    "Ratings": null,
+    "Ratings": [
+      2
+    ],
     "Comments": []
   }
 ]
