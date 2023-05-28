@@ -43,7 +43,10 @@
     "Neighborhood": "Belltown",
     "Type": "Thai",
     "Description": "Named after the world famous market in Bangkok, Bangrok Market is Seattle\u2019s interpretation of Thai street food. Located in Belltown, this experience aims to capture the overall flavor vibrancy and atmosphere of the Thai street food scene. Customers can expect fantastic curries, stir-fries, noodle dishes and small appetizers like spring rolls and satay. Restaurant also features colorful street art and offers an overall casual dining experience.",
-    "Ratings": null,
+    "Ratings": [
+        5,
+        4
+    ],
     "Comments": []
   },
   {
@@ -79,7 +82,8 @@
     "Type": "Chinese",
     "Description": "Chengdu Taste is a Chinese restaurant specializing in Sichuan-style cuisine. The restaurant offers a wide range of dishes, including spicy hot pots, noodle soups, stir-fried dishes, and appetizers. Sichuan cuisine is known for its bold and complex flavors, which are achieved through the use of ingredients such as Sichuan peppercorns, chili peppers, and garlic. Chengdu Taste is highly regarded for its authentic and flavorful dishes, which are made with high-quality ingredients and cooked to perfection. The restaurant\u0027s interior is simple and modern, with traditional Chinese decor accents. Chengdu Taste is a great choice for those looking for authentic Sichuan cuisine in Seattle at an affordable price.",
     "Ratings": [
-      1
+        3,
+        4
     ],
     "Comments": []
   },
@@ -102,7 +106,12 @@
     "Neighborhood": "Capitol Hill",
     "Type": "Indian",
     "Description": "Annapurna Cafe is an Indian and Nepalese restaurant located in Capitol Hill. The restaurant offers a wide range of dishes from both Nepalese and Indian descent, including curries, tandoori dishes, momos (Nepalese dumplings), and more. The restaurant\u0027s menu features many vegetarian and vegan options, as well as gluten-free options as well. Annapurna Cafe is known for its flavorful and authentic dishes, which are made with fresh ingredients and traditional cooking methods. The interior of the restaurant is cozy and welcoming, with traditional Nepalese and Indian decor accents. Annapurna Cafe is a great choice for those looking for a taste of Indian or Nepalese cuisine in Seattle at a good price, and is particularly popular among those with vegetarians and vegans.",
-    "Ratings": null,
+    "Ratings": [
+        4,
+        5,
+        3,
+        4
+    ],
     "Comments": []
   },
   {
@@ -212,7 +221,7 @@
     "Type": "Indian",
     "Description": "Spice Waala is an Indian street food restaurant with locations in Ballard and Capitol Hill, that specializes in chaat, a popular type of savory snack from India. The restaurant\u0027s menu features a variety of chaat dishes, such as samosas, papdi chaat, and bhel puri, as well as other Indian street food favorites like vada pav and kathi rolls. Spice Waala is known for its bold and flavorful spices, fresh ingredients, and authentic preparation techniques. The interior of the restaurant is bright and colorful, and is perfect for a quick bite or for takeout. Pricing is very affordable, and this place comes highly recommended for people that love spice or follow a vegetarian diet.",
     "Ratings": [
-      2
+      4
     ],
     "Comments": []
   }
