@@ -49,6 +49,12 @@
                         }
                     }
                 </div>
+                <span class="card-rating">@(Model.CalculateAverageRating().ToString("0.00"))</span>
+                <span class="text"> from </span>
+                <span class="card-rating">@(Model.getVoteNumber().ToString())</span>
+                <!--1 person = vote / 2 or more = votes-->
+                <span class="text"> @(Model.getVoteNumber() == 1  ? "vote" : "votes")</span>
+
             </div>
         </div>
         <p class="card-text">@Model.Restaurant.Description</p>
