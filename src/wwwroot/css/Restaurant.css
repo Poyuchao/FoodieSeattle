@@ -1,7 +1,7 @@
 ﻿.unlock-button {
-    background-color: #2E8B57;
+    background-color: #5BC286;
     color: #fff;
-    border-color: #2E8B57;
+    border-color: #fff;
     padding: 8px 16px;
     border-radius: 4px;
     font-size: 16px;
@@ -115,6 +115,13 @@ body {
 }
 
 
+.heading-style {
+    margin-top: 20px;
+    font-size: 24px; /* Set the size you want */
+    font-weight: bold; /* Make it bold */
+    color: black;
+}
+
 
 .card-text {
     font-size: 19px;
@@ -148,6 +155,7 @@ body {
 }
 
 .visit-button {
+    margin-top: -50px;
     margin-right: 950px;
     margin-bottom: 50px;
 }
@@ -174,4 +182,25 @@ body {
 .empty-star {
     /*empty star color*/
     color: Black;
+}
+
+
+.comment-section ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0px;
+    padding-top: 20px;
+}
+
+.comment-section li {
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #F5F5F5;
+}
+
+.comment-details {
+    color: gray;
 }
