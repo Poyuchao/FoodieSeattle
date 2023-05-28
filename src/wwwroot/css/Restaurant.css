@@ -119,7 +119,7 @@ body {
 .card-text {
     font-size: 19px;
     font-weight: lighter;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .card-info {
@@ -155,4 +155,22 @@ body {
 .googleMap{
     margin-left:200px;
     margin-bottom:60px;
+}
+
+
+.stars-container {
+    display: inline-block;
+    /* Adjust the font size to make the stars bigger */
+    font-size: 28px;
+    vertical-align: middle; /* Align the stars vertically in the middle */
+}
+
+
+.star {
+    color: darkorange;
+}
+
+.empty-star {
+    /*empty star color*/
+    color: Black;
 }
