@@ -129,7 +129,7 @@ namespace UnitTests.Pages.Restaurant.Read
             model.PageContext.RouteData.Values.Add("id", ExistingId); // Set the id value to a valid value for your test
 
             // Act
-            var result = model.OnPost();
+            var result = model.OnPostUnlock();
 
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
@@ -154,7 +154,7 @@ namespace UnitTests.Pages.Restaurant.Read
             model.PageContext.RouteData.Values.Add("id", ExistingId);
 
             // Act
-            var result = model.OnPost();
+            var result = model.OnPostUnlock();
 
             // Assert
             Assert.IsInstanceOf<PageResult>(result);
