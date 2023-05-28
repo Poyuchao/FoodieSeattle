@@ -91,7 +91,7 @@ namespace UnitTests.Components
         {
             // Arrange
             Services.AddSingleton<RestaurantService>(TestHelper.RestaurantServiceObject);
-            var id = "dough-zone-pic";
+            var id = "gracia-pic";
 
             var page = RenderComponent<RestaurantList>();
 
