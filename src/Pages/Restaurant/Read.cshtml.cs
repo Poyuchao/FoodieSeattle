@@ -39,6 +39,31 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         // Flag for the view
         public bool IsPasswordInvalid { get; set; } = false;
 
+
+        //get rating 
+        public int[] Ratings { get; set; }
+
+        //return rating
+        public double CalculateAverageRating()
+        {
+            //The way I thougt to avoid the rating array to be 0 otherwise when it is NULL, the website will display error message
+            if (Restaurant.Ratings == null)
+            {
+                return 0.0;
+            }
+
+            int[] restaurantRatings = Restaurant.Ratings;
+
+            if (restaurantRatings.Length == 0)
+            {
+                return 0.0;
+            }
+
+            return restaurantRatings.Average();
+
+
+        }
+
         /// <summary>
         /// REST Get request.
         /// </summary>
@@ -52,6 +77,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         /// </summary>
         /// <returns>An IActionResult representing the page result, either with the corresponding RestaurantModel object or with a validation error message.</returns>
         public IActionResult OnPost()
+
         {
             if (Password == "6666")
             {
