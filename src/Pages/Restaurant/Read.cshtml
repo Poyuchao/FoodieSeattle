@@ -61,7 +61,8 @@
         <p class="card-text">@Model.Restaurant.Description</p>
         <h3 class="heading-style">Details & Location</h3>
         <p class="card-cuisine">Cuisine Type:   @Model.Restaurant.Type</p>
-        <p class="card-neighborhood">Restaurant Neighborhood:     @Model.Restaurant.Neighborhood</p>
+        <p class="card-neighborhood">Neighborhood:     @Model.Restaurant.Neighborhood</p>
+        <p class="card-address">Address:     @Model.Restaurant.Address</p>
 
 
         <!--Visit Restaurant Button-->
@@ -84,7 +85,7 @@
 
                         var geocoder = new google.maps.Geocoder();//This object is used to convert addresses into geographic coordinates
 
-                        var restaurantAddress = "@Model.Restaurant.Neighborhood, Seattle, WA";
+                        var restaurantAddress = "@Model.Restaurant.Address";
 
                         geocoder.geocode({ address: restaurantAddress }, function (results, status) {//The callback function receives the geocoding results and the status of the request.
 
@@ -98,7 +99,7 @@
                                 });
 
                                 var infoWindow = new google.maps.InfoWindow({
-                                    content: "<h3>@Model.Restaurant.Title</h3>"+"<p>"+"<h6>@Model.Restaurant.Neighborhood</h6>" + "<p>"+"<h6>@Model.Restaurant.Type</h6>" + "</p>"
+                                    content: "<h3>@Model.Restaurant.Title</h3>"+"<p>"+"<h6>@Model.Restaurant.Address</h6>" + "<p>"
                                 });
 
                                 restaurantMarker.addListener('click', function () {
