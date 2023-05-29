@@ -91,6 +91,7 @@ namespace UnitTests.Services
         #endregion GetRestaurant
 
         #region Addrating
+
         /// <summary>
         /// Invalid null Restaurant in Addrating should return false
         /// </summary>
@@ -106,26 +107,6 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(false, result);
         }
-
-        ///// <summary>
-        ///// Verifies that adding a rating to a valid restaurant with existing ratings should add a new rating.
-        ///// </summary>
-        //[Test]
-        //public void AddRating_Valid_Restaurant_WithRatings_Should_Add_Rating()
-        //{
-        //    // Arrange
-        //    var data = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Ratings != null && x.Ratings.Length > 0);
-        //    var existingRatingsCount = data.Ratings.Length;
-
-        //    // Act
-        //    var result = TestHelper.RestaurantServiceObject.AddRating(data.Id, 2);
-        //    var updatedData = TestHelper.RestaurantServiceObject.GetRestaurants().First(x => x.Id == data.Id);
-
-        //    // Assert
-        //    Assert.IsTrue(result);
-        //    Assert.AreEqual(existingRatingsCount + 1, updatedData.Ratings.Length);
-        //    Assert.AreEqual(2, updatedData.Ratings.Last());
-        //}
 
         /// <summary>
         /// Verifies adding a rating to a valid restaurant adds rating
@@ -263,7 +244,93 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(false, result);
         }
+
         #endregion Addrating
+
+        #region AddComment
+
+        /// <summary>
+        /// Test to verify that the AddComment method correctly handles null
+        /// values for the restaurantId parameter.
+        /// </summary>
+        [Test]
+        public void AddComment_Should_Return_False_When_RestaurantId_Is_Null()
+        {
+            //var restaurantService = new RestaurantService();
+
+            // Arrange
+            string restaurantId = null;
+            string comment = "Some comment";
+
+            // Act
+            var result = TestHelper.RestaurantServiceObject.AddComment(restaurantId, comment);
+
+            // Assert
+            Assert.False(result);
+        }
+
+        /// <summary>
+        /// Test to verify that the AddComment method correctly handles empty strings
+        /// for the restaurantId parameter.
+        /// </summary>
+        [Test]
+        public void AddComment_Should_Return_False_When_RestaurantId_Is_Empty()
+        {
+            //var restaurantService = new RestaurantService();
+
+            // Arrange
+            string restaurantId = "";
+            string comment = "Some comment";
+
+            // Act
+            var result = TestHelper.RestaurantServiceObject.AddComment(restaurantId, comment);
+
+            // Assert
+            Assert.False(result);
+        }
+
+        /// <summary>
+        /// Test to verify that the AddComment method correctly handles null values for
+        /// the comment parameter.
+        /// </summary>
+        [Test]
+        public void AddComment_Should_Return_False_When_Comment_Is_Null()
+        {
+            //var restaurantService = new RestaurantService();
+
+            // Arrange
+            string restaurantId = "SomeId";
+            string comment = null;
+
+            // Act
+            var result = TestHelper.RestaurantServiceObject.AddComment(restaurantId, comment);
+
+            // Assert
+            Assert.False(result);
+        }
+
+        /// <summary>
+        /// Test to verify that the AddComment method correctly handles an empty string
+        /// value for the comment parameter.
+        /// </summary>
+        [Test]
+        public void AddComment_Should_Return_False_When_Comment_Is_Empty()
+        {
+            //var restaurantService = new RestaurantService();
+
+            // Arrange
+            string restaurantId = "SomeId";
+            string comment = "";
+
+            // Act
+            var result = TestHelper.RestaurantServiceObject.AddComment(restaurantId, comment);
+
+            // Assert
+            Assert.False(result);
+        }
+
+        #endregion AddComment
+
 
         #region UpdateData
 
