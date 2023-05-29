@@ -115,6 +115,9 @@ namespace UnitTests.Pages.Restaurant.Delete
                 Title = null,
                 Neighborhood = null,
                 Type = null,
+                City = null,
+                State = null,
+                Address = null,
                 Description = null,
                 Url = null,
                 Image = null
