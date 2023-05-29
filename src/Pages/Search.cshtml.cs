@@ -19,23 +19,29 @@ namespace FoodieSeattle.WebSite.Pages
         private readonly RestaurantService restaurantService;
 
         /// <summary>
-        /// Constructor for SearchModel class.
+        /// Constructor for SearchModel class, takes a RestaurantService
+        /// as a parameter
         /// </summary>
+        /// <param name="restaurantService"></param>
         public SearchModel(RestaurantService restaurantService)
         {
             this.restaurantService = restaurantService;
         }
 
-        // Data to display
+        // This attribute is applied to the property to enable model binding.
+        // By setting "SupportsGet" to true, the property can also be populated from the query string 
+        // during HTTP GET requests, in addition to the default behavior of populating it during HTTP POST requests.
         [BindProperty(SupportsGet = true)]
 
         /// <summary>
-        /// Query to search for
+        /// Property representing search term or condition
         /// </summary>	
         public string Query { get; set; }
 
         /// <summary>
-        /// The results of the search
+        // The Results property represents a collection of RestaurantModel objects.
+        // It can be retrieved publicly (get), but can only be modified within this class
+        // (set is private).
         /// </summary>
         public IEnumerable<RestaurantModel> Results { get; private set; }
 
@@ -47,10 +53,12 @@ namespace FoodieSeattle.WebSite.Pages
         {
             var restaurants = restaurantService.GetRestaurants();
 
-            Results = restaurants.Where(x => x.Title.Contains(Query, StringComparison.OrdinalIgnoreCase)
-                || x.Neighborhood.Contains(Query, StringComparison.OrdinalIgnoreCase)
-                || x.Type.Contains(Query, StringComparison.OrdinalIgnoreCase))
-            .OrderBy(r => r.Title).Distinct().ToList();
+            Results = (from restaurant in restaurants
+                       where restaurant.Title.Contains(Query, StringComparison.OrdinalIgnoreCase)
+                           || restaurant.Neighborhood.Contains(Query, StringComparison.OrdinalIgnoreCase)
+                           || restaurant.Type.Contains(Query, StringComparison.OrdinalIgnoreCase)
+                       orderby restaurant.Title
+                       select restaurant).Distinct().ToList();
         }
     }
 }
