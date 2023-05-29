@@ -15,10 +15,12 @@ namespace FoodieSeattle.WebSite.Models
         // Use the JsonPropertyName attribute to map the Image property to the "img" field in the JSON data.
         // Declare and validate a public property Image of type string to represent the image URL of the restaurant.
         [JsonPropertyName("img")]
+        [Required(ErrorMessage = "Please enter a valid URL starting with \"https://\".")]
         [RegularExpression(@"(https?:\/\/.*)", ErrorMessage = "Please enter a url starting with \"https://\". ")]
         public string Image { get; set; } = "Default";
 
         // Declare and validate a public property Url of type string to represent the URL of the restaurant.
+        [Required(ErrorMessage = "Please enter a valid URL starting with \"https://\".")]
         [RegularExpression(@"(https?:\/\/.*)", ErrorMessage = "Please enter a url starting with \"https://\". ")]
         public string Url { get; set; }
 
