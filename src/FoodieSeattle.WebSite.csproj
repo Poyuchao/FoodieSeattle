@@ -14,7 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\img\logo\" />
-    <Folder Include="Pages\Launch\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\img\images\Movetop_img.png">
