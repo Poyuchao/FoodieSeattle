@@ -33,11 +33,20 @@ namespace UnitTests.Pages.Restaurant.Update
         // Global valid Mock title property for use in tests
         private const string MockTitle = "mamnoon";
 
+        // Global valid Mock food type property for use in tests
+        private const string MockType = "Lebanese";
+
         // Global valic Mock neighborhood property for use in tests
         private const string MockNeighborhood = "Capitol Hill";
 
-        // Global valid Mock food type property for use in tests
-        private const string MockType = "Lebanese";
+        // Global valic Mock city property for use in tests
+        private const string MockCity = "Seattle";
+
+        // Global valic Mock state property for use in tests
+        private const string MockState = "WA";
+
+        // Global valic Mock address property for use in tests
+        private const string MockAddress = "2020 6th Ave, Seattle, WA 98121-2507";
 
         // Global valid mock description property for use in tests
         private const string MockDescription = "description";
@@ -99,8 +108,11 @@ namespace UnitTests.Pages.Restaurant.Update
             {
                 Id = MockId,
                 Title = ErrorAttribute,
-                Neighborhood = MockNeighborhood,
                 Type = MockType,
+                Neighborhood = MockNeighborhood,
+                City = MockCity,
+                State = MockState,
+                Address = MockAddress,
                 Description = MockDescription,
                 Url = MockUrl,
                 Image = MockImage
@@ -130,8 +142,11 @@ namespace UnitTests.Pages.Restaurant.Update
             {
                 Id = null,
                 Title = null,
-                Neighborhood = null,
                 Type = null,
+                Neighborhood = null,
+                City = null,
+                State = null,
+                Address = null,
                 Description = null,
                 Url = null,
                 Image = null
@@ -161,8 +176,11 @@ namespace UnitTests.Pages.Restaurant.Update
             {
                 Id = MockId,
                 Title = MockTitle,
-                Neighborhood = MockNeighborhood,
                 Type = MockType,
+                Neighborhood = MockNeighborhood,
+                City = MockCity,
+                State = MockState,
+                Address = MockAddress,
                 Description = MockDescription,
                 Url = MockUrl,
                 Image = MockImage
