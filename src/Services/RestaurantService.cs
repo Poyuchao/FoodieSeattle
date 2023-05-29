@@ -224,6 +224,10 @@ namespace FoodieSeattle.WebSite.Services
             RestaurantData.Url = data.Url;
             RestaurantData.Image = data.Image;
             RestaurantData.Type = data.Type;
+            RestaurantData.Neighborhood = data.Neighborhood;
+            RestaurantData.City = data.City;
+            RestaurantData.State = data.State;
+            RestaurantData.Address = data.Address;
 
             SaveData(Restaurants);
 
@@ -295,12 +299,15 @@ namespace FoodieSeattle.WebSite.Services
         /// <summary>
         /// Create a new restaurant object, add user input data to it, and save object in JSON file.
         /// </summary>
-        /// <param name="name">name data entered by user</param>
-        /// <param name="image">image URL entered by user</param>
-        /// <param name="url">restaurant home website URL entered by user</param>
-        /// <param name="desc">short description entered by user</param>
-        /// <returns>A new RestaurantModel object to be later saved in JSON</returns>
-        public RestaurantModel AddData(string name, string neighborhood, string cuisineType,
+        /// <param name="name"></param>
+        /// <param name="neighborhood"></param>
+        /// <param name="address"></param>
+        /// <param name="cuisineType"></param>
+        /// <param name="desc"></param>
+        /// <param name="url"></param>
+        /// <param name="image"></param>
+        /// <returns></returns>
+        public RestaurantModel AddData(string name, string neighborhood, string address, string cuisineType,
             string desc, string url, string image)
         {
             // Create a new Restaurant model
@@ -310,6 +317,9 @@ namespace FoodieSeattle.WebSite.Services
                 Id = name + "-pic",
                 Title = name,
                 Neighborhood = neighborhood,
+                City = "Seattle",
+                State = "WA",
+                Address = address,
                 Type = cuisineType,
                 Description = desc,
                 Url = url,
