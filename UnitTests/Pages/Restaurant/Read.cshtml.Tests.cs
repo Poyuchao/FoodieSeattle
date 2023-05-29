@@ -224,6 +224,11 @@ namespace UnitTests.Pages.Restaurant.Read
         #endregion OnPostAddComment
 
         #region GetAverageRate
+        /// <summary>
+        /// CalculateAverageRating_ReturnsZero_WhenRatingsIsZero verifies that the CalculateAverageRating() 
+        /// method returns 0 when the Ratings property of the Restaurant object is 0.
+        /// </summary>
+
         [Test]
         public void CalculateAverageRating_ReturnsZero_WhenRatingsIsEmpty()
         {
@@ -237,6 +242,10 @@ namespace UnitTests.Pages.Restaurant.Read
             // Assert
             Assert.AreEqual(0.0, averageRating);
         }
+        /// <summary>
+        /// CalculateAverageRating_ReturnsZero_WhenRatingsIsNull verifies that the CalculateAverageRating() 
+        /// method returns 0 when the Ratings property of the Restaurant object is null.
+        /// </summary>
 
         [Test]
         public void CalculateAverageRating_ReturnsZero_WhenRatingsIsNull()
@@ -251,6 +260,12 @@ namespace UnitTests.Pages.Restaurant.Read
             // Assert
             Assert.AreEqual(0.0, averageRating);
         }
+
+        /// <summary>
+        /// CalculateAverageRating_ReturnsCorrectAverageRate_WhenRatingsNumCorrect verifies that the CalculateAverageRating() 
+        /// method returns correct average rate  when the Ratings property of the Restaurant object is the rating list.
+        /// </summary>
+
         [Test]
         public void CalculateAverageRating_ReturnsCorrectAverageRating()
         {
@@ -268,7 +283,15 @@ namespace UnitTests.Pages.Restaurant.Read
         #endregion GetAverageRate
 
 
+
+
+
         #region getVoteNumber
+
+        /// <summary>
+        /// GetVoteNumber_ReturnsCorrectVoteNum_WhenRatingsNumCorrect verifies that the GetVoteNumber() 
+        /// method returns correct vote num  when the Ratings property of the Restaurant object is the rating list.
+        /// </summary>
         [Test]
         public void GetVoteNum_correct_voteNum()
         {
@@ -285,6 +308,11 @@ namespace UnitTests.Pages.Restaurant.Read
 
         }
 
+        /// <summary>
+        /// GetVoteNumber_ReturnsNull_WhenRatingsIsNull verifies that the GetVoteNumber() 
+        /// method returns null when the Ratings property of the Restaurant object is null.
+        /// </summary>
+
         [Test]
         public void getVoteNum_ReturnsZero_WhenVoteIsNull()
         {
@@ -299,7 +327,10 @@ namespace UnitTests.Pages.Restaurant.Read
             Assert.AreEqual(0, averageRating);
         }
 
-
+        /// <summary>
+        /// GetVoteNumber_ReturnsZero_WhenRatingsIsZero verifies that the GetVoteNumber() 
+        /// method returns 0 when the Ratings property of the Restaurant object is 0.
+        /// </summary>
 
         [Test]
         public void getVoteNum_ReturnsZero_WhenVoteIsZero()
