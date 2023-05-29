@@ -10,7 +10,8 @@ namespace FoodieSeattle.WebSite.Pages
 {
 
     /// <summary>
-    /// SearchModel which redirects to the Search page after searching for restaurant
+    /// SearchModel which redirects to the Search page after searching for restaurant,
+    /// neighborhood, or cuisine type
     /// </summary>
     public class SearchModel : PageModel
     {
