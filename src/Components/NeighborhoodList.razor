@@ -220,15 +220,8 @@
     /// <param name="comment"></param>
     void AddComment()
     {
-        // Refactor to be a call to the middle tier
-        // restaurantService.AddCommentToRestaurant(selectedRestaurant, comment);
-
-
-        // Add it to the Comment List
-        selectedRestaurant.Comments.Add(new CommentModel() { Comment = NewCommentText });
-
         // Call for the Restaurant to be saved
-        restaurantService.UpdateData(selectedRestaurant);
+        restaurantService.AddComment(selectedRestaurant.Id, NewCommentText);
 
         // Set the NewComment flag to false to hide the input box
         NewComment = false;
