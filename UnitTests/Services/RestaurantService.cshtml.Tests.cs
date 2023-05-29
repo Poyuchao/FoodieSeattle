@@ -48,6 +48,9 @@ namespace UnitTests.Services
         // Global valid Mock neighborhood property for use in tests
         private const string MockNeighborhood = "Bellevue";
 
+        // Global valid Mock address property for use in tests
+        private const string MockAddress = "266 116th Ave NE, Bellevue, WA 98004-5213";
+
         // Global valid Mock food type property for use in tests
         private const string MockType = "Japanese";
 
@@ -465,6 +468,7 @@ namespace UnitTests.Services
             var restaurantModel = new RestaurantModel();
             var title = MockTitle;
             var neighborhood = MockNeighborhood;
+            var address = MockAddress;
             var type = MockType;
             var desc = MockDescription;
             var url = MockUrl;
@@ -472,7 +476,7 @@ namespace UnitTests.Services
 
 
             // Act
-            var result = TestHelper.RestaurantServiceObject.AddData(title, neighborhood, type, desc, url, image);
+            var result = TestHelper.RestaurantServiceObject.AddData(title, neighborhood, address, type, desc, url, image);
 
             // Assert
             Assert.IsNotNull(result);
@@ -508,6 +512,7 @@ namespace UnitTests.Services
             {
                 Title = MockTitle,
                 Neighborhood = MockNeighborhood,
+                Address = MockAddress,
                 Type = "Type1",
                 Description = MockDescription,
                 Url = MockUrl,
@@ -518,6 +523,7 @@ namespace UnitTests.Services
             {
                 Title = "Restaurant 2",
                 Neighborhood = "SLU",
+                Address = MockAddress,
                 Type = "Type1",
                 Description = "Description2",
                 Url = "http://www.example.com/2",
@@ -526,9 +532,9 @@ namespace UnitTests.Services
 
 
             // Act
-            TestHelper.RestaurantServiceObject.AddData(firstData.Title, firstData.Neighborhood, firstData.Type,
+            TestHelper.RestaurantServiceObject.AddData(firstData.Title, firstData.Neighborhood, firstData.Address, firstData.Type,
                 firstData.Description, firstData.Url, firstData.Image);
-            TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Neighborhood, secondData.Type,
+            TestHelper.RestaurantServiceObject.AddData(secondData.Title, secondData.Neighborhood, firstData.Address, secondData.Type,
                 secondData.Description, secondData.Url, secondData.Image);
             var result = TestHelper.RestaurantServiceObject.GetRestaurantsByType("Type1");
 
@@ -581,7 +587,7 @@ namespace UnitTests.Services
             // Arrange
 
             // Add restaurant to database and store it as testRestaurant.
-            TestHelper.RestaurantServiceObject.AddData(MockTitle, MockNeighborhood, MockType,
+            TestHelper.RestaurantServiceObject.AddData(MockTitle, MockNeighborhood, MockAddress, MockType,
                 MockDescription, MockUrl, MockImage);
             var testRestaurant = TestHelper.RestaurantServiceObject.GetRestaurants().Last();
 
