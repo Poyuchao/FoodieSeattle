@@ -396,12 +396,10 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    /*object-fit: contain;*/
     object-fit: cover;
     opacity: 1;
     z-index: -1;
     transform: translateY(-17%);
-    /*transform: scale(0.85);*/
 }
 
 /*dynamic-background*/
