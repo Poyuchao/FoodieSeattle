@@ -126,11 +126,9 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
             Restaurant = restaurantService.GetRestaurantById(id);
 
             if (!string.IsNullOrEmpty(comment))
-            { 
-                Restaurant.Comments.Add(new CommentModel() { Comment = comment });
-
-                // Call for the Restaurant to be saved
-                restaurantService.UpdateData(Restaurant);
+            {
+                // Call for the Restaurant comment to be saved
+                restaurantService.AddComment(id, comment);
             }
 
             return RedirectToPage("Read", new { id = id });
