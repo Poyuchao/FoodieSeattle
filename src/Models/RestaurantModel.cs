@@ -34,6 +34,20 @@ namespace FoodieSeattle.WebSite.Models
         [StringLength(30, ErrorMessage = "A neighborhood cannot exceed 30 characters. ")]
         public string Neighborhood { get; set; }
 
+        // Validating City name to allow only alpha characters
+        [Required(ErrorMessage = "Please enter a City name.")]
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Please enter a valid City name.")]
+        public string City { get; set; } = "Seattle";
+
+        // Validating State name to allow only alpha characters
+        [Required(ErrorMessage = "Please enter a State name.")]
+        [RegularExpression(@"^[a-z A-Z]+$", ErrorMessage = "Please enter a valid State name.")]
+        public string State { get; set; } = "WA";
+
+        // Address of restaurant
+        [Required(ErrorMessage = "Please enter a valid address")]
+        public string Address { get; set; } = "Default";
+
         // Declare and validate a public property Type of type string to represent the cuisine type of a restaurant
         [Required(ErrorMessage = "Please enter a cuisine type.")]
         [RegularExpression(@"^[a-z A-Z\s']+$", ErrorMessage = "Please enter a valid cuisine type.")]
