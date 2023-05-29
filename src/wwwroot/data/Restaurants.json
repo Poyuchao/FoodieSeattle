@@ -375,10 +375,10 @@
     ]
   },
   {
-    "Id": "Pike Place CHOWDER-pic",
+    "Id": "Pike Place Chowder-pic",
     "img": "https://images.squarespace-cdn.com/content/v1/5768601cbe6594bc144de61d/1618248601088-3XPQ6U84ATFVJ9GS3EU8/maine-lobster-roll.png?format=750w",
     "Url": "https://www.pikeplacechowder.com/",
-    "Title": "Pike Place CHOWDER",
+    "Title": "Pike Place Chowder",
     "Neighborhood": "Belltown",
     "City": "Seattle",
     "State": "WA",
@@ -427,10 +427,10 @@
     ]
   },
   {
-    "Id": "THE DOLAR SHOP-pic",
+    "Id": "The Dolar Shop-pic",
     "img": "https://s3-media0.fl.yelpcdn.com/bphoto/Vkotg_1kRO5idF_jMb9cMA/o.jpg",
     "Url": "https://www.dolarshop.com/location.php",
-    "Title": "THE DOLAR SHOP",
+    "Title": "The Dolar Shop",
     "Neighborhood": "Bellevue",
     "City": "Seattle",
     "State": "WA",
@@ -469,6 +469,87 @@
       {
         "Id": "5aed4185-e216-442e-a612-159dfeeeb7fa",
         "Comment": "The Dolar Shop has undoubtedly redefined the hot pot experience for me."
+      }
+    ]
+  },
+  {
+    "Id": "Due\u0027 Cocina Italiana-pic",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-cdn.grubhub.com%2Fimage%2Fupload%2Fd_search%3Abrowse-images%3Adefault.jpg%2Fw_1200%2Cq_auto%3Alow%2Cfl_lossy%2Cdpr_2.0%2Cc_fill%2Cf_auto%2Ch_800%2Cg_auto%2Fbkem78uxjxemivfyohh0\u0026f=1\u0026nofb=1\u0026ipt=d23f618fd7d7d9ae7af7b6a8855afea88431320eab81bbd8cf69fe18636212c5\u0026ipo=images",
+    "Url": "https://duecucina.com/",
+    "Title": "Due\u0027 Cocina Italiana",
+    "Neighborhood": "Capitol Hill",
+    "City": "Seattle",
+    "State": "WA",
+    "Address": "412 Broadway E, Seattle, WA 98102",
+    "Type": "Italian",
+    "Description": "Due Cucina Italiana is an Italian restaurant that prides itself on making gourmet Italian dishes accessible to a wide range of customers. Their menu includes a variety of Italian cuisine, including pastas, salads, and desserts. They only use high-quality, fresh and authentic ingredients to provide an amazing Italian dining experience, especially for the price. Authenticity is key here, and we know you won\u0027t walk away disappointed.",
+    "Ratings": [
+      5,
+      5,
+      5,
+      4,
+      5,
+      5,
+      4,
+      5,
+      5,
+      5
+    ],
+    "Comments": [
+      {
+        "Id": "d663f5a1-fcb4-47ba-9db6-5ac86cf1469f",
+        "Comment": "You need to try their cacio e pepe or carbonara! Really incredible for the price!"
+      },
+      {
+        "Id": "510ee311-a1c9-4357-acc3-912cdbc971e2",
+        "Comment": "All of their traditional Roman pastas are amazing. This is easily my favorite Italian restaurant in Seattle!"
+      }
+    ]
+  },
+  {
+    "Id": "Tat\u0027s Deli-pic",
+    "img": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fspotcom.imgix.net%2Fstrider_image_archive%2Fb5b%2Fb5b145c5-3a63-4c31-ac8c-c29afbfd4831.JPG\u0026f=1\u0026nofb=1\u0026ipt=c0c7df847b1107561670cee22c16b382635a9d8ff706062ba2fed6bce397513c\u0026ipo=images",
+    "Url": "https://www.tatsdeli.com/",
+    "Title": "Tat\u0027s Deli",
+    "Neighborhood": "Pioneer Square",
+    "City": "Seattle",
+    "State": "WA",
+    "Address": "159 Yesler Way, Seattle, WA 98104-2539",
+    "Type": "American",
+    "Description": "Tat\u0027s Delicatessen is a popular sandwich shop located in the Pioneer Square neighborhood of Seattle. Known for its East Coast-style subs and sandwiches, Tat\u0027s offers a variety of hearty options, including Philly cheesesteaks, Italian subs, and pastrami sandwiches. It\u0027s beloved by locals and visitors alike for bringing a taste of East Coast deli tradition to the West Coast. The atmosphere is casual, and is perfect for lunch or early dinner. ",
+    "Ratings": [
+      5,
+      4,
+      5,
+      5,
+      4
+    ],
+    "Comments": []
+  },
+  {
+    "Id": "Sisters and Brothers-pic",
+    "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fthe-infatuation%2Fimage%2Fupload%2Fc_fill%2Cw_3840%2Car_4%3A3%2Cg_auto%2Cf_auto%2Fcms%2Freviews%2Fsisters-and-brothers%2FNateWatters_SistersAndBrothers_Sandwich-6\u0026f=1\u0026nofb=1\u0026ipt=68fc8c60eb45ad1dc93948abf72b96506595ba44e286f0d834ed8cce61fdc773\u0026ipo=images",
+    "Url": "https://www.sistersandbrothersbar.com/",
+    "Title": "Sisters and Brothers",
+    "Neighborhood": "Interbay",
+    "City": "Seattle",
+    "State": "WA",
+    "Address": "544 Elliott Ave W # 3910, Seattle, WA 98119-3910",
+    "Type": "American",
+    "Description": "Sisters and Brothers is a well-known restaurant in Seattle, celebrated for its Nashville-style hot chicken. The restaurant is located in the Georgetown neighborhood of Seattle and has quickly gained popularity for its flavorful, spicy fried chicken.  Their menu mainly revolves around their specialty: Nashville Hot Chicken, served at different heat levels from \u201CNaked\u201D (no heat) to \u201CInsane\u201D (extremely spicy), so you can choose your preference. In addition to chicken, they also offer a variety of Southern comfort foods like hush puppies, mac and cheese, and collard greens. The atmosphere is very relaxed and welcoming, and the interior gives off a vintage and laid-back vibe. ",
+    "Ratings": [
+      5,
+      5,
+      5
+    ],
+    "Comments": [
+      {
+        "Id": "dbdcb9c9-7fdf-4489-9fec-51e7b229acdf",
+        "Comment": "Their chicken is really to die for ! Can\u0027t go wrong with bone-in or tenders. "
+      },
+      {
+        "Id": "d65e67e4-72b5-4cdd-bea1-19410afba477",
+        "Comment": "Don\u0027t be afraid of the heat! I always have to go with Nashville. "
       }
     ]
   }
