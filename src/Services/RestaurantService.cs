@@ -168,6 +168,40 @@ namespace FoodieSeattle.WebSite.Services
             return true;
         }
 
+        /// <summary>
+        /// Add comment to the restaurant
+        /// </summary>
+        /// <param name="restaurantId"></param>
+        /// <param name="comment"></param>
+        public bool AddComment(string restaurantId, string comment)
+        {
+            // If restaurantId is null, return false.
+            if (restaurantId == null || restaurantId == "")
+            {
+                return false;
+            }
+
+            if (comment == null || comment == "")
+            {
+                    return false;
+            }
+
+            // Get the current set
+            var restaurants = GetRestaurants();
+
+            // Find the product that matches the productId
+            var restaurant = restaurants.FirstOrDefault(x => x.Id.Equals(restaurantId));
+
+
+            // Add it to the Comment List
+            restaurant.Comments.Add(new CommentModel() { Comment = comment });
+
+            // Save the updated product data back to the data store
+            SaveData(restaurants);
+
+            return true;
+        }
+
 
         /// <summary>
         /// Finds restaurant in RestaurantModel, updates the Restaurant with user entered data,
@@ -190,10 +224,6 @@ namespace FoodieSeattle.WebSite.Services
             RestaurantData.Url = data.Url;
             RestaurantData.Image = data.Image;
             RestaurantData.Type = data.Type;
-            RestaurantData.Ratings = data.Ratings;
-
-            // Populate restaurant comments
-            RestaurantData.Comments = data.Comments;
 
             SaveData(Restaurants);
 
@@ -206,7 +236,6 @@ namespace FoodieSeattle.WebSite.Services
         /// </summary>
         private void SaveData(IEnumerable<RestaurantModel> Restaurants)
         {
-
             using (var outputStream = File.Create(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<RestaurantModel>>(
