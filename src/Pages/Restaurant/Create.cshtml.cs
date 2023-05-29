@@ -40,6 +40,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
             // Get user input from the form: name, image link, short description, uploaded files.
             var name = Request.Form["Restaurant.Title"];
             var neighborhood = Request.Form["Restaurant.Neighborhood"];
+            var address = Request.Form["Restaurant.Address"];
             var cuisineType = Request.Form["Restaurant.Type"];
             var description = Request.Form["Restaurant.Description"];
             var url = Request.Form["Restaurant.Url"];
@@ -47,7 +48,7 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
 
 
             // Create a new Restaurant Model object WITH user input
-            restaurant = restaurantService.AddData(name, neighborhood, cuisineType, description, url, imageURL);
+            restaurant = restaurantService.AddData(name, neighborhood, address, cuisineType, description, url, imageURL);
 
             // Redirect to Index page with reference to the new restaurant
             return RedirectToPage("/Restaurant/Index");
