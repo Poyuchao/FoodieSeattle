@@ -425,5 +425,51 @@
         "Comment": "Wow, I just had the most incredible dining experience! Every bite was a flavor explosion that left me craving for more. "
       }
     ]
+  },
+  {
+    "Id": "THE DOLAR SHOP-pic",
+    "img": "https://s3-media0.fl.yelpcdn.com/bphoto/Vkotg_1kRO5idF_jMb9cMA/o.jpg",
+    "Url": "https://www.dolarshop.com/location.php",
+    "Title": "THE DOLAR SHOP",
+    "Neighborhood": "Bellevue",
+    "City": "Seattle",
+    "State": "WA",
+    "Address": "11020 NE 6th Street Suite 90 Bellevue WA 98004",
+    "Type": "Chinese",
+    "Description": "What about \u0022Shop\u0022? We are artisans in our workshop and our craft is hot pot. When guests come dine with us in The Dolar Shop be prepared to indulge in our delectable house made ingredients!  Hot Pot is one of the most beloved way of dining in Chinese culture ! Influences of East and West in Macau led to love for home-made fish balls and slices of high grade beef. These top notch ingredients paired with our blend of sauces makes it a unique experience.  Our philosophy to continuously innovate, always serve fresh ingredients, and to excel in customer service to build a strong connection with our guests.  We are proud to showcase the Macau hot pot culture to guests around the world. Enjoy the ultimate hot pot dining experience only at The Dolar Shop!",
+    "Ratings": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      3,
+      3,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "Comments": [
+      {
+        "Id": "5aed4185-e216-442e-a612-159dfeeeb7fa",
+        "Comment": "The Dolar Shop has undoubtedly redefined the hot pot experience for me."
+      }
+    ]
   }
 ]
