@@ -211,6 +211,14 @@ button.accept-policy {
     color: #4c3b29;
 }
 
+.search-no-results-header {
+    font-size: 40px; /* adjust this value as per your needs */
+}
+
+.search-results-header {
+    font-size: 28px; /* adjust this value as per your needs */
+}
+
 .search-box {
     position: relative;
 }
