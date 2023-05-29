@@ -141,18 +141,24 @@ body {
     font-size: 19px;
     margin-bottom: 5px;
     color: darkslategrey;
-    margin-left: 25px;
+    margin-left: 30px;
 }
 
 .card-neighborhood {
     font-size: 19px;
+    margin-bottom: 5px;
+    color: darkslategrey;
+    margin-left: 30px;
+}
+
+.card-address {
+    font-size: 19px;
     margin-bottom: 40px;
     color: darkslategrey;
-    margin-left: 25px;
+    margin-left: 30px;
 }
 
 .visit-button {
-/*    margin-top: -50px;*/
     margin-right: 950px;
     margin-bottom: 50px;
 }
