@@ -177,10 +177,10 @@ namespace UnitTests.Pages.Restaurant.Read
 
             // Arrange
             // test restaurant id
-            var id = "spice-waala-pic";
+            var id = "tacos-chukis-pic";
 
             // test restaurant comment
-            var comment = "Fantastic Indian street food!";
+            var comment = "Fantastic tacos!";
 
 
             // Act
@@ -201,10 +201,10 @@ namespace UnitTests.Pages.Restaurant.Read
 
             // Arrange
             // test restaurant id
-            var id = "spice-waala-pic";
+            var id = "tacos-chukis-pic";
 
             // test restauratn comment
-            var comment = "Fantastic Indian street food!";
+            var comment = "Fantastic tacos!";
 
             // Act
             // Result of OnPostAddComment
