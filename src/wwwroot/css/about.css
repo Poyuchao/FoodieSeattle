@@ -21,7 +21,6 @@ body {
         /* Add a semi-transparent white background */
         background-color: rgba(255, 255, 255, 0.7);
         padding: 20px;
-        display: flex;
         /*direction of the flex container's main axis column is specified,
         which means the flex items are stacked vertically from top to bottom.*/
         flex-direction: column;
@@ -38,6 +37,18 @@ body {
         margin-top:20px;
         position: center;
     }
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.end-paragraph {
+    text-align: left;
+    margin-bottom: 2em;
+}
 
 .pic {
     height: auto;
