@@ -32,6 +32,15 @@ namespace UnitTests.Pages.Restaurant.Create
         // Global valid Mock neighborhood property for use in tests
         private const string MockNeighborhood = "Capitol Hill";
 
+        // Global valid Mock city property for use in tests
+        private const string MockCity = "Seattle";
+
+        // Global valid Mock state property for use in tests
+        private const string MockState = "WA";
+
+        // Global valid Mock address property for use in tests
+        private const string MockAddress = "2020 6th Ave, Seattle, WA 98121-2507";
+
         // Global valid Mock food type property for use in tests
         private const string MockType = "Lebanese";
 
@@ -67,6 +76,9 @@ namespace UnitTests.Pages.Restaurant.Create
             string[] idArray = { MockId };
             string[] nameArray = { MockTitle };
             string[] neighborArray = { MockNeighborhood };
+            string[] cityArray = { MockCity };
+            string[] stateArray = { MockState };
+            string[] addressArray = { MockAddress };
             string[] typeArray = { MockType };
             string[] DescArray = { MockDescription };
             string[] urlArray = { MockUrl };
@@ -77,6 +89,9 @@ namespace UnitTests.Pages.Restaurant.Create
                 { "Restaurant.Id", idArray},
                 { "Restaurant.Title", nameArray },
                 { "Restaurant.Neighborhood", neighborArray },
+                { "Restaurant.State", stateArray },
+                { "Restaurant.City", cityArray },
+                { "Restaurant.Address", addressArray },
                 { "Restaurant.CuisineType", typeArray},
                 { "Restaurant.Description", DescArray},
                 { "Restaurant.Url", urlArray },
