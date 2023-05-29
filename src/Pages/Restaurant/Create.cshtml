@@ -24,6 +24,14 @@
         <br />
 
         <div class="form-group">
+            <label asp-for="restaurant.Type" class="control-label">Cuisine Type</label>
+            <input asp-for="restaurant.Type" class="form-control" />
+            <span asp-validation-for="restaurant.Type" class="text-danger"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group">
             <label asp-for="restaurant.Neighborhood" class="control-label">Restaurant Neighborhood</label>
             <input asp-for="restaurant.Neighborhood" class="form-control" />
             <span asp-validation-for="restaurant.Neighborhood" class="text-danger"></span>
@@ -32,9 +40,23 @@
         <br />
 
         <div class="form-group">
-            <label asp-for="restaurant.Type" class="control-label">Cuisine Type</label>
-            <input asp-for="restaurant.Type" class="form-control" />
-            <span asp-validation-for="restaurant.Type" class="text-danger"></span>
+            <label asp-for="restaurant.City" class="control-label">City</label>
+            <input asp-for="restaurant.City" class="form-control" readonly value="Seattle" />
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <label asp-for="restaurant.State" class="control-label">State</label>
+            <input asp-for="restaurant.State" class="form-control" readonly value="WA" />
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <label asp-for="restaurant.Address" class="control-label">Address eg. "2401 2nd Ave, Seattle, WA 98121"</label>
+            <input asp-for="restaurant.Address" class="form-control" />
+            <span asp-validation-for="restaurant.Address" class="text-danger"></span>
         </div>
 
         <br />
