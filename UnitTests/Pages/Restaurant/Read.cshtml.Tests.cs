@@ -223,6 +223,100 @@ namespace UnitTests.Pages.Restaurant.Read
 
         #endregion OnPostAddComment
 
+        #region GetAverageRate
+        [Test]
+        public void CalculateAverageRating_ReturnsZero_WhenRatingsIsEmpty()
+        {
+            // Arrange
+            var readModel = new ReadModel(null); 
+            readModel.Restaurant = new RestaurantModel { Ratings = new int[0] };
+
+            // Act
+            var averageRating = readModel.CalculateAverageRating();
+
+            // Assert
+            Assert.AreEqual(0.0, averageRating);
+        }
+
+        [Test]
+        public void CalculateAverageRating_ReturnsZero_WhenRatingsIsNull()
+        {
+            // Arrange
+            var readModel = new ReadModel(null); 
+            readModel.Restaurant = new RestaurantModel { Ratings = null };
+
+            // Act
+            var averageRating = readModel.CalculateAverageRating();
+
+            // Assert
+            Assert.AreEqual(0.0, averageRating);
+        }
+        [Test]
+        public void CalculateAverageRating_ReturnsCorrectAverageRating()
+        {
+            // Arrange
+            var readModel = new ReadModel(null); 
+            readModel.Restaurant = new RestaurantModel { Ratings = new int[] { 1,2,3,4,5 } };
+
+            // Act
+            var averageRating = readModel.CalculateAverageRating();
+
+            // Assert
+            Assert.AreEqual(3.0, averageRating);
+        }
+
+        #endregion GetAverageRate
+
+
+        #region getVoteNumber
+        [Test]
+        public void GetVoteNum_correct_voteNum()
+        {
+            //Arrange
+            var readModel = new ReadModel(null);
+            readModel.Restaurant = new RestaurantModel { Ratings = new int[] { 1, 2, 3, 4, 5 } };
+
+            // Act
+            var voteNum = readModel.getVoteNumber();
+
+            //Assert
+            Assert.AreEqual(5, voteNum);
+
+
+        }
+
+        [Test]
+        public void getVoteNum_ReturnsZero_WhenVoteIsNull()
+        {
+            // Arrange
+            var readModel = new ReadModel(null);
+            readModel.Restaurant = new RestaurantModel { Ratings = null };
+
+            // Act
+            var averageRating = readModel.getVoteNumber();
+
+            // Assert
+            Assert.AreEqual(0, averageRating);
+        }
+
+
+
+        [Test]
+        public void getVoteNum_ReturnsZero_WhenVoteIsZero()
+        {
+            // Arrange
+            var readModel = new ReadModel(null);
+            readModel.Restaurant = new RestaurantModel { Ratings = new int[0] };
+
+            // Act
+            var averageRating = readModel.getVoteNumber();
+
+            // Assert
+            Assert.AreEqual(0, averageRating);
+        }
+
+
+        #endregion getVoteNumber
 
     }
 }

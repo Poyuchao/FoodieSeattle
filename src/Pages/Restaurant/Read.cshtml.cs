@@ -40,9 +40,6 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         public bool IsPasswordInvalid { get; set; } = false;
 
 
-        //get rating 
-        public int[] Ratings { get; set; }
-
         //function to return the average rate 
         public double CalculateAverageRating()
         {
