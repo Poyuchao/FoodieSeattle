@@ -223,6 +223,9 @@
         // Call for the Restaurant to be saved
         restaurantService.AddComment(selectedRestaurant.Id, NewCommentText);
 
+        // Refresh selectedRestaurant data
+        SelectRestaurant(selectedRestaurant.Id);
+
         // Set the NewComment flag to false to hide the input box
         NewComment = false;
     }
