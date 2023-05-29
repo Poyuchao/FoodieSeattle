@@ -48,9 +48,9 @@ else
             @foreach (var restaurants in Model.Results)
             {
                 <tr style="background-color: @(counter % 2 == 0 ? "wheat" : "oldlace")">
-                    <td>@restaurants.Title</td>
-                    <td>@restaurants.Type</td>
-                    <td>@restaurants.Neighborhood</td>
+                    <td style="vertical-align:middle">@restaurants.Title</td>
+                    <td style="vertical-align:middle">@restaurants.Type</td>
+                    <td style="vertical-align:middle">@restaurants.Neighborhood</td>
                     <td style="text-align: left; font-size: 20px;">
                         <a asp-page="/Restaurant/Read" asp-route-id="@restaurants.Id">
                             <img src="~/img/icons/open.png" alt="Read" style="width: 40px; height: 40px;" />
