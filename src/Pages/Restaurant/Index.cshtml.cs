@@ -34,26 +34,5 @@ namespace FoodieSeattle.WebSite.Pages.Restaurant
         {
             Restaurants = restaurantService.GetRestaurants().OrderBy(r => r.Title);
         }
-
-        /// Handler method for resetting restaurants collection
-        /// <summary>
-        /// Handler method for sorting restaurants alphabetically
-        /// </summary>
-        /// <returns></returns>
-        //public IActionResult OnPostSort()
-        //{
-        //    Restaurants = restaurantService.GetRestaurants().OrderBy(r => r.Title);
-        //    return Page();
-        //}
-
-        /// <summary>
-        /// Handler method for resetting restaurants collection
-        /// </summary>
-        /// <returns></returns>
-        //public IActionResult OnPostReset()
-        //{
-        //    Restaurants = restaurantService.GetRestaurants();
-        //    return Page();
-        //}
     }
 }
