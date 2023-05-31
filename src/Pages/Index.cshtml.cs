@@ -23,14 +23,17 @@ namespace FoodieSeattle.WebSite.Pages
             _logger = logger;
             _RestaurantService = restaurantService;
         }
-        //These are public properties named RestaurantService and Restaurants.
-        //RestaurantService is of type RestaurantService, and Restaurants is of type IEnumerable<RestaurantModel>.
-        //Restaurants will hold the list of Restaurants to display on the page.
+
+        // Data middle tier
         public RestaurantService _RestaurantService { get; }
+
+        // The list of restaurants to display
         public IEnumerable<RestaurantModel> Restaurants { get; private set; }
-        //This is the OnGet method for the IndexModel class.
-        //It retrieves the list of Restaurants using the RestaurantService property and assigns them to the
-        //Restaurants property for display on the page.
+
+        /// <summary>
+        /// OnGet retrieves the list of Restaurants using the RestaurantService property
+        /// and assigns them to the Restaurants property for display on the page.
+        /// </summary>
         public void OnGet()
         {
             Restaurants = _RestaurantService.GetRestaurants();
